@@ -1,0 +1,14 @@
+{
+  "name": "common.js",
+  "version": "1.0.0",
+  "description": "客服系统的common.js",
+  "author": "雷全",
+  "repository": {
+    "type": "git",
+    "url": "http://gitlab.baidu.com/be-fe/common.js.git"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "gulp": "^3.9.0"
+  }
+}

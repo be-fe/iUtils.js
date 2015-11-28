@@ -1,2 +1,3 @@
-# common.js
-通用函数库
+#客服系统的common.js
+
+###auther:leiquan
