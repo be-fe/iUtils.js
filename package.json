@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "客服系统的Utils.js",
   "author": "雷全",
+  "scripts": {
+    "start": "node ./server/bin/www"
+  },
   "repository": {
     "type": "git",
     "url": "http://gitlab.baidu.com/be-fe/common.js.git"

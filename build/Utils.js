@@ -1,20 +1,12 @@
-(function (ns, factory) {
-    if (typeof define === 'function' && define.amd) {
-        define(factory);
-    } else if (typeof module === 'object' && module.exports) {
-        module.exports = factory();
-    } else {
-        window[ns] = factory();
-    }
-})('Utils', function () {
-    var say = {};
-    say = function (exports) {
-        var say = function () {
-            console.log('我是雷全');
-        };
-        exports = say;
-        return exports;
-    }(say);
+(function (ns, factory) {if (typeof define === 'function' && define.amd) {define(factory);}else if (typeof module === 'object' && module.exports) {module.exports = factory();}else {window[ns] = factory();}})('Utils', function () {
+var other = {};
+other = function (exports) {
+  var other = function () {
+    console.log('这是other方法!!!');
+  };
+  exports = other;
+  return exports;
+}(other);
 
-    return {say: say}
+return {other:other}
 });
