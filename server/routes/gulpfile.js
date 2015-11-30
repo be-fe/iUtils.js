@@ -4,7 +4,7 @@ var amdclean = require('amdclean');
 var requirejs = require('requirejs');
 var path = require('path');
 
-var buildModules = [];
+var buildModules = ['cookie'];
 
 gulp.task('build', function() {
 

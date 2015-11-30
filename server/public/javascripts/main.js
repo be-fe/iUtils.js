@@ -10,9 +10,12 @@ submit.onclick = function () {
 
     var arr = [];
     for (var i = 0; i < modules.length; i++) {
-        arr.push(modules[i].id);
+        if (modules[i].checked) {
+            arr.push(modules[i].id);
+        }
     }
 
+    console.log("勾选的组件为:" + arr);
     window.location.href = "/build?module=" + arr.join(',');
 
 }

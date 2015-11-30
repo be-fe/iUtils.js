@@ -4,7 +4,8 @@ var amdclean = require('amdclean');
 var requirejs = require('requirejs');
 var path = require('path');
 
-var buildModules = [];
+// var buildModule = [];
+var buildModules = ['sing', 'other', 'cookieIsArray'];
 
 gulp.task('build', function() {
 
@@ -24,7 +25,7 @@ gulp.task('build', function() {
                 'filePath': outputFile
             }));
 
-            var content = fs.readFileSync(path.join(__dirname, './build/Utils.js'));
+            var content = fs.readFileSync(path.join(__dirname, 'build/Utils.js'));
 
             var string = content.toString();
 
@@ -55,7 +56,7 @@ gulp.task('build', function() {
             // 去掉,
             var newString = returnString.substring(0, returnString.length-1);
             newString += "}";
-            console.log("这里打印的是返回的数组:" +newString);
+            console.log(newString);
 
             string = string + newString;
 

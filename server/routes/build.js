@@ -1,5 +1,8 @@
 var express = require('express');
 var router = express.Router();
+var process = require('child_process');
+var fs = require('fs');
+var path = require('path');
 
 /* 根据参数个性化生成Utils.js */
 router.get('/', function (req, res, next) {
@@ -9,9 +12,51 @@ router.get('/', function (req, res, next) {
 
     console.log(arr);
 
-    res.send('要打包的文件为:' + req.query.module);
 
-    //这里要拼接文件啦,拼接文件是否要检查依赖呢?
+    var content = fs.readFileSync(path.join(__dirname, '../../gulpfile.js'));
+
+    var string = content.toString();
+
+    var arrString = '[';
+
+    for (var i =0; i < arr.length; i++) {
+        arrString = arrString +"'"+ arr[i] + "',";
+    }
+    var newArrString = arrString.substring(0, arrString.length-1);
+    newArrString += ']';
+
+    console.log("这里打印的"+newArrString);
+
+    string = string.replace('var buildModules = [];',"var buildModules = " + newArrString + ";");
+
+    fs.writeFileSync(path.join(__dirname, '../../gulpfile.js'), string);
+
+    var childProcess = process.exec('gulp build',
+        function (error, stdout, stderr) {
+            if (error !== null) {
+                //console.log('exec error: ' + error);
+            } else {
+                console.log(stdout);
+            }
+        });
+
+    childProcess.on("close", function() {
+
+        var package = fs.readFileSync(path.join(__dirname, '../../build/Utils.js'));
+
+        res.send( package.toString());
+
+        // 重置字符串
+        string = string.replace("var buildModules = " + newArrString + ";", 'var buildModules = [];');
+
+        fs.writeFileSync(path.join(__dirname, '../../gulpfile.js'), string);
+
+
+    });
+
+
+
+
 
 });
 
