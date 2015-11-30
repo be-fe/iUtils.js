@@ -19,15 +19,15 @@ router.get('/', function (req, res, next) {
 
     var arrString = '[';
 
-    for (var i =0; i < arr.length; i++) {
-        arrString = arrString +"'"+ arr[i] + "',";
+    for (var i = 0; i < arr.length; i++) {
+        arrString = arrString + "'" + arr[i] + "',";
     }
-    var newArrString = arrString.substring(0, arrString.length-1);
+    var newArrString = arrString.substring(0, arrString.length - 1);
     newArrString += ']';
 
-    console.log("这里打印的"+newArrString);
+    console.log("这里打印的" + newArrString);
 
-    string = string.replace('var buildModules = [];',"var buildModules = " + newArrString + ";");
+    string = string.replace('var buildModules = [];', "var buildModules = " + newArrString + ";");
 
     fs.writeFileSync(path.join(__dirname, '../../gulpfile.js'), string);
 
@@ -40,11 +40,11 @@ router.get('/', function (req, res, next) {
             }
         });
 
-    childProcess.on("close", function() {
+    childProcess.on("close", function () {
 
         var package = fs.readFileSync(path.join(__dirname, '../../build/Utils.js'));
 
-        res.send( package.toString());
+        res.send(package.toString());
 
         // 重置字符串
         string = string.replace("var buildModules = " + newArrString + ";", 'var buildModules = [];');
@@ -53,9 +53,6 @@ router.get('/', function (req, res, next) {
 
 
     });
-
-
-
 
 
 });

@@ -1,6 +1,6 @@
-define(function(require, exports, module) {
+define(function (require, exports, module) {
 
-    var other =function () {
+    var other = function () {
         console.log("这是other方法!!!");
     }
 

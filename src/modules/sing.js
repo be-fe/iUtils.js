@@ -1,9 +1,9 @@
-define(function(require, exports, module) {
+define(function (require, exports, module) {
 
 
     var say = require('say');
 
-    var sing =function() {
+    var sing = function () {
         say();
         console.log('王鹤在唱歌');
     }

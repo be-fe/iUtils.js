@@ -1,6 +1,6 @@
-define(function(require, exports, module) {
+define(function (require, exports, module) {
 
-    var say =function () {
+    var say = function () {
         console.log("我是雷全");
     }
 
