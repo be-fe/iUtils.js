@@ -5,6 +5,7 @@ define(function (require, exports, module) {
     var s = cookie.getCookie('hehe');
 
     var cookieIsArray = function () {
+        console.log(s);
         alert(Array.isArray(s));
     }
 
