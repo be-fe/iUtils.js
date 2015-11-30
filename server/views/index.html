@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+
+</head>
+
+<body>
+
+<h1><%= title %></h1>
+
+<p>请勾选你需要的组件:</p>
+
+<ul id="modules">
+    <% for(var i=0; i < modules.length; i++) {%>
+    <li><input type="checkbox" id="<%= modules[i] %>"> <%= modules[i] %></li>
+    <% } %>
+</ul>
+
+<input type="button" id="submit" value="生成勾选的组件">
+
+
+</body>
+
+<script src="/javascripts/main.js"></script>
+
+</html>

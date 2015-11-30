@@ -1,0 +1,1 @@
+require.config({baseUrl:"js"}),define(["c"],function(e){console.log("这里是模块d"),console.log("这里是d.js,打印c的颜色和宽度:"+e.color+","+e.width)});

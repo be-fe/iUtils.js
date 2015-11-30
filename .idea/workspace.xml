@@ -1,8 +1,134 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dcb95a8e-645e-4d1c-8d1e-bc5c5417aa4d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+    <list default="true" id="c4bd4644-fa48-4f4c-838a-c5a50c262b97" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/Utils.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/new-test/可用备份.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/datas/modules.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/public/javascripts/main.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/modules/a.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/modules/b.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/modules/module1.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/modules/module2.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/modules/module3.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/modules/module4.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/modules/moduleA.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/modules/moduleB.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/modules/moduleC.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/AMD/lib/require.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/Browser/test.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/Browser/test2.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/CommonJS/test.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/CommonJS/test2.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/CommonJS/test3.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/gulp-cmd-master/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/gulp-cmd-master/.npmignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/gulp-cmd-master/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/gulp-cmd-master/example/gulpfile.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/gulp-cmd-master/example/js/build/use_demo.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/gulp-cmd-master/example/js/common/common.nanwei.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/gulp-cmd-master/example/js/common/common1.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/gulp-cmd-master/example/js/lib/sea-debug.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/gulp-cmd-master/example/js/src/define_demo.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/gulp-cmd-master/example/js/src/use_demo.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/gulp-cmd-master/example/view/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/gulp-cmd-master/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/gulp-cmd-master/lib/execplugins.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/gulp-cmd-master/license" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/gulp-cmd-master/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/gulp-cmd-master/test/build/a.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/gulp-cmd-master/test/build/c.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/gulp-cmd-master/test/build/f.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/gulp-cmd-master/test/build/f2.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/gulp-cmd-master/test/build/k.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/gulp-cmd-master/test/build/m.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/gulp-cmd-master/test/build/q.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/gulp-cmd-master/test/build/r.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/gulp-cmd-master/test/gulpfile.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/gulp-cmd-master/test/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/gulp-cmd-master/test/sea-debug.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/gulp-cmd-master/test/src/a.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/gulp-cmd-master/test/src/alias/i.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/gulp-cmd-master/test/src/b.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/gulp-cmd-master/test/src/c.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/gulp-cmd-master/test/src/d.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/gulp-cmd-master/test/src/duplicate/s.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/gulp-cmd-master/test/src/e.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/gulp-cmd-master/test/src/f.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/gulp-cmd-master/test/src/f2.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/gulp-cmd-master/test/src/foo/bar/biz/p.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/gulp-cmd-master/test/src/g.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/gulp-cmd-master/test/src/h.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/gulp-cmd-master/test/src/j.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/gulp-cmd-master/test/src/k.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/gulp-cmd-master/test/src/l.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/gulp-cmd-master/test/src/m.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/gulp-cmd-master/test/src/o.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/gulp-cmd-master/test/src/q.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/gulp-cmd-master/test/src/r.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/gulp-cmd-master/test/src/s.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/gulp-cmd-master/test/src/tpl/u.tpl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/gulp-cmd-master/test/src/zh-cn/n.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/gulp-cmd-master/test/test.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/package/build.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/package/c.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/package/js/a.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/package/js/b.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/package/js/c.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/package/js/d.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/package/r.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/package2/build.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/package2/c.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/package2/js/a.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/package2/js/b.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/package2/js/c.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/package2/js/d.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/package2/r.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/package2/require.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/package3/build.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/package3/c.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/package3/gulpfile.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/package3/hehe/a.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/package3/hehe/b.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/package3/hehe/c.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/package3/r.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/package3/require.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/wraper/build.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/wraper/c.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/wraper/js/a.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/wraper/js/b.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/wraper/r.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/wraper/require.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/js/common.js" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test.html" afterPath="$PROJECT_DIR$/test/AMD/test.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/camelcase-keys/node_modules/camelcase/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/camelcase-keys/node_modules/camelcase/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/normalize-package-data/node_modules/validate-npm-package-license/node_modules/spdx-expression-parse/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/normalize-package-data/node_modules/validate-npm-package-license/node_modules/spdx-expression-parse/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/read-pkg-up/node_modules/find-up/node_modules/pinkie-promise/node_modules/pinkie/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/gulp-util/node_modules/dateformat/node_modules/meow/node_modules/read-pkg-up/node_modules/find-up/node_modules/pinkie-promise/node_modules/pinkie/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/gulp-util/node_modules/dateformat/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/gulp-util/node_modules/dateformat/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/gulp-util/node_modules/multipipe/node_modules/duplexer2/node_modules/readable-stream/node_modules/core-util-is/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/gulp-util/node_modules/multipipe/node_modules/duplexer2/node_modules/readable-stream/node_modules/core-util-is/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/gulp-util/node_modules/replace-ext/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/gulp-util/node_modules/replace-ext/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/gulp-util/node_modules/through2/node_modules/readable-stream/node_modules/core-util-is/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/gulp-util/node_modules/through2/node_modules/readable-stream/node_modules/core-util-is/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/liftoff/node_modules/findup-sync/node_modules/glob/node_modules/minimatch/node_modules/brace-expansion/node_modules/balanced-match/README.md" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/liftoff/node_modules/findup-sync/node_modules/glob/node_modules/minimatch/node_modules/brace-expansion/node_modules/balanced-match/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/liftoff/node_modules/findup-sync/node_modules/glob/node_modules/minimatch/node_modules/brace-expansion/node_modules/balanced-match/index.js" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/liftoff/node_modules/findup-sync/node_modules/glob/node_modules/minimatch/node_modules/brace-expansion/node_modules/balanced-match/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/liftoff/node_modules/findup-sync/node_modules/glob/node_modules/minimatch/node_modules/brace-expansion/node_modules/balanced-match/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/liftoff/node_modules/findup-sync/node_modules/glob/node_modules/minimatch/node_modules/brace-expansion/node_modules/balanced-match/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/liftoff/node_modules/findup-sync/node_modules/glob/node_modules/minimatch/node_modules/brace-expansion/node_modules/balanced-match/test/balanced.js" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/liftoff/node_modules/findup-sync/node_modules/glob/node_modules/minimatch/node_modules/brace-expansion/node_modules/balanced-match/test/balanced.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/liftoff/node_modules/findup-sync/node_modules/glob/node_modules/minimatch/node_modules/brace-expansion/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/liftoff/node_modules/findup-sync/node_modules/glob/node_modules/minimatch/node_modules/brace-expansion/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/orchestrator/node_modules/end-of-stream/node_modules/once/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/orchestrator/node_modules/end-of-stream/node_modules/once/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/glob-stream/node_modules/minimatch/node_modules/brace-expansion/node_modules/balanced-match/README.md" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/glob-stream/node_modules/minimatch/node_modules/brace-expansion/node_modules/balanced-match/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/glob-stream/node_modules/minimatch/node_modules/brace-expansion/node_modules/balanced-match/index.js" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/glob-stream/node_modules/minimatch/node_modules/brace-expansion/node_modules/balanced-match/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/glob-stream/node_modules/minimatch/node_modules/brace-expansion/node_modules/balanced-match/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/glob-stream/node_modules/minimatch/node_modules/brace-expansion/node_modules/balanced-match/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/glob-stream/node_modules/minimatch/node_modules/brace-expansion/node_modules/balanced-match/test/balanced.js" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/glob-stream/node_modules/minimatch/node_modules/brace-expansion/node_modules/balanced-match/test/balanced.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/glob-stream/node_modules/minimatch/node_modules/brace-expansion/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/glob-stream/node_modules/minimatch/node_modules/brace-expansion/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/glob-watcher/node_modules/gaze/node_modules/globule/node_modules/minimatch/node_modules/lru-cache/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/glob-watcher/node_modules/gaze/node_modules/globule/node_modules/minimatch/node_modules/lru-cache/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/mkdirp/node_modules/minimist/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/mkdirp/node_modules/minimist/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/mkdirp/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/mkdirp/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/through2/node_modules/readable-stream/node_modules/core-util-is/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/node_modules/vinyl-fs/node_modules/through2/node_modules/readable-stream/node_modules/core-util-is/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
     </list>
     <ignored path="common.js.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -23,35 +149,43 @@
     <favorites_list name="common.js" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="gulpfile.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gulpfile.js">
+        <entry file="file://$PROJECT_DIR$/new-test/gulpfile.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <caret line="41" column="17" selection-start-line="41" selection-start-column="17" selection-end-line="41" selection-end-column="17" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test.html">
+      <file leaf-file-name="modules.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/datas/modules.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.13103448">
-              <caret line="5" column="29" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="15" column="17" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="common.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/js/common.js">
+      <file leaf-file-name="build.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/server/routes/build.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.38255033">
+              <caret line="9" column="21" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Utils.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/new-test/build/Utils.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="2" column="3" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
+              <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -77,10 +211,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/src/js/common.js" />
-        <option value="$PROJECT_DIR$/src/test.html" />
+        <option value="$PROJECT_DIR$/server/public/javascripts/main.js" />
+        <option value="$PROJECT_DIR$/server/routes/i.js" />
+        <option value="$PROJECT_DIR$/testServer/app.js" />
+        <option value="$PROJECT_DIR$/server/routes/users.js" />
+        <option value="$PROJECT_DIR$/server/app.js" />
+        <option value="$PROJECT_DIR$/src/modules/module1.js" />
+        <option value="$PROJECT_DIR$/src/modules/module2.js" />
+        <option value="$PROJECT_DIR$/src/modules/module3.js" />
+        <option value="$PROJECT_DIR$/src/modules/module4.js" />
+        <option value="$PROJECT_DIR$/test/CommonJS/test.js" />
+        <option value="$PROJECT_DIR$/src/modules/module5.js" />
+        <option value="$PROJECT_DIR$/src/main.js" />
+        <option value="$PROJECT_DIR$/src/modules/moduleA.js" />
+        <option value="$PROJECT_DIR$/src/modules/moduleC.js" />
+        <option value="$PROJECT_DIR$/src/modules/moduleB.js" />
+        <option value="$PROJECT_DIR$/test/CommonJS/test3.js" />
+        <option value="$PROJECT_DIR$/test/CommonJS/test2.js" />
+        <option value="$PROJECT_DIR$/test/Browser/test2.html" />
+        <option value="$PROJECT_DIR$/src/modules/moduleTest.js" />
+        <option value="$PROJECT_DIR$/src/modules/a.js" />
+        <option value="$PROJECT_DIR$/src/modules/b.js" />
+        <option value="$PROJECT_DIR$/test/package/r.js" />
+        <option value="$PROJECT_DIR$/test/package/a.js" />
+        <option value="$PROJECT_DIR$/test/r6-built/js/b.js" />
+        <option value="$PROJECT_DIR$/test/r6-built/js/c.js" />
+        <option value="$PROJECT_DIR$/test/package/b.html" />
+        <option value="$PROJECT_DIR$/test/package/build.js" />
+        <option value="$PROJECT_DIR$/test/build/js/c.js" />
+        <option value="$PROJECT_DIR$/test/build/test.js" />
+        <option value="$PROJECT_DIR$/test/package/js/test.js" />
+        <option value="$PROJECT_DIR$/test/build/c.html" />
+        <option value="$PROJECT_DIR$/test/wraper/js/a.js" />
+        <option value="$PROJECT_DIR$/test/wraper/c.html" />
+        <option value="$PROJECT_DIR$/test/package/js/e.js" />
+        <option value="$PROJECT_DIR$/test/package/c.html" />
+        <option value="$PROJECT_DIR$/test/package/js/a.js" />
+        <option value="$PROJECT_DIR$/test/package/js/b.js" />
+        <option value="$PROJECT_DIR$/test/package/js/d.js" />
+        <option value="$PROJECT_DIR$/test/package/js/c.js" />
+        <option value="$PROJECT_DIR$/test/package2/js/c.js" />
+        <option value="$PROJECT_DIR$/test/package2/js/d.js" />
+        <option value="$PROJECT_DIR$/test/package2/c.html" />
+        <option value="$PROJECT_DIR$/test/package3/build.js" />
+        <option value="$PROJECT_DIR$/test/package3/gulpfile.js" />
+        <option value="$PROJECT_DIR$/new-test/build/example.js" />
+        <option value="$PROJECT_DIR$/new-test/modules/other.js" />
+        <option value="$PROJECT_DIR$/new-test/test.html" />
+        <option value="$PROJECT_DIR$/new-test/build/Utils.js" />
+        <option value="$PROJECT_DIR$/new-test/gulpfile.js" />
+        <option value="$PROJECT_DIR$/server/datas/modules.js" />
+        <option value="$PROJECT_DIR$/server/routes/build.js" />
       </list>
     </option>
   </component>
@@ -89,10 +270,16 @@
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
   </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Bundled (Maven 3)" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="361" />
-    <option name="y" value="116" />
+    <option name="y" value="23" />
     <option name="width" value="1440" />
     <option name="height" value="873" />
   </component>
@@ -103,7 +290,7 @@
     <OptionsSetting value="true" id="Update" />
     <OptionsSetting value="true" id="Status" />
     <OptionsSetting value="true" id="Edit" />
-    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="2" id="Add" />
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectView">
@@ -152,7 +339,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
+              <option name="myItemId" value="server" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -166,11 +353,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
+              <option name="myItemId" value="server" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
+              <option name="myItemId" value="routes" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -188,8 +375,19 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/test/package/js" />
+      <recent name="$PROJECT_DIR$/test/CommonJS" />
+      <recent name="$PROJECT_DIR$/test/AMD" />
+      <recent name="$PROJECT_DIR$/dist" />
+      <recent name="$PROJECT_DIR$/test" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/new-test" />
+      <recent name="$PROJECT_DIR$/test/package3" />
+      <recent name="$PROJECT_DIR$/test" />
+      <recent name="$PROJECT_DIR$/test/package" />
+      <recent name="$PROJECT_DIR$/test/Browser" />
     </key>
   </component>
   <component name="RunManager">
@@ -602,6 +800,11 @@
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.npm" factoryName="npm">
@@ -618,45 +821,49 @@
     </configuration>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration">
+    <configuration>$USER_HOME$/.subversion</configuration>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="dcb95a8e-645e-4d1c-8d1e-bc5c5417aa4d" name="Default" comment="" />
-      <created>1448608510612</created>
+      <changelist id="c4bd4644-fa48-4f4c-838a-c5a50c262b97" name="Default" comment="" />
+      <created>1448851019655</created>
       <option name="number" value="Default" />
-      <updated>1448608510612</updated>
-      <workItem from="1448608512141" duration="1067000" />
+      <updated>1448851019655</updated>
+      <workItem from="1448851021085" duration="27240000" />
+      <workItem from="1448901042322" duration="1703000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1067000" />
+    <option name="totallyTimeSpent" value="28943000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="361" y="116" width="1440" height="873" extended-state="0" />
+    <frame x="0" y="23" width="1440" height="873" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24964234" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3933589" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24964234" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -667,18 +874,231 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/README.md">
+    <entry file="file://$PROJECT_DIR$/src/modules/module4.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="1" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="15" />
-          <folding />
+        <state vertical-scroll-proportion="0.15139443">
+          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
         </state>
       </provider>
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/moduleA.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.25232404">
+          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="25" />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gulpfile.js">
+    <entry file="file://$PROJECT_DIR$/src/modules/moduleC.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.25232404">
+          <caret line="10" column="14" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/moduleB.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.20185924">
+          <caret line="8" column="27" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/CommonJS/test3.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.20185924">
+          <caret line="8" column="28" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/CommonJS/test2.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="8" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/CommonJS/test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="19" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/Browser/test2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.13103448">
+          <caret line="5" column="37" selection-start-line="5" selection-start-column="37" selection-end-line="5" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/b.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/Browser/test.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.178572">
+          <caret line="15" column="7" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/package/r.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-269.46613">
+          <caret line="21427" column="33" selection-start-line="21427" selection-start-column="33" selection-end-line="21427" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/package/build.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="5" column="14" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/gulp-cmd-master/lib/execplugins.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/gulp-cmd-master/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/gulp-cmd-master/example/gulpfile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.52316076">
+          <caret line="18" column="5" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/a.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="9" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/wraper/js/a.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="23" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/wraper/js/b.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="9" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/wraper/c.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.464286">
+          <caret line="11" column="25" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/package/c.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.464286">
+          <caret line="11" column="25" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/package/js/a.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/package/js/b.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="18" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/package/js/d.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="34" selection-start-line="12" selection-start-column="34" selection-end-line="12" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/package/js/c.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="10" column="33" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/package2/js/c.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="29" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/package2/js/d.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="13" column="3" selection-start-line="13" selection-start-column="3" selection-end-line="13" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/package2/c.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.535714">
+          <caret line="20" column="14" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/build/js/b.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/build/js/c.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/build/js/d.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="14" selection-start-line="0" selection-start-column="8" selection-end-line="0" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/build/c.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.428572">
+          <caret line="20" column="26" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/build/js/a.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/package2/js/a.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -686,28 +1106,150 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.31448275">
-          <caret line="12" column="3" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/common.js">
+    <entry file="file://$PROJECT_DIR$/test/package2/js/b.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="3" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="15" selection-end-column="3" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test.html">
+    <entry file="file://$PROJECT_DIR$/test/package3/hehe/a.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.13103448">
-          <caret line="5" column="29" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/package3/hehe/b.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/package3/hehe/c.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/package3/build.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.17615893">
+          <caret line="7" column="11" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/package3/gulpfile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="10" column="31" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5536424">
+          <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/new-test/test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/new-test/test2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/new-test/可用备份.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/new-test/modules/say.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5525727">
+          <caret line="13" column="3" selection-start-line="0" selection-start-column="0" selection-end-line="13" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/new-test/modules/other.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.29753914">
+          <caret line="7" column="33" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/new-test/test.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.22673032">
+          <caret line="5" column="28" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/new-test/build/example.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7024608">
+          <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="59" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/new-test/build/Utils.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/new-test/gulpfile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="41" column="17" selection-start-line="41" selection-start-column="17" selection-end-line="41" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/datas/modules.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="15" column="17" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/routes/build.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.38255033">
+          <caret line="9" column="21" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
           <folding />
         </state>
       </provider>

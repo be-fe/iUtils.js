@@ -1,0 +1,8 @@
+node_modules
+example
+.DS_Store
+.swap
+.orig
+.log
+.idea
+test/gulpfile.js

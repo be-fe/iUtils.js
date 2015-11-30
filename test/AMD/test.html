@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="lib/require.min.js"></script>
+</head>
+<body>
+
+<script>
+    require(["../../dist/Utils.js"], function (Utils) {
+        console.log('工具库的版本号为:' + Utils.version);
+    });
+</script>
+
+</body>
+</html>
