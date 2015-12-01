@@ -2,22 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="905c0496-94b3-4164-84e3-c1690b685f2d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/node-test/Array.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/node-test/Type.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/require-test/Array.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/require-test/CSS.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/require-test/CookieIsArray.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/window-test/CSS.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/window-test/CookieIsArray.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/window-test/Type.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/test/lib/require.min.js" afterPath="$PROJECT_DIR$/test/require-test/lib/require.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/test/node-test.js" afterPath="$PROJECT_DIR$/test/node-test/node-test.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/test/require-test.html" afterPath="$PROJECT_DIR$/test/require-test/Type.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/test/window-test.html" afterPath="$PROJECT_DIR$/test/window-test/Array.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/require-test/WebCamera.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/window-test/WebCamera.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/public/build/Utils.js" afterPath="$PROJECT_DIR$/server/public/build/Utils.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/routes/build.js" afterPath="$PROJECT_DIR$/server/routes/build.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modules/cookieIsArray.js" afterPath="$PROJECT_DIR$/src/modules/cookieIsArray.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modules/WebCamera.js" afterPath="$PROJECT_DIR$/src/modules/WebCamera.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/require-test/Type.html" afterPath="$PROJECT_DIR$/test/require-test/Type.html" />
     </list>
     <ignored path="Utils.js.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -39,20 +29,72 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="CookieIsArray.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/window-test/CookieIsArray.html">
+      <file leaf-file-name="WebCamera.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/modules/WebCamera.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.5">
-              <caret line="14" column="4" selection-start-line="14" selection-start-column="4" selection-end-line="18" selection-end-column="30" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="45" column="31" selection-start-line="45" selection-start-column="31" selection-end-line="45" selection-end-column="31" />
+              <folding>
+                <element signature="e#172#1734#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WebCamera.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/window-test/WebCamera.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-8.142858">
+              <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="23" selection-end-column="9" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CookieIsArray.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CSS.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/require-test/CSS.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-1.1071428">
+              <caret line="10" column="12" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Type.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/require-test/Type.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-18.321428">
+              <caret line="27" column="7" selection-start-line="15" selection-start-column="3" selection-end-line="27" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WebCamera.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/test/require-test/WebCamera.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.36689654">
+              <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Type.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/window-test/Type.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-9.5">
+              <caret line="14" column="54" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="54" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CookieIsArray.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/require-test/CookieIsArray.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.47172415">
+            <state vertical-scroll-proportion="-12.214286">
               <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
               <folding />
             </state>
@@ -74,16 +116,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="9" column="38" selection-start-line="9" selection-start-column="38" selection-end-line="9" selection-end-column="38" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Cookie.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/modules/Cookie.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="5" column="15" selection-start-line="5" selection-start-column="15" selection-end-line="5" selection-end-column="15" />
               <folding />
             </state>
           </provider>
@@ -144,7 +176,6 @@
         <option value="$PROJECT_DIR$/test/window-test.html" />
         <option value="$PROJECT_DIR$/src/modules/GeoLocation.js" />
         <option value="$PROJECT_DIR$/src/modules/RegExp.js" />
-        <option value="$PROJECT_DIR$/src/modules/WebCamera.js" />
         <option value="$PROJECT_DIR$/test/window-test/window-test.html" />
         <option value="$PROJECT_DIR$/test/window-test/Array.html" />
         <option value="$PROJECT_DIR$/test/window-test/CSS.html" />
@@ -153,7 +184,6 @@
         <option value="$PROJECT_DIR$/test/require-test/require-test.html" />
         <option value="$PROJECT_DIR$/test/node-test/node-test.js" />
         <option value="$PROJECT_DIR$/test/node-test/Type.js" />
-        <option value="$PROJECT_DIR$/test/require-test/Type.html" />
         <option value="$PROJECT_DIR$/test/require-test/Array.html" />
         <option value="$PROJECT_DIR$/test/require-test/CSS.html" />
         <option value="$PROJECT_DIR$/test/node-test/Array.js" />
@@ -162,6 +192,10 @@
         <option value="$PROJECT_DIR$/server/routes/build.js" />
         <option value="$PROJECT_DIR$/test/window-test/CookieIsArray.html" />
         <option value="$PROJECT_DIR$/test/require-test/CookieIsArray.html" />
+        <option value="$PROJECT_DIR$/src/modules/WebCamera.js" />
+        <option value="$PROJECT_DIR$/test/window-test/WebCamera.html" />
+        <option value="$PROJECT_DIR$/test/require-test/Type.html" />
+        <option value="$PROJECT_DIR$/test/require-test/WebCamera.html" />
       </list>
     </option>
   </component>
@@ -172,8 +206,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="130" />
-    <option name="y" value="32" />
+    <option name="x" value="154" />
+    <option name="y" value="95" />
     <option name="width" value="1692" />
     <option name="height" value="873" />
   </component>
@@ -824,16 +858,16 @@
       <created>1448948110778</created>
       <option name="number" value="Default" />
       <updated>1448948110778</updated>
-      <workItem from="1448948112202" duration="8981000" />
+      <workItem from="1448948112202" duration="9549000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8981000" />
+    <option name="totallyTimeSpent" value="9549000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="130" y="32" width="1692" height="873" extended-state="0" />
-    <editor active="true" />
+    <frame x="154" y="95" width="1692" height="873" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -939,30 +973,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/Other.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="6" column="22" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/Say.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="6" column="22" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/Sing.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="26" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/modules/Type.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1047,16 +1057,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/WebCamera.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="45" column="37" selection-start-line="45" selection-start-column="37" selection-end-line="45" selection-end-column="37" />
-          <folding>
-            <element signature="e#172#1734#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/modules/Key.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1099,34 +1099,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/require-test/CSS.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.785714">
-          <caret line="10" column="12" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/require-test/Type.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.5">
-          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/window-test/CSS.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.18344827">
           <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="11" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/window-test/Type.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36689654">
-          <caret line="14" column="4" selection-start-line="14" selection-start-column="4" selection-end-line="24" selection-end-column="51" />
           <folding />
         </state>
       </provider>
@@ -1195,18 +1171,68 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/test/require-test/CookieIsArray.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.214286">
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/test/window-test/CookieIsArray.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.5">
+        <state vertical-scroll-proportion="0.36689654">
           <caret line="14" column="4" selection-start-line="14" selection-start-column="4" selection-end-line="18" selection-end-column="30" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/require-test/CookieIsArray.html">
+    <entry file="file://$PROJECT_DIR$/test/window-test/Type.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.47172415">
-          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+        <state vertical-scroll-proportion="-9.5">
+          <caret line="14" column="54" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/WebCamera.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="45" column="31" selection-start-line="45" selection-start-column="31" selection-end-line="45" selection-end-column="31" />
+          <folding>
+            <element signature="e#172#1734#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/require-test/CSS.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.1071428">
+          <caret line="10" column="12" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/window-test/WebCamera.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.142858">
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="23" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/require-test/Type.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-18.321428">
+          <caret line="27" column="7" selection-start-line="15" selection-start-column="3" selection-end-line="27" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/require-test/WebCamera.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.36689654">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
           <folding />
         </state>
       </provider>

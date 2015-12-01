@@ -43,7 +43,7 @@ define(function (require, exports, module) {
     }
 
 
-    module.exports = new WebCamera();
+    module.exports =  WebCamera;
 
 
 });

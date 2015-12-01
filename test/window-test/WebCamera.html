@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Util.js测试</title>
+    <script src="./../../server/public/build/Utils.js"></script>
+</head>
+<body>
+
+注意,测试的前提是确保构建的代码包中包含测试的模块!
+
+
+<video id="video" width="400" height="300"></video>
+<canvas id="canvas" width="400" height="300"></canvas>
+<input type="button" id="button" value="拍摄照片"/>
+
+sVideoElementId, sCanvasElementId, sButtonElementId
+<script>
+
+    var camera = new Utils.WebCamera('video', 'canvas', 'button');
+
+    camera.start();
+
+</script>
+
+</body>
+</html>
