@@ -1,4 +1,4 @@
-#客服系统的common.js
+#常用工具函数库Util.js，兼容浏览器，require JS和node JS调用
 
 ###auther:leiquan
 
