@@ -7,10 +7,7 @@ var path = require('path');
 /* 根据参数个性化生成Utils.js */
 router.get('/', function (req, res, next) {
 
-    var modules = req.query.modules;
-
     var string = req.query.string;
-
 
 
     var childProcess = process.exec('gulp build',

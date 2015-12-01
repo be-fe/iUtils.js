@@ -54,7 +54,7 @@ gulp.task('build', function () {
             // 去掉,
             var newString = returnString.substring(0, returnString.length - 1);
             newString += "}";
-            console.log("这里打印的是返回的数组:" + newString);
+            console.log("这里打印的是gulp操作的数组:" + newString);
 
             string = string + newString;
 
