@@ -14,7 +14,7 @@ gulp.task('build', function () {
         'baseUrl': './src/modules/',
         'optimize': 'none',
         'include': buildModules,
-        'out': './build/Utils.js',
+        'out': './server/public/build/Utils.js',
         'onModuleBundleComplete': function (data) {
 
             var outputFile = data.path;
@@ -23,7 +23,7 @@ gulp.task('build', function () {
                 'filePath': outputFile
             }));
 
-            var content = fs.readFileSync(path.join(__dirname, './build/Utils.js'));
+            var content = fs.readFileSync(path.join(__dirname, './server/public/build/Utils.js'));
 
             var string = content.toString();
 
@@ -64,7 +64,7 @@ gulp.task('build', function () {
             string = string + after;
 
             // 写入文件
-            fs.writeFileSync(path.join(__dirname, './build/Utils.js'), string);
+            fs.writeFileSync(path.join(__dirname, './server/public/build/Utils.js'), string);
 
         }
     });
