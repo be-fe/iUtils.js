@@ -3,51 +3,68 @@
 /**
  * Created by leiquan on 15/12/1.
  */
-var WebCamera = {};
-WebCamera = function (exports) {
-  var WebCamera = function (sVideoElementId, sCanvasElementId, sButtonElementId) {
-    var video = document.getElementById(sVideoElementId);
-    //video config
-    var videoConfig = {
-      'video': true,
-      'audio': true
-    };
-    var canvas = document.getElementById(sCanvasElementId);
-    var context = canvas.getContext('2d');
-    var button = document.getElementById(sButtonElementId);
-    //errorCallback
-    var errorCallback = function (error) {
-      console.log('Video capture error: ', error.code);
-    };
-    //start the camera
-    this.start = function () {
-      if (navigator.getUserMedia) {
-        // Standard
-        navigator.getUserMedia(videoConfig, function (stream) {
-          video.src = stream;
-          video.play();
-        }, errorCallback);
-      } else if (navigator.webkitGetUserMedia) {
-        // WebKit-prefixed
-        navigator.webkitGetUserMedia(videoConfig, function (stream) {
-          video.src = window.webkitURL.createObjectURL(stream);
-          video.play();
-        }, errorCallback);
-      } else if (navigator.mozGetUserMedia) {
-        // Firefox-prefixed
-        navigator.mozGetUserMedia(videoConfig, function (stream) {
-          video.src = window.URL.createObjectURL(stream);
-          video.play();
-        }, errorCallback);
+var AJAX = {};
+AJAX = function (exports) {
+  var AJAX = {
+    get: function (sUrl, fnSucceed, fnFaild) {
+      //1.创建AJAX对象
+      var oAjax = null;
+      if (window.XMLHttpRequest) {
+        //将XMLHttpRequest对象作为全局属性，不会报错
+        oAjax = new XMLHttpRequest();  //IE6以上
+      } else {
+        oAjax = new ActiveXObject('Microsoft.XMLHTTP');  //IE6
       }
-      button.addEventListener('click', function () {
-        context.drawImage(video, 0, 0, canvas.width, canvas.height);
-      }, false);
-    };
+      //2.连接服务器
+      //open参数：String 方法, String URL, Bollean 是否异步, String 用户名, String密码
+      oAjax.open('GET', sUrl, true);
+      //3.发送请求
+      oAjax.send();
+      //4.接受服务器的返回
+      oAjax.onreadystatechange = function () {
+        //readyState状态：0，1，2，3，4
+        if (oAjax.readyState == 4) {
+          if (oAjax.status == 200 || oAjax.status == 0) {
+            //200为成功，0为本地请求成功
+            fnSucceed(oAjax.responseText);  //将返回值赋给成功函数
+                                            //alert(oAjax.responseText);
+          } else {
+            if (fnFaild) {
+              fnFaild();
+            }
+          }
+        }
+      };
+    },
+    post: function (sUrl, sPostData, fnSucceed, fnFaild) {
+      var oAjax = null;
+      if (window.XMLHttpRequest) {
+        oAjax = new XMLHttpRequest();
+      } else {
+        oAjax = new ActiveXObject('Microsoft.XMLHTTP');
+      }
+      oAjax.open('POST', sUrl, true);
+      oAjax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+      oAjax.send(sPostData);
+      //4.接受服务器的返回
+      oAjax.onreadystatechange = function () {
+        //readyState状态：0，1，2，3，4
+        if (oAjax.readyState == 4) {
+          if (oAjax.status == 200 || oAjax.status == 0) {
+            //200为成功，0为本地请求成功
+            fnSucceed(oAjax.responseText);  //将返回值赋给成功函数
+          } else {
+            if (fnFaild) {
+              fnFaild();
+            }
+          }
+        }
+      };
+    }
   };
-  exports = WebCamera;
+  exports = AJAX;
   return exports;
-}(WebCamera);
+}(AJAX);
 
-return {WebCamera:WebCamera}
+return {AJAX:AJAX}
 });

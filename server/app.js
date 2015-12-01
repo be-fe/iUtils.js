@@ -27,9 +27,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 var IndexRoutes = require('./routes/index');
 var buildRoutes = require('./routes/build');
 var downloadRoutes = require('./routes/download');
+var ajaxRoutes = require('./routes/ajax');
 app.use('/', IndexRoutes);
 app.use('/build', buildRoutes);
 app.use('/download', downloadRoutes);
+app.use('/ajax', ajaxRoutes);
 
 // 调试信息
 app.use(logger('dev'));

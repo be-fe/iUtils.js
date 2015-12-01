@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Util.js测试</title>
+    <script src="./lib/require.min.js"></script>
+</head>
+<body>
+
+注意,测试的前提是确保构建的代码包中包含测试的模块!
+
+
+
+
+<script>
+    require(['./../../server/public/build/Utils'], function (Utils) {
+        Utils.AJAX.get('http://localhost:3000/ajax', function(res){
+            alert("AJAX请求成功");
+            console.log(res);
+            alert("返回的数据为:" + res);
+        },function(res){
+            alert("AJAX请求失败");
+        });
+    });
+</script>
+
+</body>
+</html>
