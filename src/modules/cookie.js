@@ -1,6 +1,6 @@
 define(function (require, exports, module) {
 
-    var cookie = function () {
+    var Cookie = function () {
 
         this.setCookie = function (sName, value, iExpireDays) {
             var oDate = new Date();
@@ -25,7 +25,7 @@ define(function (require, exports, module) {
 
     }
 
-    module.exports = new cookie();
+    module.exports = new Cookie();
 
 
 });

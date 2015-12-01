@@ -4,11 +4,11 @@ define(function (require, exports, module) {
 
     var s = cookie.getCookie('hehe');
 
-    var cookieIsArray = function () {
+    var CookieIsArray = function () {
         console.log(s);
         alert(Array.isArray(s));
     }
 
-    module.exports = cookieIsArray;
+    module.exports = CookieIsArray;
 
 });
