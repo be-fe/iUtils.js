@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Util.js测试</title>
+    <script src="./../../server/public/build/Utils.js"></script>
+
+    <style>
+        .active{
+            background-color: red;
+        }
+    </style>
+
+</head>
+<body>
+
+注意,测试的前提是确保构建的代码包中包含测试的模块!
+
+<div id="test">test</div>
+
+
+<script>
+
+
+    Utils.Debuger.log('这是一个log');
+    Utils.Debuger.error('这是一个error');
+    Utils.Debuger.colorful('这是一个colorful');
+    Utils.Debuger.rainbow('这是一个rainbow');
+
+
+
+</script>
+
+</body>
+</html>

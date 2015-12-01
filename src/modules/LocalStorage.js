@@ -1,21 +1,24 @@
 define(function (require, exports, module) {
 
-    var LocalStorage = function () {
-        var storage = window.localStorage;
-        if (storage) {
-            console.log('This browser supports localStorage');
-        } else {
-            alert('This browser does NOT support localStorage');
-        }
-        this.showStorage = function () {
+    var storage = window.localStorage;
+    if (storage) {
+        console.log('This browser supports localStorage');
+    } else {
+        alert('This browser does NOT support localStorage');
+    }
+
+    var LocalStorage = {
+
+        showStorage: function () {
             var result = [];
             for (var i = 0; i < storage.length; i++) {
                 console.log(storage.key(i) + " : " + storage.getItem(storage.key(i)) + "<br>");
                 result.push(storage.getItem(storage.key(i)));
             }
             return result;
-        }
-        this.addStorage = function (sValueQueue) {
+        },
+
+        addStorage: function (sValueQueue) {
             var arr = sValueQueue.split(",");
             for (var i = 0; i < storage.length; i++) {
                 var ar = storage.getItem(storage.key(i)).split(",");
@@ -28,19 +31,23 @@ define(function (require, exports, module) {
                 }
             }
             storage.setItem(storage.length + 1, sValueQueue);
-        }
-        this.clearStorage = function () {
+        },
+
+        clearStorage: function () {
             storage.clear();
-        }
-        this.getLength = function () {
+        },
+
+        getLength: function () {
             return storage.length;
-        }
-        this.getItem = function (index) {
+        },
+
+        getItem: function (index) {
             return storage.getItem(storage.key(index));
         }
+
     }
 
-    module.exports = new LocalStorage();
+    module.exports = LocalStorage;
 
 
 });

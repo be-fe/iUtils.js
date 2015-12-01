@@ -4,13 +4,13 @@
 
 define(function (require, exports, module) {
 
-    var RegExp = {
+    var RegExpHelper = {
         hasClass: function (obj, cls) {
             return obj.className.match(new RegExp('(\\s|^)' + cls + '(\\s|$)'));
         }
     }
 
-    module.exports = RegExp;
+    module.exports = RegExpHelper;
 
 
 });

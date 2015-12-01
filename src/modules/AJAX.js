@@ -4,8 +4,8 @@
 
 define(function (require, exports, module) {
 
-    var AJAX =  {
-       get : function (sUrl, fnSucceed, fnFaild) {
+    var AJAX = {
+        get: function (sUrl, fnSucceed, fnFaild) {
             //1.创建AJAX对象
             var oAjax = null;
             if (window.XMLHttpRequest) { //将XMLHttpRequest对象作为全局属性，不会报错
@@ -33,7 +33,7 @@ define(function (require, exports, module) {
                 }
             }
         },
-        post : function (sUrl, sPostData, fnSucceed, fnFaild) {
+        post: function (sUrl, sPostData, fnSucceed, fnFaild) {
             var oAjax = null;
             if (window.XMLHttpRequest) {
                 oAjax = new XMLHttpRequest();

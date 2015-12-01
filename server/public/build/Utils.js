@@ -3,68 +3,40 @@
 /**
  * Created by leiquan on 15/12/1.
  */
-var AJAX = {};
-AJAX = function (exports) {
-  var AJAX = {
-    get: function (sUrl, fnSucceed, fnFaild) {
-      //1.创建AJAX对象
-      var oAjax = null;
-      if (window.XMLHttpRequest) {
-        //将XMLHttpRequest对象作为全局属性，不会报错
-        oAjax = new XMLHttpRequest();  //IE6以上
-      } else {
-        oAjax = new ActiveXObject('Microsoft.XMLHTTP');  //IE6
+var Debuger = {};
+Debuger = function (exports) {
+  var Debuger = {
+    on: true,
+    //开关
+    log: function (log) {
+      if (Debuger.on) {
+        console.log(log);
       }
-      //2.连接服务器
-      //open参数：String 方法, String URL, Bollean 是否异步, String 用户名, String密码
-      oAjax.open('GET', sUrl, true);
-      //3.发送请求
-      oAjax.send();
-      //4.接受服务器的返回
-      oAjax.onreadystatechange = function () {
-        //readyState状态：0，1，2，3，4
-        if (oAjax.readyState == 4) {
-          if (oAjax.status == 200 || oAjax.status == 0) {
-            //200为成功，0为本地请求成功
-            fnSucceed(oAjax.responseText);  //将返回值赋给成功函数
-                                            //alert(oAjax.responseText);
-          } else {
-            if (fnFaild) {
-              fnFaild();
-            }
-          }
-        }
-      };
     },
-    post: function (sUrl, sPostData, fnSucceed, fnFaild) {
-      var oAjax = null;
-      if (window.XMLHttpRequest) {
-        oAjax = new XMLHttpRequest();
-      } else {
-        oAjax = new ActiveXObject('Microsoft.XMLHTTP');
+    warn: function (warn) {
+      if (Debuger.on) {
+        console.warn(warn);
       }
-      oAjax.open('POST', sUrl, true);
-      oAjax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-      oAjax.send(sPostData);
-      //4.接受服务器的返回
-      oAjax.onreadystatechange = function () {
-        //readyState状态：0，1，2，3，4
-        if (oAjax.readyState == 4) {
-          if (oAjax.status == 200 || oAjax.status == 0) {
-            //200为成功，0为本地请求成功
-            fnSucceed(oAjax.responseText);  //将返回值赋给成功函数
-          } else {
-            if (fnFaild) {
-              fnFaild();
-            }
-          }
-        }
-      };
+    },
+    error: function (error) {
+      if (Debuger.on) {
+        console.error(error);
+      }
+    },
+    colorful: function (text) {
+      if (Debuger.on) {
+        console.log('%c' + text, 'background: rgba(252,234,187,1);background: -moz-linear-gradient(left, rgba(252,234,187,1) 0%, rgba(175,250,77,1) 12%, rgba(0,247,49,1) 28%, rgba(0,210,247,1) 39%,rgba(0,189,247,1) 51%, rgba(133,108,217,1) 64%, rgba(177,0,247,1) 78%, rgba(247,0,189,1) 87%, rgba(245,22,52,1) 100%);background: -webkit-gradient(left top, right top, color-stop(0%, rgba(252,234,187,1)), color-stop(12%, rgba(175,250,77,1)), color-stop(28%, rgba(0,247,49,1)), color-stop(39%, rgba(0,210,247,1)), color-stop(51%, rgba(0,189,247,1)), color-stop(64%, rgba(133,108,217,1)), color-stop(78%, rgba(177,0,247,1)), color-stop(87%, rgba(247,0,189,1)), color-stop(100%, rgba(245,22,52,1)));background: -webkit-linear-gradient(left, rgba(252,234,187,1) 0%, rgba(175,250,77,1) 12%, rgba(0,247,49,1) 28%, rgba(0,210,247,1) 39%, rgba(0,189,247,1) 51%, rgba(133,108,217,1) 64%, rgba(177,0,247,1) 78%, rgba(247,0,189,1) 87%, rgba(245,22,52,1) 100%);background: -o-linear-gradient(left, rgba(252,234,187,1) 0%, rgba(175,250,77,1) 12%, rgba(0,247,49,1) 28%, rgba(0,210,247,1) 39%, rgba(0,189,247,1) 51%, rgba(133,108,217,1) 64%, rgba(177,0,247,1) 78%, rgba(247,0,189,1) 87%, rgba(245,22,52,1) 100%);background: -ms-linear-gradient(left, rgba(252,234,187,1) 0%, rgba(175,250,77,1) 12%, rgba(0,247,49,1) 28%, rgba(0,210,247,1) 39%, rgba(0,189,247,1) 51%, rgba(133,108,217,1) 64%, rgba(177,0,247,1) 78%, rgba(247,0,189,1) 87%, rgba(245,22,52,1) 100%);background: linear-gradient(to right, rgba(252,234,187,1) 0%, rgba(175,250,77,1) 12%, rgba(0,247,49,1) 28%, rgba(0,210,247,1) 39%, rgba(0,189,247,1) 51%, rgba(133,108,217,1) 64%, rgba(177,0,247,1) 78%, rgba(247,0,189,1) 87%, rgba(245,22,52,1) 100%);filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=\'#fceabb\', endColorstr=\'#f51634\', GradientType=1 );font-size:5em');
+      }
+    },
+    rainbow: function (text) {
+      if (Debuger.on) {
+        console.log('%c' + text, 'background-image:-webkit-gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );color:transparent;-webkit-background-clip: text;font-size:5em;');
+      }
     }
   };
-  exports = AJAX;
+  exports = Debuger;
   return exports;
-}(AJAX);
+}(Debuger);
 
-return {AJAX:AJAX}
+return {Debuger:Debuger}
 });
