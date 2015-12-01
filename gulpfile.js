@@ -42,7 +42,7 @@ gulp.task('build', function () {
             before += "else {";
             before += "window[ns] = factory();";
             before += "}";
-            before += "})('Utils', function () {";
+            before += "})('Utils', function () {\n";
 
             string = before + string;
 
