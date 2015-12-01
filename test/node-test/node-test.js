@@ -4,4 +4,3 @@
 
 var Utils = require('./../server/public/build/Utils');
 
-Utils.Sing();

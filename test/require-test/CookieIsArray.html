@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Util.js测试</title>
+    <script src="./lib/require.min.js"></script>
+</head>
+<body>
+
+注意,测试的前提是确保构建的代码包中包含测试的模块!
+
+<div id="test">test</div>
+
+
+
+<script>
+    require(['./../../server/public/build/Utils'], function (Utils) {
+        alert("CookieIsArray测试,注意这个模块无实际意义仅提供依赖测试.这个模块依赖cookie模块,构建的时候会自动处理依赖关系.但是测试的时候需要先用cookie模块写入cookie:hi=[1,2,3],写入后除去cookie模块重新构建再测试" );
+
+        //Utils.Cookie.setCookie('hi',[1,2,3]);
+
+        Utils.CookieIsArray('hi');
+    });
+</script>
+
+</body>
+</html>

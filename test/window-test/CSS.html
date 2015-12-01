@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Util.js测试</title>
+    <script src="./../../server/public/build/Utils.js"></script>
+
+    <style>
+        .active{
+            background-color: red;
+        }
+    </style>
+
+</head>
+<body>
+
+注意,测试的前提是确保构建的代码包中包含测试的模块!
+
+<div id="test">test</div>
+
+
+<script>
+
+
+    var test = document.getElementById('test');
+
+
+
+    Utils.CSS.hasClass(test,'active');
+
+    console.log(Utils.CSS.hasClass(test,'active'));
+
+    Utils.CSS.addClass(test,'active');
+
+    console.log(Utils.CSS.hasClass(test,'active'));
+
+    setTimeout(function() {
+        Utils.CSS.removeClass(test,'active');
+        console.log(Utils.CSS.hasClass(test,'active'));
+    }, 3000);
+
+
+</script>
+
+</body>
+</html>

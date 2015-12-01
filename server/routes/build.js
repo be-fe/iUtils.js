@@ -30,7 +30,7 @@ router.get('/', function (req, res, next) {
     fs.writeFileSync(path.join(__dirname, '../../gulpfile.js'), string);
 
 
-    res.cookie('modules', arr.toString());
+    // res.cookie('modules', arr.toString());
     res.cookie('string', "var buildModules = " + newArrString + ";");
 
     res.render('build', {title: 'Utils.js'});

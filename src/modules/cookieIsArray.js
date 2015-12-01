@@ -1,12 +1,13 @@
 define(function (require, exports, module) {
 
-    var cookie = require('./cookie');
+    var Cookie = require('./cookie');
 
-    var s = cookie.getCookie('hehe');
 
-    var CookieIsArray = function () {
+
+    var CookieIsArray = function (name) {
+        var s = Cookie.getCookie(name);
         console.log(s);
-        alert(Array.isArray(s));
+        alert(Array.isArray(s.split(',')));
     }
 
     module.exports = CookieIsArray;
