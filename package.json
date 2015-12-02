@@ -1,8 +1,8 @@
 {
   "name": "Utils.js",
   "version": "1.0.0",
-  "description": "客服系统的Utils.js",
-  "author": "雷全",
+  "description": "Utils.js",
+  "author": "be-fe",
   "scripts": {
     "start": "node ./server/bin/www"
   },
