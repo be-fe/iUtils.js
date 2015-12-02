@@ -1,8 +1,9 @@
-
 # IntelliJ project files
 .idea
 *.iml
 *.xml
 out
 gen
+/node_modules
+/server/node_modules
 # Created by .ignore support plugin (hsz.mobi)

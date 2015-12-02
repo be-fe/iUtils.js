@@ -3,40 +3,28 @@
 /**
  * Created by leiquan on 15/12/1.
  */
-var Observer = {};
-Observer = function (exports) {
-  var Observer = {
-    //订阅
-    addSubscriber: function (callback) {
-      this.subscribers[this.subscribers.length] = callback;
-    },
-    //退订
-    removeSubscriber: function (callback) {
-      for (var i = 0; i < this.subscribers.length; i++) {
-        if (this.subscribers[i] === callback) {
-          delete this.subscribers[i];
+var Math = {};
+Math = function (exports) {
+  var Math = {
+    isRelative: function (iA, iB) {
+      var flag = 0;
+      var min = iA < iB ? iA : iB;
+      var max = iA > iB ? iA : iB;
+      for (var i = 2; i < min + 1; i++) {
+        if (min % i == 0 & max % i == 0) {
+          flag++;
         }
       }
-    },
-    //发布
-    publish: function (what) {
-      for (var i = 0; i < this.subscribers.length; i++) {
-        if (typeof this.subscribers[i] === 'function') {
-          this.subscribers[i](what);
-        }
-      }
-    },
-    // 将对象o具有观察者功能
-    make: function (o) {
-      for (var i in this) {
-        o[i] = this[i];
-        o.subscribers = [];
+      if (flag > 0) {
+        alert('不互质');
+      } else {
+        alert('互质');
       }
     }
   };
-  exports = Observer;
+  exports = Math;
   return exports;
-}(Observer);
+}(Math);
 
-return {Observer:Observer}
+return {Math:Math}
 });
