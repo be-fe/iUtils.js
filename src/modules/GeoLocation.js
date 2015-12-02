@@ -1,8 +1,8 @@
 define(function (require, exports, module) {
 
-    var GeoLocation = function () {
+    var GeoLocation = {
 
-        this.getDistance = function (latitude1, longitude1, latitude2, longitude2) {
+        getDistance : function (latitude1, longitude1, latitude2, longitude2) {
             // R is the radius of the earth in kilometers 地球半径
             var R = 6371;
             var deltaLatitude = toRadians(latitude2 - latitude1);
@@ -21,7 +21,7 @@ define(function (require, exports, module) {
             return d;
         }
     }
-    module.exports = new GeoLocation();
+    module.exports =  GeoLocation;
 
 
 });

@@ -1,14 +1,14 @@
 define(function (require, exports, module) {
 
-    var Cookie = function () {
+    var Cookie = {
 
-        this.setCookie = function (sName, value, iExpireDays) {
+        setCookie : function (sName, value, iExpireDays) {
             var oDate = new Date();
             oDate.setDate(oDate.getDate() + iExpireDays);
             document.cookie = sName + "=" + value + ";expires=" + oDate;
-        }
+        },
 
-        this.getCookie = function (sName) {
+        getCookie : function (sName) {
             var arr = document.cookie.split("; ");
             for (var i = 0; i < arr.length; i++) {
                 var arr2 = arr[i].split("=");
@@ -17,15 +17,15 @@ define(function (require, exports, module) {
                 }
             }
             return "";
-        }
+        },
 
-        this.removeCookie = function (sName) {
-            this.setCookie(sName, "", -1);
+        removeCookie : function (sName) {
+            Cookie.setCookie(sName, "", -1);
         }
 
     }
 
-    module.exports = new Cookie();
+    module.exports =  Cookie;
 
 
 });

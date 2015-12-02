@@ -5,9 +5,15 @@
 define(function (require, exports, module) {
 
     var RegExpHelper = {
-        hasClass: function (obj, cls) {
-            return obj.className.match(new RegExp('(\\s|^)' + cls + '(\\s|$)'));
+        isEmail : function (s) {
+        var reg = /^\w+@[a-z0-9]+\.[a-z0-9]{2,4}$/; //注意要对行首和行尾做判断！
+
+        if (reg.test(s)) {
+            alert("正确");
+        } else {
+            alert("cuowu");
         }
+    }
     }
 
     module.exports = RegExpHelper;

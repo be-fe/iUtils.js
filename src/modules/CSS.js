@@ -34,6 +34,16 @@ define(function (require, exports, module) {
             }
         },
 
+        toggleClass: function(obj, cls) {
+            if (utils.hasClass(obj, cls)) {
+                var reg = new RegExp('(\\s|^)' + cls + '(\\s|$)');
+                obj.className = obj.className.replace(reg, ' ');
+            }
+            else {
+                obj.className += " " + cls;
+            }
+        },
+
         getElementByClassName: function (node, classname) {
             if (node.getElementsByClassName) { // use native implementation if available
                 return node.getElementsByClassName(classname);

@@ -3,3 +3,4 @@
 ###auther:leiquan
 
 ###启动: npm install && cd server && npm start
+###访问: http://localhost:3000进行自定义构建
