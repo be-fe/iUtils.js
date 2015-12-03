@@ -11,7 +11,10 @@
 
 <script>
 
-    Utils.AJAX.get('http://localhost:3000/ajax', function(res){
+
+    console.log(Utils.ajaxGet);
+
+    Utils.ajaxGet('http://localhost:3000/ajax', function(res){
         alert("AJAX请求成功");
         console.log(res);
         alert("返回的数据为:" + res);

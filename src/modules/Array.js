@@ -1,6 +1,7 @@
 define(function (require, exports, module) {
 
     var Array = {
+
         remove: function (arr, dx) {
 
             if (isNaN(dx) || dx > this.length) {
