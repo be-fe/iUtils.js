@@ -1,8 +1,8 @@
 {
   "name": "Utils.js",
   "version": "1.0.0",
-  "description": "客服系统的Utils.js",
-  "author": "雷全",
+  "description": "Utils.js",
+  "author": "be-fe",
   "scripts": {
     "start": "node ./server/bin/www"
   },
@@ -15,6 +15,7 @@
     "express": "^4.13.3",
     "gulp": "^3.9.0",
     "gulp-amd-optimizer": "^0.4.0",
-    "gulp-concat-sourcemap": "^1.3.1"
+    "gulp-concat-sourcemap": "^1.3.1",
+    "amdclean": "x"
   }
 }
