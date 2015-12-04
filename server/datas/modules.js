@@ -6,11 +6,43 @@ var path = require('path');
 
 exports.getModules = function () {
 
-    var files = fs.readdirSync(path.join(__dirname, '../../src/modules/'));
+
+    function scanFolder(path) {
+
+        var fileList = [];
+        var folderList = [];
+
+        var walk = function (path, fileList, folderList) {
+            files = fs.readdirSync(path);
+            files.forEach(function (item) {
+                var tmpPath = path + '/' + item,
+                    stats = fs.statSync(tmpPath);
+
+                if (stats.isDirectory()) {
+                    walk(tmpPath, fileList, folderList);
+                    folderList.push(tmpPath);
+                } else {
+                    fileList.push(tmpPath);
+                }
+            });
+        };
+
+        walk(path, fileList, folderList);
+
+        return {
+            'files': fileList,
+            'folders': folderList
+        }
+    }
+
+
+    var result = scanFolder(path.join(__dirname, '../../src/modules/'));
+
 
     var newArr = [];
-    for (var i = 0; i < files.length; i++) {
-        newArr.push(files[i].substring(0, files[i].length - 3));
+
+    for (var i = 0; i < result.files.length; i++) {
+        newArr.push(path.relative(path.join(__dirname, '../../src/modules'), result.files[i].substring(0, result.files[i].length-3)));
     }
 
     return newArr;

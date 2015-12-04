@@ -7,10 +7,7 @@ var path = require('path');
 /* 根据参数个性化生成Utils.js */
 router.get('/', function (req, res, next) {
 
-    var string = req.query.string;
-
-
-    var childProcess = process.exec('gulp build',
+    var childProcess = process.exec('gulp',
         function (error, stdout, stderr) {
             if (error !== null) {
                 console.log('exec error: ' + error);
@@ -31,12 +28,7 @@ router.get('/', function (req, res, next) {
         source.pipe(res);
 
         // 重置字符串
-        var content = fs.readFileSync(path.join(__dirname, '../../gulpfile.js'));
-        var contentString = content.toString();
-
-        contentString = contentString.replace(string, 'var buildModules = [];');
-
-        fs.writeFileSync(path.join(__dirname, '../../gulpfile.js'), contentString);
+        fs.writeFileSync(path.join(__dirname, '../../config.js'), 'module.exports=[];');
 
 
     });

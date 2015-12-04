@@ -7,7 +7,7 @@ define(function (require, exports, module) {
      * @return obj
      * @params string/number/obj
      */
-    var parseTime = require('parseTime');
+    var parseTime = require('./parseTime');
 
     var _getTimeStr = function(time) {
         var time = new Date(time);

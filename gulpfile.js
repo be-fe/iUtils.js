@@ -4,9 +4,9 @@ var amdclean = require('amdclean');
 var requirejs = require('requirejs');
 var path = require('path');
 
-var buildModules = [];
+var buildModules = require('./config');
 
-gulp.task('build', function () {
+gulp.task('default', function () {
 
 
     requirejs.optimize({
@@ -49,12 +49,30 @@ gulp.task('build', function () {
             // return数组
             var returnString = "\nreturn {";
             for (var i = 0; i < buildModules.length; i++) {
-                returnString += buildModules[i] + ":" + buildModules[i] + ",";
+
+                // 1.将目录替换成下划线,作为返回的函数值
+                var tempString = buildModules[i];
+                var resultString = tempString.replace(/\//g, '_');
+
+                // 2.将键名更改掉,去掉文件夹和下划线
+                var idx = resultString.lastIndexOf('_');
+                console.log(idx)
+
+                var keyString;
+                keyString =  resultString.substring(idx + 1, resultString.length);
+
+
+
+
+
+                returnString += keyString + ":" + resultString + ",";
             }
             // 去掉,
             var newString = returnString.substring(0, returnString.length - 1);
             newString += "}";
             console.log("这里打印的是gulp操作的数组:" + newString);
+
+
 
             string = string + newString;
 

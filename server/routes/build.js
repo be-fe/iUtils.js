@@ -5,33 +5,25 @@ var fs = require('fs');
 var path = require('path');
 
 /* 根据参数个性化生成Utils.js */
+
 router.get('/', function (req, res, next) {
 
-    var arr = req.query.module.split(',');
+    var moduleArr = req.query.module.split(',');
 
-    console.log(arr);
+    // 重写config.js
 
+    var string = '';
 
-    var content = fs.readFileSync(path.join(__dirname, '../../gulpfile.js'));
-
-    var string = content.toString();
-
-    var arrString = '[';
-
-    for (var i = 0; i < arr.length; i++) {
-        arrString = arrString + "'" + arr[i] + "',";
+    for (var i = 0; i < moduleArr.length; i++) {
+        var tempString = '';
+        tempString = '"' + moduleArr[i];
+        tempString = tempString + '",';
+        string += tempString;
     }
-    var newArrString = arrString.substring(0, arrString.length - 1);
-    newArrString += ']';
 
+    string = string.substring(0, string.length - 1);
 
-    string = string.replace('var buildModules = [];', "var buildModules = " + newArrString + ";");
-
-    fs.writeFileSync(path.join(__dirname, '../../gulpfile.js'), string);
-
-
-    // res.cookie('modules', arr.toString());
-    res.cookie('string', "var buildModules = " + newArrString + ";");
+    fs.writeFileSync(path.join(__dirname, '../../config.js'), 'module.exports=[' + string + '];');
 
     res.render('build', {title: 'Utils.js'});
 
