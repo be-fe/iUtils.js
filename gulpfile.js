@@ -54,16 +54,11 @@ gulp.task('default', function () {
                 var tempString = buildModules[i];
                 var resultString = tempString.replace(/\//g, '_');
 
-                // 2.将键名更改掉,去掉文件夹和下划线
+                // 2.将键名更改掉,去掉文件夹和下划线,只保留函数名,方便调用
                 var idx = resultString.lastIndexOf('_');
-                console.log(idx)
 
                 var keyString;
                 keyString =  resultString.substring(idx + 1, resultString.length);
-
-
-
-
 
                 returnString += keyString + ":" + resultString + ",";
             }
