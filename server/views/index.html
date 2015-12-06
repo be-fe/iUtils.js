@@ -19,27 +19,66 @@
     <script src="/js/common.js"></script>
     <script src="/js/iToolkit_pc.js"></script>
 
+    <style>
+        iframe {
+            width: 100%;
+            padding: 0;
+            border: 0px;
+            height: auto;
+            min-height: 400px;
+
+            border-radius: 6px;
+            background-color: #337ab7;
+            border-color: #337ab7;
+        }
+
+        #tree-wrap {
+            height: auto;
+            min-height: 400px;
+            padding: 0;
+        }
+    </style>
+
 </head>
 
 <body>
 
-<h1><%= title %></h1>
 
-<p>请勾选你需要的组件:</p>
+<div class="container">
 
 
-<div id="tree-wrap" class="demo">
-    <tree></tree>
+    <div class="row">
+        <div class="jumbotron" style="color: #fff;background-color: #337ab7;border-color: #337ab7;">
+            <h1><%= title %></h1>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div id="tree-wrap" class="col-lg-3 col-md-3 col-sm-3 col-sx-3">
+
+
+            <div class="panel panel-primary" style="height: 100%;">
+                <div class="panel-heading">勾选以编译,点击以预览:</div>
+                <div class="panel-body" style="height: auto; min-height: 300px;">
+                    <tree></tree>
+                </div>
+                <div class="panel-footer"><input type="button" id="submit" value="生成勾选的组件" class="btn btn-primary"></div>
+            </div>
+
+        </div>
+
+        <div id="code-view" class="col-lg-5 col-md-5 col-sm-5 col-sx-5">
+            <iframe id="code" src="/content?type=default&module=code"></iframe>
+        </div>
+
+
+        <div id="doc-view" class="col-lg-4 col-md-4 col-sm-4 col-sx-4">
+            <iframe id="doc" style="background-color: white; border: 1px solid #337ab7;" src="/content?type=default&module=doc"></iframe>
+        </div>
+    </div>
+
 </div>
-
-
-<!--<ul id="modules">-->
-    <!--<% for(var i=0; i < modules.length; i++) {%>-->
-    <!--<li><input type="checkbox" id="<%= modules[i] %>"> <%= modules[i] %></li>-->
-    <!--<% } %>-->
-<!--</ul>-->
-
-<input type="button" id="submit" value="生成勾选的组件">
 
 
 </body>
@@ -96,7 +135,7 @@
         var obj = {};
         obj.id = dataAarr.length + 1;
         // 遍历寻找父id
-        for (var n = 0; n < tree1.length; n ++) {
+        for (var n = 0; n < tree1.length; n++) {
             if (tree1[n] == tree2[m][0]) {
                 obj.pid = n + 1;
             }
@@ -119,7 +158,35 @@
 
         //左键点击的回调。第一个参数为对应的数据item, 第二个参数为对应的dom
         onLeftClick: function (item, target) {
-             alert('This item\'s id is: ' + item.id);
+
+            // alert('This item\'s id is: ' + item.title);
+            // 设置code
+
+            // 这里要不点击父选项才加载
+
+
+                for (var j = 0; j < dataAarr.length; j++) {
+
+                    if (item.id == dataAarr[j].id) {
+
+                        if (dataAarr[j].children) {
+                            console.log('has children!');
+                            document.getElementById('code').src = '/content?type=default&module=code';
+                            document.getElementById('doc').src = '/content?type=default&module=doc';
+                        } else {
+                            document.getElementById('code').src = '/content?type=code&module=' + item.title;
+                            document.getElementById('doc').src = '/content?type=doc&module=' + item.title;
+                        }
+                    }
+                }
+
+
+
+//            document.getElementById('code').src = '/content?type=code&module=' + item.title;
+//            document.getElementById('doc').src = '/content?type=doc&module=' + item.title;
+
+            // 设置doc
+
         },
 
         showCheck: true,   //是否展示checkbox, 默认为false;
@@ -127,16 +194,15 @@
             selectedArr.push(item.id);
         },
         onUnCheck: function (item, target) {
-            for (var i =0; i < selectedArr.length; i++) {
+            for (var i = 0; i < selectedArr.length; i++) {
                 if (selectedArr[i] == item.id) {
-                    selectedArr.splice(i,1);
+                    selectedArr.splice(i, 1);
                 }
             }
             // alert(item.id + 'unchecked');
         }
     }
-    riot.mount('.demo tree', treeOpts);
-
+    riot.mount('#tree-wrap tree', treeOpts);
 
 
     var modules = document.querySelectorAll('#input[type=checkbox]');
@@ -155,7 +221,7 @@
                 // 找到了元素
                 if (selectedArr[i] == dataAarr[j].id) {
                     // 是否有子元素?
-                    if(dataAarr[j].children) {
+                    if (dataAarr[j].children) {
                         console.log('有子元素');
                         // 遍历子元素,加到模块儿数组
                         for (var k = 0; k < dataAarr[j].children.length; k++) {
@@ -163,7 +229,7 @@
 //                            console.log(selectedArr[i]);
 //                            console.log(dataAarr[j].children[k]);
 
-                            if(selectedArr[i] == dataAarr[j].children[k].pid) {
+                            if (selectedArr[i] == dataAarr[j].children[k].pid) {
                                 selectedModules.push(dataAarr[j].children[k].title);
                             }
 
@@ -180,12 +246,14 @@
         console.log('打印选择的modules:');
         console.log(selectedModules);
 
-        window.location.href = "/build?module=" + selectedModules.join(',');
-
+        if (selectedModules.length > 0) {
+            window.location.href = "/build?module=" + selectedModules.join(',');
+        } else {
+            alert('请勾选需要打包的组件~');
+        }
 
 
     }
 </script>
-<script src="/js/index.js"></script>
 
 </html>
