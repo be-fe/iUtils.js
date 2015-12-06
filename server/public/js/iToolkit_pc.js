@@ -78,14 +78,14 @@ riot.tag('date-picker', '<yield>', function(opts) {
         }
         laydate(config);
     }.bind(this);
-    
+
 });
 
 riot.tag('dropdown', '<yield> <div class="r-dropdown">{ title }</div> <ul class="r-downdown-menu"> <li class="r-dropdown-list" each="{ data }"><a href="{ link|\'javascript:void(0)\' }">{ name }</a></li> </ul>', function(opts) {
-	var self = this;
+    var self = this;
     var EL = self.root;
     var config = self.opts.opts || self.opts;
-	
+
 });
 riot.tag('editable-link', '<a href="javascript:void(0);" if="{ !editable }" onclick="{ open }">{ value }</a> <super-form if="{ editable }" action="{ action }" opts="{ formOpts }"> <input type="text" value="{ parent.value }" name="{ parent.name }" class="editable-link-input"> <input type="submit" value="提交"> <button onclick="{ parent.close }">取消</button> </super-form>', function(opts) {
 
@@ -133,7 +133,7 @@ riot.tag('goto-top', '<div class="itoolkit-goto-top" show="{ showGotoTop }" oncl
     self.config = self.opts.opts || self.opts;
     var avalibleHeight = window.screen.availHeight;
     var EL = self.root;
-    
+
     self.on('mount', function() {
         self.root.querySelector('.itoolkit-goto-top').style.bottom = self.config.bottom;
         self.root.querySelector('.itoolkit-goto-top').style.right = self.config.right;
@@ -142,7 +142,7 @@ riot.tag('goto-top', '<div class="itoolkit-goto-top" show="{ showGotoTop }" oncl
         }
         window.addEventListener('scroll', self.controlGotoTop);
     })
-    
+
     self.controlGotoTop = function() {
         var body = document.body;
         if (body.scrollTop > avalibleHeight && !self.showGotoTop) {
@@ -164,7 +164,7 @@ riot.tag('goto-top', '<div class="itoolkit-goto-top" show="{ showGotoTop }" oncl
             }
         }, 16);
     }.bind(this);
-    
+
 
 });
 riot.tag('loading', '<div class="{itoolkit-loading: true, default: default}" > <yield> </div>', 'loading .itoolkit-loading { text-align: center; }', function(opts) {
@@ -172,7 +172,7 @@ riot.tag('loading', '<div class="{itoolkit-loading: true, default: default}" > <
     var self = this;
     var config = self.opts.opts || self.opts;
     self.default = true;
-    
+
     self.on('mount', function() {
         var parentDom = self.root.parentNode;
         var parentPosition = window.getComputedStyle(parentDom, null).position;
@@ -189,7 +189,7 @@ riot.tag('loading', '<div class="{itoolkit-loading: true, default: default}" > <
 
         var cellHeight = parseInt(window.getComputedStyle(self.childDom, null).height.replace('px', ''), 10);
         self.root.style.marginTop = '-' + cellHeight/2 + 'px';
-        
+
     })
 
     self.root.show = function(){
@@ -203,7 +203,7 @@ riot.tag('loading', '<div class="{itoolkit-loading: true, default: default}" > <
             self.childDom.style.display = 'none';
         }
     }
-    
+
 
 });
 riot.tag('modal', '<div class="itoolkit-modal-dialog" riot-style="width:{width}; height:{height}"> <div class="itoolkit-modal-title"> <span>{ title }</span> <div class="itoolkit-modal-close-wrap" onclick="{ close }"> <div class="itoolkit-modal-close"></div> </div> </div> <div class="itoolkit-modal-container"> <yield> </div> </div>', function(opts) {
@@ -304,14 +304,14 @@ riot.tag('paginate', '<div onselectstart="return false" ondragstart="return fals
         var count = self.count + num;
         var oldPageCount = self.pageCount;
         count < 0
-        ? self.count = 0
-        : self.count = count;
+            ? self.count = 0
+            : self.count = count;
 
         self.pageCount = Math.ceil(self.count/self.pagesize) || 1;
         self.currentPage = (
             self.currentPage > self.pageCount
-            ? self.pageCount
-            : self.currentPage
+                ? self.pageCount
+                : self.currentPage
         );
 
         if (self.pageCount <= self.showNumber) {
@@ -335,12 +335,12 @@ riot.tag('paginate', '<div onselectstart="return false" ondragstart="return fals
     };
 
     self.pages = [];
-    
+
     if (self.pageCount < (self.showNumber + 1)) {
         for (i = 0; i < self.pageCount; i++) {
             self.pages.push({page: i + 1});
         }
-    } 
+    }
     else {
         for (i = 0; i < self.showNumber; i++) {
             self.pages.push({page: i + 1});
@@ -369,7 +369,7 @@ riot.tag('paginate', '<div onselectstart="return false" ondragstart="return fals
             self.pageChange(self.currentPage + 1);
         }
     }.bind(this);
-    
+
     this.goLast = function(e) {
         self.pageChange(self.pageCount);
     }.bind(this);
@@ -413,7 +413,7 @@ riot.tag('paginate', '<div onselectstart="return false" ondragstart="return fals
         self.updateCurrentPage();
     };
 
-    
+
 });
 riot.tag('select-box', '<div class="r-select" onclick="{ clicked }">{ placeholder }</div> <ul class="r-select-body" hide="{ hide }"> <li each="{ data }" index="{ index }" value="{ value }" class="r-select-item { selected }" onclick="{ parent.clickItem }">{ innerText }</li> </ul> <div style="display:none" class="inputHide"></div>', function(opts) {
     var self = this;
@@ -458,7 +458,7 @@ riot.tag('select-box', '<div class="r-select" onclick="{ clicked }">{ placeholde
         self.callback && self.callback(self);
         self.update();
     }.bind(this);
- 
+
     this.clickItem = function(e) {
         var item = e.target || e.srcElement;
         var index = +item.getAttribute('index');
@@ -480,14 +480,14 @@ riot.tag('select-box', '<div class="r-select" onclick="{ clicked }">{ placeholde
         for (var i = 0; i < self.config.data.length; i++) {
             var child = self.config.data[i];
             child.selected = '',
-            child.index = i;
+                child.index = i;
             self.data.push(child);
         }
         self.mutiple = self.config.mutiple || false;
         self.size = self.mutiple ? (self.config.size ? self.config.size : self.data.length) : 1;
         self.update();
     });
-    
+
 });
 riot.tag('side-list', '<ul > <li each="{ data }"> <img riot-src="{ logoUrl }" if="{ isLogo }"> <span>{ name }</span> </li> </ul>', function(opts) {
 
@@ -497,7 +497,7 @@ riot.tag('slide', '', function(opts) {
 
 });
 riot.tag('super-div', '<yield>', 'super-div{ display: block; }', function(opts) {
-    
+
     var self = this;
     var config = self.opts.opts || self.opts;
     var EL = self.root;
@@ -505,8 +505,8 @@ riot.tag('super-div', '<yield>', 'super-div{ display: block; }', function(opts) 
     for (i in config) {
         self[i] = config[i];
     }
-    
-    
+
+
     self.getData = function(params) {
         var params = params || {};
         if (EL.getAttribute('data-get')) {
@@ -515,7 +515,7 @@ riot.tag('super-div', '<yield>', 'super-div{ display: block; }', function(opts) 
         else if (EL.getAttribute('data-jsonp')) {
             var method = 'jsonp';
         }
-        
+
         utils[method](self.superDivUrl, params, function(data) {
             for (i in data) {
                 self.data = {};
@@ -532,8 +532,8 @@ riot.tag('super-div', '<yield>', 'super-div{ display: block; }', function(opts) 
             self.getData(config.params);
         }
     })
-    
-    
+
+
     self.loadData = EL.loadData = function(newData, colName){
         colName = colName || 'data';
         self[colName] = newData
@@ -579,15 +579,15 @@ riot.tag('super-form', '<form onsubmit="{ submit }" > <yield> </form>', function
     ];
 
     var NUMBER_REGEXP = {
-        NON_NEGATIVE_INT: /^0$|^-[1-9]\d*$/,                            //非负整数（正整数 + 0） 
-        POSITIVE_INT: /^[1-9]\d*$/,                                     //正整数 
-        NON_POSITIVE_INT: /^[1-9]\d*$|^0$/,                             //非正整数（负整数 + 0） 
-        NEGATIVE_INT: /^-[1-9]\d*$/,                                    //负整数 
-        INT: /^-?[1-9]\d*$|^0$/,                                        //整数 
-        NON_NEGATIVE_FLOAT: /^(\d)(\.\d+)?$|^([1-9]\d*)(\.\d+)?$|^0$/,  //非负浮点数（正浮点数 + 0） 
-        POSITIVE_FLOAT: /^(\d)(\.\d+)?$|^([1-9]\d*)(\.\d+)?$/,          //正浮点数 
-        NON_POSITIVE_FLOAT: /^(-\d)(\.\d+)?$|^(-[1-9]\d*)(\.\d+)?$|^0$/,//非正浮点数（负浮点数 + 0） 
-        NEGATIVE_FLOAT: /^(-\d)(\.\d+)?$|^(-[1-9]\d*)(\.\d+)?$/,        //负浮点数 
+        NON_NEGATIVE_INT: /^0$|^-[1-9]\d*$/,                            //非负整数（正整数 + 0）
+        POSITIVE_INT: /^[1-9]\d*$/,                                     //正整数
+        NON_POSITIVE_INT: /^[1-9]\d*$|^0$/,                             //非正整数（负整数 + 0）
+        NEGATIVE_INT: /^-[1-9]\d*$/,                                    //负整数
+        INT: /^-?[1-9]\d*$|^0$/,                                        //整数
+        NON_NEGATIVE_FLOAT: /^(\d)(\.\d+)?$|^([1-9]\d*)(\.\d+)?$|^0$/,  //非负浮点数（正浮点数 + 0）
+        POSITIVE_FLOAT: /^(\d)(\.\d+)?$|^([1-9]\d*)(\.\d+)?$/,          //正浮点数
+        NON_POSITIVE_FLOAT: /^(-\d)(\.\d+)?$|^(-[1-9]\d*)(\.\d+)?$|^0$/,//非正浮点数（负浮点数 + 0）
+        NEGATIVE_FLOAT: /^(-\d)(\.\d+)?$|^(-[1-9]\d*)(\.\d+)?$/,        //负浮点数
         FLOAT: /^(-?\d)(\.\d+)?$|^(-?[1-9]\d*)(\.\d+)?$|^0$/            //浮点数
     };
 
@@ -602,7 +602,7 @@ riot.tag('super-form', '<form onsubmit="{ submit }" > <yield> </form>', function
     self.passClass = config.passClass || 'valid-pass';
     self.failedClass = config.failedClass || 'valid-failed';
 
-    
+
     self.comparator = function (type) {
         return {
             handler: function (validation, attrs) {
@@ -617,7 +617,7 @@ riot.tag('super-form', '<form onsubmit="{ submit }" > <yield> </form>', function
         };
     };
 
-    
+
     self.strCompatator = function(validation, attrs) {
         var min = parseInt(attrs.min, 10);
         var max = parseInt(attrs.max, 10);
@@ -640,7 +640,8 @@ riot.tag('super-form', '<form onsubmit="{ submit }" > <yield> </form>', function
         return validation;
     };
 
-    
+
+
     self.numComparator = function(validation, attrs) {
         var min = parseInt(attrs.min, 10);
         var max = parseInt(attrs.max, 10);
@@ -677,7 +678,7 @@ riot.tag('super-form', '<form onsubmit="{ submit }" > <yield> </form>', function
         }
     });
 
-    
+
     function valueOnChange(e) {
         doCheck([], this);
     }
@@ -726,7 +727,7 @@ riot.tag('super-form', '<form onsubmit="{ submit }" > <yield> </form>', function
                 arr.push(obj[key]);
                 arr.push(value)
                 obj[key] = arr;
-            }                  
+            }
         }
         else {
             obj[key] = value;
@@ -743,11 +744,11 @@ riot.tag('super-form', '<form onsubmit="{ submit }" > <yield> </form>', function
                     var options = elems[i].options;
                     for (var j = 0; j < options.length; j++) {
                         if (options[j].selected) {
-                           value = options[j].value;
-                           self.checkExistKey(params, elems[i].name, encodeURIComponent(value));
+                            value = options[j].value;
+                            self.checkExistKey(params, elems[i].name, encodeURIComponent(value));
                         }
                     }
-                } 
+                }
                 else if (elems[i].type === "checkbox" || elems[i].type === "radio"){
                     if (elems[i].checked) {
                         value = elems[i].value;
@@ -762,8 +763,8 @@ riot.tag('super-form', '<form onsubmit="{ submit }" > <yield> </form>', function
         }
         return params;
     }
-    
-    
+
+
 
     for (i in config) {
         if (keyWords.indexOf(i) < 0) {
@@ -776,29 +777,29 @@ riot.tag('super-form', '<form onsubmit="{ submit }" > <yield> </form>', function
     if (config.valid === undefined) {
         config.valid = true;
     }
-    
+
     self.maxWarning = config.maxWarning || function(n) {
-        return '不得超过' + n + '个字符';
-    }
+            return '不得超过' + n + '个字符';
+        }
     self.minWarning = config.minWarning || function(n) {
-        return '不得小于' + n + '个字符';
-    }
+            return '不得小于' + n + '个字符';
+        }
 
     self.bpWarning = config.bpWarning || function (min, max) {
-        return '只允许' + min + '-' + max + '个字符';
-    }
+            return '只允许' + min + '-' + max + '个字符';
+        }
 
     self.minNumWarning = config.minNumWarning || function (n) {
-        return '不得小于' + n;
-    }
+            return '不得小于' + n;
+        }
     self.maxNumWarning = config.maxNumWarning || function (n) {
-        return '不得大于' + n;
-    }
+            return '不得大于' + n;
+        }
     self.numBpWarning = config.numBpWarning || function (min, max) {
-        return '输入数字应在' + min + '-' + max + '之间';
-    }
+            return '输入数字应在' + min + '-' + max + '之间';
+        }
 
-    
+
     self.removeTips = EL.removeTips = function() {
         var root = self.root;
         var elems = root.getElementsByTagName('form')[0].elements;
@@ -809,7 +810,7 @@ riot.tag('super-form', '<form onsubmit="{ submit }" > <yield> </form>', function
 
         function del() {
             for (i = 0; i < tips.length; i++) {
-                tips[i].parentNode.removeChild(tips[i]);                
+                tips[i].parentNode.removeChild(tips[i]);
                 if (tips.length) {
                     del();
                 }
@@ -821,9 +822,9 @@ riot.tag('super-form', '<form onsubmit="{ submit }" > <yield> </form>', function
             utils.removeClass(elems[i], self.failedClass);
         }
     }
-    
-    
-    
+
+
+
     self.removeTipNode = function(dom) {
         var tip = dom.nextElementSibling;
         if (tip && tip.className.match(/tip-container/)) {
@@ -845,18 +846,18 @@ riot.tag('super-form', '<form onsubmit="{ submit }" > <yield> </form>', function
     };
 
     self.onValidRefuse = EL.onValidRefuse = config.onValidRefuse || function(dom, errorTips) {
-        self.insertTip(dom, errorTips, 'tip-container');
-        utils.removeClass(dom, self.passClass);
-        utils.addClass(dom, self.failedClass);
-    };
+            self.insertTip(dom, errorTips, 'tip-container');
+            utils.removeClass(dom, self.passClass);
+            utils.addClass(dom, self.failedClass);
+        };
 
     self.onValidPass = EL.onValidPass = config.onValidPass || function(dom, successTips) {
-        self.insertTip(dom, successTips, 'tip-container success');
-        utils.removeClass(dom, self.failedClass);
-        utils.addClass(dom, self.passClass);
-    };
+            self.insertTip(dom, successTips, 'tip-container success');
+            utils.removeClass(dom, self.failedClass);
+            utils.addClass(dom, self.passClass);
+        };
 
-    
+
     self.ajaxSubmit = function(elems, url) {
         var params = '';
         for (var i = 0; i < elems.length; i++) {
@@ -866,8 +867,8 @@ riot.tag('super-form', '<form onsubmit="{ submit }" > <yield> </form>', function
                     var options = elems[i].options;
                     for (var j = 0; j < options.length; j++) {
                         if (options[j].selected) {
-                           value = options[j].value;
-                           params += elems[i].name + "=" + encodeURIComponent(value) + "&";
+                            value = options[j].value;
+                            params += elems[i].name + "=" + encodeURIComponent(value) + "&";
                         }
                     }
                 }
@@ -885,8 +886,8 @@ riot.tag('super-form', '<form onsubmit="{ submit }" > <yield> </form>', function
             if (elems[i].type === "submit") {
                 var submitbtn = elems[i];
                 var attr = submitbtn.tagName === 'BUTTON'
-                         ? 'innerHTML'
-                         : 'value';
+                    ? 'innerHTML'
+                    : 'value';
                 var submitingText = submitbtn[attr];
                 submitbtn.disabled = 'disabled';
                 submitbtn[attr] = self.submitingText;
@@ -917,11 +918,11 @@ riot.tag('super-form', '<form onsubmit="{ submit }" > <yield> </form>', function
                     config.errCallback && config.errCallback(params);
                     EC.trigger('submit_error', params);
                 }
-            } 
+            }
         };
     }
-    
-    
+
+
     this.submit = function(e) {
         var validArr = [];
         var elems = self.root.getElementsByTagName('form')[0].elements;
@@ -979,9 +980,9 @@ riot.tag('super-form', '<form onsubmit="{ submit }" > <yield> </form>', function
         return false;
     }
 
-    
+
     self.Validation = function(validArr, name, dom) {
-        this.msg = [];        
+        this.msg = [];
         this.validTip = function() {
             if (this.msg.length) {
                 self.onValidRefuse(dom, this.msg[0]);
@@ -1069,7 +1070,7 @@ riot.tag('super-form', '<form onsubmit="{ submit }" > <yield> </form>', function
             var reg = window[customValid].regExp;
             var tips = window[customValid].message || self.regWarning;
             if (reg && reg.test(attrs.value)) {
-                self.comparator('string').handler(validation, attrs); 
+                self.comparator('string').handler(validation, attrs);
             }
             else {
                 validation.msg.push(tips);
@@ -1105,7 +1106,7 @@ riot.tag('super-form', '<form onsubmit="{ submit }" > <yield> </form>', function
         return validation;
     }
 
-    
+
     function doCheck(validArr, elem) {
         var dom = elem;
         var attrs = getCheckParam(elem);
@@ -1153,9 +1154,9 @@ riot.tag('super-form', '<form onsubmit="{ submit }" > <yield> </form>', function
         }
         validation.validTip();
     }
-    
+
 });
-riot.tag('tab', '<ul> <li each="{ data }" onclick="{ parent.toggle }" class="{ active: parent.currentIndex==index }">{ title }</li> </ul> <div class="tab-content" riot-tag="tab-content"></div>', function(opts) {
+riot.tag('tab', '<ul> <li each="{ data }" onclick="{ parent.toggle }" class="{ active: parent.currentIndex==index }">{ title }</li> </ul> <div class="tab-content"> { content } </div>', function(opts) {
 
     var self = this
     var config = self.opts.opts || self.opts;
@@ -1168,7 +1169,7 @@ riot.tag('tab', '<ul> <li each="{ data }" onclick="{ parent.toggle }" class="{ a
             self.data[i].index = i;
         }
     }
-    
+
 
     this.toggle = function(e) {
         self.content = e.item.content;
@@ -1177,20 +1178,23 @@ riot.tag('tab', '<ul> <li each="{ data }" onclick="{ parent.toggle }" class="{ a
     }.bind(this);
 
 });
+riot.tag('tree-item', '<input type="checkbox" __checked="{ selected }" if="{ parent.rootConfig.showCheck }" onchange="{ checkHandle }"> <i class="tree-item-arrow { open: opened }" onclick="{ toggle }" if="{ children }"></i> <i class="tree-item-icon" if="{ children }"></i> <div onclick="{ leftClick }">{ name }</div>', function(opts) {
 
-riot.tag('tab-content', '', function(opts) {
     var self = this;
-   
-    self.parent.on('update', function() {
-        self.root.innerHTML = self.parent.content;
-    });
 
-});
-riot.tag('tree-item', '<input type="checkbox" __checked="{ item.selected }" if="{ parent.rootConfig.showCheck }" onchange="{ checkHandle }"> <i class="tree-item-arrow { open: item.opened }" onclick="{ toggle }" if="{ item.children }"></i> <i class="tree-item-icon" if="{ item.children }"></i> <div onclick="{ leftClick }">{ item.name }</div>', function(opts) {
-    
-    var self = this;
-    
-    
+    self.originData = function(id) {
+        var originDatas = self.parent.data;
+        var originData;
+        for (i = 0; i < originDatas.length; i++) {
+            if (originDatas[i].id === id) {
+                originData = originDatas[i];
+                break;
+            }
+        }
+        return originData
+    }
+
+
     self.selectchildren = function(item, bool) {
         var selectChildItem = function(item) {
             if (item && item.children) {
@@ -1204,7 +1208,7 @@ riot.tag('tree-item', '<input type="checkbox" __checked="{ item.selected }" if="
         self.parent.treeroot.update();
     };
 
-    
+
     self.cancelParent = function(item) {
         var cancelParentSelect = function(item) {
             if (item && item.pnode) {
@@ -1216,55 +1220,60 @@ riot.tag('tree-item', '<input type="checkbox" __checked="{ item.selected }" if="
         self.parent.treeroot.update();
     };
 
-    
+
     this.checkHandle = function(e) {
+        var originData = self.originData(self.id);
         var config = self.parent.rootConfig
         var checkCb = config.onCheck;
         var uncheckCb = config.onUnCheck;
-        if (self.item.selected) {
-            self.item.selected = false;
-            uncheckCb && uncheckCb(self.item, e.target);
+        if (self.selected) {
+            originData.selected = false;
+            uncheckCb && uncheckCb(originData, e.target);
 
             if (config.link) {
-                self.selectchildren(self.item, false);
-                self.cancelParent(self.item);
+                self.selectchildren(self, false);
+                self.cancelParent(self);
             }
         }
-        else if (!self.item.selected) {
-            self.item.selected = true;
-            checkCb && checkCb(self.item, e.target);
+        else if (!self.selected) {
+            originData.selected = true;
+            checkCb && checkCb(originData, e.target);
             if (config.link) {
-                self.selectchildren(self.item, true);
+                self.selectchildren(self, true);
             }
         }
     }.bind(this);
-    
-    
+
+
     this.toggle = function(e) {
-        if (self.item.opened === true) {
-            self.item.opened = false;
+        var originData = self.originData(self.id);
+        if (originData.opened === true) {
+            originData.opened = false;
+            self.parent.opened = false;
         }
         else {
-            self.item.opened = true;
+            originData.opened = true;
+            self.parent.opened = true;
         }
         self.parent.treeroot.update();
     }.bind(this);
 
-    
+
     this.leftClick = function(e) {
+        var originData = self.originData(self.id);
         var config = self.parent.rootConfig;
         if (config.folder && config.children) {
-            if (self.item.opened === true) {
-                self.item.opened = false;
+            if (originData.opened === true) {
+                originData.opened = false;
             }
             else {
-                self.item.opened = true;
+                originData.opened = true;
             }
         }
         else {
             var leftClick = config.onLeftClick;
             if (leftClick) {
-                leftClick(self.item, e.target);
+                leftClick(originData, e.target);
             }
         }
     }.bind(this);
@@ -1272,11 +1281,11 @@ riot.tag('tree-item', '<input type="checkbox" __checked="{ item.selected }" if="
 
 });
 
-riot.tag('tree', '<div class="tree-item-wrap" each="{ item, i in data }" onselectstart="return false" ondragstart="return false"> <tree-item class="tree-item-row { root: item.level==1 }" riot-style="padding-left: { countPadding(item.level) }"></tree-item> <ul class="tree-child-wrap" if="{ item.opened && item.children }"> <tree data="{ item.children }"></tree> </ul> </div>', function(opts) {
+riot.tag('tree', '<div class="tree-item-wrap" each="{ data }" onselectstart="return false" ondragstart="return false"> <tree-item class="tree-item-row { root: level==1 }" riot-style="padding-left: { countPadding(level) }"></tree-item> <ul class="tree-child-wrap" if="{ _item.opened && children }"> <tree data="{ children }"></tree> </ul> </div>', function(opts) {
     var self = this;
     self.config = self.opts.opts || self.opts;
 
-    
+
     self.dataHandle = function(data, idName, pidName) {
         var data = data || []
         var id = idName || 'id';
@@ -1322,8 +1331,8 @@ riot.tag('tree', '<div class="tree-item-wrap" each="{ item, i in data }" onselec
         return tree;
 
     };
-    
-    
+
+
     if (!self.parent || self.parent.root.tagName !== 'TREE') {
         if (self.config.handleData) {
             var tree = self.dataHandle(self.config.data);
@@ -1336,15 +1345,16 @@ riot.tag('tree', '<div class="tree-item-wrap" each="{ item, i in data }" onselec
         self.data = self.config.data;
         self.rootConfig = self.parent.rootConfig || self.parent.parent.rootConfig;
         self.treeroot = self.parent.treeroot || self.parent.parent.treeroot;
+
     }
     self.treeroot.update();
-    
-    
-    
+
+
+
     this.countPadding = function(level) {
         var padding = self.rootConfig.padding || 20;
         return (level - 1) * padding + 'px';
     }.bind(this);
-    
-    
+
+
 });

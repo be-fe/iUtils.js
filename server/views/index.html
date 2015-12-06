@@ -27,50 +27,123 @@
 
 <p>请勾选你需要的组件:</p>
 
-<tree></tree>
 
-<ul id="modules">
-    <% for(var i=0; i < modules.length; i++) {%>
-    <li><input type="checkbox" id="<%= modules[i] %>"> <%= modules[i] %></li>
-    <% } %>
-</ul>
+<div id="tree-wrap" class="demo">
+    <tree></tree>
+</div>
+
+
+<!--<ul id="modules">-->
+    <!--<% for(var i=0; i < modules.length; i++) {%>-->
+    <!--<li><input type="checkbox" id="<%= modules[i] %>"> <%= modules[i] %></li>-->
+    <!--<% } %>-->
+<!--</ul>-->
 
 <input type="button" id="submit" value="生成勾选的组件">
 
 
 </body>
 <script>
+
+    var modules = '<%=modules%>';
+
+    var modulesArr = modules.split(',');
+
+    var tree1 = [];
+
+    var tree2 = [];
+
+    //循环遍历modules,讲数据转换成treecview要的格式
+    for (var i = 0; i < modulesArr.length; i++) {
+
+        if (modulesArr[i].indexOf('/') > -1) {
+
+            var newArr = modulesArr[i].split('/');
+
+            // 遍历去重
+            var repeatFlag = false;
+
+            for (var j = 0; j < tree1.length; j++) {
+
+                if (tree1[j] == newArr[0]) {
+                    repeatFlag = true;
+                }
+            }
+
+            if (!repeatFlag) {
+                tree1.push(newArr[0]);
+            }
+
+            // 插入2级包
+
+            tree2.push(newArr);
+
+        } else {
+            tree1.push(modulesArr[i]);
+        }
+    }
+
+    console.log("1级包:");
+    console.log(tree1);
+
+
+    // 开始构造一维数组,一级:
+    var dataAarr = [];
+    for (var l = 0; l < tree1.length; l++) {
+        var obj = {};
+        obj.id = dataAarr.length + 1;
+        obj.pid = null;
+        obj.title = tree1[l];
+        dataAarr.push(obj);
+    }
+
+    // 开始构造一维数组,二级:
+    for (var m = 0; m < tree2.length; m++) {
+        var obj = {};
+        console.log('打印数组2:');
+        console.log(tree2[m]);
+
+        obj.id = dataAarr.length + 1;
+
+        // 遍历寻找父id
+        for (var n = 0; n < tree1.length; n ++) {
+            if (tree1[n] == tree2[m][0]) {
+                obj.pid = n + 1;
+            }
+        }
+
+        obj.title = tree2[m][1];
+
+        dataAarr.push(obj);
+    }
+
+
+
+    console.log('dataAarr');
+    console.log(dataAarr);
+
+
     var treeOpts = {
-        data: [
-            {id: 1, pid: null, title: 'root'},
-            {id: 2, pid: 1, title: 'item1'},
-            {id: 3, pid: 1, title: 'item2'},
-            {id: 4, pid: 2, title: 'item3'},
-            {id: 5, pid: 1, title: 'item4'},
-            {id: 6, pid: 3, title: 'item5'},
-            {id: 7, pid: 2, title: 'item6'},
-        ],
-        root: true,         //标示符，必须为true
+        data: dataAarr,
+        link: true,   //checkbox是否联动
+        openLevel: 2, //默认展开多少层级，1为展开最外层，
         handleData: true,   //data为一维数组，选true, data为树结构，选false
         name: 'title',      //名称字段在接口中的字段名
+
+        //左键点击的回调。第一个参数为对应的数据item, 第二个参数为对应的dom
         onLeftClick: function (item, target) {
             alert('This item\'s id is: ' + item.id);
         },
-        //左键点击的回调。第一个参数为对应的数据item, 第二个参数为对应的dom
-        folder: true, //展示folder icon,点击name进行展开操作
-
-
 
         showCheck: true,   //是否展示checkbox, 默认为false;
-        linkCheck: true,   //是否递归选中, 未实现
         onCheck: function (item, target) {
-            alert(item.id + 'checked');
+            // alert(item.id + 'checked');
         },
         onUnCheck: function (item, target) {
-            alert(item.id + 'unchecked');
+            // alert(item.id + 'unchecked');
         }
     }
-    riot.mount('tree', treeOpts);
+    riot.mount('.demo tree', treeOpts);
 </script>
 <script src="/js/index.js"></script>
 
