@@ -53,34 +53,28 @@
 
     var tree2 = [];
 
-    //循环遍历modules,讲数据转换成treecview要的格式
+    //循环遍历modules,将数据转换成treecview需要的格式
     for (var i = 0; i < modulesArr.length; i++) {
 
         if (modulesArr[i].indexOf('/') > -1) {
 
             var newArr = modulesArr[i].split('/');
-
             // 遍历去重
             var repeatFlag = false;
-
             for (var j = 0; j < tree1.length; j++) {
-
                 if (tree1[j] == newArr[0]) {
                     repeatFlag = true;
                 }
             }
-
             if (!repeatFlag) {
                 tree1.push(newArr[0]);
             }
-
             // 插入2级包
-
             tree2.push(newArr);
-
         } else {
             tree1.push(modulesArr[i]);
         }
+
     }
 
     console.log("1级包:");
@@ -100,28 +94,21 @@
     // 开始构造一维数组,二级:
     for (var m = 0; m < tree2.length; m++) {
         var obj = {};
-        console.log('打印数组2:');
-        console.log(tree2[m]);
-
         obj.id = dataAarr.length + 1;
-
         // 遍历寻找父id
         for (var n = 0; n < tree1.length; n ++) {
             if (tree1[n] == tree2[m][0]) {
                 obj.pid = n + 1;
             }
         }
-
-        obj.title = tree2[m][1];
-
+        obj.title = tree2[m][0] + '/' + tree2[m][1];
         dataAarr.push(obj);
     }
 
-
-
-    console.log('dataAarr');
+    console.log('转换后的数据:');
     console.log(dataAarr);
 
+    var selectedArr = [];
 
     var treeOpts = {
         data: dataAarr,
@@ -132,18 +119,72 @@
 
         //左键点击的回调。第一个参数为对应的数据item, 第二个参数为对应的dom
         onLeftClick: function (item, target) {
-            alert('This item\'s id is: ' + item.id);
+             alert('This item\'s id is: ' + item.id);
         },
 
         showCheck: true,   //是否展示checkbox, 默认为false;
         onCheck: function (item, target) {
-            // alert(item.id + 'checked');
+            selectedArr.push(item.id);
         },
         onUnCheck: function (item, target) {
+            for (var i =0; i < selectedArr.length; i++) {
+                if (selectedArr[i] == item.id) {
+                    selectedArr.splice(i,1);
+                }
+            }
             // alert(item.id + 'unchecked');
         }
     }
     riot.mount('.demo tree', treeOpts);
+
+
+
+    var modules = document.querySelectorAll('#input[type=checkbox]');
+
+    submit.onclick = function () {
+        console.log(selectedArr);
+
+        var selectedModules = [];
+
+        // 根据已经选择的数组,将数据解析出来,发到服务器:
+        // 遍历数据,如果勾选了只有一级没有二级的选项,则直接加入,否则,就要看二级是全选还是非全选
+        for (var i = 0; i < selectedArr.length; i++) {
+
+            // 在结构中找到这个数据
+            for (var j = 0; j < dataAarr.length; j++) {
+                // 找到了元素
+                if (selectedArr[i] == dataAarr[j].id) {
+                    // 是否有子元素?
+                    if(dataAarr[j].children) {
+                        console.log('有子元素');
+                        // 遍历子元素,加到模块儿数组
+                        for (var k = 0; k < dataAarr[j].children.length; k++) {
+
+//                            console.log(selectedArr[i]);
+//                            console.log(dataAarr[j].children[k]);
+
+                            if(selectedArr[i] == dataAarr[j].children[k].pid) {
+                                selectedModules.push(dataAarr[j].children[k].title);
+                            }
+
+                        }
+                    } else {
+                        // 直接把模块添加到数组
+                        selectedModules.push(dataAarr[j].title);
+                    }
+                }
+            }
+
+        }
+
+        console.log('打印选择的modules:');
+        console.log(selectedModules);
+
+        window.location.href = "/build?module=" + selectedModules.join(',');
+
+
+
+    }
 </script>
 <script src="/js/index.js"></script>
 
