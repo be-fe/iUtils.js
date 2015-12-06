@@ -12,9 +12,6 @@ router.get('/', function (req, res, next) {
     var type = req.query.type;
     var module = req.query.module;
 
-    console.log(type);
-
-
     if (type == 'code') {
         // 拼接路径
         var p = path.join(__dirname, '../../src/modules/' +module + '.js');
@@ -28,19 +25,32 @@ router.get('/', function (req, res, next) {
 
         // 文档在目录下,因此要分离斜线
 
+        // 两种情况,目录和文件
+        if (module.indexOf('/') > -1) {
+            var arr = module.split('/');
+            var p = path.join(__dirname, '../../src/modules/' +arr[0]);
+            console.log(p);
+        } else {
+            var p = path.join(__dirname, '../../src/modules/' + module);
+            console.log(p);
+        }
+
         var css='<link href="/css/markdownstyle/GitHub2.css" rel="stylesheet">';
 
+        // 这个目录下是否有readme.md,有显示,没有,显示默认的
+
+        try {
+            p = path.join(p, '/README.md');
+            var data = fs.readFileSync(p).toString();
+            var md = new Remarkable();
+            res.send(md.render(data));
+        } catch (e) {
+            console.log(e);
+            var data = '<div style="width: 100%; height:50%; padding-top:20px; text-align:center; margin: 0;"><h3>目前没有文档~</h3></div>';
+            res.send(data);
+        }
 
 
-
-        var p = path.join(__dirname, '../../README.md');
-
-        var data = fs.readFileSync(p).toString();
-
-        var md = new Remarkable();
-
-
-        res.send(md.render(data));
     }else if (type == 'default') {
 
         if (module == 'code') {

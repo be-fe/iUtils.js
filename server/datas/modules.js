@@ -42,7 +42,11 @@ exports.getModules = function () {
     var newArr = [];
 
     for (var i = 0; i < result.files.length; i++) {
-        newArr.push(path.relative(path.join(__dirname, '../../src/modules'), result.files[i].substring(0, result.files[i].length-3)));
+
+        if (path.extname(result.files[i]) === '.js') {
+            newArr.push(path.relative(path.join(__dirname, '../../src/modules'), result.files[i].substring(0, result.files[i].length-3)));
+        }
+
     }
 
     return newArr;

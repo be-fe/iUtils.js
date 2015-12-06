@@ -50,6 +50,7 @@
     <div class="row">
         <div class="jumbotron" style="color: #fff;background-color: #337ab7;border-color: #337ab7;">
             <h1><%= title %></h1>
+            <h3>可自定义的常用工具函数库Util.js，兼容浏览器，require JS和node JS调用</h3>
         </div>
     </div>
 
@@ -59,7 +60,7 @@
 
 
             <div class="panel panel-primary" style="height: 100%;">
-                <div class="panel-heading">勾选以编译,点击以预览:</div>
+                <div class="panel-heading">勾选以个性化编译模块,点击以预览代码及文档:</div>
                 <div class="panel-body" style="height: auto; min-height: 300px;">
                     <tree></tree>
                 </div>
@@ -170,9 +171,11 @@
                     if (item.id == dataAarr[j].id) {
 
                         if (dataAarr[j].children) {
+
                             console.log('has children!');
+
                             document.getElementById('code').src = '/content?type=default&module=code';
-                            document.getElementById('doc').src = '/content?type=default&module=doc';
+                            document.getElementById('doc').src = '/content?type=doc&module=' + item.title;
                         } else {
                             document.getElementById('code').src = '/content?type=code&module=' + item.title;
                             document.getElementById('doc').src = '/content?type=doc&module=' + item.title;
@@ -222,12 +225,9 @@
                 if (selectedArr[i] == dataAarr[j].id) {
                     // 是否有子元素?
                     if (dataAarr[j].children) {
-                        console.log('有子元素');
+
                         // 遍历子元素,加到模块儿数组
                         for (var k = 0; k < dataAarr[j].children.length; k++) {
-
-//                            console.log(selectedArr[i]);
-//                            console.log(dataAarr[j].children[k]);
 
                             if (selectedArr[i] == dataAarr[j].children[k].pid) {
                                 selectedModules.push(dataAarr[j].children[k].title);
