@@ -50,6 +50,7 @@
     <div class="row">
         <div class="jumbotron" style="color: #fff;background-color: #337ab7;border-color: #337ab7;">
             <h1><%= title %></h1>
+
             <h3>可自定义的常用工具函数库Util.js，兼容浏览器，require JS和node JS调用</h3>
         </div>
     </div>
@@ -64,18 +65,20 @@
                 <div class="panel-body" style="height: auto; min-height: 300px;">
                     <tree></tree>
                 </div>
-                <div class="panel-footer"><input type="button" id="submit" value="生成勾选的组件" class="btn btn-primary"></div>
+                <div class="panel-footer"><input type="button" id="submit" value="生成勾选的组件" class="btn btn-primary">
+                </div>
             </div>
 
         </div>
 
-        <div id="code-view" class="col-lg-5 col-md-5 col-sm-5 col-sx-5">
+        <div id="code-view" class="col-lg-6 col-md-6 col-sm-6 col-sx-6">
             <iframe id="code" src="/content?type=default&module=code"></iframe>
         </div>
 
 
-        <div id="doc-view" class="col-lg-4 col-md-4 col-sm-4 col-sx-4">
-            <iframe id="doc" style="background-color: white; border: 1px solid #337ab7;" src="/content?type=default&module=doc"></iframe>
+        <div id="doc-view" class="col-lg-3 col-md-3 col-sm-3 col-sx-3">
+            <iframe id="doc" style="background-color: white; border: 1px solid #337ab7;"
+                    src="/content?type=default&module=doc"></iframe>
         </div>
     </div>
 
@@ -166,23 +169,22 @@
             // 这里要不点击父选项才加载
 
 
-                for (var j = 0; j < dataAarr.length; j++) {
+            for (var j = 0; j < dataAarr.length; j++) {
 
-                    if (item.id == dataAarr[j].id) {
+                if (item.id == dataAarr[j].id) {
 
-                        if (dataAarr[j].children) {
+                    if (dataAarr[j].children) {
 
-                            console.log('has children!');
+                        console.log('has children!');
 
-                            document.getElementById('code').src = '/content?type=default&module=code';
-                            document.getElementById('doc').src = '/content?type=doc&module=' + item.title;
-                        } else {
-                            document.getElementById('code').src = '/content?type=code&module=' + item.title;
-                            document.getElementById('doc').src = '/content?type=doc&module=' + item.title;
-                        }
+                        document.getElementById('code').src = '/content?type=default&module=code';
+                        document.getElementById('doc').src = '/content?type=doc&module=' + item.title;
+                    } else {
+                        document.getElementById('code').src = '/content?type=code&module=' + item.title;
+                        document.getElementById('doc').src = '/content?type=doc&module=' + item.title;
                     }
                 }
-
+            }
 
 
 //            document.getElementById('code').src = '/content?type=code&module=' + item.title;

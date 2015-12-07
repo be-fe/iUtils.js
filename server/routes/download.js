@@ -30,7 +30,6 @@ router.get('/', function (req, res, next) {
         // 重置字符串
         fs.writeFileSync(path.join(__dirname, '../../config.js'), 'module.exports=[];');
 
-
     });
 
 

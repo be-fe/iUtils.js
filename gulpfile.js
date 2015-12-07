@@ -58,7 +58,7 @@ gulp.task('default', function () {
                 var idx = resultString.lastIndexOf('_');
 
                 var keyString;
-                keyString =  resultString.substring(idx + 1, resultString.length);
+                keyString = resultString.substring(idx + 1, resultString.length);
 
                 returnString += keyString + ":" + resultString + ",";
             }
@@ -66,7 +66,6 @@ gulp.task('default', function () {
             var newString = returnString.substring(0, returnString.length - 1);
             newString += "}";
             console.log("这里打印的是gulp操作的数组:" + newString);
-
 
 
             string = string + newString;

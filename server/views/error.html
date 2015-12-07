@@ -2,20 +2,33 @@
 <html>
 <head>
 
-    <title>Util.js</title>
+    <title>Utils.js错误页面</title>
     <link rel='stylesheet' href='/css/style.css'/>
+    <link rel="stylesheet" href="/css/bootstrap.css">
 
 </head>
 
 <body>
 
-<h1>抱歉,出错了:<%= message %></h1>
+<div class="container">
 
-<h2><%= error.status %></h2>
-<pre><%= error.stack %></pre>
+    <div class="row">
+
+        <div class="jumbotron" style="color: #fff;background-color: #337ab7;border-color: #337ab7;">
+            <h1>抱歉,出错了:<%= message %></h1>
+
+            <h3><%= error.status %></h3>
+        </div>
+
+        <div class="well">
+            <pre><%= error.stack %></pre>
+        </div>
+
+    </div>
+
+</div>
+
 
 </body>
-
-<script src="/js/build.js"></script>
 
 </html>
