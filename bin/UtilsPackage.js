@@ -8,8 +8,10 @@ var fs = require("fs");
 var path = require("path");
 var program = require("commander");
 
+var childpProcess = require('child_process');
+
 var optimeze = 'none';
-var allModules =[];
+var allModules = [];
 
 function scanFolder(path) {
 
@@ -45,7 +47,7 @@ var result = scanFolder(path.join(__dirname, '../src/modules/'));
 for (var i = 0; i < result.files.length; i++) {
 
     if (path.extname(result.files[i]) === '.js') {
-        allModules.push(path.relative(path.join(__dirname, '../src/modules'), result.files[i].substring(0, result.files[i].length-3)));
+        allModules.push(path.relative(path.join(__dirname, '../src/modules'), result.files[i].substring(0, result.files[i].length - 3)));
     }
 
 }
@@ -56,41 +58,65 @@ for (var i = 0; i < result.files.length; i++) {
 program
     .allowUnknownOption()
     .version('0.0.1')
-    .option('-p, --package <package>', '选择需要构建的包')
+    .option('-p, --package <package>', '填写需要构建的合法包名,逗号分隔')
     .option('-m, --min', '是否启用压缩')
     .option('-c, --config', '打开配置文件');
 
 program.parse(process.argv);
 
 
-if (program.package) {
-    console.log('选择了需要构建的包:' + program.package);
+if (program.config) {
 
-    if (program.min) {
-        console.log('选择了最小化压缩');
-        optimeze = 'uglify';
-    } else {
-        console.log('没有选择最小化压缩,默认不压缩');
-    }
+    console.log('打开了配置文件,请前往编辑然后重新进行构建!');
+
+    var childProcess = childpProcess.exec('open config.js',
+        function (error, stdout, stderr) {
+            if (error !== null) {
+                console.log('exec error: ' + error);
+            } else {
+                console.log(stdout);
+            }
+        });
+
+    process.exit();
 
 } else {
 
-    if (program.config) {
-        console.log('选择打开配置文件');
-    } else {
-        console.log('没有选择打开配置文件,全量压缩');
-        // 用全量包替换配置包
-        buildModules = allModules;
-    }
 
-    if (program.min) {
-        console.log('已经选择了最小化压缩');
-        optimeze = 'uglify';
+    if (program.package) {
+
+        console.log('填写了需要构建的包:' + program.package);
+
+        var arr = program.package.split(',');
+
+        console.log(arr);
+
+        buildModules = arr;
+
+
+        if (program.min) {
+            console.log('启用压缩');
+            optimeze = 'uglify';
+        } else {
+            console.log('默认不压缩');
+        }
+
     } else {
-        console.log('没有选择最小化压缩,默认不压缩');
+
+        console.log('默认全量构建');
+        buildModules = allModules;
+
+        if (program.min) {
+            console.log('启用压缩');
+            optimeze = 'uglify';
+        } else {
+            console.log('默认不压缩');
+        }
+
     }
 
 }
+
 
 // 这里在代码内,重写gulp的过程
 requirejs.optimize({
@@ -160,10 +186,9 @@ requirejs.optimize({
         // 写入文件
         var result = fs.writeFileSync(path.join(__dirname, '../build/Utils.js'), string);
 
-
     }
 });
 // 重写结束
 
-console.log("打印了压缩的包:");
+console.log("构建了如下的包:");
 console.log(buildModules);
