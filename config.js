@@ -1,1 +1,1 @@
-module.exports=["ie"];
+module.exports=["time/parseTime"];// 这是前端的自定义config

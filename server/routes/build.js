@@ -6,8 +6,10 @@ var path = require('path');
 
 var amdclean = require('amdclean');
 var requirejs = require('requirejs');
-var buildModules = require('../../config.js');
 
+var stream = require('stream');
+
+var myTime = Date.now() + '_' + Math.floor(Math.random() * 99999 + 10000);
 
 
 /* 根据参数个性化生成Utils.js */
@@ -15,8 +17,6 @@ var buildModules = require('../../config.js');
 router.get('/', function (req, res, next) {
 
     var moduleArr = req.query.module.split(',');
-
-    // 重写config.js
 
     var string = '';
 
@@ -29,18 +29,16 @@ router.get('/', function (req, res, next) {
 
     string = string.substring(0, string.length - 1);
 
-    fs.writeFileSync(path.join(__dirname, '../../config.js'), 'module.exports=[' + string + '];');
-
-     //  res.render('build', {title: 'Utils.js'});
+    console.log('这里打印请求module ARR:');
+    console.log(moduleArr);
 
     // 这里在代码内,重写gulp的过程
     requirejs.optimize({
         'findNestedDependencies': true,
         'baseUrl': 'src/modules/',
         'optimize': 'none',
-        'include': buildModules,
-        // 'out': 'server/public/build/Utils.js',
-        'out': 'server/public/build/Utils.js',
+        'include': moduleArr,
+        'out': 'server/public/build/Utils_' + myTime + '.js',
         'onModuleBundleComplete': function (data) {
 
             var outputFile = data.path;
@@ -49,7 +47,7 @@ router.get('/', function (req, res, next) {
                 'filePath': outputFile
             }));
 
-            var content = fs.readFileSync(path.join(__dirname, '../public/build/Utils.js'));
+            var content = fs.readFileSync(path.join(__dirname, '../public/build/Utils_' + myTime + '.js'));
 
             var string = content.toString();
 
@@ -74,10 +72,10 @@ router.get('/', function (req, res, next) {
 
             // return数组
             var returnString = "\nreturn {";
-            for (var i = 0; i < buildModules.length; i++) {
+            for (var i = 0; i < moduleArr.length; i++) {
 
                 // 1.将目录替换成下划线,作为返回的函数值
-                var tempString = buildModules[i];
+                var tempString = moduleArr[i];
                 var resultString = tempString.replace(/\//g, '_');
 
                 // 2.将键名更改掉,去掉文件夹和下划线,只保留函数名,方便调用
@@ -91,7 +89,7 @@ router.get('/', function (req, res, next) {
             // 去掉,
             var newString = returnString.substring(0, returnString.length - 1);
             newString += "}";
-            console.log("这里打印的是gulp操作的数组:" + newString);
+            console.log("这里打印的是追加操作的数组:" + newString);
 
 
             string = string + newString;
@@ -101,16 +99,32 @@ router.get('/', function (req, res, next) {
 
             string = string + after;
 
-            // 写入文件
-            fs.writeFileSync(path.join(__dirname, '../public/build/Utils.js'), string);
+
+            // 写入返回请求
+            var rs = new stream.Readable;
+            rs.push(string);
+            rs.push(null);
+
+            res.writeHead(200, {
+                'Content-Type': 'application/force-download',
+                'Content-Disposition': 'attachment; filename=Utils.js',
+                'location': '/'
+            });
+
+            rs.pipe(res);
+
+            rs.on('end', function () {
+                var fileRealPath = path.join(__dirname, '../public/build/Utils_' + myTime + '.js');
+                console.log(fileRealPath);
+                fs.unlinkSync(fileRealPath);
+                console.log('文件已经删除~');
+            });
 
         }
     });
     // 重写结束
 
 
-
 });
 
 module.exports = router;
-
