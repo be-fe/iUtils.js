@@ -62,6 +62,7 @@ var ajax = module.exports = function(options){
                 result = xhr.responseText
 
                 try {
+                    
                     if (dataType == 'script')    (1,eval)(result)
                     else if (dataType == 'xml')  result = xhr.responseXML
                     else if (dataType == 'json') result = blankRE.test(result) ? null : JSON.parse(result)
