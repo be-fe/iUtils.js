@@ -1,11 +1,13 @@
-var type
-try {
-    type = require('type-of')
-} catch (ex) {
-    //hide from browserify
-    var r = require
-    type = r('type')
-}
+define(function (require, exports, module) {
+
+//    var type
+//try {
+//    type = require('type-of')
+//} catch (ex) {
+//    //hide from browserify
+//    var r = require
+//    type = r('type')
+//}
 
 var jsonpID = 0,
     document = window.document,
@@ -289,3 +291,5 @@ function extend(target) {
     })
     return target
 }
+
+});

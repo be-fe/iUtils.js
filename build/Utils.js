@@ -3,94 +3,69 @@
 /*
  * from https://github.com/component/ie/blob/master/index.js
  */
-var cookie_decode = {}, cookie_encode = {}, cookie_parse = {}, cookie_getAllCookie = {}, cookie_getCookieByName = {}, cookie_setCookie = {};
-cookie_decode = function (exports) {
-  function decode(value) {
-    try {
-      return decodeURIComponent(value);
-    } catch (e) {
-      debug('error `decode(%o)` - %o', value, e);
-    }
+var type_typeIsBuffer = {}, type_getType = {}, ajax_parseJsonToQuery = {};
+type_typeIsBuffer = function (exports) {
+  var toString = Object.prototype.toString;
+  // code borrowed from https://github.com/feross/is-buffer/blob/master/index.js
+  function typeIsBuffer(obj) {
+    return !!(obj != null && (obj._isBuffer || obj.constructor && typeof obj.constructor.isBuffer === 'function' && obj.constructor.isBuffer(obj)));
   }
-  exports = decode;
+  exports = typeIsBuffer;
   return exports;
-}(cookie_decode);
-cookie_encode = function (exports) {
-  function encode(value) {
-    try {
-      return encodeURIComponent(value);
-    } catch (e) {
-      console.log('cookie encode 失败,原始值:' + value + '错误:' + e);
+}(type_typeIsBuffer);
+type_getType = function (exports) {
+  var toString = Object.prototype.toString;
+  var typeIsBuffer = type_typeIsBuffer;
+  var getType = function (val) {
+    switch (toString.call(val)) {
+    case '[object Date]':
+      return 'date';
+    case '[object RegExp]':
+      return 'regexp';
+    case '[object Arguments]':
+      return 'arguments';
+    case '[object Array]':
+      return 'array';
+    case '[object Error]':
+      return 'error';
     }
-  }
-  exports = encode;
+    if (val === null)
+      return 'null';
+    if (val === undefined)
+      return 'undefined';
+    if (val !== val)
+      return 'nan';
+    if (val && val.nodeType === 1)
+      return 'element';
+    if (typeIsBuffer(val))
+      return 'buffer';
+    val = val.valueOf ? val.valueOf() : Object.prototype.valueOf.apply(val);
+    return typeof val;
+  };
+  exports = getType;
   return exports;
-}(cookie_encode);
-cookie_parse = function (exports) {
-  var decode = cookie_decode;
-  function parse(str) {
-    var obj = {};
-    var pairs = str.split(/ *; */);
-    var pair;
-    if ('' == pairs[0])
-      return obj;
-    for (var i = 0; i < pairs.length; ++i) {
-      pair = pairs[i].split('=');
-      obj[decode(pair[0])] = decode(pair[1]);
-    }
-    return obj;
-  }
-  exports = parse;
-  return exports;
-}(cookie_parse);
-cookie_getAllCookie = function (exports) {
-  var parse = cookie_parse;
-  function getAllCookie() {
-    var str;
-    try {
-      str = document.cookie;
-    } catch (err) {
-      if (typeof console !== 'undefined' && typeof console.error === 'function') {
-        console.error(err.stack || err);
+}(type_getType);
+ajax_parseJsonToQuery = function (exports) {
+  var getType = type_getType;
+  var parseJsonToQuery = function (json) {
+    var queryString = '';
+    if (getType(json) === 'object') {
+      for (var key in json) {
+        var value = json[key];
+        console.log('key:' + key + ',value:' + value);
+        queryString = queryString + key + '=' + value + '&';
       }
-      return {};
+      // 去掉最后一个的&
+      queryString = queryString.substring(0, queryString.length - 1);
+      console.log(queryString);
+      return queryString;
+    } else {
+      console.log('传入参数不正确');
     }
-    return parse(str);
-  }
-  exports = getAllCookie;
+  };
+  exports = parseJsonToQuery;
   return exports;
-}(cookie_getAllCookie);
-cookie_getCookieByName = function (exports) {
-  var getAllCookie = cookie_getAllCookie;
-  function getCookieByName(name) {
-    return getAllCookie()[name];
-  }
-  exports = getCookieByName;
-  return exports;
-}(cookie_getCookieByName);
-cookie_setCookie = function (exports) {
-  var encode = cookie_encode;
-  function setCookie(name, value, options) {
-    options = options || {};
-    var str = encode(name) + '=' + encode(value);
-    if (null == value)
-      options.maxage = -1;
-    if (options.maxage) {
-      options.expires = new Date(+new Date() + options.maxage);
-    }
-    if (options.path)
-      str += '; path=' + options.path;
-    if (options.domain)
-      str += '; domain=' + options.domain;
-    if (options.expires)
-      str += '; expires=' + options.expires.toUTCString();
-    if (options.secure)
-      str += '; secure';
-    document.cookie = str;
-  }
-  exports = setCookie;
-  return exports;
-}(cookie_setCookie);
+}(ajax_parseJsonToQuery);
 
-return {decode:cookie_decode,encode:cookie_encode,getAllCookie:cookie_getAllCookie,getCookieByName:cookie_getCookieByName,parse:cookie_parse,setCookie:cookie_setCookie}
+return {parseJsonToQuery:ajax_parseJsonToQuery}
 });

@@ -1,7 +1,7 @@
 /**
  * Created by leiquan on 15/12/1.
  */
-
+// 单独的post方法,方便快速使用
 define(function (require, exports, module) {
 
 
