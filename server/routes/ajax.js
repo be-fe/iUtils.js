@@ -10,4 +10,11 @@ router.get('/', function (req, res, next) {
 
 });
 
+router.post('/', function (req, res, next) {
+
+    res.writeHead(200, {'Access-Control-Allow-Origin': '*'});
+    res.end("Hello, world!");
+
+});
+
 module.exports = router;

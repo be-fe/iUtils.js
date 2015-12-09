@@ -29,11 +29,12 @@ var buildRoutes = require('./routes/build');
 var downloadRoutes = require('./routes/download');
 var ajaxRoutes = require('./routes/ajax');
 var contentRoutes = require('./routes/content');
+var jsonpRoutes = require('./routes/jsonp');
 app.use('/', IndexRoutes);
 app.use('/build', buildRoutes);
 app.use('/download', downloadRoutes);
 app.use('/ajax', ajaxRoutes);
-app.use('/content', contentRoutes);
+app.use('/jsonp', jsonpRoutes);
 
 // 调试信息
 app.use(logger('dev'));

@@ -1,9 +1,212 @@
 (function (ns, factory) {if (typeof define === 'function' && define.amd) {define(factory);}else if (typeof module === 'object' && module.exports) {module.exports = factory();}else {window[ns] = factory();}})('Utils', function () {
 
-/*
- * from https://github.com/component/array-equal
+/**
+ * @file randomNumber
+ * @author leiquan<leiquan@baidu.com>
  */
-var array_arrayEqual = {}, array_indexOf = {}, cookie_decode = {}, cookie_encode = {}, cookie_parseCookie = {}, cookie_getAllCookie = {}, cookie_getCookieByName = {}, cookie_setCookie = {}, css_hasClass = {}, css_addClass = {}, css_getElementByClassName = {}, css_removeClass = {}, css_toggleClass = {}, ie_getIEVersion = {}, keycode_getKeyNameByKeycode = {}, time_parse = {}, time_betweenTime = {}, time_formatTime = {}, time_getDate = {}, time_getDayArray = {}, time_getDayInWeek = {}, time_getMonthArray = {}, time_getWeekArray = {}, time_getWeekNumber = {}, time_getYearArray = {}, time_parseTime = {}, time_judgeTime = {}, type_typeIsBuffer = {}, type_getType = {}, ua_getDevicePlatform = {}, url_parsePort = {}, url_parseURL = {}, url_isCrossDomain = {};
+var random_randomNumber = {}, ajax_ajax = {}, ajax_ajaxFile = {}, ajax_ajaxGet = {}, ajax_ajaxJsonp = {}, ajax_ajaxPost = {}, array_arrayEqual = {}, array_indexOf = {}, cookie_decode = {}, cookie_encode = {}, cookie_parseCookie = {}, cookie_getAllCookie = {}, cookie_getCookieByName = {}, cookie_setCookie = {}, css_hasClass = {}, css_addClass = {}, css_getElementByClassName = {}, css_removeClass = {}, css_toggleClass = {}, ie_getIEVersion = {}, keycode_getKeyNameByKeycode = {}, time_parse = {}, time_betweenTime = {}, time_formatTime = {}, time_getDate = {}, time_getDayArray = {}, time_getDayInWeek = {}, time_getMonthArray = {}, time_getWeekArray = {}, time_getWeekNumber = {}, time_getYearArray = {}, time_parseTime = {}, time_judgeTime = {}, type_typeIsBuffer = {}, type_getType = {}, ua_getDevicePlatform = {}, url_parsePort = {}, url_parseURL = {}, url_isCrossDomain = {};
+random_randomNumber = function (exports) {
+  function randomNumber(min, max) {
+    return Math.floor(min + Math.random() * (max - min));
+  }
+  exports = randomNumber;
+  return exports;
+}(random_randomNumber);
+ajax_ajax = function (exports) {
+  var randomNumber = random_randomNumber;
+  var myAjax = function (userOptions) {
+    // 默认值
+    var options = {
+      method: 'get',
+      // get, post,jsonp, file
+      url: '',
+      params: {},
+      // key:value
+      type: 'text',
+      // text, json, xml
+      formData: null,
+      //xmlHttpRequest 2.0 可利用formData对象来上传文件
+      successCallback: function (data) {
+      },
+      failCallback: function () {
+      }
+    };
+    // 更新option
+    for (var pro in userOptions) {
+      options[pro] = userOptions[pro];
+    }
+    var method = options.method;
+    var url = options.url;
+    var params = options.params;
+    var type = options.type;
+    var formData = options.formData;
+    var successCallback = options.successCallback;
+    var failCallback = options.failCallback;
+    // xhr对象
+    var createRequest = function () {
+      var xmlhttp;
+      try {
+        xmlhttp = new ActiveXObject('Msxml2.XMLHTTP');  // IE6以上版本
+      } catch (e) {
+        try {
+          xmlhttp = new ActiveXObject('Microsoft.XMLHTTP');  // IE6以下版本
+        } catch (e) {
+          try {
+            xmlhttp = new XMLHttpRequest();
+            if (xmlhttp.overrideMimeType) {
+              xmlhttp.overrideMimeType('text/xml');
+            }
+          } catch (e) {
+            alert('您的浏览器不支持Ajax');
+          }
+        }
+      }
+      return xmlhttp;
+    };
+    // 格式化参数
+    var formateParameters = function (params) {
+      var paramsArray = [];
+      var params = params;
+      for (var pro in params) {
+        var paramValue = params[pro];
+        if (method.toUpperCase() === 'GET') {
+          paramValue = encodeURIComponent(params[pro]);
+        }
+        paramsArray.push(pro + '=' + paramValue);
+      }
+      return paramsArray.join('&');
+    };
+    // 获取返回值
+    var readystatechange = function (xmlhttp) {
+      var returnValue;
+      if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        switch (type) {
+        case 'xml':
+          returnValue = xmlhttp.responseXML;
+          break;
+        case 'json':
+          var jsonText = xmlhttp.responseText;
+          if (jsonText) {
+            returnValue = eval('(' + jsonText + ')');
+          }
+          break;
+        default:
+          returnValue = xmlhttp.responseText;
+          break;
+        }
+        if (returnValue) {
+          if (successCallback) {
+            successCallback(returnValue);
+          }
+        } else {
+          if (failCallback) {
+            failCallback(returnValue);
+          }
+        }
+      }
+    };
+    // 创建XMLHttpRequest对象
+    var xmlhttp = createRequest();
+    // 设置回调函数
+    xmlhttp.onreadystatechange = function () {
+      readystatechange(xmlhttp);
+    };
+    // 格式化参数
+    var formateParams = formateParameters(params);
+    if ('GET' === method.toUpperCase()) {
+      url += '?' + formateParams;
+      xmlhttp.open(method, url, true);
+      xmlhttp.send(null);
+    } else if ('POST' === method.toUpperCase()) {
+      xmlhttp.open(method, url, true);
+      // 如果是POST提交，设置请求头信息
+      xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+      xmlhttp.send(formateParams);
+    } else if ('JSONP' === method.toUpperCase()) {
+      var callbackName = 'jsonp' + randomNumber(1000, 9999);
+      // 创建script来请求jsonp
+      var head = document.getElementsByTagName('head')[0] || document.documentElement;
+      var script = document.createElement('script');
+      url += '?' + formateParams;
+      script.src = url + '&callback=' + callbackName;
+      head.insertBefore(script, head.firstChild);
+      window[callbackName] = function (data) {
+        if (successCallback) {
+          successCallback(data);
+        }
+        delete window[callbackName];
+        head.removeChild(script);
+      };
+    } else if ('FILE' === method.toUpperCase()) {
+      xmlhttp.open('post', url, true);
+      xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+      xmlhttp.send(formData);
+    }
+  };
+  exports = myAjax;
+  return exports;
+}(ajax_ajax);
+ajax_ajaxFile = function (exports) {
+  var ajax = ajax_ajax;
+  // 注意,file对象要append到formData对象中
+  var ajaxFile = function (url, formData, successCallback, failCallback) {
+    ajax({
+      method: 'post',
+      url: url,
+      formData: formData,
+      type: 'text',
+      successCallback: successCallback,
+      failCallback: failCallback
+    });
+  };
+  exports = ajaxFile;
+  return exports;
+}(ajax_ajaxFile);
+ajax_ajaxGet = function (exports) {
+  var ajax = ajax_ajax;
+  var ajaxGet = function (url, params, successCallback, failCallback) {
+    ajax({
+      method: 'get',
+      url: url,
+      params: params,
+      type: 'text',
+      successCallback: successCallback,
+      failCallback: failCallback
+    });
+  };
+  exports = ajaxGet;
+  return exports;
+}(ajax_ajaxGet);
+ajax_ajaxJsonp = function (exports) {
+  var ajax = ajax_ajax;
+  var ajaxJsonp = function (url, params, successCallback, failCallback) {
+    ajax({
+      method: 'jsonp',
+      url: url,
+      params: params,
+      type: 'text',
+      successCallback: successCallback,
+      failCallback: failCallback
+    });
+  };
+  exports = ajaxJsonp;
+  return exports;
+}(ajax_ajaxJsonp);
+ajax_ajaxPost = function (exports) {
+  var ajax = ajax_ajax;
+  var ajaxPost = function (url, params, successCallback, failCallback) {
+    ajax({
+      method: 'post',
+      url: url,
+      params: params,
+      type: 'text',
+      successCallback: successCallback,
+      failCallback: failCallback
+    });
+  };
+  exports = ajaxPost;
+  return exports;
+}(ajax_ajaxPost);
 array_arrayEqual = function (exports) {
   var arrayEqual = function (arr1, arr2) {
     var length = arr1.length;
@@ -310,7 +513,6 @@ keycode_getKeyNameByKeycode = function (exports) {
       }
     };
   };
-  exports = new keyCodeHelper().getKeyNameByKeycode;
   exports = new keyCodeHelper().getKeyNameByKeycode;
   return exports;
 }(keycode_getKeyNameByKeycode);
@@ -750,5 +952,5 @@ url_isCrossDomain = function (exports) {
   return exports;
 }(url_isCrossDomain);
 
-return {arrayEqual:array_arrayEqual,indexOf:array_indexOf,decode:cookie_decode,encode:cookie_encode,getAllCookie:cookie_getAllCookie,getCookieByName:cookie_getCookieByName,parseCookie:cookie_parseCookie,setCookie:cookie_setCookie,addClass:css_addClass,getElementByClassName:css_getElementByClassName,hasClass:css_hasClass,removeClass:css_removeClass,toggleClass:css_toggleClass,getIEVersion:ie_getIEVersion,getKeyNameByKeycode:keycode_getKeyNameByKeycode,betweenTime:time_betweenTime,formatTime:time_formatTime,getDate:time_getDate,getDayArray:time_getDayArray,getDayInWeek:time_getDayInWeek,getMonthArray:time_getMonthArray,getWeekArray:time_getWeekArray,getWeekNumber:time_getWeekNumber,getYearArray:time_getYearArray,judgeTime:time_judgeTime,parse:time_parse,parseTime:time_parseTime,getType:type_getType,typeIsBuffer:type_typeIsBuffer,getDevicePlatform:ua_getDevicePlatform,isCrossDomain:url_isCrossDomain,parsePort:url_parsePort,parseURL:url_parseURL}
+return {ajax:ajax_ajax,ajaxFile:ajax_ajaxFile,ajaxGet:ajax_ajaxGet,ajaxJsonp:ajax_ajaxJsonp,ajaxPost:ajax_ajaxPost,arrayEqual:array_arrayEqual,indexOf:array_indexOf,decode:cookie_decode,encode:cookie_encode,getAllCookie:cookie_getAllCookie,getCookieByName:cookie_getCookieByName,parseCookie:cookie_parseCookie,setCookie:cookie_setCookie,addClass:css_addClass,getElementByClassName:css_getElementByClassName,hasClass:css_hasClass,removeClass:css_removeClass,toggleClass:css_toggleClass,getIEVersion:ie_getIEVersion,getKeyNameByKeycode:keycode_getKeyNameByKeycode,randomNumber:random_randomNumber,betweenTime:time_betweenTime,formatTime:time_formatTime,getDate:time_getDate,getDayArray:time_getDayArray,getDayInWeek:time_getDayInWeek,getMonthArray:time_getMonthArray,getWeekArray:time_getWeekArray,getWeekNumber:time_getWeekNumber,getYearArray:time_getYearArray,judgeTime:time_judgeTime,parse:time_parse,parseTime:time_parseTime,getType:type_getType,typeIsBuffer:type_typeIsBuffer,getDevicePlatform:ua_getDevicePlatform,isCrossDomain:url_isCrossDomain,parsePort:url_parsePort,parseURL:url_parseURL}
 });
