@@ -5,7 +5,7 @@
 define(function (require, exports, module) {
 
 
-    var ajaxGet = function (sUrl, fnSucceed, fnFaild) {
+    var ajaxGet = function (sUrl, oQueryData, fnSucceed, fnFaild) {
 
         var oAjax = null;
         if (window.XMLHttpRequest) {
