@@ -1,6 +1,3 @@
-/*
- * from https://github.com/component/ie/blob/master/index.js
- */
 define(function (require, exports, module) {
 
     var decode = require('./decode');

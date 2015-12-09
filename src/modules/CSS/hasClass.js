@@ -1,7 +1,3 @@
-/**
- * Created by leiquan on 15/12/1.
- */
-
 define(function (require, exports, module) {
 
     var hasClass = function (obj, cls) {

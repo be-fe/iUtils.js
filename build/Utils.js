@@ -4,7 +4,7 @@
  * @file randomNumber
  * @author leiquan<leiquan@baidu.com>
  */
-var random_randomNumber = {}, ajax_ajax = {}, ajax_ajaxFile = {}, ajax_ajaxGet = {}, ajax_ajaxJsonp = {}, ajax_ajaxPost = {}, array_arrayEqual = {}, array_indexOf = {}, cookie_decode = {}, cookie_encode = {}, cookie_parseCookie = {}, cookie_getAllCookie = {}, cookie_getCookieByName = {}, cookie_setCookie = {}, css_hasClass = {}, css_addClass = {}, css_getElementByClassName = {}, css_removeClass = {}, css_toggleClass = {}, ie_getIEVersion = {}, keycode_getKeyNameByKeycode = {}, time_parse = {}, time_betweenTime = {}, time_formatTime = {}, time_getDate = {}, time_getDayArray = {}, time_getDayInWeek = {}, time_getMonthArray = {}, time_getWeekArray = {}, time_getWeekNumber = {}, time_getYearArray = {}, time_parseTime = {}, time_judgeTime = {}, type_typeIsBuffer = {}, type_getType = {}, ua_getDevicePlatform = {}, url_parsePort = {}, url_parseURL = {}, url_isCrossDomain = {};
+var random_randomNumber = {}, ajax_ajax = {}, ajax_ajaxFile = {}, ajax_ajaxGet = {}, ajax_ajaxJsonp = {}, ajax_ajaxPost = {}, array_arrayEqual = {}, array_indexOf = {}, cookie_decode = {}, cookie_encode = {}, cookie_parseCookie = {}, cookie_getAllCookie = {}, cookie_getCookieByName = {}, cookie_setCookie = {}, css_hasClass = {}, css_addClass = {}, css_getElementByClassName = {}, css_removeClass = {}, css_toggleClass = {}, ie_getIEVersion = {}, keycode_getKeyNameByKeycode = {}, obj_clone = {}, obj_extend = {}, time_parse = {}, time_betweenTime = {}, time_formatTime = {}, time_getDate = {}, time_getDayArray = {}, time_getDayInWeek = {}, time_getMonthArray = {}, time_getWeekArray = {}, time_getWeekNumber = {}, time_getYearArray = {}, time_parseTime = {}, time_judgeTime = {}, type_typeIsBuffer = {}, type_getType = {}, ua_getDevicePlatform = {}, url_parsePort = {}, url_parseURL = {}, url_isCrossDomain = {};
 random_randomNumber = function (exports) {
   function randomNumber(min, max) {
     return Math.floor(min + Math.random() * (max - min));
@@ -100,7 +100,7 @@ ajax_ajax = function (exports) {
           }
         } else {
           if (failCallback) {
-            failCallback(returnValue);
+            failCallback();
           }
         }
       }
@@ -113,6 +113,7 @@ ajax_ajax = function (exports) {
     };
     // 格式化参数
     var formateParams = formateParameters(params);
+    // 类型判断
     if ('GET' === method.toUpperCase()) {
       url += '?' + formateParams;
       xmlhttp.open(method, url, true);
@@ -139,7 +140,6 @@ ajax_ajax = function (exports) {
       };
     } else if ('FILE' === method.toUpperCase()) {
       xmlhttp.open('post', url, true);
-      // xmlhttp.setRequestHeader("Content-Type", "multipart/form-data");
       xmlhttp.send(formData);
     }
   };
@@ -148,7 +148,7 @@ ajax_ajax = function (exports) {
 }(ajax_ajax);
 ajax_ajaxFile = function (exports) {
   var ajax = ajax_ajax;
-  // 注意,file对象要append到formData对象中
+  // 注意,file对象要append到formData对象中,或者从form表单构造formdata,注意不要设置contenttype
   var ajaxFile = function (url, formData, successCallback, failCallback) {
     ajax({
       method: 'file',
@@ -516,6 +516,39 @@ keycode_getKeyNameByKeycode = function (exports) {
   exports = new keyCodeHelper().getKeyNameByKeycode;
   return exports;
 }(keycode_getKeyNameByKeycode);
+obj_clone = function (exports) {
+  // 深拷贝
+  function clone(parent, child) {
+    var child = child || {};
+    for (var i in parent) {
+      if (typeof parent[i] === 'object') {
+        child[i] = parent[i].constructor === Array ? [] : {};
+        //新建数组或者object来达到目的
+        clone(parent[i], child[i]);
+      } else {
+        child[i] = parent[i];
+      }
+    }
+    return child;
+  }
+  exports = clone;
+  return exports;
+}(obj_clone);
+obj_extend = function (exports) {
+  // 浅拷贝,只是拷贝基本类型的数据,把parent有的全部给child.在遇到[]和{}时候会有问题
+  var extend = function (parent, child) {
+    for (var p in parent) {
+      if (parent.hasOwnProperty(p)) {
+        child[p] = parent[p];
+        console.log(p);
+      }
+    }
+    child.uber = parent;
+    return child;
+  };
+  exports = extend;
+  return exports;
+}(obj_extend);
 time_parse = function (exports) {
   var DATE_PATTERN = /^(\d{4})\D*(\d{2})\D*(\d{2})/;
   var DATE_DAYS = [
@@ -839,7 +872,6 @@ time_judgeTime = function (exports) {
 }(time_judgeTime);
 type_typeIsBuffer = function (exports) {
   var toString = Object.prototype.toString;
-  // code borrowed from https://github.com/feross/is-buffer/blob/master/index.js
   function typeIsBuffer(obj) {
     return !!(obj != null && (obj._isBuffer || obj.constructor && typeof obj.constructor.isBuffer === 'function' && obj.constructor.isBuffer(obj)));
   }
@@ -952,5 +984,5 @@ url_isCrossDomain = function (exports) {
   return exports;
 }(url_isCrossDomain);
 
-return {ajax:ajax_ajax,ajaxFile:ajax_ajaxFile,ajaxGet:ajax_ajaxGet,ajaxJsonp:ajax_ajaxJsonp,ajaxPost:ajax_ajaxPost,arrayEqual:array_arrayEqual,indexOf:array_indexOf,decode:cookie_decode,encode:cookie_encode,getAllCookie:cookie_getAllCookie,getCookieByName:cookie_getCookieByName,parseCookie:cookie_parseCookie,setCookie:cookie_setCookie,addClass:css_addClass,getElementByClassName:css_getElementByClassName,hasClass:css_hasClass,removeClass:css_removeClass,toggleClass:css_toggleClass,getIEVersion:ie_getIEVersion,getKeyNameByKeycode:keycode_getKeyNameByKeycode,randomNumber:random_randomNumber,betweenTime:time_betweenTime,formatTime:time_formatTime,getDate:time_getDate,getDayArray:time_getDayArray,getDayInWeek:time_getDayInWeek,getMonthArray:time_getMonthArray,getWeekArray:time_getWeekArray,getWeekNumber:time_getWeekNumber,getYearArray:time_getYearArray,judgeTime:time_judgeTime,parse:time_parse,parseTime:time_parseTime,getType:type_getType,typeIsBuffer:type_typeIsBuffer,getDevicePlatform:ua_getDevicePlatform,isCrossDomain:url_isCrossDomain,parsePort:url_parsePort,parseURL:url_parseURL}
+return {ajax:ajax_ajax,ajaxFile:ajax_ajaxFile,ajaxGet:ajax_ajaxGet,ajaxJsonp:ajax_ajaxJsonp,ajaxPost:ajax_ajaxPost,arrayEqual:array_arrayEqual,indexOf:array_indexOf,decode:cookie_decode,encode:cookie_encode,getAllCookie:cookie_getAllCookie,getCookieByName:cookie_getCookieByName,parseCookie:cookie_parseCookie,setCookie:cookie_setCookie,addClass:css_addClass,getElementByClassName:css_getElementByClassName,hasClass:css_hasClass,removeClass:css_removeClass,toggleClass:css_toggleClass,getIEVersion:ie_getIEVersion,getKeyNameByKeycode:keycode_getKeyNameByKeycode,clone:obj_clone,extend:obj_extend,randomNumber:random_randomNumber,betweenTime:time_betweenTime,formatTime:time_formatTime,getDate:time_getDate,getDayArray:time_getDayArray,getDayInWeek:time_getDayInWeek,getMonthArray:time_getMonthArray,getWeekArray:time_getWeekArray,getWeekNumber:time_getWeekNumber,getYearArray:time_getYearArray,judgeTime:time_judgeTime,parse:time_parse,parseTime:time_parseTime,getType:type_getType,typeIsBuffer:type_typeIsBuffer,getDevicePlatform:ua_getDevicePlatform,isCrossDomain:url_isCrossDomain,parsePort:url_parsePort,parseURL:url_parseURL}
 });

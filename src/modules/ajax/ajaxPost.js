@@ -1,5 +1,7 @@
 /**
  * Created by leiquan on 15/12/1.
+ * @file ajaxPost
+ * @author leiquan<leiquan@baidu.com>
  */
 
 define(function (require, exports, module) {

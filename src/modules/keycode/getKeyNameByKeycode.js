@@ -1,3 +1,8 @@
+/**
+ * @file randomNumber
+ * @author leiquan<leiquan@baidu.com>
+ */
+
 define(function (require, exports, module) {
 
 

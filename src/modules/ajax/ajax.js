@@ -1,5 +1,7 @@
 /**
  * Created by leiquan on 15/12/1.
+ * @file ajax
+ * @author leiquan<leiquan@baidu.com>
  */
 
 define(function (require, exports, module) {
@@ -25,7 +27,6 @@ define(function (require, exports, module) {
         for (var pro in userOptions) {
             options[pro] = userOptions[pro];
         }
-
 
         var method = options.method;
         var url = options.url;
@@ -101,7 +102,7 @@ define(function (require, exports, module) {
                     }
                 } else {
                     if (failCallback) {
-                        failCallback(returnValue);
+                        failCallback();
                     }
                 }
 
@@ -120,30 +121,24 @@ define(function (require, exports, module) {
         var formateParams = formateParameters(params);
 
 
+        // 类型判断
         if ("GET" === method.toUpperCase()) {
             url += "?" + formateParams;
             xmlhttp.open(method, url, true);
             xmlhttp.send(null);
         } else if ("POST" === method.toUpperCase()) {
-
             xmlhttp.open(method, url, true);
-
             // 如果是POST提交，设置请求头信息
             xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             xmlhttp.send(formateParams);
         } else if ("JSONP" === method.toUpperCase()) {
-
             var callbackName = 'jsonp' + randomNumber(1000, 9999);
 
             // 创建script来请求jsonp
             var head = document.getElementsByTagName("head")[0] || document.documentElement;
-
             var script = document.createElement('script');
-
             url += "?" + formateParams;
-
             script.src = url + '&callback=' + callbackName;
-
             head.insertBefore(script, head.firstChild);
 
             window[callbackName] = function (data) {
@@ -159,11 +154,8 @@ define(function (require, exports, module) {
             xmlhttp.send(formData);
         }
 
-
     }
 
-
     module.exports = myAjax;
-
 
 });

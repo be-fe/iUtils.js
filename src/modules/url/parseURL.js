@@ -1,7 +1,3 @@
-/**
- * Created by leiquan on 15/12/9.
- */
-
 define(function (require, exports, module) {
 
     var parsePort = require('./parsePort');
