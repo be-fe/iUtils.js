@@ -139,7 +139,7 @@ ajax_ajax = function (exports) {
       };
     } else if ('FILE' === method.toUpperCase()) {
       xmlhttp.open('post', url, true);
-      xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+      // xmlhttp.setRequestHeader("Content-Type", "multipart/form-data");
       xmlhttp.send(formData);
     }
   };
@@ -151,7 +151,7 @@ ajax_ajaxFile = function (exports) {
   // 注意,file对象要append到formData对象中
   var ajaxFile = function (url, formData, successCallback, failCallback) {
     ajax({
-      method: 'post',
+      method: 'file',
       url: url,
       formData: formData,
       type: 'text',

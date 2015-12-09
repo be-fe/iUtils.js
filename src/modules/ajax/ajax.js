@@ -156,7 +156,6 @@ define(function (require, exports, module) {
 
         } else if ("FILE" === method.toUpperCase()) {
             xmlhttp.open("post", url, true);
-            xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             xmlhttp.send(formData);
         }
 

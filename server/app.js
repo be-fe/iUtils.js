@@ -34,7 +34,7 @@ app.use('/', IndexRoutes);
 app.use('/build', buildRoutes);
 app.use('/download', downloadRoutes);
 app.use('/ajax', ajaxRoutes);
-app.use('/jsonp', jsonpRoutes);
+app.use('/content', contentRoutes);
 
 // 调试信息
 app.use(logger('dev'));
