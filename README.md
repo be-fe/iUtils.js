@@ -1,10 +1,23 @@
 # 可自定义的常用工具函数库Util.js，兼容浏览器，require JS和node JS调用
 
-
+## Auther: BE-FE
 
 
 ### 启动: npm install && cd server && npm start
 ### 访问: http://localhost:3000进行自定义构建
+
+### 或:
+### Usage: UtilsPackage [options]
+    
+      Options:
+    
+        -h, --help               output usage information
+        -V, --version            output the version number
+        -p, --package <package>  填写需要构建的合法包名,逗号分隔
+        -m, --min                是否启用压缩
+        -c, --config             打开配置文件
+
+
 
 
 
