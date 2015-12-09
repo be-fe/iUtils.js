@@ -6,7 +6,7 @@
 define(function (require, exports, module) {
     var parse = require('./parse');
 
-    var getYearArray: function (day1, day2) {
+    var getYearArray = function (day1, day2) {
         var year1 = new Date(parse(day1)).getFullYear();
         var year2 = new Date(parse(day2)).getFullYear();
         var arr = [];

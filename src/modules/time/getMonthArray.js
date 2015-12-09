@@ -6,7 +6,7 @@
 define(function (require, exports, module) {
     var parse = require('./parse');
 
-    var getMonthArray: function (day1, day2) {
+    var getMonthArray = function (day1, day2) {
         var date1 = new Date(parse(day1));
         var date2 = new Date(parse(day2));
 

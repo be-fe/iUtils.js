@@ -3,7 +3,7 @@
  */
 define(function (require, exports, module) {
 
-    var parse = require('./parse');
+    var parse = require('./parseCookie');
     function getAllCookie() {
         var str;
         try {

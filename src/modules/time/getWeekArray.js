@@ -9,7 +9,7 @@ define(function (require, exports, module) {
     var getDayInWeek = require('./getDayInWeek');
     var betweenTime = require('./betweenTime');
 
-    var getWeekArray: function (day1, day2) {
+    var getWeekArray = function (day1, day2) {
 
         day1 = getDate(day1, 0);
         day2 = getDate(day2, 0);

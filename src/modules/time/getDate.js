@@ -6,7 +6,7 @@
 define(function (require, exports, module) {
     var parse = require('./parse');
     var formatTime = require('./formatTime');
-    var getDate: function (day, num, pattern) {
+    var getDate = function (day, num, pattern) {
         num = num || 0;
         pattern = pattern || 'yyyyMMdd';
 

@@ -8,7 +8,7 @@ define(function (require, exports, module) {
     var getDate = require('./getDate');
     var betweenTime = require('./betweenTime');
 
-    var getDayArray: function (day1, day2, n, pattern) {
+    var getDayArray = function (day1, day2, n, pattern) {
         pattern = pattern || 'yyyyMMdd';
 
         var all = betweenTime(day1, day2);
