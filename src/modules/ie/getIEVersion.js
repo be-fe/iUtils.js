@@ -3,7 +3,7 @@
  */
 define(function (require, exports, module) {
 
-    function ie() {
+    function getIEVersion() {
         for (var v = 3,
                  el = document.createElement('b'),
              // empty array as loop breaker (and exception-avoider) for non-IE and IE10+
@@ -18,6 +18,6 @@ define(function (require, exports, module) {
     }
 
 
-    module.exports = ie;
+    module.exports = getIEVersion;
 
 });

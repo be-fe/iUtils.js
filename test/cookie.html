@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../build/Utils.js"></script>
+</head>
+<body>
+
+
+<script>
+    console.log(Utils);
+    Utils.setCookie("hello", 'world', {expires:new Date('2016-01-01'), path: '/'});
+
+    console.log(Utils.getAllCookie());
+
+    console.log(Utils.getCookieByName('hello'));
+
+</script>
+
+</body>
+</html>
