@@ -5,5 +5,6 @@
 out
 gen
 /node_modules
+src/waitingTest
 /server/node_modules
 # Created by .ignore support plugin (hsz.mobi)
