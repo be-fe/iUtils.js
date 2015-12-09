@@ -6,4 +6,4 @@
 #### 3.getAllCookie:得到全部cookie
 #### 4.getCookieByName:通过name查找Cookie
 #### 5.setCookie:设置Cookie
-#### 6.parse:解析
+#### 6.parse:解析cookie

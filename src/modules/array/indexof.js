@@ -1,6 +1,5 @@
 define(function (require, exports, module) {
-
-
+    
     var indexOf = function (arr, obj) {
         if (arr.indexOf) return arr.indexOf(obj);
         for (var i = 0; i < arr.length; ++i) {
