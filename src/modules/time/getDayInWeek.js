@@ -21,5 +21,5 @@ define(function (require, exports, module) {
         };
     }
 
-    module.exports = getDateInWeek;
+    module.exports = getDayInWeek;
 });

@@ -130,6 +130,5 @@ define(function (require, exports, module) {
     };
 
     module.exports = new keyCodeHelper().getKeyNameByKeycode;
-    module.exports = new keyCodeHelper().getKeyNameByKeycode;
 
 });
