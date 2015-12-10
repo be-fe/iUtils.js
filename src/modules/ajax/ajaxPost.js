@@ -8,12 +8,12 @@ define(function (require, exports, module) {
 
     var ajax = require('./ajax');
 
-    var ajaxPost = function (url, params, successCallback, failCallback) {
+    var ajaxPost = function (url, params, type, successCallback, failCallback) {
         ajax({
             method: "post",
             url: url,
             params: params,
-            type: 'text',
+            type: type,
             successCallback: successCallback,
             failCallback: failCallback
         });

@@ -25,7 +25,9 @@ define(function (require, exports, module) {
 
         // 更新option
         for (var pro in userOptions) {
-            options[pro] = userOptions[pro];
+            if (userOptions[pro]) {
+                options[pro] = userOptions[pro];
+            }
         }
 
         var method = options.method;
@@ -124,10 +126,10 @@ define(function (require, exports, module) {
         // 类型判断
         if ("GET" === method.toUpperCase()) {
             url += "?" + formateParams;
-            xmlhttp.open(method, url, true);
+            xmlhttp.open('get', url, true);
             xmlhttp.send(null);
         } else if ("POST" === method.toUpperCase()) {
-            xmlhttp.open(method, url, true);
+            xmlhttp.open('post', url, true);
             // 如果是POST提交，设置请求头信息
             if (!contentType) {
                 contentType = "application/x-www-form-urlencoded";
@@ -156,7 +158,7 @@ define(function (require, exports, module) {
 
         } else if ("FILE" === method.toUpperCase()) {
             xmlhttp.open("post", url, true);
-            xmlhttp.send(params);
+            xmlhttp.send(params); //此处params为formData对象
         }
 
     }

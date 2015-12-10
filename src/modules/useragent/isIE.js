@@ -5,8 +5,6 @@ define(function (require, exports, module) {
 
     function isIE() {
 
-
-
         var userAgent = 'navigator' in window && 'userAgent' in navigator && navigator.userAgent.toLowerCase() || '';
 
         is.ie = function (version) {

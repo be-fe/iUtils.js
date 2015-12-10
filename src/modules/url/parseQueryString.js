@@ -42,15 +42,6 @@ define(function (require, exports, module) {
         return obj;
     };
 
-    /**
-     * Stringify the given `obj`.
-     *
-     * @param {Object} obj
-     * @return {String}
-     * @api public
-     */
-
-
 
     module.exports = parseQueryString;
 

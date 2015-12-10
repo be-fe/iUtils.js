@@ -9,9 +9,6 @@ define(function (require, exports, module) {
         var vendor = 'navigator' in window && 'vendor' in navigator && navigator.vendor.toLowerCase() || '';
         var appVersion = 'navigator' in window && 'appVersion' in navigator && navigator.appVersion.toLowerCase() || '';
 
-        console.log(appVersion);
-
-
         return /chrome|chromium/i.test(userAgent) && /google inc/.test(vendor);
 
     }

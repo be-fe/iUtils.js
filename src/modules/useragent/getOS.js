@@ -7,7 +7,7 @@ define(function (require, exports, module) {
         var appVersion = 'navigator' in window && 'appVersion' in navigator && navigator.appVersion.toLowerCase() || '';
 
         if (/mac/i.test(appVersion)) {
-            return 'mac';
+            return 'MacOSX';
         }
         if (/win/i.test(appVersion)) {
             return 'windows'

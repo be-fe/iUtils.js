@@ -32,5 +32,5 @@
     "yargs": "^3.31.0",
     "jasmine-core": "^2.4.1",
     "karma-jasmine": "^0.3.6"
-  },
+  }
 }
