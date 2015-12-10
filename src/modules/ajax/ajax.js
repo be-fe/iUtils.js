@@ -14,9 +14,9 @@ define(function (require, exports, module) {
         var options = {
             method: "get", // get, post,jsonp, file
             url: "",
-            params: {}, // key:value
+            params: {}, // key:value //当method为file的时候,params=formData, xmlHttpRequest 2.0 可利用formData对象来上传文件
             type: 'text', // text, json, xml
-            formData: null, //xmlHttpRequest 2.0 可利用formData对象来上传文件
+            contentType: null,
             successCallback: function (data) {
             },
             failCallback: function () {
@@ -32,7 +32,7 @@ define(function (require, exports, module) {
         var url = options.url;
         var params = options.params;
         var type = options.type;
-        var formData = options.formData;
+        var contentType = options.contentType;
         var successCallback = options.successCallback;
         var failCallback = options.failCallback;
 
@@ -129,7 +129,10 @@ define(function (require, exports, module) {
         } else if ("POST" === method.toUpperCase()) {
             xmlhttp.open(method, url, true);
             // 如果是POST提交，设置请求头信息
-            xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            if (!contentType) {
+                contentType = "application/x-www-form-urlencoded";
+            }
+            xmlhttp.setRequestHeader("Content-Type", contentType);
             xmlhttp.send(formateParams);
         } else if ("JSONP" === method.toUpperCase()) {
             var callbackName = 'jsonp' + randomNumber(1000, 9999);
@@ -141,6 +144,8 @@ define(function (require, exports, module) {
             script.src = url + '&callback=' + callbackName;
             head.insertBefore(script, head.firstChild);
 
+            script.onerror = failCallback();
+
             window[callbackName] = function (data) {
                 if (successCallback) {
                     successCallback(data);
@@ -151,7 +156,7 @@ define(function (require, exports, module) {
 
         } else if ("FILE" === method.toUpperCase()) {
             xmlhttp.open("post", url, true);
-            xmlhttp.send(formData);
+            xmlhttp.send(params);
         }
 
     }

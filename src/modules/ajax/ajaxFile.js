@@ -13,7 +13,7 @@ define(function (require, exports, module) {
         ajax({
             method: "file",
             url: url,
-            formData: formData,
+            params: formData,
             type: 'text',
             successCallback: successCallback,
             failCallback: failCallback
