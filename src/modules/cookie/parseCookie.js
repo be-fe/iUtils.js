@@ -1,6 +1,6 @@
 define(function (require, exports, module) {
 
-    var decode = require('./decode');
+    var decode = require('../url/decode');
 
     function parseCookie(str) {
         var obj = {};

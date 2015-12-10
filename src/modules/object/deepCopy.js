@@ -1,7 +1,7 @@
 define(function (require, exports, module) {
 
     // 深拷贝
-    function clone(parent, child) {
+    function deepCopy(parent, child) {
         var child = child || {};
         for (var i in parent) {
             if (typeof parent[i] === 'object') {
@@ -14,6 +14,6 @@ define(function (require, exports, module) {
         return child;
     }
 
-    module.exports = clone;
+    module.exports = deepCopy;
 
 });

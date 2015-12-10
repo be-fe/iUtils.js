@@ -1,6 +1,6 @@
 define(function (require, exports, module) {
 
-    var encode = require('./encode');
+    var encode = require('../url/encode');
 
     function setCookie(name, value, options) {
         options = options || {};

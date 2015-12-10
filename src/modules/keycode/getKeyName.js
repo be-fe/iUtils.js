@@ -122,7 +122,7 @@ define(function (require, exports, module) {
             222: '\''
         };
 
-        this.getKeyNameByKeycode = function (keycode) {
+        this.getKeyName = function (keycode) {
             if (self.keyCodeMap[keycode]) {
                 return self.keyCodeMap[keycode];
             } else {
@@ -134,6 +134,6 @@ define(function (require, exports, module) {
 
     };
 
-    module.exports = new keyCodeHelper().getKeyNameByKeycode;
+    module.exports = new keyCodeHelper().getKeyName;
 
 });

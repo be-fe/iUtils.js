@@ -1,10 +1,10 @@
 define(function (require, exports, module) {
 
-    function decode(value) {
+    var decode = function (str) {
         try {
-            return decodeURIComponent(value);
+            return decodeURIComponent(str.replace(/\+/g, ' '));
         } catch (e) {
-            console.log(e);
+            return str;
         }
     }
 

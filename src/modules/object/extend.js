@@ -5,7 +5,6 @@ define(function (require, exports, module) {
         for (var p in parent) {
             if (parent.hasOwnProperty(p)) {
                 child[p] = parent[p];
-                console.log(p);
             }
         }
 

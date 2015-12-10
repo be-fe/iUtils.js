@@ -21,8 +21,14 @@
 <script>
 
     console.log(Utils);
-//    console.log(Utils.parseURL('http://www.baidu.com?keyword=gaga&type=code'));
+    console.log(Utils.parseURL('http://www.baidu.com?keyword=gaga&type=code'));
     console.log(Utils.isCrossDomain('http://localhost:633342'));
+
+    console.log(Utils.parseQueryString('http://www.baidu.com?name=world&sex=boy'));
+
+    console.log(Utils.stringfyQueryString({name: "world", sex: "boy"}));
+
+
 </script>
 
 </body>

@@ -1,12 +1,13 @@
 define(function (require, exports, module) {
 
-    function encode(value) {
+
+    var encode = function (str) {
         try {
-            return encodeURIComponent(value);
+            return encodeURIComponent(str);
         } catch (e) {
-            console.log(e);
+            return str;
         }
-    }
+    };
 
     module.exports = encode;
 
