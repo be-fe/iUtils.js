@@ -2,7 +2,7 @@ define(function (require, exports, module) {
 
     var decode = require('./decode');
 
-    function parse(str) {
+    function parseCookie(str) {
         var obj = {};
         var pairs = str.split(/ *; */);
         var pair;
@@ -15,6 +15,6 @@ define(function (require, exports, module) {
     }
 
 
-    module.exports = parse;
+    module.exports = parseCookie;
 
 });

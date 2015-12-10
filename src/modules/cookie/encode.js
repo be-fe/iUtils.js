@@ -4,7 +4,7 @@ define(function (require, exports, module) {
         try {
             return encodeURIComponent(value);
         } catch (e) {
-            console.log('cookie encode 失败,原始值:' + value + '错误:' + e);
+            console.log(e);
         }
     }
 

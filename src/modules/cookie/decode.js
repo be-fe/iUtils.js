@@ -4,7 +4,7 @@ define(function (require, exports, module) {
         try {
             return decodeURIComponent(value);
         } catch (e) {
-            debug('error `decode(%o)` - %o', value, e)
+            console.log(e);
         }
     }
 
