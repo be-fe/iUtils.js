@@ -21,11 +21,10 @@ ajax_ajax = function (exports) {
       // get, post,jsonp, file
       url: '',
       params: {},
-      // key:value
+      // key:value //当method为file的时候,params=formData, xmlHttpRequest 2.0 可利用formData对象来上传文件
       type: 'text',
       // text, json, xml
-      formData: null,
-      //xmlHttpRequest 2.0 可利用formData对象来上传文件
+      contentType: null,
       successCallback: function (data) {
       },
       failCallback: function () {
@@ -33,13 +32,15 @@ ajax_ajax = function (exports) {
     };
     // 更新option
     for (var pro in userOptions) {
-      options[pro] = userOptions[pro];
+      if (userOptions[pro]) {
+        options[pro] = userOptions[pro];
+      }
     }
     var method = options.method;
     var url = options.url;
     var params = options.params;
     var type = options.type;
-    var formData = options.formData;
+    var contentType = options.contentType;
     var successCallback = options.successCallback;
     var failCallback = options.failCallback;
     // xhr对象
@@ -79,24 +80,30 @@ ajax_ajax = function (exports) {
     // 获取返回值
     var readystatechange = function (xmlhttp) {
       var returnValue;
-      if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-        switch (type) {
-        case 'xml':
-          returnValue = xmlhttp.responseXML;
-          break;
-        case 'json':
-          var jsonText = xmlhttp.responseText;
-          if (jsonText) {
-            returnValue = eval('(' + jsonText + ')');
+      if (xmlhttp.readyState == 4) {
+        if (xmlhttp.status == 200 || xmlhttp.status == 0) {
+          switch (type) {
+          case 'xml':
+            returnValue = xmlhttp.responseXML;
+            break;
+          case 'json':
+            var jsonText = xmlhttp.responseText;
+            if (jsonText) {
+              returnValue = eval('(' + jsonText + ')');
+            }
+            break;
+          default:
+            returnValue = xmlhttp.responseText;
+            break;
           }
-          break;
-        default:
-          returnValue = xmlhttp.responseText;
-          break;
-        }
-        if (returnValue) {
-          if (successCallback) {
-            successCallback(returnValue);
+          if (returnValue) {
+            if (successCallback) {
+              successCallback(returnValue);
+            }
+          } else {
+            if (failCallback) {
+              failCallback();
+            }
           }
         } else {
           if (failCallback) {
@@ -116,12 +123,15 @@ ajax_ajax = function (exports) {
     // 类型判断
     if ('GET' === method.toUpperCase()) {
       url += '?' + formateParams;
-      xmlhttp.open(method, url, true);
+      xmlhttp.open('get', url, true);
       xmlhttp.send(null);
     } else if ('POST' === method.toUpperCase()) {
-      xmlhttp.open(method, url, true);
+      xmlhttp.open('post', url, true);
       // 如果是POST提交，设置请求头信息
-      xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+      if (!contentType) {
+        contentType = 'application/x-www-form-urlencoded';
+      }
+      xmlhttp.setRequestHeader('Content-Type', contentType);
       xmlhttp.send(formateParams);
     } else if ('JSONP' === method.toUpperCase()) {
       var callbackName = 'jsonp' + randomNumber(1000, 9999);
@@ -131,6 +141,7 @@ ajax_ajax = function (exports) {
       url += '?' + formateParams;
       script.src = url + '&callback=' + callbackName;
       head.insertBefore(script, head.firstChild);
+      script.onerror = failCallback();
       window[callbackName] = function (data) {
         if (successCallback) {
           successCallback(data);
@@ -140,7 +151,7 @@ ajax_ajax = function (exports) {
       };
     } else if ('FILE' === method.toUpperCase()) {
       xmlhttp.open('post', url, true);
-      xmlhttp.send(formData);
+      xmlhttp.send(params);  //此处params为formData对象
     }
   };
   exports = myAjax;
@@ -153,7 +164,7 @@ ajax_ajaxFile = function (exports) {
     ajax({
       method: 'file',
       url: url,
-      formData: formData,
+      params: formData,
       type: 'text',
       successCallback: successCallback,
       failCallback: failCallback
@@ -164,12 +175,12 @@ ajax_ajaxFile = function (exports) {
 }(ajax_ajaxFile);
 ajax_ajaxGet = function (exports) {
   var ajax = ajax_ajax;
-  var ajaxGet = function (url, params, successCallback, failCallback) {
+  var ajaxGet = function (url, params, type, successCallback, failCallback) {
     ajax({
       method: 'get',
       url: url,
       params: params,
-      type: 'text',
+      type: type,
       successCallback: successCallback,
       failCallback: failCallback
     });
@@ -179,13 +190,14 @@ ajax_ajaxGet = function (exports) {
 }(ajax_ajaxGet);
 ajax_ajaxJsonp = function (exports) {
   var ajax = ajax_ajax;
-  var ajaxJsonp = function (url, params, successCallback) {
+  var ajaxJsonp = function (url, params, successCallback, failCallback) {
     ajax({
       method: 'jsonp',
       url: url,
       params: params,
       type: 'text',
-      successCallback: successCallback
+      successCallback: successCallback,
+      failCallback: failCallback
     });
   };
   exports = ajaxJsonp;
@@ -193,12 +205,13 @@ ajax_ajaxJsonp = function (exports) {
 }(ajax_ajaxJsonp);
 ajax_ajaxPost = function (exports) {
   var ajax = ajax_ajax;
-  var ajaxPost = function (url, params, successCallback, failCallback) {
+  var ajaxPost = function (url, params, type, contentType, successCallback, failCallback) {
     ajax({
       method: 'post',
       url: url,
       params: params,
-      type: 'text',
+      type: type,
+      contentType: contentType,
       successCallback: successCallback,
       failCallback: failCallback
     });
@@ -1722,13 +1735,6 @@ url_parseQueryString = function (exports) {
     }
     return obj;
   };
-  /**
-   * Stringify the given `obj`.
-   *
-   * @param {Object} obj
-   * @return {String}
-   * @api public
-   */
   exports = parseQueryString;
   return exports;
 }(url_parseQueryString);
@@ -1775,7 +1781,7 @@ useragent_getOS = function (exports) {
     var vendor = 'navigator' in window && 'vendor' in navigator && navigator.vendor.toLowerCase() || '';
     var appVersion = 'navigator' in window && 'appVersion' in navigator && navigator.appVersion.toLowerCase() || '';
     if (/mac/i.test(appVersion)) {
-      return 'mac';
+      return 'MacOSX';
     }
     if (/win/i.test(appVersion)) {
       return 'windows';
@@ -1801,7 +1807,6 @@ useragent_isChrome = function (exports) {
     var userAgent = 'navigator' in window && 'userAgent' in navigator && navigator.userAgent.toLowerCase() || '';
     var vendor = 'navigator' in window && 'vendor' in navigator && navigator.vendor.toLowerCase() || '';
     var appVersion = 'navigator' in window && 'appVersion' in navigator && navigator.appVersion.toLowerCase() || '';
-    console.log(appVersion);
     return /chrome|chromium/i.test(userAgent) && /google inc/.test(vendor);
   }
   exports = isChrome;

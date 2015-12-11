@@ -35,6 +35,7 @@ app.use('/build', buildRoutes);
 app.use('/download', downloadRoutes);
 app.use('/ajax', ajaxRoutes);
 app.use('/content', contentRoutes);
+app.use('/jsonp', jsonpRoutes);
 
 // 调试信息
 app.use(logger('dev'));

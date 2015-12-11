@@ -79,35 +79,43 @@ define(function (require, exports, module) {
 
         };
 
+
         // 获取返回值
         var readystatechange = function (xmlhttp) {
             var returnValue;
-            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                switch (type) {
-                    case "xml":
-                        returnValue = xmlhttp.responseXML;
-                        break;
-                    case "json":
-                        var jsonText = xmlhttp.responseText;
-                        if (jsonText) {
-                            returnValue = eval("(" + jsonText + ")");
-                        }
-                        break;
-                    default:
-                        returnValue = xmlhttp.responseText;
-                        break;
-                }
+            if (xmlhttp.readyState == 4) {
+                if (xmlhttp.status == 200 || xmlhttp.status == 0) {
 
-                if (returnValue) {
-                    if (successCallback) {
-                        successCallback(returnValue);
+                    switch (type) {
+                        case "xml":
+                            returnValue = xmlhttp.responseXML;
+                            break;
+                        case "json":
+                            var jsonText = xmlhttp.responseText;
+                            if (jsonText) {
+                                returnValue = eval("(" + jsonText + ")");
+                            }
+                            break;
+                        default:
+                            returnValue = xmlhttp.responseText;
+                            break;
                     }
+
+                    if (returnValue) {
+                        if (successCallback) {
+                            successCallback(returnValue);
+                        }
+                    } else {
+                        if (failCallback) {
+                            failCallback();
+                        }
+                    }
+
                 } else {
                     if (failCallback) {
                         failCallback();
                     }
                 }
-
             }
         };
 
