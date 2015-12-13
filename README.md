@@ -6,7 +6,7 @@
 #### 启动: npm install && cd server && npm start
 #### 访问: http://localhost:3000进行自定义构建
 
-#### 或: npm link && UtilsPackage [options]
+#### 或: sudo npm link && UtilsPackage [options]
 
 #### Usage: UtilsPackage [options]
     

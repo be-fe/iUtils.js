@@ -2,6 +2,10 @@ define(function (require, exports, module) {
 
     var encode = require('../url/encode');
 
+    /*
+     * @return Object
+     * @params String  name, String  value, Object  options,
+     */
     function setCookie(name, value, options) {
         options = options || {};
         var str = encode(name) + '=' + encode(value);

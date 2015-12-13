@@ -8,6 +8,9 @@ define(function (require, exports, module) {
 
     var ajax = require('./ajax');
 
+    /*
+     * @params String url, Object params, String type,  Function successCallback, Function  failCallback
+     */
     var ajaxGet = function (url, params, type, successCallback, failCallback) {
         ajax({
             method: "get",

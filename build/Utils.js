@@ -4,7 +4,7 @@
  * @file randomNumber
  * @author leiquan<leiquan@baidu.com>
  */
-var random_randomNumber = {}, ajax_ajax = {}, ajax_ajaxFile = {}, ajax_ajaxGet = {}, ajax_ajaxJsonp = {}, ajax_ajaxPost = {}, array_arrayEqual = {}, array_indexOf = {}, class_hasClass = {}, class_addClass = {}, class_getElementByClassName = {}, class_removeClass = {}, class_toggleClass = {}, url_decode = {}, cookie_parseCookie = {}, cookie_getCookies = {}, cookie_getCookie = {}, url_encode = {}, cookie_setCookie = {}, keycode_getKeyName = {}, object_deepCopy = {}, object_extend = {}, random_randomColor = {}, string_trim = {}, time_parse = {}, time_betweenTime = {}, time_formatTime = {}, time_getDate = {}, time_getDayArray = {}, time_getDayInWeek = {}, time_getMonthArray = {}, time_getWeekArray = {}, time_getWeekNumber = {}, time_getYearArray = {}, time_parseTime = {}, time_judgeTime = {}, type_typeIsBuffer = {}, type_getType = {}, type_is = {}, url_parsePort = {}, url_parseURL = {}, url_isCrossDomain = {}, url_parseQueryString = {}, url_stringfyQueryString = {}, useragent_getIEVersion = {}, useragent_getOS = {}, useragent_isChrome = {}, useragent_isIE = {};
+var random_randomNumber = {}, ajax_ajax = {}, ajax_ajaxFile = {}, ajax_ajaxGet = {}, ajax_ajaxJsonp = {}, ajax_ajaxPost = {}, array_arrayEqual = {}, array_indexof = {}, class_hasClass = {}, class_addClass = {}, class_getElementByClassName = {}, class_removeClass = {}, class_toggleClass = {}, url_decode = {}, cookie_parseCookie = {}, cookie_getCookies = {}, cookie_getCookie = {}, url_encode = {}, cookie_setCookie = {}, keycode_getKeyName = {}, object_deepCopy = {}, object_extend = {}, random_randomColor = {}, string_trim = {}, time_parseTime = {}, time_judgeTime = {}, time_parse = {}, type_typeIsBuffer = {}, type_getType = {}, type_is = {}, url_parsePort = {}, url_parseURL = {}, url_isCrossDomain = {}, url_parseQueryString = {}, url_stringfyQueryString = {}, useragent_getIEVersion = {}, useragent_getOS = {}, useragent_isChrome = {}, useragent_isIE = {};
 random_randomNumber = function (exports) {
   function randomNumber(min, max) {
     return Math.floor(min + Math.random() * (max - min));
@@ -14,6 +14,9 @@ random_randomNumber = function (exports) {
 }(random_randomNumber);
 ajax_ajax = function (exports) {
   var randomNumber = random_randomNumber;
+  /*
+   * @params userOptions
+   */
   var myAjax = function (userOptions) {
     // 默认值
     var options = {
@@ -159,6 +162,9 @@ ajax_ajax = function (exports) {
 }(ajax_ajax);
 ajax_ajaxFile = function (exports) {
   var ajax = ajax_ajax;
+  /*
+   * @params String url, FormData formData, Function successCallback, Function  failCallback
+   */
   // 注意,file对象要append到formData对象中,或者从form表单构造formdata,注意不要设置contenttype
   var ajaxFile = function (url, formData, successCallback, failCallback) {
     ajax({
@@ -175,6 +181,9 @@ ajax_ajaxFile = function (exports) {
 }(ajax_ajaxFile);
 ajax_ajaxGet = function (exports) {
   var ajax = ajax_ajax;
+  /*
+   * @params String url, Object params, String type,  Function successCallback, Function  failCallback
+   */
   var ajaxGet = function (url, params, type, successCallback, failCallback) {
     ajax({
       method: 'get',
@@ -190,6 +199,9 @@ ajax_ajaxGet = function (exports) {
 }(ajax_ajaxGet);
 ajax_ajaxJsonp = function (exports) {
   var ajax = ajax_ajax;
+  /*
+   * @params String url, Object params, Function successCallback, Function  failCallback
+   */
   var ajaxJsonp = function (url, params, successCallback, failCallback) {
     ajax({
       method: 'jsonp',
@@ -205,6 +217,9 @@ ajax_ajaxJsonp = function (exports) {
 }(ajax_ajaxJsonp);
 ajax_ajaxPost = function (exports) {
   var ajax = ajax_ajax;
+  /*
+   * @params String url, Object params, String type, String contentType,  Function successCallback, Function  failCallback
+   */
   var ajaxPost = function (url, params, type, contentType, successCallback, failCallback) {
     ajax({
       method: 'post',
@@ -220,6 +235,10 @@ ajax_ajaxPost = function (exports) {
   return exports;
 }(ajax_ajaxPost);
 array_arrayEqual = function (exports) {
+  /*
+   * @return Boolean
+   * @params Array arr1, Array arr2
+   */
   var arrayEqual = function (arr1, arr2) {
     var length = arr1.length;
     if (length !== arr2.length)
@@ -232,7 +251,11 @@ array_arrayEqual = function (exports) {
   exports = arrayEqual;
   return exports;
 }(array_arrayEqual);
-array_indexOf = function (exports) {
+array_indexof = function (exports) {
+  /*
+   * @return Number
+   * @params Array arr, Object obj
+   */
   var indexOf = function (arr, obj) {
     if (arr.indexOf)
       return arr.indexOf(obj);
@@ -244,7 +267,7 @@ array_indexOf = function (exports) {
   };
   exports = indexOf;
   return exports;
-}(array_indexOf);
+}(array_indexof);
 class_hasClass = function (exports) {
   var hasClass = function (obj, cls) {
     return obj.className.match(new RegExp('(\\s|^)' + cls + '(\\s|$)'));
@@ -254,6 +277,10 @@ class_hasClass = function (exports) {
 }(class_hasClass);
 class_addClass = function (exports) {
   var hasClass = class_hasClass;
+  /*
+   * @return Number
+   * @params H arr, Object obj
+   */
   var addClass = function (obj, cls) {
     if (!hasClass(obj, cls)) {
       obj.className += ' ' + cls;
@@ -572,230 +599,6 @@ string_trim = function (exports) {
   exports = trim;
   return exports;
 }(string_trim);
-time_parse = function (exports) {
-  var DATE_PATTERN = /^(\d{4})\D*(\d{2})\D*(\d{2})/;
-  var DATE_DAYS = [
-    '星期日',
-    '星期一',
-    '星期二',
-    '星期三',
-    '星期四',
-    '星期五',
-    '星期六'
-  ];
-  var parse = function (day) {
-    var len = ('' + day).length;
-    if (len <= 11 && DATE_PATTERN.test(day)) {
-      var arr = ('' + day).match(DATE_PATTERN);
-      return Date.parse(arr[2] + '/' + arr[3] + '/' + arr[1]);
-    } else if (len >= 12) {
-      return day;
-    }
-  };
-  exports = parse;
-  return exports;
-}(time_parse);
-time_betweenTime = function (exports) {
-  var parse = time_parse;
-  var betweenTime = function (day1, day2) {
-    return Math.abs((parse(day1) - parse(day2)) / 86400000);
-  };
-  exports = betweenTime;
-  return exports;
-}(time_betweenTime);
-time_formatTime = function (exports) {
-  var parse = time_parse;
-  var formatTime = function (day, pattern) {
-    var source = new Date(parse(day));
-    function replacer(patternPart, result) {
-      pattern = pattern.replace(patternPart, result);
-    }
-    // 对目标数字进行0补齐处理
-    var pad = function (source, length) {
-      var pre = '';
-      var negative = source < 0;
-      var string = String(Math.abs(source));
-      if (string.length < length) {
-        pre = new Array(length - string.length + 1).join('0');
-      }
-      return (negative ? '-' : '') + pre + string;
-    };
-    var year = source.getFullYear();
-    var month = source.getMonth() + 1;
-    var date2 = source.getDate();
-    replacer(/yyyy/g, pad(year, 4));
-    replacer(/yy/g, pad(parseInt(year.toString().slice(2), 10), 2));
-    replacer(/MM/g, pad(month, 2));
-    replacer(/M/g, month);
-    replacer(/dd/g, pad(date2, 2));
-    replacer(/d/g, date2);
-    return pattern;
-  };
-  exports = formatTime;
-  return exports;
-}(time_formatTime);
-time_getDate = function (exports) {
-  var parse = time_parse;
-  var formatTime = time_formatTime;
-  var getDate = function (day, num, pattern) {
-    num = num || 0;
-    pattern = pattern || 'yyyyMMdd';
-    return formatTime(parse(day) + 1000 * 60 * 60 * 24 * num, pattern);
-  };
-  exports = getDate;
-  return exports;
-}(time_getDate);
-time_getDayArray = function (exports) {
-  var parse = time_parse;
-  var getDate = time_getDate;
-  var betweenTime = time_betweenTime;
-  var getDayArray = function (day1, day2, n, pattern) {
-    pattern = pattern || 'yyyyMMdd';
-    var all = betweenTime(day1, day2);
-    if (all <= n) {
-      n = all;
-    }
-    var arr = [];
-    var cur = 0;
-    var i = 0;
-    var step = n > 1 ? n - 1 : all;
-    var part = Math.floor(all / step);
-    var residue = all % n;
-    // 记录差值
-    arr.push(getDate(day1, 0, pattern));
-    for (; i < step; i++) {
-      cur += part;
-      cur += residue-- > 0 ? 1 : 0;
-      arr.push(getDate(day1, cur, pattern));
-    }
-    return arr;
-  };
-  exports = getDayArray;
-  return exports;
-}(time_getDayArray);
-time_getDayInWeek = function (exports) {
-  var parse = time_parse;
-  var startDay = 1;
-  var DATE_DAYS = [
-    '星期日',
-    '星期一',
-    '星期二',
-    '星期三',
-    '星期四',
-    '星期五',
-    '星期六'
-  ];
-  var getDayInWeek = function (day) {
-    var index = new Date(parse(day)).getDay();
-    var k = startDay === 1 ? index === 0 ? 6 : index - 1 : index;
-    return {
-      k: k,
-      v: DATE_DAYS[index]
-    };
-  };
-  exports = getDayInWeek;
-  return exports;
-}(time_getDayInWeek);
-time_getMonthArray = function (exports) {
-  var parse = time_parse;
-  var getMonthArray = function (day1, day2) {
-    var date1 = new Date(parse(day1));
-    var date2 = new Date(parse(day2));
-    if (date1 > date2) {
-      var date = date1;
-      date1 = date2;
-      date2 = date;
-    }
-    var year1 = date1.getFullYear();
-    var year2 = date2.getFullYear();
-    var month1 = date1.getMonth() + 1;
-    var month2 = date2.getMonth() + 1;
-    var arr = [];
-    var i = year1;
-    var j = month1;
-    var jj = (year2 - year1) * 12 + month2;
-    for (; i <= year2; i++) {
-      for (; j <= jj; j++) {
-        arr.push(i + '' + (j > 9 ? j : '0' + j));
-        if (j === 12) {
-          j = 1;
-          jj -= 12;
-          break;
-        }
-      }
-    }
-    return arr;
-  };
-  exports = getMonthArray;
-  return exports;
-}(time_getMonthArray);
-time_getWeekArray = function (exports) {
-  var parse = time_parse;
-  var getDate = time_getDate;
-  var getDayInWeek = time_getDayInWeek;
-  var betweenTime = time_betweenTime;
-  var getWeekArray = function (day1, day2) {
-    day1 = getDate(day1, 0);
-    day2 = getDate(day2, 0);
-    var dy1 = getDayInWeek(day1);
-    var k1 = dy1.k;
-    var output = [];
-    var start = 6 - k1;
-    var max = betweenTime(day1, day2) + 1;
-    var i = 1;
-    var len = max - start;
-    if (start > max) {
-      return [day1 + '|' + day2];
-    }
-    output.push(day1 + '|' + getDate(day1, start));
-    for (; i <= len; i += 7) {
-      var startday = getDate(day1, start + i);
-      var endday = getDate(day1, start + i + 6);
-      if (startday > day2) {
-        break;
-      }
-      if (endday > day2) {
-        endday = day2;
-      }
-      output.push(startday + '|' + endday);
-    }
-    return output;
-  };
-  exports = getWeekArray;
-  return exports;
-}(time_getWeekArray);
-time_getWeekNumber = function (exports) {
-  var parse = time_parse;
-  var getWeekNumber = function (day1, day2) {
-    var date1 = new Date(parse(day1));
-    var date2 = new Date(parse(day2));
-    var date0 = new Date(date1.getFullYear(), 0, 1);
-    var d1 = Math.round((date1.getTime() - date0.getTime() + (date0.getDay() - date1.getDay()) * (24 * 60 * 60 * 1000)) / 86400000);
-    var d2 = Math.round((date2.getTime() - date0.getTime() + (date0.getDay() - date2.getDay()) * (24 * 60 * 60 * 1000)) / 86400000);
-    return Math.ceil(d2 / 7) - Math.ceil(d1 / 7);
-  };
-  exports = getWeekNumber;
-  return exports;
-}(time_getWeekNumber);
-time_getYearArray = function (exports) {
-  var parse = time_parse;
-  var getYearArray = function (day1, day2) {
-    var year1 = new Date(parse(day1)).getFullYear();
-    var year2 = new Date(parse(day2)).getFullYear();
-    var arr = [];
-    var i = year1;
-    if (year1 > year2) {
-      i = year2;
-      year2 = year1;
-    }
-    for (; i <= year2; i++) {
-      arr.push(i);
-    }
-    return arr;
-  };
-  exports = getYearArray;
-  return exports;
-}(time_getYearArray);
 time_parseTime = function (exports) {
   /*
    * @return number
@@ -893,6 +696,29 @@ time_judgeTime = function (exports) {
   exports = judgeTime;
   return exports;
 }(time_judgeTime);
+time_parse = function (exports) {
+  var DATE_PATTERN = /^(\d{4})\D*(\d{2})\D*(\d{2})/;
+  var DATE_DAYS = [
+    '星期日',
+    '星期一',
+    '星期二',
+    '星期三',
+    '星期四',
+    '星期五',
+    '星期六'
+  ];
+  var parse = function (day) {
+    var len = ('' + day).length;
+    if (len <= 11 && DATE_PATTERN.test(day)) {
+      var arr = ('' + day).match(DATE_PATTERN);
+      return Date.parse(arr[2] + '/' + arr[3] + '/' + arr[1]);
+    } else if (len >= 12) {
+      return day;
+    }
+  };
+  exports = parse;
+  return exports;
+}(time_parse);
 type_typeIsBuffer = function (exports) {
   var toString = Object.prototype.toString;
   function typeIsBuffer(obj) {
@@ -1829,5 +1655,5 @@ useragent_isIE = function (exports) {
   return exports;
 }(useragent_isIE);
 
-return {ajax:ajax_ajax,ajaxFile:ajax_ajaxFile,ajaxGet:ajax_ajaxGet,ajaxJsonp:ajax_ajaxJsonp,ajaxPost:ajax_ajaxPost,arrayEqual:array_arrayEqual,indexOf:array_indexOf,addClass:class_addClass,getElementByClassName:class_getElementByClassName,hasClass:class_hasClass,removeClass:class_removeClass,toggleClass:class_toggleClass,getCookie:cookie_getCookie,getCookies:cookie_getCookies,parseCookie:cookie_parseCookie,setCookie:cookie_setCookie,getKeyName:keycode_getKeyName,deepCopy:object_deepCopy,extend:object_extend,randomColor:random_randomColor,randomNumber:random_randomNumber,trim:string_trim,betweenTime:time_betweenTime,formatTime:time_formatTime,getDate:time_getDate,getDayArray:time_getDayArray,getDayInWeek:time_getDayInWeek,getMonthArray:time_getMonthArray,getWeekArray:time_getWeekArray,getWeekNumber:time_getWeekNumber,getYearArray:time_getYearArray,judgeTime:time_judgeTime,parse:time_parse,parseTime:time_parseTime,getType:type_getType,is:type_is,typeIsBuffer:type_typeIsBuffer,decode:url_decode,encode:url_encode,isCrossDomain:url_isCrossDomain,parsePort:url_parsePort,parseQueryString:url_parseQueryString,parseURL:url_parseURL,stringfyQueryString:url_stringfyQueryString,getIEVersion:useragent_getIEVersion,getOS:useragent_getOS,isChrome:useragent_isChrome,isIE:useragent_isIE}
+return {ajax:ajax_ajax,ajaxFile:ajax_ajaxFile,ajaxGet:ajax_ajaxGet,ajaxJsonp:ajax_ajaxJsonp,ajaxPost:ajax_ajaxPost,arrayEqual:array_arrayEqual,indexof:array_indexof,addClass:class_addClass,getElementByClassName:class_getElementByClassName,hasClass:class_hasClass,removeClass:class_removeClass,toggleClass:class_toggleClass,getCookie:cookie_getCookie,getCookies:cookie_getCookies,parseCookie:cookie_parseCookie,setCookie:cookie_setCookie,getKeyName:keycode_getKeyName,deepCopy:object_deepCopy,extend:object_extend,randomColor:random_randomColor,randomNumber:random_randomNumber,trim:string_trim,judgeTime:time_judgeTime,parse:time_parse,parseTime:time_parseTime,getType:type_getType,is:type_is,typeIsBuffer:type_typeIsBuffer,decode:url_decode,encode:url_encode,isCrossDomain:url_isCrossDomain,parsePort:url_parsePort,parseQueryString:url_parseQueryString,parseURL:url_parseURL,stringfyQueryString:url_stringfyQueryString,getIEVersion:useragent_getIEVersion,getOS:useragent_getOS,isChrome:useragent_isChrome,isIE:useragent_isIE}
 });

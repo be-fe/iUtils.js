@@ -1,6 +1,10 @@
 define(function (require, exports, module) {
 
 
+    /*
+     * @return HTMLNodeList
+     * @params HTMLElement node, String  classname
+     */
     var getElementByClassName = function (node, classname) {
         if (node.getElementsByClassName) { // use native implementation if available
             return node.getElementsByClassName(classname);

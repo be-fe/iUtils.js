@@ -8,6 +8,9 @@ define(function (require, exports, module) {
 
     var randomNumber = require('../random/randomNumber');
 
+    /*
+     * @params userOptions
+     */
     var myAjax = function (userOptions) {
 
         // 默认值

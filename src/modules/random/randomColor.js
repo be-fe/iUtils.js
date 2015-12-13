@@ -5,6 +5,9 @@
 
 define(function (require, exports, module) {
 
+    /*
+     * @return String  
+     */
     function randomColor() {
 
         var r = function () {

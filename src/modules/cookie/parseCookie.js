@@ -2,6 +2,11 @@ define(function (require, exports, module) {
 
     var decode = require('../url/decode');
 
+
+    /*
+     * @return Object
+     * @params String  str
+     */
     function parseCookie(str) {
         var obj = {};
         var pairs = str.split(/ *; */);

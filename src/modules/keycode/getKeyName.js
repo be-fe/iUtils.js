@@ -122,6 +122,10 @@ define(function (require, exports, module) {
             222: '\''
         };
 
+        /*
+         * @return String keyname
+         * @params Number  keycode
+         */
         this.getKeyName = function (keycode) {
             if (self.keyCodeMap[keycode]) {
                 return self.keyCodeMap[keycode];

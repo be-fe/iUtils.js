@@ -1,6 +1,10 @@
 define(function (require, exports, module) {
 
     var parse = require('./parseCookie');
+
+    /*
+     * @return Object
+     */
     function getAllCookie() {
         var str;
         try {

@@ -8,6 +8,9 @@ define(function (require, exports, module) {
 
     var ajax = require('./ajax');
 
+    /*
+     * @params String url, Object params, Function successCallback, Function  failCallback
+     */
     var ajaxJsonp = function (url, params, successCallback, failCallback) {
         ajax({
             method: "jsonp",

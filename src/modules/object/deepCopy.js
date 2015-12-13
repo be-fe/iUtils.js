@@ -1,6 +1,10 @@
 define(function (require, exports, module) {
 
     // 深拷贝
+    /*
+     * @return Object  child
+     * @params Object  parent
+     */
     function deepCopy(parent, child) {
         var child = child || {};
         for (var i in parent) {

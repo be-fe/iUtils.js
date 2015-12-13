@@ -2,6 +2,9 @@ define(function (require, exports, module) {
 
     var hasClass = require('./hasClass');
 
+    /*
+     * @params HTMLElement obj, String  cls
+     */
     var toggleClass = function (obj, cls) {
         if (hasClass(obj, cls)) {
             var reg = new RegExp('(\\s|^)' + cls + '(\\s|$)');
