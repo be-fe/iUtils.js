@@ -1,5 +1,5 @@
 /**
- * @file randomNumber
+ * @file randomColor
  * @author leiquan<leiquan@baidu.com>
  */
 
