@@ -4,7 +4,7 @@
  * @file randomNumber
  * @author leiquan<leiquan@baidu.com>
  */
-var random_randomNumber = {}, ajax_ajax = {}, ajax_ajaxFile = {}, ajax_ajaxGet = {}, ajax_ajaxJsonp = {}, ajax_ajaxPost = {}, array_arrayEqual = {}, array_indexOf = {}, class_hasClass = {}, class_addClass = {}, class_getElementByClassName = {}, class_removeClass = {}, class_toggleClass = {}, url_decode = {}, cookie_parseCookie = {}, cookie_getCookies = {}, cookie_getCookie = {}, url_encode = {}, cookie_setCookie = {}, keycode_getKeyName = {}, object_deepCopy = {}, object_extend = {}, random_randomColor = {}, string_trim = {}, time_parse = {}, time_betweenTime = {}, time_formatTime = {}, time_getDate = {}, time_getDayArray = {}, time_getDayInWeek = {}, time_getMonthArray = {}, time_getWeekArray = {}, time_getWeekNumber = {}, time_getYearArray = {}, time_parseTime = {}, time_judgeTime = {}, type_typeIsBuffer = {}, type_getType = {}, type_is = {}, url_parsePort = {}, url_parseURL = {}, url_isCrossDomain = {}, url_parseQueryString = {}, url_stringfyQueryString = {}, useragent_getIEVersion = {}, useragent_getOS = {}, useragent_isChrome = {}, useragent_isIE = {};
+var random_randomNumber = {}, ajax_ajax = {}, ajax_ajaxFile = {}, ajax_ajaxGet = {}, ajax_ajaxJsonp = {}, ajax_ajaxPost = {}, array_arrayEqual = {}, array_indexOf = {}, class_hasClass = {}, class_addClass = {}, class_getElementByClassName = {}, class_removeClass = {}, class_toggleClass = {}, url_decode = {}, cookie_parseCookie = {}, cookie_getCookies = {}, cookie_getCookie = {}, url_encode = {}, cookie_setCookie = {}, device_getIEVersion = {}, device_getOS = {}, device_isChrome = {}, device_isIE = {}, dom_getPageSize = {}, is_is = {}, jsloader_jsLoader = {}, keycode_getKeyName = {}, object_deepCopy = {}, object_extend = {}, random_randomColor = {}, regexp_isDateString = {}, regexp_isEmail = {}, regexp_isHexAdecimal = {}, regexp_isHexColor = {}, regexp_isTimeString = {}, regexp_isUrl = {}, string_trim = {}, time_parse = {}, time_betweenTime = {}, time_formatTime = {}, time_getDate = {}, time_getDayArray = {}, time_getDayInWeek = {}, time_getMonthArray = {}, time_getWeekArray = {}, time_getWeekNumber = {}, time_getYearArray = {}, time_parseTime = {}, time_judgeTime = {}, type_typeIsBuffer = {}, type_getType = {}, url_parsePort = {}, url_parseURL = {}, url_isCrossDomain = {}, url_parseQueryString = {}, url_stringfyQueryString = {};
 random_randomNumber = function (exports) {
   function randomNumber(min, max) {
     return Math.floor(min + Math.random() * (max - min));
@@ -397,543 +397,135 @@ cookie_setCookie = function (exports) {
   exports = setCookie;
   return exports;
 }(cookie_setCookie);
-keycode_getKeyName = function (exports) {
-  var keyCodeHelper = function () {
-    var self = this;
-    this.keyCodeMap = {
-      8: 'Backspace',
-      9: 'Tab',
-      13: 'Enter',
-      16: 'Shift',
-      17: 'Ctrl',
-      18: 'Alt',
-      19: 'Pause',
-      20: 'Caps Lock',
-      27: 'Escape',
-      32: 'Space',
-      33: 'Page Up',
-      34: 'Page Down',
-      35: 'End',
-      36: 'Home',
-      37: 'Left',
-      38: 'Up',
-      39: 'Right',
-      40: 'Down',
-      42: 'Print Screen',
-      45: 'Insert',
-      46: 'Delete',
-      48: '0',
-      49: '1',
-      50: '2',
-      51: '3',
-      52: '4',
-      53: '5',
-      54: '6',
-      55: '7',
-      56: '8',
-      57: '9',
-      65: 'A',
-      66: 'B',
-      67: 'C',
-      68: 'D',
-      69: 'E',
-      70: 'F',
-      71: 'G',
-      72: 'H',
-      73: 'I',
-      74: 'J',
-      75: 'K',
-      76: 'L',
-      77: 'M',
-      78: 'N',
-      79: 'O',
-      80: 'P',
-      81: 'Q',
-      82: 'R',
-      83: 'S',
-      84: 'T',
-      85: 'U',
-      86: 'V',
-      87: 'W',
-      88: 'X',
-      89: 'Y',
-      90: 'Z',
-      91: 'Windows',
-      93: 'Right Click',
-      96: 'Numpad 0',
-      97: 'Numpad 1',
-      98: 'Numpad 2',
-      99: 'Numpad 3',
-      100: 'Numpad 4',
-      101: 'Numpad 5',
-      102: 'Numpad 6',
-      103: 'Numpad 7',
-      104: 'Numpad 8',
-      105: 'Numpad 9',
-      106: 'Numpad *',
-      107: 'Numpad +',
-      109: 'Numpad -',
-      110: 'Numpad .',
-      111: 'Numpad /',
-      112: 'F1',
-      113: 'F2',
-      114: 'F3',
-      115: 'F4',
-      116: 'F5',
-      117: 'F6',
-      118: 'F7',
-      119: 'F8',
-      120: 'F9',
-      121: 'F10',
-      122: 'F11',
-      123: 'F12',
-      144: 'Num Lock',
-      145: 'Scroll Lock',
-      182: 'My Computer',
-      183: 'My Calculator',
-      186: ';',
-      187: '=',
-      188: ',',
-      189: '-',
-      190: '.',
-      191: '/',
-      192: '`',
-      219: '[',
-      220: '\\',
-      221: ']',
-      222: '\''
-    };
-    this.getKeyName = function (keycode) {
-      if (self.keyCodeMap[keycode]) {
-        return self.keyCodeMap[keycode];
-      } else {
-        console.log('Unknow Key(Key Code:' + keycode + ')');
-        return '';
-      }
-    };
-  };
-  exports = new keyCodeHelper().getKeyName;
-  return exports;
-}(keycode_getKeyName);
-object_deepCopy = function (exports) {
-  // 深拷贝
-  function deepCopy(parent, child) {
-    var child = child || {};
-    for (var i in parent) {
-      if (typeof parent[i] === 'object') {
-        child[i] = parent[i].constructor === Array ? [] : {};
-        //新建数组或者object来达到目的
-        clone(parent[i], child[i]);
-      } else {
-        child[i] = parent[i];
-      }
-    }
-    return child;
+device_getIEVersion = function (exports) {
+  function getIEVersion() {
+    for (var v = 3, el = document.createElement('b'),
+        // empty array as loop breaker (and exception-avoider) for non-IE and IE10+
+        all = el.all || []; // i tag not well-formed since we know that IE5-IE9 won't mind
+      el.innerHTML = '<!--[if gt IE ' + ++v + ']><i><![endif]-->', all[0];);
+    // return the documentMode for IE10+ compatibility
+    // non-IE will get undefined
+    return v > 4 ? v : document.documentMode;
   }
-  exports = deepCopy;
+  exports = getIEVersion;
   return exports;
-}(object_deepCopy);
-object_extend = function (exports) {
-  // 浅拷贝,只是拷贝基本类型的数据,把parent有的全部给child.在遇到[]和{}时候会有问题
-  var extend = function (parent, child) {
-    for (var p in parent) {
-      if (parent.hasOwnProperty(p)) {
-        child[p] = parent[p];
-      }
+}(device_getIEVersion);
+device_getOS = function (exports) {
+  function getDevicePlatform() {
+    var userAgent = 'navigator' in window && 'userAgent' in navigator && navigator.userAgent.toLowerCase() || '';
+    var vendor = 'navigator' in window && 'vendor' in navigator && navigator.vendor.toLowerCase() || '';
+    var appVersion = 'navigator' in window && 'appVersion' in navigator && navigator.appVersion.toLowerCase() || '';
+    if (/mac/i.test(appVersion)) {
+      return 'MacOSX';
     }
-    child.uber = parent;
-    return child;
-  };
-  exports = extend;
-  return exports;
-}(object_extend);
-random_randomColor = function (exports) {
-  function randomColor() {
-    var r = function () {
-      return Math.floor(Math.random() * 256);
-    };
-    return 'rgb(' + r() + ',' + r() + ',' + r() + ')';
+    if (/win/i.test(appVersion)) {
+      return 'windows';
+    }
+    if (/linux/i.test(appVersion)) {
+      return 'linux';
+    }
+    if (/iphone/i.test(userAgent) || /ipad/i.test(userAgent) || /ipod/i.test(userAgent)) {
+      return 'ios';
+    }
+    if (/android/i.test(userAgent)) {
+      return 'android';
+    }
+    if (/win/i.test(appVersion) && /phone/i.test(userAgent)) {
+      return 'windowsPhone';
+    }
   }
-  exports = randomColor;
+  exports = getDevicePlatform;
   return exports;
-}(random_randomColor);
-string_trim = function (exports) {
-  var trim = function (string, leftOrRight) {
-    if (leftOrRight) {
-      if (leftOrRight === 'left') {
-        return string.replace(/^\s*/, '');
-      } else if (leftOrRight === 'right') {
-        return string.replace(/\s*$/, '');
+}(device_getOS);
+device_isChrome = function (exports) {
+  function isChrome() {
+    var userAgent = 'navigator' in window && 'userAgent' in navigator && navigator.userAgent.toLowerCase() || '';
+    var vendor = 'navigator' in window && 'vendor' in navigator && navigator.vendor.toLowerCase() || '';
+    var appVersion = 'navigator' in window && 'appVersion' in navigator && navigator.appVersion.toLowerCase() || '';
+    return /chrome|chromium/i.test(userAgent) && /google inc/.test(vendor);
+  }
+  exports = isChrome;
+  return exports;
+}(device_isChrome);
+device_isIE = function (exports) {
+  function isIE() {
+    var userAgent = 'navigator' in window && 'userAgent' in navigator && navigator.userAgent.toLowerCase() || '';
+    is.ie = function (version) {
+      if (!version) {
+        return /msie/i.test(userAgent) || 'ActiveXObject' in window;
       }
+      if (version >= 11) {
+        return 'ActiveXObject' in window;
+      }
+      return new RegExp('msie ' + version).test(userAgent);
+    };
+  }
+  exports = isIE;
+  return exports;
+}(device_isIE);
+dom_getPageSize = function (exports) {
+  var getPageSize = function (obj, cls) {
+    var xScroll, yScroll;
+    if (window.innerHeight && window.scrollMaxY) {
+      xScroll = window.innerWidth + window.scrollMaxX;
+      yScroll = window.innerHeight + window.scrollMaxY;
     } else {
-      return string.replace(/^\s*|\s*$/g, '');
-    }
-  };
-  exports = trim;
-  return exports;
-}(string_trim);
-time_parse = function (exports) {
-  var DATE_PATTERN = /^(\d{4})\D*(\d{2})\D*(\d{2})/;
-  var DATE_DAYS = [
-    '星期日',
-    '星期一',
-    '星期二',
-    '星期三',
-    '星期四',
-    '星期五',
-    '星期六'
-  ];
-  var parse = function (day) {
-    var len = ('' + day).length;
-    if (len <= 11 && DATE_PATTERN.test(day)) {
-      var arr = ('' + day).match(DATE_PATTERN);
-      return Date.parse(arr[2] + '/' + arr[3] + '/' + arr[1]);
-    } else if (len >= 12) {
-      return day;
-    }
-  };
-  exports = parse;
-  return exports;
-}(time_parse);
-time_betweenTime = function (exports) {
-  var parse = time_parse;
-  var betweenTime = function (day1, day2) {
-    return Math.abs((parse(day1) - parse(day2)) / 86400000);
-  };
-  exports = betweenTime;
-  return exports;
-}(time_betweenTime);
-time_formatTime = function (exports) {
-  var parse = time_parse;
-  var formatTime = function (day, pattern) {
-    var source = new Date(parse(day));
-    function replacer(patternPart, result) {
-      pattern = pattern.replace(patternPart, result);
-    }
-    // 对目标数字进行0补齐处理
-    var pad = function (source, length) {
-      var pre = '';
-      var negative = source < 0;
-      var string = String(Math.abs(source));
-      if (string.length < length) {
-        pre = new Array(length - string.length + 1).join('0');
+      if (document.body.scrollHeight > document.body.offsetHeight) {
+        // all but Explorer Mac
+        xScroll = document.body.scrollWidth;
+        yScroll = document.body.scrollHeight;
+      } else {
+        // Explorer Mac...would also work in Explorer 6 Strict, Mozilla and Safari
+        xScroll = document.body.offsetWidth;
+        yScroll = document.body.offsetHeight;
       }
-      return (negative ? '-' : '') + pre + string;
-    };
-    var year = source.getFullYear();
-    var month = source.getMonth() + 1;
-    var date2 = source.getDate();
-    replacer(/yyyy/g, pad(year, 4));
-    replacer(/yy/g, pad(parseInt(year.toString().slice(2), 10), 2));
-    replacer(/MM/g, pad(month, 2));
-    replacer(/M/g, month);
-    replacer(/dd/g, pad(date2, 2));
-    replacer(/d/g, date2);
-    return pattern;
-  };
-  exports = formatTime;
-  return exports;
-}(time_formatTime);
-time_getDate = function (exports) {
-  var parse = time_parse;
-  var formatTime = time_formatTime;
-  var getDate = function (day, num, pattern) {
-    num = num || 0;
-    pattern = pattern || 'yyyyMMdd';
-    return formatTime(parse(day) + 1000 * 60 * 60 * 24 * num, pattern);
-  };
-  exports = getDate;
-  return exports;
-}(time_getDate);
-time_getDayArray = function (exports) {
-  var parse = time_parse;
-  var getDate = time_getDate;
-  var betweenTime = time_betweenTime;
-  var getDayArray = function (day1, day2, n, pattern) {
-    pattern = pattern || 'yyyyMMdd';
-    var all = betweenTime(day1, day2);
-    if (all <= n) {
-      n = all;
     }
-    var arr = [];
-    var cur = 0;
-    var i = 0;
-    var step = n > 1 ? n - 1 : all;
-    var part = Math.floor(all / step);
-    var residue = all % n;
-    // 记录差值
-    arr.push(getDate(day1, 0, pattern));
-    for (; i < step; i++) {
-      cur += part;
-      cur += residue-- > 0 ? 1 : 0;
-      arr.push(getDate(day1, cur, pattern));
-    }
-    return arr;
-  };
-  exports = getDayArray;
-  return exports;
-}(time_getDayArray);
-time_getDayInWeek = function (exports) {
-  var parse = time_parse;
-  var startDay = 1;
-  var DATE_DAYS = [
-    '星期日',
-    '星期一',
-    '星期二',
-    '星期三',
-    '星期四',
-    '星期五',
-    '星期六'
-  ];
-  var getDayInWeek = function (day) {
-    var index = new Date(parse(day)).getDay();
-    var k = startDay === 1 ? index === 0 ? 6 : index - 1 : index;
-    return {
-      k: k,
-      v: DATE_DAYS[index]
-    };
-  };
-  exports = getDayInWeek;
-  return exports;
-}(time_getDayInWeek);
-time_getMonthArray = function (exports) {
-  var parse = time_parse;
-  var getMonthArray = function (day1, day2) {
-    var date1 = new Date(parse(day1));
-    var date2 = new Date(parse(day2));
-    if (date1 > date2) {
-      var date = date1;
-      date1 = date2;
-      date2 = date;
-    }
-    var year1 = date1.getFullYear();
-    var year2 = date2.getFullYear();
-    var month1 = date1.getMonth() + 1;
-    var month2 = date2.getMonth() + 1;
-    var arr = [];
-    var i = year1;
-    var j = month1;
-    var jj = (year2 - year1) * 12 + month2;
-    for (; i <= year2; i++) {
-      for (; j <= jj; j++) {
-        arr.push(i + '' + (j > 9 ? j : '0' + j));
-        if (j === 12) {
-          j = 1;
-          jj -= 12;
-          break;
+    var windowWidth, windowHeight;
+    if (self.innerHeight) {
+      // all except Explorer
+      if (document.documentElement.clientWidth) {
+        windowWidth = document.documentElement.clientWidth;
+      } else {
+        windowWidth = self.innerWidth;
+      }
+      windowHeight = self.innerHeight;
+    } else {
+      if (document.documentElement && document.documentElement.clientHeight) {
+        // Explorer 6 Strict Mode
+        windowWidth = document.documentElement.clientWidth;
+        windowHeight = document.documentElement.clientHeight;
+      } else {
+        if (document.body) {
+          // other Explorers
+          windowWidth = document.body.clientWidth;
+          windowHeight = document.body.clientHeight;
         }
       }
     }
-    return arr;
-  };
-  exports = getMonthArray;
-  return exports;
-}(time_getMonthArray);
-time_getWeekArray = function (exports) {
-  var parse = time_parse;
-  var getDate = time_getDate;
-  var getDayInWeek = time_getDayInWeek;
-  var betweenTime = time_betweenTime;
-  var getWeekArray = function (day1, day2) {
-    day1 = getDate(day1, 0);
-    day2 = getDate(day2, 0);
-    var dy1 = getDayInWeek(day1);
-    var k1 = dy1.k;
-    var output = [];
-    var start = 6 - k1;
-    var max = betweenTime(day1, day2) + 1;
-    var i = 1;
-    var len = max - start;
-    if (start > max) {
-      return [day1 + '|' + day2];
+    var pageHeight, pageWidth;
+    // for small pages with total height less then height of the viewport
+    if (yScroll < windowHeight) {
+      pageHeight = windowHeight;
+    } else {
+      pageHeight = yScroll;
     }
-    output.push(day1 + '|' + getDate(day1, start));
-    for (; i <= len; i += 7) {
-      var startday = getDate(day1, start + i);
-      var endday = getDate(day1, start + i + 6);
-      if (startday > day2) {
-        break;
-      }
-      if (endday > day2) {
-        endday = day2;
-      }
-      output.push(startday + '|' + endday);
+    // for small pages with total width less then width of the viewport
+    if (xScroll < windowWidth) {
+      pageWidth = xScroll;
+    } else {
+      pageWidth = windowWidth;
     }
-    return output;
-  };
-  exports = getWeekArray;
-  return exports;
-}(time_getWeekArray);
-time_getWeekNumber = function (exports) {
-  var parse = time_parse;
-  var getWeekNumber = function (day1, day2) {
-    var date1 = new Date(parse(day1));
-    var date2 = new Date(parse(day2));
-    var date0 = new Date(date1.getFullYear(), 0, 1);
-    var d1 = Math.round((date1.getTime() - date0.getTime() + (date0.getDay() - date1.getDay()) * (24 * 60 * 60 * 1000)) / 86400000);
-    var d2 = Math.round((date2.getTime() - date0.getTime() + (date0.getDay() - date2.getDay()) * (24 * 60 * 60 * 1000)) / 86400000);
-    return Math.ceil(d2 / 7) - Math.ceil(d1 / 7);
-  };
-  exports = getWeekNumber;
-  return exports;
-}(time_getWeekNumber);
-time_getYearArray = function (exports) {
-  var parse = time_parse;
-  var getYearArray = function (day1, day2) {
-    var year1 = new Date(parse(day1)).getFullYear();
-    var year2 = new Date(parse(day2)).getFullYear();
-    var arr = [];
-    var i = year1;
-    if (year1 > year2) {
-      i = year2;
-      year2 = year1;
-    }
-    for (; i <= year2; i++) {
-      arr.push(i);
-    }
-    return arr;
-  };
-  exports = getYearArray;
-  return exports;
-}(time_getYearArray);
-time_parseTime = function (exports) {
-  /*
-   * @return number
-   * @params string/number/obj
-   */
-  var parseTime = function (time) {
-    var timeStamp;
-    var parseDateDtring = function (dateStr) {
-      var newstr = dateStr.replace(/-/g, '/');
-      newstr = newstr.replace(/[A-Za-z]|[\u4E00-\u9FA5]+/g, ' ');
-      newstr = newstr.replace(/\.\d+$/g, '');
-      var date = new Date(newstr);
-      if (date.toString() === 'Invalid Date') {
-        throw '请提供合法的时间字符串';
-      } else {
-        return date.getTime();
-      }
-    };
-    if (toString.call(time) === '[object Number]') {
-      if ((time + '').length === 13) {
-        timeStamp = time;
-      } else if ((time + '').length === 10) {
-        timeStamp = time * 1000;
-      } else {
-        throw '请提供合法的时间戳';
-      }
-    } else if (toString.call(time) === '[object Date]') {
-      if (date.toString() === 'Invalid Date') {
-        throw '请提供合法的时间对象';
-      } else {
-        timeStamp = time.getTime();
-      }
-    } else if (toString.call(time) === '[object String]') {
-      timeStamp = parseDateDtring(time);
-    }
-    return timeStamp;
-  };
-  exports = parseTime;
-  return exports;
-}(time_parseTime);
-time_judgeTime = function (exports) {
-  /*
-   * @return obj
-   * @params string/number/obj
-   */
-  var parseTime = time_parseTime;
-  var _getTimeStr = function (time) {
-    var time = new Date(time);
-    var Y = time.getFullYear() + '-';
-    var M = (time.getMonth() + 1 < 10 ? '0' + (time.getMonth() + 1) : time.getMonth() + 1) + '-';
-    var D = time.getDate() < 10 ? '0' + time.getDate() : time.getDate();
-    var h = time.getHours() + ':';
-    var m = time.getMinutes() < 10 ? '0' + time.getMinutes() : time.getMinutes();
     return {
-      dateStr: Y + M + D,
-      timeStr: h + m,
-      dateTimeStr: Y + M + D + ' ' + h + m
+      pageWidth: pageWidth,
+      pageHeight: pageHeight,
+      windowWidth: windowWidth,
+      windowHeight: windowHeight
     };
   };
-  var judgeTime = function (time) {
-    var timeType;
-    var dateStr;
-    var timeStr;
-    var timeStamp = parseTime(time);
-    var now = new Date().getTime();
-    var Y = time.getFullYear();
-    var y = now.getFullYear();
-    var m = now.getMonth();
-    var d = now.getDate();
-    var zeroStamp = Math.round(new Date(y, m, d, 0, 0, 1).getTime());
-    //获得今日0点的时间戳
-    var nz = now - zeroStamp;
-    var nt = now - timeStamp;
-    if (nt < nz) {
-      timeType = 'today';
-    } else if (nt > nz && nt < 86400000 + nz) {
-      timeType = 'yesterday';
-    } else if (y - Y === 1) {
-      timeType = 'lastYear';
-    } else if (y - Y === 0) {
-      timeType = 'thisYear';
-    }  //添加更多支持：例如上个月，去年，今年
-    else {
-      timeType = 'normal';
-    }
-    var timeStrObj = _getTimeStr(time);
-    return {
-      timeStamp: timeStamp,
-      dateStr: timeStrObj.dateStr,
-      timeStr: timeStrObj.timeStr,
-      dateTimeStr: timeStrObj.dateTimeStr,
-      timeType: timeType
-    };
-  };
-  exports = judgeTime;
+  exports = getPageSize;
   return exports;
-}(time_judgeTime);
-type_typeIsBuffer = function (exports) {
-  var toString = Object.prototype.toString;
-  function typeIsBuffer(obj) {
-    return !!(obj != null && (obj._isBuffer || obj.constructor && typeof obj.constructor.isBuffer === 'function' && obj.constructor.isBuffer(obj)));
-  }
-  exports = typeIsBuffer;
-  return exports;
-}(type_typeIsBuffer);
-type_getType = function (exports) {
-  var toString = Object.prototype.toString;
-  var typeIsBuffer = type_typeIsBuffer;
-  var getType = function (val) {
-    switch (toString.call(val)) {
-    case '[object Date]':
-      return 'date';
-    case '[object RegExp]':
-      return 'regexp';
-    case '[object Arguments]':
-      return 'arguments';
-    case '[object Array]':
-      return 'array';
-    case '[object Error]':
-      return 'error';
-    }
-    if (val === null)
-      return 'null';
-    if (val === undefined)
-      return 'undefined';
-    if (val !== val)
-      return 'nan';
-    if (val && val.nodeType === 1)
-      return 'element';
-    if (typeIsBuffer(val))
-      return 'buffer';
-    val = val.valueOf ? val.valueOf() : Object.prototype.valueOf.apply(val);
-    return typeof val;
-  };
-  exports = getType;
-  return exports;
-}(type_getType);
-type_is = function (exports) {
+}(dom_getPageSize);
+is_is = function (exports) {
   // is.js 0.7.4
   // Author: Aras Atasaygin
   function is() {
@@ -1654,7 +1246,809 @@ type_is = function (exports) {
   }
   exports = is();
   return exports;
-}(type_is);
+}(is_is);
+jsloader_jsLoader = function (exports) {
+  var jsLoader = function () {
+    // 用作存储脚本信息
+    var cache = {};
+    // 用作生成不重复的客户端id
+    var _cid = 0;
+    // 用作存储其他loader实例需要运行的脚本任务
+    var processCache = {};
+    // 用作储存别名
+    window.alias = {};
+    // 加载状态标识
+    var DONE = 'done';
+    var REJECTED = 'rejected';
+    var PENDING = 'pending';
+    // 获取document,head
+    var doc = document;
+    var head = doc.head || doc.getElementsByTagName('head')[0] || doc.documentElement;
+    /**
+     * 产生客户端id
+     * @return {Number} [description]
+     */
+    function cid() {
+      return _cid++;
+    }
+    /**
+     * Script对象，储存需要加载的任务的基本信息
+     * @param  {String} uri     uri 地址 | 需要执行的函数
+     * @param  {String} type    任务类型
+     */
+    function Script(uri, type) {
+      this.uri = uri;
+      this.type = type;
+      this.cid = cid();
+      this.status = PENDING;
+    }
+    /**
+     * 从缓存中获取需要的Script对象
+     * 如果没有，新建一个
+     * @param  {String} uri     uri 地址 | 需要执行的函数
+     * @param  {String} type    任务类型
+     * @return {Object}         需要的Script对象
+     */
+    function get(uri, type) {
+      // 如果不存在于缓存中，创建一个新的Script对象
+      return cache[uri] || (cache[uri] = new Script(uri, type));
+    }
+    /**
+     * 获取真实地址
+     * @param  {String} name [description]
+     * @return {[type]}      return uri
+     */
+    function getAlias(name) {
+      return alias[name];
+    }
+    function getCache(uri, type) {
+      var opts = getAlias(uri);
+      return opts ? get(opts.uri, opts.type) : get(uri, type);
+    }
+    // 处理
+    var handler = {
+      js: jsHandler,
+      css: cssHandler,
+      fn: fnHandler
+    };
+    // 对函数的处理
+    function fnHandler(context, s) {
+      // 函数不需要判断是否为正在加载状态
+      try {
+        s.uri();
+        resolve(context, s);
+      } catch (e) {
+        s.error = e.message;
+        resolve(context, s);
+      }
+    }
+    // 对css请求的处理
+    function cssHandler(context, s) {
+      // 当其他Loader实体中的任务已经完成时
+      if (s.status !== PENDING) {
+        resolve(context, s);
+        return;
+      }
+      var link = document.createElement('link');
+      link.type = 'text/css';
+      link.rel = 'stylesheet';
+      link.href = s.uri;
+      head.appendChild(link);
+      resolve(context, s);
+    }
+    // 对js动态加载的处理
+    function jsHandler(context, s) {
+      // 处理已完成任务
+      if (s.status !== PENDING) {
+        resolve(context, s);
+        return;
+      }
+      // 如果非第一个加载，将剩余的任务和任务关联的上下文塞进正在进行的进程中
+      if (s.changeState) {
+        processCache[s.cid] = processCache[s.cid] || [];
+        processCache[s.cid].push({
+          loader: context,
+          s: s
+        });
+        return;
+      }
+      s.changeState = true;
+      // 设置超时标志
+      var isTimeout = true;
+      var script = document.createElement('script');
+      script.async = true;
+      script.src = s.uri;
+      // 如果支持onload事件
+      var hasOnload = 'onload' in script;
+      if (hasOnload) {
+        script.onload = jsOnload;
+        script.onerror = function () {
+          jsOnload('ScriptError');
+        };
+      } else {
+        script.onreadystatechange = function () {
+          if (/loaded|complete/.test(script.readyState)) {
+            jsOnload();
+          }
+        };
+      }
+      // 如果设置了超时，启动一个计时器
+      if (context.timeout) {
+        setTimeout(timeoutHandler, context.timeout);
+      }
+      head.appendChild(script);
+      function jsOnload(error) {
+        isTimeout = false;
+        script.onload = script.onerror = script.onreadystatechange = null;
+        head.removeChild(script);
+        script = null;
+        if (error && typeof error === 'string') {
+          s.error = error;
+        }
+        resolve(context, s);
+      }
+      function timeoutHandler() {
+        if (isTimeout) {
+          console.log('timeout');
+          jsOnload('RequestTimeout');
+        }
+      }
+    }
+    function resolve(loader, s) {
+      if (s.error) {
+        loader.errors.push(s);
+      }
+      loader.done();
+      var cache = processCache[s.cid];
+      if (cache && !cache.length) {
+        for (var i = 0, len = cache.length; i < len; i++) {
+          cache.shift().loader.done();
+        }
+      }
+    }
+    var Loader = function () {
+      this.list = [];
+      this.errors = [];
+      this.timeout = [];
+      this.callback = null;
+    };
+    Loader.prototype.then = function (src, type) {
+      if (src === undefined) {
+        throw new Error('木有参数');
+      }
+      //  修正参数
+      if (!type) {
+        if (typeof src === 'string') {
+          if (/\.css$|\.css\?/i.test(src)) {
+            type = 'css';
+          }
+          if (/\.js$|\.js\?/i.test(src)) {
+            type = 'js';
+          }
+        }
+        if (typeof src === 'function') {
+          type = 'fn';
+        }
+      }
+      type = type || 'js';
+      this.list.push(getCache(src, type));
+      return this;
+    };
+    Loader.prototype.done = function (cb) {
+      if (this.callback === null) {
+        this.callback = cb;
+      }
+      if (!this.list.length) {
+        this.callback && this.callback(this.errors);
+        return;
+      }
+      var script = this.list.shift();
+      handler[script.type](this, script);
+      if (!this.called) {
+        this.called = true;
+        return new Loader();
+      }
+    };
+    Loader.prototype.config = function (opts) {
+      this.timeout = opts.timeout || 0;
+      if (opts.alias && !opts.alias.length) {
+        for (var i in alias) {
+        }
+        for (var i = opts.alias.length - 1; i >= 0; i--) {
+          alias[i] = opts.alias[i];
+        }
+      }
+      return this;
+    };
+    return Loader;
+  };
+  exports = jsLoader;
+  return exports;
+}(jsloader_jsLoader);
+keycode_getKeyName = function (exports) {
+  var keyCodeHelper = function () {
+    var self = this;
+    this.keyCodeMap = {
+      8: 'Backspace',
+      9: 'Tab',
+      13: 'Enter',
+      16: 'Shift',
+      17: 'Ctrl',
+      18: 'Alt',
+      19: 'Pause',
+      20: 'Caps Lock',
+      27: 'Escape',
+      32: 'Space',
+      33: 'Page Up',
+      34: 'Page Down',
+      35: 'End',
+      36: 'Home',
+      37: 'Left',
+      38: 'Up',
+      39: 'Right',
+      40: 'Down',
+      42: 'Print Screen',
+      45: 'Insert',
+      46: 'Delete',
+      48: '0',
+      49: '1',
+      50: '2',
+      51: '3',
+      52: '4',
+      53: '5',
+      54: '6',
+      55: '7',
+      56: '8',
+      57: '9',
+      65: 'A',
+      66: 'B',
+      67: 'C',
+      68: 'D',
+      69: 'E',
+      70: 'F',
+      71: 'G',
+      72: 'H',
+      73: 'I',
+      74: 'J',
+      75: 'K',
+      76: 'L',
+      77: 'M',
+      78: 'N',
+      79: 'O',
+      80: 'P',
+      81: 'Q',
+      82: 'R',
+      83: 'S',
+      84: 'T',
+      85: 'U',
+      86: 'V',
+      87: 'W',
+      88: 'X',
+      89: 'Y',
+      90: 'Z',
+      91: 'Windows',
+      93: 'Right Click',
+      96: 'Numpad 0',
+      97: 'Numpad 1',
+      98: 'Numpad 2',
+      99: 'Numpad 3',
+      100: 'Numpad 4',
+      101: 'Numpad 5',
+      102: 'Numpad 6',
+      103: 'Numpad 7',
+      104: 'Numpad 8',
+      105: 'Numpad 9',
+      106: 'Numpad *',
+      107: 'Numpad +',
+      109: 'Numpad -',
+      110: 'Numpad .',
+      111: 'Numpad /',
+      112: 'F1',
+      113: 'F2',
+      114: 'F3',
+      115: 'F4',
+      116: 'F5',
+      117: 'F6',
+      118: 'F7',
+      119: 'F8',
+      120: 'F9',
+      121: 'F10',
+      122: 'F11',
+      123: 'F12',
+      144: 'Num Lock',
+      145: 'Scroll Lock',
+      182: 'My Computer',
+      183: 'My Calculator',
+      186: ';',
+      187: '=',
+      188: ',',
+      189: '-',
+      190: '.',
+      191: '/',
+      192: '`',
+      219: '[',
+      220: '\\',
+      221: ']',
+      222: '\''
+    };
+    this.getKeyName = function (keycode) {
+      if (self.keyCodeMap[keycode]) {
+        return self.keyCodeMap[keycode];
+      } else {
+        console.log('Unknow Key(Key Code:' + keycode + ')');
+        return '';
+      }
+    };
+  };
+  exports = new keyCodeHelper().getKeyName;
+  return exports;
+}(keycode_getKeyName);
+object_deepCopy = function (exports) {
+  // 深拷贝
+  function deepCopy(parent, child) {
+    var child = child || {};
+    for (var i in parent) {
+      if (typeof parent[i] === 'object') {
+        child[i] = parent[i].constructor === Array ? [] : {};
+        //新建数组或者object来达到目的
+        clone(parent[i], child[i]);
+      } else {
+        child[i] = parent[i];
+      }
+    }
+    return child;
+  }
+  exports = deepCopy;
+  return exports;
+}(object_deepCopy);
+object_extend = function (exports) {
+  // 浅拷贝,只是拷贝基本类型的数据,把parent有的全部给child.在遇到[]和{}时候会有问题
+  var extend = function (parent, child) {
+    for (var p in parent) {
+      if (parent.hasOwnProperty(p)) {
+        child[p] = parent[p];
+      }
+    }
+    child.uber = parent;
+    return child;
+  };
+  exports = extend;
+  return exports;
+}(object_extend);
+random_randomColor = function (exports) {
+  function randomColor() {
+    var r = function () {
+      return Math.floor(Math.random() * 256);
+    };
+    return 'rgb(' + r() + ',' + r() + ',' + r() + ')';
+  }
+  exports = randomColor;
+  return exports;
+}(random_randomColor);
+regexp_isDateString = function (exports) {
+  var reg = /^(1[0-2]|0?[1-9])\/(3[01]|[12][0-9]|0?[1-9])\/(?:[0-9]{2})?[0-9]{2}$/;
+  var isDateString = function (str) {
+    return reg.test(str);
+  };
+  exports = isDateString;
+  return exports;
+}(regexp_isDateString);
+regexp_isEmail = function (exports) {
+  var reg = /^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))$/i;
+  var isEmail = function (str) {
+    return reg.test(str);
+  };
+  exports = isEmail;
+  return exports;
+}(regexp_isEmail);
+regexp_isHexAdecimal = function (exports) {
+  var reg = /^[0-9a-fA-F]+$/;
+  var isHexAdecimal = function (str) {
+    return reg.test(str);
+  };
+  exports = isHexAdecimal;
+  return exports;
+}(regexp_isHexAdecimal);
+regexp_isHexColor = function (exports) {
+  var reg = /^#?([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$/;
+  var isHexColor = function (str) {
+    return reg.test(str);
+  };
+  exports = isHexColor;
+  return exports;
+}(regexp_isHexColor);
+regexp_isTimeString = function (exports) {
+  var reg = /^(2[0-3]|[01]?[0-9]):([0-5]?[0-9]):([0-5]?[0-9])$/;
+  var isTimeString = function (str) {
+    return reg.test(str);
+  };
+  exports = isTimeString;
+  return exports;
+}(regexp_isTimeString);
+regexp_isUrl = function (exports) {
+  var reg = /^(?:(?:https?|ftp):\/\/)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:\/\S*)?$/i;
+  var isUrl = function (str) {
+    return reg.test(str);
+  };
+  exports = isUrl;
+  return exports;
+}(regexp_isUrl);
+string_trim = function (exports) {
+  var trim = function (string, leftOrRight) {
+    if (leftOrRight) {
+      if (leftOrRight === 'left') {
+        return string.replace(/^\s*/, '');
+      } else if (leftOrRight === 'right') {
+        return string.replace(/\s*$/, '');
+      }
+    } else {
+      return string.replace(/^\s*|\s*$/g, '');
+    }
+  };
+  exports = trim;
+  return exports;
+}(string_trim);
+time_parse = function (exports) {
+  var DATE_PATTERN = /^(\d{4})\D*(\d{2})\D*(\d{2})/;
+  var DATE_DAYS = [
+    '星期日',
+    '星期一',
+    '星期二',
+    '星期三',
+    '星期四',
+    '星期五',
+    '星期六'
+  ];
+  var parse = function (day) {
+    var len = ('' + day).length;
+    if (len <= 11 && DATE_PATTERN.test(day)) {
+      var arr = ('' + day).match(DATE_PATTERN);
+      return Date.parse(arr[2] + '/' + arr[3] + '/' + arr[1]);
+    } else if (len >= 12) {
+      return day;
+    }
+  };
+  exports = parse;
+  return exports;
+}(time_parse);
+time_betweenTime = function (exports) {
+  var parse = time_parse;
+  var betweenTime = function (day1, day2) {
+    return Math.abs((parse(day1) - parse(day2)) / 86400000);
+  };
+  exports = betweenTime;
+  return exports;
+}(time_betweenTime);
+time_formatTime = function (exports) {
+  var parse = time_parse;
+  var formatTime = function (day, pattern) {
+    var source = new Date(parse(day));
+    function replacer(patternPart, result) {
+      pattern = pattern.replace(patternPart, result);
+    }
+    // 对目标数字进行0补齐处理
+    var pad = function (source, length) {
+      var pre = '';
+      var negative = source < 0;
+      var string = String(Math.abs(source));
+      if (string.length < length) {
+        pre = new Array(length - string.length + 1).join('0');
+      }
+      return (negative ? '-' : '') + pre + string;
+    };
+    var year = source.getFullYear();
+    var month = source.getMonth() + 1;
+    var date2 = source.getDate();
+    replacer(/yyyy/g, pad(year, 4));
+    replacer(/yy/g, pad(parseInt(year.toString().slice(2), 10), 2));
+    replacer(/MM/g, pad(month, 2));
+    replacer(/M/g, month);
+    replacer(/dd/g, pad(date2, 2));
+    replacer(/d/g, date2);
+    return pattern;
+  };
+  exports = formatTime;
+  return exports;
+}(time_formatTime);
+time_getDate = function (exports) {
+  var parse = time_parse;
+  var formatTime = time_formatTime;
+  var getDate = function (day, num, pattern) {
+    num = num || 0;
+    pattern = pattern || 'yyyyMMdd';
+    return formatTime(parse(day) + 1000 * 60 * 60 * 24 * num, pattern);
+  };
+  exports = getDate;
+  return exports;
+}(time_getDate);
+time_getDayArray = function (exports) {
+  var parse = time_parse;
+  var getDate = time_getDate;
+  var betweenTime = time_betweenTime;
+  var getDayArray = function (day1, day2, n, pattern) {
+    pattern = pattern || 'yyyyMMdd';
+    var all = betweenTime(day1, day2);
+    if (all <= n) {
+      n = all;
+    }
+    var arr = [];
+    var cur = 0;
+    var i = 0;
+    var step = n > 1 ? n - 1 : all;
+    var part = Math.floor(all / step);
+    var residue = all % n;
+    // 记录差值
+    arr.push(getDate(day1, 0, pattern));
+    for (; i < step; i++) {
+      cur += part;
+      cur += residue-- > 0 ? 1 : 0;
+      arr.push(getDate(day1, cur, pattern));
+    }
+    return arr;
+  };
+  exports = getDayArray;
+  return exports;
+}(time_getDayArray);
+time_getDayInWeek = function (exports) {
+  var parse = time_parse;
+  var startDay = 1;
+  var DATE_DAYS = [
+    '星期日',
+    '星期一',
+    '星期二',
+    '星期三',
+    '星期四',
+    '星期五',
+    '星期六'
+  ];
+  var getDayInWeek = function (day) {
+    var index = new Date(parse(day)).getDay();
+    var k = startDay === 1 ? index === 0 ? 6 : index - 1 : index;
+    return {
+      k: k,
+      v: DATE_DAYS[index]
+    };
+  };
+  exports = getDayInWeek;
+  return exports;
+}(time_getDayInWeek);
+time_getMonthArray = function (exports) {
+  var parse = time_parse;
+  var getMonthArray = function (day1, day2) {
+    var date1 = new Date(parse(day1));
+    var date2 = new Date(parse(day2));
+    if (date1 > date2) {
+      var date = date1;
+      date1 = date2;
+      date2 = date;
+    }
+    var year1 = date1.getFullYear();
+    var year2 = date2.getFullYear();
+    var month1 = date1.getMonth() + 1;
+    var month2 = date2.getMonth() + 1;
+    var arr = [];
+    var i = year1;
+    var j = month1;
+    var jj = (year2 - year1) * 12 + month2;
+    for (; i <= year2; i++) {
+      for (; j <= jj; j++) {
+        arr.push(i + '' + (j > 9 ? j : '0' + j));
+        if (j === 12) {
+          j = 1;
+          jj -= 12;
+          break;
+        }
+      }
+    }
+    return arr;
+  };
+  exports = getMonthArray;
+  return exports;
+}(time_getMonthArray);
+time_getWeekArray = function (exports) {
+  var parse = time_parse;
+  var getDate = time_getDate;
+  var getDayInWeek = time_getDayInWeek;
+  var betweenTime = time_betweenTime;
+  var getWeekArray = function (day1, day2) {
+    day1 = getDate(day1, 0);
+    day2 = getDate(day2, 0);
+    var dy1 = getDayInWeek(day1);
+    var k1 = dy1.k;
+    var output = [];
+    var start = 6 - k1;
+    var max = betweenTime(day1, day2) + 1;
+    var i = 1;
+    var len = max - start;
+    if (start > max) {
+      return [day1 + '|' + day2];
+    }
+    output.push(day1 + '|' + getDate(day1, start));
+    for (; i <= len; i += 7) {
+      var startday = getDate(day1, start + i);
+      var endday = getDate(day1, start + i + 6);
+      if (startday > day2) {
+        break;
+      }
+      if (endday > day2) {
+        endday = day2;
+      }
+      output.push(startday + '|' + endday);
+    }
+    return output;
+  };
+  exports = getWeekArray;
+  return exports;
+}(time_getWeekArray);
+time_getWeekNumber = function (exports) {
+  var parse = time_parse;
+  var getWeekNumber = function (day1, day2) {
+    var date1 = new Date(parse(day1));
+    var date2 = new Date(parse(day2));
+    var date0 = new Date(date1.getFullYear(), 0, 1);
+    var d1 = Math.round((date1.getTime() - date0.getTime() + (date0.getDay() - date1.getDay()) * (24 * 60 * 60 * 1000)) / 86400000);
+    var d2 = Math.round((date2.getTime() - date0.getTime() + (date0.getDay() - date2.getDay()) * (24 * 60 * 60 * 1000)) / 86400000);
+    return Math.ceil(d2 / 7) - Math.ceil(d1 / 7);
+  };
+  exports = getWeekNumber;
+  return exports;
+}(time_getWeekNumber);
+time_getYearArray = function (exports) {
+  var parse = time_parse;
+  var getYearArray = function (day1, day2) {
+    var year1 = new Date(parse(day1)).getFullYear();
+    var year2 = new Date(parse(day2)).getFullYear();
+    var arr = [];
+    var i = year1;
+    if (year1 > year2) {
+      i = year2;
+      year2 = year1;
+    }
+    for (; i <= year2; i++) {
+      arr.push(i);
+    }
+    return arr;
+  };
+  exports = getYearArray;
+  return exports;
+}(time_getYearArray);
+time_parseTime = function (exports) {
+  /*
+   * @return number
+   * @params string/number/obj
+   */
+  var parseTime = function (time) {
+    var timeStamp;
+    var parseDateDtring = function (dateStr) {
+      var newstr = dateStr.replace(/-/g, '/');
+      newstr = newstr.replace(/[A-Za-z]|[\u4E00-\u9FA5]+/g, ' ');
+      newstr = newstr.replace(/\.\d+$/g, '');
+      var date = new Date(newstr);
+      if (date.toString() === 'Invalid Date') {
+        throw '请提供合法的时间字符串';
+      } else {
+        return date.getTime();
+      }
+    };
+    if (toString.call(time) === '[object Number]') {
+      if ((time + '').length === 13) {
+        timeStamp = time;
+      } else if ((time + '').length === 10) {
+        timeStamp = time * 1000;
+      } else {
+        throw '请提供合法的时间戳';
+      }
+    } else if (toString.call(time) === '[object Date]') {
+      if (date.toString() === 'Invalid Date') {
+        throw '请提供合法的时间对象';
+      } else {
+        timeStamp = time.getTime();
+      }
+    } else if (toString.call(time) === '[object String]') {
+      timeStamp = parseDateDtring(time);
+    }
+    return timeStamp;
+  };
+  exports = parseTime;
+  return exports;
+}(time_parseTime);
+time_judgeTime = function (exports) {
+  /*
+   * @return obj
+   * @params string/number/obj
+   */
+  var parseTime = time_parseTime;
+  var _getTimeStr = function (time) {
+    var time = new Date(time);
+    var Y = time.getFullYear() + '-';
+    var M = (time.getMonth() + 1 < 10 ? '0' + (time.getMonth() + 1) : time.getMonth() + 1) + '-';
+    var D = time.getDate() < 10 ? '0' + time.getDate() : time.getDate();
+    var h = time.getHours() + ':';
+    var m = time.getMinutes() < 10 ? '0' + time.getMinutes() : time.getMinutes();
+    return {
+      dateStr: Y + M + D,
+      timeStr: h + m,
+      dateTimeStr: Y + M + D + ' ' + h + m
+    };
+  };
+  var judgeTime = function (time) {
+    var timeType;
+    var dateStr;
+    var timeStr;
+    var timeStamp = parseTime(time);
+    var now = new Date().getTime();
+    var Y = time.getFullYear();
+    var y = now.getFullYear();
+    var m = now.getMonth();
+    var d = now.getDate();
+    var zeroStamp = Math.round(new Date(y, m, d, 0, 0, 1).getTime());
+    //获得今日0点的时间戳
+    var nz = now - zeroStamp;
+    var nt = now - timeStamp;
+    if (nt < nz) {
+      timeType = 'today';
+    } else if (nt > nz && nt < 86400000 + nz) {
+      timeType = 'yesterday';
+    } else if (y - Y === 1) {
+      timeType = 'lastYear';
+    } else if (y - Y === 0) {
+      timeType = 'thisYear';
+    }  //添加更多支持：例如上个月，去年，今年
+    else {
+      timeType = 'normal';
+    }
+    var timeStrObj = _getTimeStr(time);
+    return {
+      timeStamp: timeStamp,
+      dateStr: timeStrObj.dateStr,
+      timeStr: timeStrObj.timeStr,
+      dateTimeStr: timeStrObj.dateTimeStr,
+      timeType: timeType
+    };
+  };
+  exports = judgeTime;
+  return exports;
+}(time_judgeTime);
+type_typeIsBuffer = function (exports) {
+  var toString = Object.prototype.toString;
+  function typeIsBuffer(obj) {
+    return !!(obj != null && (obj._isBuffer || obj.constructor && typeof obj.constructor.isBuffer === 'function' && obj.constructor.isBuffer(obj)));
+  }
+  exports = typeIsBuffer;
+  return exports;
+}(type_typeIsBuffer);
+type_getType = function (exports) {
+  var toString = Object.prototype.toString;
+  var typeIsBuffer = type_typeIsBuffer;
+  var getType = function (val) {
+    switch (toString.call(val)) {
+    case '[object Date]':
+      return 'date';
+    case '[object RegExp]':
+      return 'regexp';
+    case '[object Arguments]':
+      return 'arguments';
+    case '[object Array]':
+      return 'array';
+    case '[object Error]':
+      return 'error';
+    }
+    if (val === null)
+      return 'null';
+    if (val === undefined)
+      return 'undefined';
+    if (val !== val)
+      return 'nan';
+    if (val && val.nodeType === 1)
+      return 'element';
+    if (typeIsBuffer(val))
+      return 'buffer';
+    val = val.valueOf ? val.valueOf() : Object.prototype.valueOf.apply(val);
+    return typeof val;
+  };
+  exports = getType;
+  return exports;
+}(type_getType);
 url_parsePort = function (exports) {
   var parsePort = function (protocol) {
     switch (protocol) {
@@ -1762,72 +2156,6 @@ url_stringfyQueryString = function (exports) {
   exports = stringfyQueryString;
   return exports;
 }(url_stringfyQueryString);
-useragent_getIEVersion = function (exports) {
-  function getIEVersion() {
-    for (var v = 3, el = document.createElement('b'),
-        // empty array as loop breaker (and exception-avoider) for non-IE and IE10+
-        all = el.all || []; // i tag not well-formed since we know that IE5-IE9 won't mind
-      el.innerHTML = '<!--[if gt IE ' + ++v + ']><i><![endif]-->', all[0];);
-    // return the documentMode for IE10+ compatibility
-    // non-IE will get undefined
-    return v > 4 ? v : document.documentMode;
-  }
-  exports = getIEVersion;
-  return exports;
-}(useragent_getIEVersion);
-useragent_getOS = function (exports) {
-  function getDevicePlatform() {
-    var userAgent = 'navigator' in window && 'userAgent' in navigator && navigator.userAgent.toLowerCase() || '';
-    var vendor = 'navigator' in window && 'vendor' in navigator && navigator.vendor.toLowerCase() || '';
-    var appVersion = 'navigator' in window && 'appVersion' in navigator && navigator.appVersion.toLowerCase() || '';
-    if (/mac/i.test(appVersion)) {
-      return 'MacOSX';
-    }
-    if (/win/i.test(appVersion)) {
-      return 'windows';
-    }
-    if (/linux/i.test(appVersion)) {
-      return 'linux';
-    }
-    if (/iphone/i.test(userAgent) || /ipad/i.test(userAgent) || /ipod/i.test(userAgent)) {
-      return 'ios';
-    }
-    if (/android/i.test(userAgent)) {
-      return 'android';
-    }
-    if (/win/i.test(appVersion) && /phone/i.test(userAgent)) {
-      return 'windowsPhone';
-    }
-  }
-  exports = getDevicePlatform;
-  return exports;
-}(useragent_getOS);
-useragent_isChrome = function (exports) {
-  function isChrome() {
-    var userAgent = 'navigator' in window && 'userAgent' in navigator && navigator.userAgent.toLowerCase() || '';
-    var vendor = 'navigator' in window && 'vendor' in navigator && navigator.vendor.toLowerCase() || '';
-    var appVersion = 'navigator' in window && 'appVersion' in navigator && navigator.appVersion.toLowerCase() || '';
-    return /chrome|chromium/i.test(userAgent) && /google inc/.test(vendor);
-  }
-  exports = isChrome;
-  return exports;
-}(useragent_isChrome);
-useragent_isIE = function (exports) {
-  function isIE() {
-    var userAgent = 'navigator' in window && 'userAgent' in navigator && navigator.userAgent.toLowerCase() || '';
-    is.ie = function (version) {
-      if (!version) {
-        return /msie/i.test(userAgent) || 'ActiveXObject' in window;
-      }
-      if (version >= 11) {
-        return 'ActiveXObject' in window;
-      }
-      return new RegExp('msie ' + version).test(userAgent);
-    };
-  }
-  exports = isIE;
-  return exports;
-}(useragent_isIE);
 
-return {ajax:ajax_ajax,ajaxFile:ajax_ajaxFile,ajaxGet:ajax_ajaxGet,ajaxJsonp:ajax_ajaxJsonp,ajaxPost:ajax_ajaxPost,arrayEqual:array_arrayEqual,indexOf:array_indexOf,addClass:class_addClass,getElementByClassName:class_getElementByClassName,hasClass:class_hasClass,removeClass:class_removeClass,toggleClass:class_toggleClass,getCookie:cookie_getCookie,getCookies:cookie_getCookies,parseCookie:cookie_parseCookie,setCookie:cookie_setCookie,getKeyName:keycode_getKeyName,deepCopy:object_deepCopy,extend:object_extend,randomColor:random_randomColor,randomNumber:random_randomNumber,trim:string_trim,betweenTime:time_betweenTime,formatTime:time_formatTime,getDate:time_getDate,getDayArray:time_getDayArray,getDayInWeek:time_getDayInWeek,getMonthArray:time_getMonthArray,getWeekArray:time_getWeekArray,getWeekNumber:time_getWeekNumber,getYearArray:time_getYearArray,judgeTime:time_judgeTime,parse:time_parse,parseTime:time_parseTime,getType:type_getType,is:type_is,typeIsBuffer:type_typeIsBuffer,decode:url_decode,encode:url_encode,isCrossDomain:url_isCrossDomain,parsePort:url_parsePort,parseQueryString:url_parseQueryString,parseURL:url_parseURL,stringfyQueryString:url_stringfyQueryString,getIEVersion:useragent_getIEVersion,getOS:useragent_getOS,isChrome:useragent_isChrome,isIE:useragent_isIE}
+return {ajax:ajax_ajax,ajaxFile:ajax_ajaxFile,ajaxGet:ajax_ajaxGet,ajaxJsonp:ajax_ajaxJsonp,ajaxPost:ajax_ajaxPost,arrayEqual:array_arrayEqual,indexOf:array_indexOf,addClass:class_addClass,getElementByClassName:class_getElementByClassName,hasClass:class_hasClass,removeClass:class_removeClass,toggleClass:class_toggleClass,getCookie:cookie_getCookie,getCookies:cookie_getCookies,parseCookie:cookie_parseCookie,setCookie:cookie_setCookie,getIEVersion:device_getIEVersion,getOS:device_getOS,isChrome:device_isChrome,isIE:device_isIE,getPageSize:dom_getPageSize,is:is_is,jsLoader:jsloader_jsLoader,getKeyName:keycode_getKeyName,deepCopy:object_deepCopy,extend:object_extend,randomColor:random_randomColor,randomNumber:random_randomNumber,isDateString:regexp_isDateString,isEmail:regexp_isEmail,isHexAdecimal:regexp_isHexAdecimal,isHexColor:regexp_isHexColor,isTimeString:regexp_isTimeString,isUrl:regexp_isUrl,trim:string_trim,betweenTime:time_betweenTime,formatTime:time_formatTime,getDate:time_getDate,getDayArray:time_getDayArray,getDayInWeek:time_getDayInWeek,getMonthArray:time_getMonthArray,getWeekArray:time_getWeekArray,getWeekNumber:time_getWeekNumber,getYearArray:time_getYearArray,judgeTime:time_judgeTime,parse:time_parse,parseTime:time_parseTime,getType:type_getType,typeIsBuffer:type_typeIsBuffer,decode:url_decode,encode:url_encode,isCrossDomain:url_isCrossDomain,parsePort:url_parsePort,parseQueryString:url_parseQueryString,parseURL:url_parseURL,stringfyQueryString:url_stringfyQueryString}
 });
