@@ -26,9 +26,31 @@
 
 //    console.log(Utils.getPageSize());
 
-    setTimeout(function() {
-        Utils.removeElement(document.getElementById('test'));
-    }, 3000);
+//    setTimeout(function() {
+//        Utils.removeElement(document.getElementById('test'));
+//    }, 3000);
+
+    console.log(Utils.getComputedStyle(document.getElementById('test')));
+
+    console.log(Utils.getDocumentScrollTop());
+
+    console.log(Utils.getOffset(document.getElementById('test')));
+
+    console.log(Utils.getPageSize());
+
+    console.log(Utils.height(document.getElementById('test')));
+
+    Utils.insertAfter(document.createElement('a'), document.getElementById('test'));
+
+        setTimeout(function() {
+            Utils.removeElement(document.getElementById('test'));
+        }, 3000);
+
+    Utils.scrollTo(20, 15);
+
+    Utils.setDocumentScrollTop(100);
+
+    console.log(Utils.width(document.getElementById('test')));
 
 </script>
 

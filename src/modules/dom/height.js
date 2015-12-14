@@ -4,7 +4,7 @@
 
 define(function (require, exports, module) {
 
-    var getComputedStyles = require('./getComputedStyles');
+    var getComputedStyles = require('./getComputedStyle');
 
     /**
      * @return Number
