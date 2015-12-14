@@ -55,16 +55,16 @@ define(function (require, exports, module) {
 
     var setTrigger = function (fn) {
 
-        var fnc;
+        var Trigger;
         if (!fn) {
-            fnc = function () {
+            Trigger = function () {
             };
         } else {
-            fnc = fn;
+            Trigger = fn;
         }
 
-        trigger.extend(fnc);
-        return new fnc();
+        trigger.extend(Trigger);
+        return new Trigger();
     }
 
     module.exports = setTrigger;
