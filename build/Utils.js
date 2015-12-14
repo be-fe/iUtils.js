@@ -1911,7 +1911,7 @@ time_judgeTime = function (exports) {
   return exports;
 }(time_judgeTime);
 trigger_trigger = function (exports) {
-  var trigger = function (obj) {
+  var trigger = function () {
   };
   trigger.prototype.on = function (eventName, func) {
     this._listeners = this._listeners || {};
@@ -1933,8 +1933,7 @@ trigger_trigger = function (exports) {
       }
     });
   };
-  // 将on, off, trigger附加到对象上
-  trigger.extends = function (obj) {
+  trigger.extend = function (obj) {
     var functions = [
       'on',
       'off',
@@ -1948,7 +1947,18 @@ trigger_trigger = function (exports) {
       }
     });
   };
-  exports = trigger;
+  var setTrigger = function (fn) {
+    var fnc;
+    if (!fn) {
+      fnc = function () {
+      };
+    } else {
+      fnc = fn;
+    }
+    trigger.extend(fnc);
+    return new fnc();
+  };
+  exports = setTrigger;
   return exports;
 }(trigger_trigger);
 type_typeIsBuffer = function (exports) {

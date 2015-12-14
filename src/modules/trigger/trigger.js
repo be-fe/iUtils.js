@@ -1,10 +1,11 @@
 /**
  * @file trigger.js
+ * @from https://github.com/RolfKoenders/Trigger
  */
 define(function (require, exports, module) {
 
 
-    var trigger = function (obj) {
+    var trigger = function () {
     };
 
     trigger.prototype.on = function (eventName, func) {
@@ -34,8 +35,7 @@ define(function (require, exports, module) {
 
     };
 
-    // 将on, off, trigger附加到对象上
-    trigger.extends = function (obj) {
+    trigger.extend = function (obj) {
 
         var functions = [
             'on',
@@ -53,7 +53,20 @@ define(function (require, exports, module) {
 
     };
 
+    var setTrigger = function (fn) {
 
-    module.exports = trigger;
+        var fnc;
+        if (!fn) {
+            fnc = function () {
+            };
+        } else {
+            fnc = fn;
+        }
+
+        trigger.extend(fnc);
+        return new fnc();
+    }
+
+    module.exports = setTrigger;
 
 });
