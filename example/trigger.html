@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../build/Utils.js"></script>
+</head>
+<body>
+注意,测试时应该引入含有测试模块的包或者全量包!
+
+<script>
+        var Example = function () {
+        };
+
+        Utils.trigger.extends(Example);
+
+    var ex = new Example();
+
+    ex.on('do', function () {
+        console.log('memeda');
+    });
+    ex.on('doWith', function (data) {
+        console.log('Do with: ', data);
+    });
+
+    ex.trigger('do');
+    ex.trigger('doWith', {
+        name: 'Rolf'
+    });
+
+
+    //    var Example2 = {
+    //        say: function () {
+    //            console.log('你好');
+    //        }
+    //    }
+    //
+    //    Utils.trigger.extend(Example2);
+    //
+    //    // 两种构造方式
+    //    // 1.直接返回一个trigger对象
+    //    // 2.将一个对象设置为trigger
+    //
+    //    var ex2 = new Example();
+    //
+    //    ex2.on('do', function () {
+    //        console.log('Do do do do');
+    //    });
+    //    ex2.on('doWith', function (data) {
+    //        console.log('Do with: ', data);
+    //    });
+    //
+    //    ex2.trigger('do');
+    //    ex2.trigger('doWith', {
+    //        name: 'Rolf'
+    //    });
+
+
+</script>
+
+</body>
+</html>
