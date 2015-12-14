@@ -4,7 +4,7 @@
  * @file randomNumber
  * @author leiquan<leiquan@baidu.com>
  */
-var random_randomNumber = {}, ajax_ajax = {}, ajax_ajaxFile = {}, ajax_ajaxGet = {}, ajax_ajaxJsonp = {}, ajax_ajaxPost = {}, array_arrayEqual = {}, array_indexof = {}, class_hasClass = {}, class_addClass = {}, class_getElementByClassName = {}, class_removeClass = {}, class_toggleClass = {}, url_decode = {}, cookie_parseCookie = {}, cookie_getCookies = {}, cookie_getCookie = {}, url_encode = {}, cookie_setCookie = {}, device_getIEVersion = {}, device_getOS = {}, device_isChrome = {}, device_isIE = {}, dom_getPageSize = {}, event_fireEvent = {}, is_is = {}, jsloader_jsloader = {}, keycode_getKeyName = {}, object_deepCopy = {}, object_extend = {}, random_randomColor = {}, regexp_isDateString = {}, regexp_isEmail = {}, regexp_isHexAdecimal = {}, regexp_isHexColor = {}, regexp_isTimeString = {}, regexp_isUrl = {}, string_trim = {}, time_parseTime = {}, time_judgeTime = {}, trigger_trigger = {}, type_typeIsBuffer = {}, type_getType = {}, url_parsePort = {}, url_parseURL = {}, url_isCrossDomain = {}, url_parseQueryString = {}, url_stringfyQueryString = {};
+var random_randomNumber = {}, ajax_ajax = {}, ajax_ajaxFile = {}, ajax_ajaxGet = {}, ajax_ajaxJsonp = {}, ajax_ajaxPost = {}, array_arrayEqual = {}, array_indexof = {}, class_hasClass = {}, class_addClass = {}, class_getElementByClassName = {}, class_removeClass = {}, class_toggleClass = {}, url_decode = {}, cookie_parseCookie = {}, cookie_getCookies = {}, cookie_getCookie = {}, url_encode = {}, cookie_setCookie = {}, device_getIEVersion = {}, device_getOS = {}, device_isChrome = {}, device_isIE = {}, dom_getPageSize = {}, dom_insertAfter = {}, dom_removeElement = {}, is_is = {}, jsloader_jsloader = {}, keycode_getKeyName = {}, object_deepCopy = {}, object_extend = {}, random_randomColor = {}, regexp_isDateString = {}, regexp_isEmail = {}, regexp_isHexAdecimal = {}, regexp_isHexColor = {}, regexp_isTimeString = {}, regexp_isUrl = {}, string_trim = {}, time_parseTime = {}, time_judgeTime = {}, trigger_trigger = {}, type_typeIsBuffer = {}, type_getType = {}, url_parsePort = {}, url_parseURL = {}, url_isCrossDomain = {}, url_parseQueryString = {}, url_stringfyQueryString = {};
 random_randomNumber = function (exports) {
   /**
    * @return Number
@@ -607,30 +607,46 @@ dom_getPageSize = function (exports) {
   exports = getPageSize;
   return exports;
 }(dom_getPageSize);
-event_fireEvent = function (exports) {
+dom_insertAfter = function (exports) {
   /**
-   * @return Object
+   * @return null
    */
-  var fireEvent = function (element, eventName) {
-    var event;
-    // The custom event that will be created
-    if (document.createEvent) {
-      event = document.createEvent('HTMLEvents');
-      event.initEvent(eventName, true, true);
+  var insertAfter = function (newEl, targetEl) {
+    var parent = targetEl.parentNode;
+    if (parent.lastChild === targetEl) {
+      parent.appendChild(newEl);
     } else {
-      event = document.createEventObject();
-      event.eventType = eventName;
-    }
-    event.eventName = eventName;
-    if (document.createEvent) {
-      element.dispatchEvent(event);
-    } else {
-      element.fireEvent('on' + event.eventType, event);
+      parent.insertBefore(newEl, targetEl.nextSibling);
     }
   };
-  exports = fireEvent;
+  exports = insertAfter;
   return exports;
-}(event_fireEvent);
+}(dom_insertAfter);
+dom_removeElement = function (exports) {
+  /**
+   * @return null
+   */
+  var removeElement = function (el) {
+    if (typeof el === 'string') {
+      // it's an query string
+      [].forEach.call(document.querySelectorAll(el), function (node) {
+        node.parentNode.removeChild(node);
+      });
+    } else if (el.parentNode) {
+      // it's an Element
+      el.parentNode.removeChild(el);
+    } else if (el instanceof NodeList) {
+      // it's an array of elements
+      [].forEach.call(el, function (node) {
+        node.parentNode.removeChild(node);
+      });
+    } else {
+      throw new Error('you can only pass Element, array of Elements or query string as argument');
+    }
+  };
+  exports = removeElement;
+  return exports;
+}(dom_removeElement);
 is_is = function (exports) {
   // is.js 0.7.4
   // Author: Aras Atasaygin
@@ -1971,6 +1987,11 @@ trigger_trigger = function (exports) {
       }
     });
   };
+  /**
+   *
+   * @param fn || null
+   * @returns 一个拥有on, off, trigger的Trigger对象
+   */
   var setTrigger = function (fn) {
     var Trigger;
     if (!fn) {
@@ -2154,5 +2175,5 @@ url_stringfyQueryString = function (exports) {
   return exports;
 }(url_stringfyQueryString);
 
-return {ajax:ajax_ajax,ajaxFile:ajax_ajaxFile,ajaxGet:ajax_ajaxGet,ajaxJsonp:ajax_ajaxJsonp,ajaxPost:ajax_ajaxPost,arrayEqual:array_arrayEqual,indexof:array_indexof,addClass:class_addClass,getElementByClassName:class_getElementByClassName,hasClass:class_hasClass,removeClass:class_removeClass,toggleClass:class_toggleClass,getCookie:cookie_getCookie,getCookies:cookie_getCookies,parseCookie:cookie_parseCookie,setCookie:cookie_setCookie,getIEVersion:device_getIEVersion,getOS:device_getOS,isChrome:device_isChrome,isIE:device_isIE,getPageSize:dom_getPageSize,fireEvent:event_fireEvent,is:is_is,jsloader:jsloader_jsloader,getKeyName:keycode_getKeyName,deepCopy:object_deepCopy,extend:object_extend,randomColor:random_randomColor,randomNumber:random_randomNumber,isDateString:regexp_isDateString,isEmail:regexp_isEmail,isHexAdecimal:regexp_isHexAdecimal,isHexColor:regexp_isHexColor,isTimeString:regexp_isTimeString,isUrl:regexp_isUrl,trim:string_trim,judgeTime:time_judgeTime,parseTime:time_parseTime,trigger:trigger_trigger,getType:type_getType,typeIsBuffer:type_typeIsBuffer,decode:url_decode,encode:url_encode,isCrossDomain:url_isCrossDomain,parsePort:url_parsePort,parseQueryString:url_parseQueryString,parseURL:url_parseURL,stringfyQueryString:url_stringfyQueryString}
+return {ajax:ajax_ajax,ajaxFile:ajax_ajaxFile,ajaxGet:ajax_ajaxGet,ajaxJsonp:ajax_ajaxJsonp,ajaxPost:ajax_ajaxPost,arrayEqual:array_arrayEqual,indexof:array_indexof,addClass:class_addClass,getElementByClassName:class_getElementByClassName,hasClass:class_hasClass,removeClass:class_removeClass,toggleClass:class_toggleClass,getCookie:cookie_getCookie,getCookies:cookie_getCookies,parseCookie:cookie_parseCookie,setCookie:cookie_setCookie,getIEVersion:device_getIEVersion,getOS:device_getOS,isChrome:device_isChrome,isIE:device_isIE,getPageSize:dom_getPageSize,insertAfter:dom_insertAfter,removeElement:dom_removeElement,is:is_is,jsloader:jsloader_jsloader,getKeyName:keycode_getKeyName,deepCopy:object_deepCopy,extend:object_extend,randomColor:random_randomColor,randomNumber:random_randomNumber,isDateString:regexp_isDateString,isEmail:regexp_isEmail,isHexAdecimal:regexp_isHexAdecimal,isHexColor:regexp_isHexColor,isTimeString:regexp_isTimeString,isUrl:regexp_isUrl,trim:string_trim,judgeTime:time_judgeTime,parseTime:time_parseTime,trigger:trigger_trigger,getType:type_getType,typeIsBuffer:type_typeIsBuffer,decode:url_decode,encode:url_encode,isCrossDomain:url_isCrossDomain,parsePort:url_parsePort,parseQueryString:url_parseQueryString,parseURL:url_parseURL,stringfyQueryString:url_stringfyQueryString}
 });

@@ -24,7 +24,11 @@
 
     console.log(Utils);
 
-    console.log(Utils.getPageSize());
+//    console.log(Utils.getPageSize());
+
+    setTimeout(function() {
+        Utils.removeElement(document.getElementById('test'));
+    }, 3000);
 
 </script>
 
