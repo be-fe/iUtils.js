@@ -53,6 +53,11 @@ define(function (require, exports, module) {
 
     };
 
+    /**
+     *
+     * @param fn || null
+     * @returns 一个拥有on, off, trigger的Trigger对象
+     */
     var setTrigger = function (fn) {
 
         var Trigger;
