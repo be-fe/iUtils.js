@@ -1,13 +1,11 @@
 /**
- * @file width.js
+ * @file closest.js
  */
 
 define(function (require, exports, module) {
 
-    var getComputedStyles = require('./getComputedStyle');
-
     /**
-     * @return
+     * @return HTMLElements || null
      */
 
     var closest = function (el, selector) {

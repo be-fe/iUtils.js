@@ -7,6 +7,7 @@ define(function (require, exports, module) {
     var getComputedStyle = require('./getComputedStyle');
 
     /**
+     * @param
      * @return
      */
 

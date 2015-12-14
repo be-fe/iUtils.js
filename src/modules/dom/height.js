@@ -8,6 +8,7 @@ define(function (require, exports, module) {
 
     /**
      * @return Number
+     * @param HTMLElement el
      */
 
     var height = function (el) {

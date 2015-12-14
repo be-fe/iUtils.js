@@ -1,11 +1,11 @@
 /**
- * @file width.js
+ * @file outerHeight.js
  */
 
 define(function (require, exports, module) {
 
     /**
-     * @return
+     * @return Number
      */
 
     var outerHeight = function (el) {

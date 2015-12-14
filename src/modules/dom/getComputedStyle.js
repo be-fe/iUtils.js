@@ -1,5 +1,5 @@
 /**
- * @file getComputedStyles.js
+ * @file getComputedStyle.js
  */
 
 define(function (require, exports, module) {

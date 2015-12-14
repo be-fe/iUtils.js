@@ -1,16 +1,14 @@
 /**
- * @file width.js
+ * @file getPosition.js
  */
 
 define(function (require, exports, module) {
 
-    var getComputedStyle = require('./getComputedStyle');
-
     /**
-     * @return
+     * @return Object
      */
 
-    var getStyle = function (el) {
+    var getPosition = function (el) {
         if (!el) {
             return {
                 left: 0,
@@ -24,6 +22,6 @@ define(function (require, exports, module) {
         };
     }
 
-    module.exports = getStyle;
+    module.exports = getPosition;
 
 });

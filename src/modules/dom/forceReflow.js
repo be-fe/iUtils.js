@@ -1,5 +1,5 @@
 /**
- * @file getPageSize.js
+ * @file forceReflow.js
  */
 
 define(function (require, exports, module) {

@@ -1,5 +1,5 @@
 /**
- * @file width.js
+ * @file outerWidthWithMargin.js
  */
 
 define(function (require, exports, module) {
@@ -8,7 +8,7 @@ define(function (require, exports, module) {
     var getComputedStyle = require('./getComputedStyle');
 
     /**
-     * @return
+     * @return Number
      */
 
     var outerWidthWithMargin = function (el) {

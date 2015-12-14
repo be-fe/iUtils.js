@@ -1,5 +1,5 @@
 /**
- * @file judgeTime.js
+ * @file getType.js
  */
 define(function (require, exports, module) {
 

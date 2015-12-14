@@ -6,6 +6,7 @@ define(function (require, exports, module) {
 
     /**
      * @return Number
+     * @param value
      */
 
     var setDocumentScrollTop = function (value) {

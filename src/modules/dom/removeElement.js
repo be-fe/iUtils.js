@@ -6,6 +6,7 @@ define(function (require, exports, module) {
 
     /**
      * @return null
+     * @param HTMLElement el
      */
 
     var removeElement = function (el) {

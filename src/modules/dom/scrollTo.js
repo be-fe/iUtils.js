@@ -8,6 +8,7 @@ define(function (require, exports, module) {
     var setDocumentScrollTop = require('./setDocumentScrollTop');
 
     /**
+     * @param Number to, Number duration
      * @return
      */
 

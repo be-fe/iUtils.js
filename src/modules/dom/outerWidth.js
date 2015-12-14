@@ -1,17 +1,17 @@
 /**
- * @file width.js
+ * @file outerWidth.js
  */
 
 define(function (require, exports, module) {
 
     /**
-     * @return
+     * @return Number
      */
 
-    var outerHeight = function (el) {
+    var outerWidth = function (el) {
         return el.offsetWidth;
     }
 
-    module.exports = outerHeight;
+    module.exports = outerWidth;
 
 });

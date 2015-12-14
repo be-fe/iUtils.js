@@ -1,5 +1,5 @@
 /**
- * @file width.js
+ * @file getStyle.js
  */
 
 define(function (require, exports, module) {
@@ -7,7 +7,7 @@ define(function (require, exports, module) {
     var getComputedStyle = require('./getComputedStyle');
 
     /**
-     * @return
+     * @return String
      */
 
     var getStyle = function (el, att, style) {
