@@ -5,9 +5,13 @@
 
 define(function (require, exports, module) {
 
-    function randomNumber(min,max){
+    /**
+     * @return Number
+     * @params Number  min, Number max
+     */
+    function randomNumber(min, max) {
 
-        return Math.floor(min+Math.random()*(max-min));
+        return Math.floor(min + Math.random() * (max - min));
 
     }
 

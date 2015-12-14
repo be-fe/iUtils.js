@@ -1,8 +1,11 @@
+/**
+ * @file toggleClass.js
+ */
 define(function (require, exports, module) {
 
     var hasClass = require('./hasClass');
 
-    /*
+    /**
      * @params HTMLElement obj, String  cls
      */
     var toggleClass = function (obj, cls) {

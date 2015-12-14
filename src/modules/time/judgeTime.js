@@ -1,18 +1,19 @@
-/*
- *  author: xieyu33333
+/**
+ * @file judgeTime.js
+ * @author: xieyu33333
  */
 
 define(function (require, exports, module) {
-    /*
+    /**
      * @return obj
      * @params string/number/obj
      */
     var parseTime = require('./parseTime');
 
-    var _getTimeStr = function(time) {
+    var _getTimeStr = function (time) {
         var time = new Date(time);
         var Y = (time.getFullYear() + '-');
-        var M = (time.getMonth()+1 < 10 ? '0' + (time.getMonth()+1) : time.getMonth()+1) + '-';
+        var M = (time.getMonth() + 1 < 10 ? '0' + (time.getMonth() + 1) : time.getMonth() + 1) + '-';
         var D = time.getDate() < 10 ? '0' + time.getDate() : time.getDate();
         var h = time.getHours() + ':';
         var m = time.getMinutes() < 10 ? '0' + time.getMinutes() : time.getMinutes();
@@ -23,7 +24,7 @@ define(function (require, exports, module) {
         }
     }
 
-    var judgeTime = function(time) {
+    var judgeTime = function (time) {
         var timeType;
         var dateStr;
         var timeStr;
@@ -33,13 +34,13 @@ define(function (require, exports, module) {
         var y = now.getFullYear();
         var m = now.getMonth();
         var d = now.getDate();
-        var zeroStamp = Math.round(new Date(y,m,d,0,0,1).getTime()); //获得今日0点的时间戳
+        var zeroStamp = Math.round(new Date(y, m, d, 0, 0, 1).getTime()); //获得今日0点的时间戳
         var nz = now - zeroStamp;
         var nt = now - timeStamp;
-        if ( nt < nz) {
+        if (nt < nz) {
             timeType = 'today';
         }
-        else if ( nt > nz && nt < (86400000 + nz)) {
+        else if (nt > nz && nt < (86400000 + nz)) {
             timeType = 'yesterday';
         }
         else if (y - Y === 1) {

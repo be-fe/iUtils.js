@@ -1,11 +1,14 @@
+/**
+ * @file getCookies.js
+ */
 define(function (require, exports, module) {
 
     var parse = require('./parseCookie');
 
-    /*
+    /**
      * @return Object
      */
-    function getAllCookie() {
+    function getCookies() {
         var str;
         try {
             str = document.cookie;
@@ -18,6 +21,6 @@ define(function (require, exports, module) {
         return parse(str);
     }
 
-    module.exports = getAllCookie;
+    module.exports = getCookies;
 
 });

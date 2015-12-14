@@ -1,6 +1,12 @@
+/**
+ * @file getOS.js
+ */
 define(function (require, exports, module) {
 
-    function getDevicePlatform() {
+    /**
+     * @return String
+     */
+    function getOS() {
 
         var userAgent = 'navigator' in window && 'userAgent' in navigator && navigator.userAgent.toLowerCase() || '';
         var vendor = 'navigator' in window && 'vendor' in navigator && navigator.vendor.toLowerCase() || '';
@@ -31,6 +37,6 @@ define(function (require, exports, module) {
 
     }
 
-    module.exports = getDevicePlatform;
+    module.exports = getOS;
 
 });

@@ -1,6 +1,13 @@
+/**
+ * @file getPageSize.js
+ */
+
 define(function (require, exports, module) {
 
-    var getPageSize = function (obj, cls) {
+    /**
+     * @return Object
+     */
+    var getPageSize = function () {
 
         var xScroll, yScroll;
 

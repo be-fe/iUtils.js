@@ -1,5 +1,5 @@
 /**
- * @file randomNumber
+ * @file getKeyName.js
  * @author leiquan<leiquan@baidu.com>
  */
 
@@ -122,7 +122,7 @@ define(function (require, exports, module) {
             222: '\''
         };
 
-        /*
+        /**
          * @return String keyname
          * @params Number  keycode
          */

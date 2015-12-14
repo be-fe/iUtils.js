@@ -1,3 +1,7 @@
+/**
+ * @file stringfyQueryString.js
+ */
+
 define(function (require, exports, module) {
 
 
@@ -8,6 +12,10 @@ define(function (require, exports, module) {
     var decode = require('./decode');
 
 
+    /**
+     * @return String
+     * @param Object obj
+     */
     var stringfyQueryString = function (obj) {
         if (!obj) return '';
         var pairs = [];

@@ -1,7 +1,10 @@
+/**
+ * @file getElementByClassName.js
+ */
 define(function (require, exports, module) {
 
 
-    /*
+    /**
      * @return HTMLNodeList
      * @params HTMLElement node, String  classname
      */

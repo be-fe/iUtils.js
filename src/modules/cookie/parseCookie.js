@@ -1,9 +1,13 @@
+/**
+ * @file parseCookie.js
+ */
+
 define(function (require, exports, module) {
 
     var decode = require('../url/decode');
 
 
-    /*
+    /**
      * @return Object
      * @params String  str
      */

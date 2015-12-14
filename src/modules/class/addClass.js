@@ -1,8 +1,11 @@
+/**
+ * @file addClass.js
+ */
 define(function (require, exports, module) {
 
     var hasClass = require('./hasClass');
 
-    /*
+    /**
      * @params HTMLElement obj, String  cls
      */
     var addClass = function (obj, cls) {

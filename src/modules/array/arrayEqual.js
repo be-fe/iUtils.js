@@ -1,9 +1,10 @@
-/*
- * from https://github.com/component/array-equal
+/**
+ * @file arrayEqual.js
+ * @from https://github.com/component/array-equal
  */
 define(function (require, exports, module) {
 
-    /*
+    /**
      * @return Boolean
      * @params Array arr1, Array arr2
      */

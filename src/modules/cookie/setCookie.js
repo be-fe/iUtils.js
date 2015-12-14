@@ -1,8 +1,12 @@
+/**
+ * @file setCookie.js
+ */
+
 define(function (require, exports, module) {
 
     var encode = require('../url/encode');
 
-    /*
+    /**
      * @return Object
      * @params String  name, String  value, Object  options,
      */

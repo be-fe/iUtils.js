@@ -1,6 +1,9 @@
+/**
+ * @file indexOf.js
+ */
 define(function (require, exports, module) {
 
-    /*
+    /**
      * @return Number
      * @params Array arr, Object obj
      */

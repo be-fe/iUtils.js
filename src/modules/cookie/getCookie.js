@@ -1,9 +1,12 @@
+/**
+ * @file getCookie.js
+ */
 define(function (require, exports, module) {
 
 
     var getCookies = require('./getCookies');
 
-    /*
+    /**
      * @return String
      * @params String  name
      */

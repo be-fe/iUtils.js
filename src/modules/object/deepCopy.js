@@ -1,7 +1,11 @@
+/**
+ * @file deepCopy.js
+ * @author leiquan<leiquan@baidu.com>
+ */
 define(function (require, exports, module) {
 
     // 深拷贝
-    /*
+    /**
      * @return Object  child
      * @params Object  parent
      */

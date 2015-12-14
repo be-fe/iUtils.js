@@ -1,3 +1,7 @@
+/**
+ * @file parseQueryString.js
+ */
+
 define(function (require, exports, module) {
 
     var trim = require('../string/trim');
@@ -6,14 +10,11 @@ define(function (require, exports, module) {
 
     var encode = require('./encode');
     var decode = require('./decode');
-    /**
-     * Parse the given query `str`.
-     *
-     * @param {String} str
-     * @return {Object}
-     * @api public
-     */
 
+    /**
+     * @return Object
+     * @param String str
+     */
     var parseQueryString = function (str) {
         if ('string' != typeof str) return {};
 

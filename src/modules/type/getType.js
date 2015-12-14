@@ -1,5 +1,5 @@
-/*
- * from https://github.com/component/ie/blob/master/index.js
+/**
+ * @file judgeTime.js
  */
 define(function (require, exports, module) {
 
@@ -7,6 +7,11 @@ define(function (require, exports, module) {
 
     var typeIsBuffer = require('./typeIsBuffer');
 
+
+    /**
+     * @return String
+     * @params Object val
+     */
     var getType = function (val) {
         switch (toString.call(val)) {
 
@@ -24,7 +29,6 @@ define(function (require, exports, module) {
 
             case '[object Error]':
                 return 'error';
-
 
 
         }

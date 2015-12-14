@@ -1,7 +1,11 @@
+/**
+ * @file extend.js
+ * @author leiquan<leiquan@baidu.com>
+ */
 define(function (require, exports, module) {
 
     // 浅拷贝,只是拷贝基本类型的数据,把parent有的全部给child.在遇到[]和{}时候会有问题
-    /*
+    /**
      * @return Object  child
      * @params Object  parent
      */

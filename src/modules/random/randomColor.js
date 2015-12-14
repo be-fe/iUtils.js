@@ -5,8 +5,8 @@
 
 define(function (require, exports, module) {
 
-    /*
-     * @return String  
+    /**
+     * @return String
      */
     function randomColor() {
 

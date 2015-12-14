@@ -1,8 +1,11 @@
-/*
- * from https://github.com/component/ie/blob/master/index.js
+/**
+ * @file isIE.js
  */
 define(function (require, exports, module) {
 
+    /**
+     * @return Boolean
+     */
     function isIE() {
 
         var userAgent = 'navigator' in window && 'userAgent' in navigator && navigator.userAgent.toLowerCase() || '';

@@ -1,6 +1,6 @@
 /**
  * Created by leiquan on 15/12/1.
- * @file ajaxGet
+ * @file ajaxGet.js
  * @author leiquan<leiquan@baidu.com>
  */
 
@@ -8,7 +8,7 @@ define(function (require, exports, module) {
 
     var ajax = require('./ajax');
 
-    /*
+    /**
      * @params String url, Object params, String type,  Function successCallback, Function  failCallback
      */
     var ajaxGet = function (url, params, type, successCallback, failCallback) {

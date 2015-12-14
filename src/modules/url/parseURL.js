@@ -1,7 +1,15 @@
+/**
+ * @file parseURL.js
+ */
+
 define(function (require, exports, module) {
 
     var parsePort = require('./parsePort');
 
+    /**
+     * @return Object
+     * @param String url
+     */
     var parseURL = function (url) {
 
         var a = document.createElement('a');

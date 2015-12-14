@@ -1,19 +1,20 @@
-/*
- *  author: xieyu33333
+/**
+ * @file judgeTime.js
+ * @author: xieyu33333
  */
 define(function (require, exports, module) {
-    /*
+    /**
      * @return number
      * @params string/number/obj
      */
-    
-    var parseTime = function(time) {
+
+    var parseTime = function (time) {
         var timeStamp;
-        var parseDateDtring = function(dateStr) {
-            var newstr = dateStr.replace(/-/g,'/');
+        var parseDateDtring = function (dateStr) {
+            var newstr = dateStr.replace(/-/g, '/');
             newstr = newstr.replace(/[A-Za-z]|[\u4E00-\u9FA5]+/g, ' ');
             newstr = newstr.replace(/\.\d+$/g, '');
-            var date =  new Date(newstr);
+            var date = new Date(newstr);
             if (date.toString() === 'Invalid Date') {
                 throw '请提供合法的时间字符串';
             }

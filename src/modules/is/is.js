@@ -1,3 +1,8 @@
+/**
+ * @file is.js
+ * @from https://github.com/arasatasaygin/is.js
+ * @author: Aras Atasaygin
+ */
 define(function (require, exports, module) {
 
 // is.js 0.7.4

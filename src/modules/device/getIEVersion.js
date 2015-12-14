@@ -1,8 +1,11 @@
-/*
- * from https://github.com/component/ie/blob/master/index.js
+/**
+ * @file getIEVersion.js
  */
 define(function (require, exports, module) {
 
+    /**
+     * @return Number
+     */
     function getIEVersion() {
         for (var v = 3,
                  el = document.createElement('b'),

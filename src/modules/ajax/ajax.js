@@ -1,6 +1,6 @@
 /**
  * Created by leiquan on 15/12/1.
- * @file ajax
+ * @file ajax.js
  * @author leiquan<leiquan@baidu.com>
  */
 
@@ -8,7 +8,7 @@ define(function (require, exports, module) {
 
     var randomNumber = require('../random/randomNumber');
 
-    /*
+    /**
      * @params userOptions
      */
     var myAjax = function (userOptions) {

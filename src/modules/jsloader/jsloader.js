@@ -1,3 +1,7 @@
+/**
+ * @file jsLoader.js
+ * @author: lipenghui
+ */
 define(function (require, exports, module) {
 
     var jsLoader = function () {

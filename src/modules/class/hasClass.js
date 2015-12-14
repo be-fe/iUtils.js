@@ -1,6 +1,9 @@
+/**
+ * @file hasClass.js
+ */
 define(function (require, exports, module) {
 
-    /*
+    /**
      * @return Boolean
      * @params HTMLElement obj, String  cls
      */
