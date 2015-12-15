@@ -30,6 +30,8 @@
     "karma-jasmine": "^0.3.6",
     "karma-mocha": "^0.2.0",
     "karma-requirejs": "^0.2.2",
+    "node-queue": "^1.0.5",
+    "queue-fun": "^0.2.4",
     "remarkable": "^1.6.1",
     "through": "^2.3.8",
     "yargs": "^3.31.0"
