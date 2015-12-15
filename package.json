@@ -1,7 +1,7 @@
 {
-  "name": "Utils.js",
+  "name": "iutils",
   "version": "1.0.0",
-  "description": "Utils.js",
+  "description": "iUtils.js",
   "author": "be-fe",
   "scripts": {
     "start": "node ./server/bin/www"
