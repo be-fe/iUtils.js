@@ -32,7 +32,10 @@
             // 这只是个创建异步解决的示例
             window.setTimeout(function () {
                 // 我们满足（fullfil）了这个promise!
-                resolve(thisPromiseCount)
+                //resolve(thisPromiseCount)
+
+                reject(thisPromiseCount)
+
             }, Math.random() * 2000 + 1000);
 
         });
@@ -41,6 +44,9 @@
         p1.then(function (val) {
             // 输出一段信息和一个值
             log.insertAdjacentHTML('beforeend', val + ') Promise被满足了(异步代码结束)<br/>');
+        },function (val) {
+            // 输出一段信息和一个值
+            log.insertAdjacentHTML('beforeend', val + ') Promise被拒绝了(异步代码结束)<br/>');
         });
 
         log.insertAdjacentHTML('beforeend', thisPromiseCount + ') 建立了Promise(同步代码结束)<br/><br/>');

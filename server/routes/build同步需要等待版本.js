@@ -11,10 +11,14 @@ var stream = require('stream');
 
 var myTime = Date.now() + '_' + Math.floor(Math.random() * 99999 + 10000);
 
+var counterA = 0;
 
 /* 根据参数个性化生成Utils.js */
 
 router.get('/', function (req, res, next) {
+
+    counterA++;
+    console.log("开始(同步代码开始):" + counterA);
 
     var moduleArr = req.query.module.split(',');
 
@@ -29,8 +33,8 @@ router.get('/', function (req, res, next) {
 
     string = string.substring(0, string.length - 1);
 
-    console.log('这里打印请求module ARR:');
-    console.log(moduleArr);
+    //console.log('这里打印请求module ARR:');
+    //console.log(moduleArr);
 
     // 这里在代码内,重写gulp的过程
     requirejs.optimize({
@@ -89,7 +93,7 @@ router.get('/', function (req, res, next) {
             // 去掉,
             var newString = returnString.substring(0, returnString.length - 1);
             newString += "}";
-            console.log("这里打印的是追加操作的数组:" + newString);
+            //console.log("这里打印的是追加操作的数组:" + newString);
 
 
             string = string + newString;
@@ -98,6 +102,8 @@ router.get('/', function (req, res, next) {
             var after = "\n});";
 
             string = string + after;
+
+            console.log(string.substring(0,100));
 
 
             // 写入返回请求
@@ -115,9 +121,9 @@ router.get('/', function (req, res, next) {
 
             rs.on('end', function () {
                 var fileRealPath = path.join(__dirname, '../public/build/Utils_' + myTime + '.js');
-                console.log(fileRealPath);
+                //console.log(fileRealPath);
                 fs.unlinkSync(fileRealPath);
-                console.log('文件已经删除~');
+                //console.log('文件已经删除~');
             });
 
         }
