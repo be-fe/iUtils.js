@@ -60,6 +60,7 @@ for (var i = 0; i < result.files.length; i++) {
 program
     .allowUnknownOption()
     .version('1.0.9')
+    .option('-a, --all', '不读取配置文件,读取目录打包全部')
     .option('-p, --package', '填写需要构建的合法模块名进行打包,模块名之间逗号分隔')
     .option('-b, --browser', '打开浏览器,可查看各个包的文档,勾选需要的模块名进行打包')
     .option('-m, --min', '是否启用压缩')
@@ -144,10 +145,24 @@ if (program.config) {
 
         });
 
+    } else if (program.all) {
+
+
+        console.log('默认读取配置构建');
+
+        buildModules = allModules;
+        if (program.min) {
+            console.log('启用压缩');
+            optimeze = 'uglify';
+        } else {
+            console.log('默认不压缩');
+        }
+
+        build();
+
     } else {
 
-        console.log('默认全量构建');
-        buildModules = allModules;
+        console.log('默认读取配置构建');
 
         if (program.min) {
             console.log('启用压缩');
