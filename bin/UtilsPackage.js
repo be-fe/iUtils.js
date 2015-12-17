@@ -62,7 +62,7 @@ program
     .option('-b, --browser', '打开浏览器,可查看各个包的文档,勾选需要的模块名进行打包')
     .option('-m, --min', '是否启用压缩')
     .option('-c, --config', '打开配置文件,通过修改配置文件进行打包')
-    .option('-o, --output', '指定打包文件输出目录')
+    .option('-o, --output <output>', '指定打包文件输出目录,相对目录,以/结尾')
     .option('-l, --list', '列出所有模块');
 
 program.parse(process.argv);
@@ -87,7 +87,7 @@ if (program.config) {
 }
 
 // 打开配置文件
-else if (program.config) {
+else if (program.list) {
 
     console.log('列出所有模块:');
 
@@ -129,10 +129,9 @@ else if (program.package) {
 // 打开浏览器勾选模块
 else if (program.browser) {
 
-    // 本地是都启动了服务器
+    // 本地是否启动了服务器
     http.get("http://localhost:3000", function (res) {
-
-        console.log("本地服务器状态: " + res.statusCode);
+        console.log("请在浏览器内勾选模块并打包:" + res.statusCode);
 
         //var cmd;
         //if (process.platform === 'win32') {
@@ -143,35 +142,32 @@ else if (program.browser) {
         //    cmd = 'open';
         //}
 
-        childpProcess.exec("open http://localhost:3000", function (error, stdout, stderr) {
-            if (error !== null) {
-                console.log('exec error: ' + error);
-                process.exit();
-            } else {
-                console.log("浏览器打开成功,请在打开的浏览器内勾选模块并打包");
-                console.log(stdout);
-                process.exit();
-            }
-        });
+        childpProcess.exec("open http://localhost:3000");
 
+        process.exit();
     }).on('error', function (e) {
-
-        console.log("本地服务器未启动,尝试打开本地服务器:" + e.message);
+        console.log("本地服务器无响应, 尝试打开本地服务器...若不自动打开窗口,请访问:http://localhost:3000");
 
         var pa = path.join(__dirname, '../');
 
+        // console.log("pa路径:" + pa);
 
-        childpProcess.exec('cd ' + pa + 'server && sudo npm install && npm start',
+        childpProcess.exec('cd ' + pa + '/server && sudo npm install && npm start',
             function (error, stdout, stderr) {
                 if (error !== null) {
                     console.log('启动本地服务器失败: ' + error);
                 } else {
-                    console.log('启动本地服务器成功');
-                    console.log(stdout);
-                    childpProcess.exec("open http://localhost:3000");
-                    process.exit();
+                    // console.log(stdout);
+                    childpProcess.exec("open http://localhost:3000", function () {
+                        console.log('浏览器已经打开 ^_^');
+                        // process.exit();
+                    });
+
+
                 }
             });
+
+        //process.exit();
 
     });
 
@@ -206,9 +202,7 @@ else if (program.output) {
 
     console.log('手动指定输出目录');
 
-    var output = program.output;
-
-    buildModules = allModules;
+    output = program.output;
 
     if (program.min) {
         console.log('启用压缩');
@@ -305,7 +299,7 @@ function build() {
             string = string + after;
 
             // 写入文件
-            var result = fs.writeFileSync(path.join(process.cwd(), './build/Utils.js'), string);
+            var result = fs.writeFileSync(path.join(process.cwd(), output + './Utils.js'), string);
 
         }
     });
