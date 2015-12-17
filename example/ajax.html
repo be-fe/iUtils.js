@@ -11,48 +11,47 @@
 
 <form id="form" action="http://localhost:3000/ajax" method="post" enctype="multipart/form-data">
     <input type="file" id="file" name="hehe">
-    <input type="text"  name="name" value="leiquan">
+    <input type="text" name="name" value="leiquan">
 
     <input type="button" id="submit" value="上传文件">
 </form>
 
 
-
 <script>
     console.log(Utils);
 
-//    Utils.ajaxGet('http://localhost:3000/ajax', {'hello': '你好', 'world': '世界'}, 'text', function () {
-//        console.log('赫赫');
-//    });
+    //    Utils.ajaxGet('http://localhost:3000/ajax', {'hello': '你好', 'world': '世界'}, 'text', function () {
+    //        console.log('赫赫');
+    //    });
 
     Utils.ajaxPost('http://localhost:3000/ajax', {'hello': '呵呵哒', 'world': '世界'}, 'text', null, function (res) {
         alert(res);
         console.log(res);
     });
 
-//    Utils.ajaxJsonp('http://localhost:3000/jsonp', {'hello': 'hello', 'world': 'world'}, function (data) {
-//        console.log('打印data:');
-//        console.log(data);
-//    });
+    //    Utils.ajaxJsonp('http://localhost:3000/jsonp', {'hello': 'hello', 'world': 'world'}, function (data) {
+    //        console.log('打印data:');
+    //        console.log(data);
+    //    });
 
-//    var file = document.getElementById('file');
-//    var form = document.getElementById('form');
-//    var submit = document.getElementById('submit');
-//
-//
-//    submit.onclick = function () {
-//        var formData = new FormData(form);
-////        formData.append("name", 123456);
-////        formData.append('pic', file.files[0]);
-//        Utils.ajaxFile('http://localhost:3000/ajax',formData, function (res) {
-//            alert(res);
-//        }, function() {
-//            alert('成功!');
-//        });
-//
-//        console.log(formData);
-//        console.log(file.files[0]);
-//    }
+    //    var file = document.getElementById('file');
+    //    var form = document.getElementById('form');
+    //    var submit = document.getElementById('submit');
+    //
+    //
+    //    submit.onclick = function () {
+    //        var formData = new FormData(form);
+    ////        formData.append("name", 123456);
+    ////        formData.append('pic', file.files[0]);
+    //        Utils.ajaxFile('http://localhost:3000/ajax',formData, function (res) {
+    //            alert(res);
+    //        }, function() {
+    //            alert('成功!');
+    //        });
+    //
+    //        console.log(formData);
+    //        console.log(file.files[0]);
+    //    }
 
 
 </script>

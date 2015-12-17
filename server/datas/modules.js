@@ -44,7 +44,7 @@ exports.getModules = function () {
     for (var i = 0; i < result.files.length; i++) {
 
         if (path.extname(result.files[i]) === '.js') {
-            newArr.push(path.relative(path.join(__dirname, '../../src/modules'), result.files[i].substring(0, result.files[i].length-3)));
+            newArr.push(path.relative(path.join(__dirname, '../../src/modules'), result.files[i].substring(0, result.files[i].length - 3)));
         }
 
     }

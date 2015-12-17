@@ -8,6 +8,7 @@
         .active {
             background-color: red;
         }
+
         #test {
             width: 100px;
             height: 100px;
@@ -24,11 +25,11 @@
 
     console.log(Utils);
 
-//    console.log(Utils.getPageSize());
+    //    console.log(Utils.getPageSize());
 
-//    setTimeout(function() {
-//        Utils.removeElement(document.getElementById('test'));
-//    }, 3000);
+    //    setTimeout(function() {
+    //        Utils.removeElement(document.getElementById('test'));
+    //    }, 3000);
 
     console.log(Utils.getComputedStyle(document.getElementById('test')));
 
@@ -42,9 +43,9 @@
 
     Utils.insertAfter(document.createElement('a'), document.getElementById('test'));
 
-        setTimeout(function() {
-            Utils.removeElement(document.getElementById('test'));
-        }, 3000);
+    setTimeout(function () {
+        Utils.removeElement(document.getElementById('test'));
+    }, 3000);
 
     Utils.scrollTo(20, 15);
 

@@ -86,7 +86,7 @@ if (program.config) {
 
 }
 
-// 打开配置文件
+// 列出所有模块
 else if (program.list) {
 
     console.log('列出所有模块:');

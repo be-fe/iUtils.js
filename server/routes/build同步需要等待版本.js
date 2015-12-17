@@ -103,7 +103,7 @@ router.get('/', function (req, res, next) {
 
             string = string + after;
 
-            console.log(string.substring(0,100));
+            console.log(string.substring(0, 100));
 
 
             // 写入返回请求

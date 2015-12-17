@@ -16,7 +16,7 @@ define(function (require, exports, module) {
         const style = getComputedStyle(el);
 
         height += (parseFloat(style.marginTop) || 0) + (parseFloat(style.marginBottom) || 0);
-        
+
         return height;
     }
 

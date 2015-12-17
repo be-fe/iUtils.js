@@ -14,12 +14,12 @@ router.get('/', function (req, res, next) {
 
     if (type == 'code') {
         // 拼接路径
-        var p = path.join(__dirname, '../../src/modules/' +module + '.js');
+        var p = path.join(__dirname, '../../src/modules/' + module + '.js');
         var content = fs.readFileSync(p);
         var css = '<link href="/css/prism.css" rel="stylesheet">';
         var js = '<script src="/js/prism.js"></script>';
         var newContent = '<pre><code class="language-javascript">' + content.toString() + '</code></pre>';
-        newContent =  css + newContent + js;
+        newContent = css + newContent + js;
         res.send(newContent);
     } else if (type == 'doc') {
 
@@ -28,14 +28,14 @@ router.get('/', function (req, res, next) {
         // 两种情况,目录和文件
         if (module.indexOf('/') > -1) {
             var arr = module.split('/');
-            var p = path.join(__dirname, '../../src/modules/' +arr[0]);
+            var p = path.join(__dirname, '../../src/modules/' + arr[0]);
             console.log(p);
         } else {
             var p = path.join(__dirname, '../../src/modules/' + module);
             console.log(p);
         }
 
-        var css='<link href="/css/markdownstyle/GitHub2.css" rel="stylesheet">';
+        var css = '<link href="/css/markdownstyle/GitHub2.css" rel="stylesheet">';
 
         // 这个目录下是否有readme.md,有显示,没有,显示默认的
 
@@ -51,7 +51,7 @@ router.get('/', function (req, res, next) {
         }
 
 
-    }else if (type == 'default') {
+    } else if (type == 'default') {
 
         if (module == 'code') {
             res.send('<style>html{ padding: 5px;}html,body{height: 100%; overflow: hidden}</style><div style="width: 100%; height:50%; padding-top:20px; text-align:center;background-color: #272822;color: white; margin: 0;height: 100%;">选择模块进行代码预览~</div>');
@@ -59,9 +59,6 @@ router.get('/', function (req, res, next) {
             res.send('<div style="width: 100%; height:50%; padding-top:20px; text-align:center; margin: 0;"><h3>目前没有文档~</h3></div>');
         }
     }
-
-
-
 
 
 });

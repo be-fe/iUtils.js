@@ -9,29 +9,28 @@
 注意,测试时应该引入含有测试模块的包或者全量包!
 
 
-
 <script>
     console.log(Utils);
 
     var Chinese = {
-        nation:'中国'
+        nation: '中国'
     };
 
-    var Doctor ={
-        career:'医生',
-        say:'你好啊'
+    var Doctor = {
+        career: '医生',
+        say: '你好啊'
     }
 
-    var Doctor = Utils.extend(Chinese, Doctor );
-//    Doctor.career = '医生';
+    var Doctor = Utils.extend(Chinese, Doctor);
+    //    Doctor.career = '医生';
 
 
     alert(Doctor.nation); // 中国
 
-//    alert(Doctor.say); // 中国
-//    alert(Chinese.say); // 中国
+    //    alert(Doctor.say); // 中国
+    //    alert(Chinese.say); // 中国
 
-    Chinese.birthPlaces = ['北京','上海','香港'];
+    Chinese.birthPlaces = ['北京', '上海', '香港'];
 
     var Doctor = Utils.extend(Doctor, Chinese);
 

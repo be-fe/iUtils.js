@@ -7,7 +7,7 @@ router.get('/', function (req, res, next) {
 
     var callback = req.query.callback;
 
-    res.end(''+callback  +'({"result":"我是远程js带来的数据"});');
+    res.end('' + callback + '({"result":"我是远程js带来的数据"});');
 
 });
 

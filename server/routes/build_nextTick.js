@@ -27,8 +27,6 @@ var counterB = 0;
 var handle = function (req, res, next) {
 
 
-
-
 }
 
 router.get('/', function (req, res, next) {
@@ -118,7 +116,6 @@ router.get('/', function (req, res, next) {
 
             }
         });
-
 
 
     });

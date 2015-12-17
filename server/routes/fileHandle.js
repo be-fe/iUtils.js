@@ -4,7 +4,7 @@ var path = require('path');
 var amdclean = require('amdclean');
 var requirejs = require('requirejs');
 
-process.on('message', function(moduleArr) {
+process.on('message', function (moduleArr) {
 
     var myTime = Date.now() + '_' + Math.floor(Math.random() * 99999 + 10000);
 
