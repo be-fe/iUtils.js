@@ -1,7 +1,7 @@
 var express = require('express');
 var path = require('path');
 //var favicon = require('serve-favicon');
-var logger = require('morgan');
+//var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
@@ -38,7 +38,7 @@ app.use('/content', contentRoutes);
 app.use('/jsonp', jsonpRoutes);
 
 // 调试信息
-app.use(logger('dev'));
+//app.use(logger('dev'));
 
 // 捕获404错误并且传递错误
 app.use(function (req, res, next) {
