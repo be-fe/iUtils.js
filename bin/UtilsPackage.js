@@ -3,20 +3,17 @@
 var amdclean = require('amdclean');
 var requirejs = require('requirejs');
 var buildModules = require('../config.js');
-
 var fs = require("fs");
 var path = require("path");
 var program = require("commander");
-
 var childpProcess = require('child_process');
-
 var http = require('http');
 
 var optimeze = 'none';
 var allModules = [];
+var output = '';
 
 console.log('当前路径:' + process.cwd());
-
 console.log('模块路径:' + path.join(__dirname, '../src/modules/'));
 
 function scanFolder(path) {
@@ -61,119 +58,182 @@ program
     .allowUnknownOption()
     .version('1.0.9')
     .option('-a, --all', '不读取配置文件,读取目录打包全部')
-    .option('-p, --package', '填写需要构建的合法模块名进行打包,模块名之间逗号分隔')
+    .option('-p, --package <package>', '填写需要构建的合法模块名进行打包,模块名之间逗号分隔')
     .option('-b, --browser', '打开浏览器,可查看各个包的文档,勾选需要的模块名进行打包')
     .option('-m, --min', '是否启用压缩')
-    .option('-c, --config', '打开配置文件,通过修改配置文件进行打包');
+    .option('-c, --config', '打开配置文件,通过修改配置文件进行打包')
+    .option('-o, --output', '指定打包文件输出目录')
+    .option('-l, --list', '列出所有模块');
 
 program.parse(process.argv);
 
+// 打开配置文件
 if (program.config) {
 
-    console.log('打开了配置文件,请前往编辑然后重新进行构建!');
+    console.log('打开了配置文件,请前往编辑然后重新进行打包');
 
     var p = path.join(__dirname, '../config.js')
     childpProcess.exec('open ' + p,
         function (error, stdout, stderr) {
             if (error !== null) {
                 console.log('exec error: ' + error);
+                process.exit();
             } else {
                 console.log(stdout);
+                process.exit();
             }
         });
 
+}
+
+// 打开配置文件
+else if (program.config) {
+
+    console.log('列出所有模块:');
+
+    console.log(allModules);
+
     process.exit();
 
-} else {
+}
 
-    if (program.package) {
+// 可填写包名
+else if (program.package) {
 
-        console.log('填写了需要构建的包:' + program.package);
+    console.log('填写了需要构建的包:' + program.package);
 
-        var arr = program.package.split(',');
+    var arr = program.package.split(',');
 
-        console.log(arr);
+    console.log(arr);
 
-        buildModules = arr;
+    buildModules = arr;
 
-        if (program.min) {
-            console.log('启用压缩');
-            optimeze = 'uglify';
-        } else {
-            console.log('默认不压缩');
-        }
+    if (program.min) {
+        console.log('启用压缩');
+        optimeze = 'uglify';
+    } else {
+        console.log('默认不压缩');
+    }
 
-        build();
+    if (program.output) {
+        console.log('指定了打包路径');
+        output = program.output;
+    } else {
+        console.log('默认路径为当前目录');
+    }
 
-    } else if (program.browser) {
+    build();
 
-        // 本地是都启动了服务器
-        http.get("http://localhost:3000", function (res) {
-            console.log("请在浏览器内勾选模块并打包:" + res.statusCode);
+}
 
-            //var cmd;
-            //if (process.platform === 'win32') {
-            //    cmd = 'start "%ProgramFiles%\Internet Explorer\iexplore.exe"';
-            //} else if (process.platform === 'linux') {
-            //    cmd = 'xdg-open';
-            //} else if (process.platform === 'darwin') {
-            //    cmd = 'open';
-            //}
+// 打开浏览器勾选模块
+else if (program.browser) {
 
-            childpProcess.exec("open http://localhost:3000");
+    // 本地是都启动了服务器
+    http.get("http://localhost:3000", function (res) {
 
-            process.exit();
-        }).on('error', function (e) {
-            console.log("没有打开本地服务器,那么打开本地服务器:" + e.message);
+        console.log("本地服务器状态: " + res.statusCode);
 
-            var pa = path.join(__dirname, '../');
+        //var cmd;
+        //if (process.platform === 'win32') {
+        //    cmd = 'start "%ProgramFiles%\Internet Explorer\iexplore.exe"';
+        //} else if (process.platform === 'linux') {
+        //    cmd = 'xdg-open';
+        //} else if (process.platform === 'darwin') {
+        //    cmd = 'open';
+        //}
 
-            console.log("pa路径:" + pa);
-
-            childpProcess.exec('cd ' + pa + '/server && npm install && npm start',
-                function (error, stdout, stderr) {
-                    if (error !== null) {
-                        console.log('启动本地服务器失败: ' + error);
-                    } else {
-                        console.log(stdout);
-                        childpProcess.exec("open http://localhost:3000");
-                        process.exit();
-                    }
-                });
-
-            //process.exit();
-
+        childpProcess.exec("open http://localhost:3000", function (error, stdout, stderr) {
+            if (error !== null) {
+                console.log('exec error: ' + error);
+                process.exit();
+            } else {
+                console.log("浏览器打开成功,请在打开的浏览器内勾选模块并打包");
+                console.log(stdout);
+                process.exit();
+            }
         });
 
-    } else if (program.all) {
+    }).on('error', function (e) {
+
+        console.log("本地服务器未启动,尝试打开本地服务器:" + e.message);
+
+        var pa = path.join(__dirname, '../');
 
 
-        console.log('默认读取配置构建');
+        childpProcess.exec('cd ' + pa + 'server && sudo npm install && npm start',
+            function (error, stdout, stderr) {
+                if (error !== null) {
+                    console.log('启动本地服务器失败: ' + error);
+                } else {
+                    console.log('启动本地服务器成功');
+                    console.log(stdout);
+                    childpProcess.exec("open http://localhost:3000");
+                    process.exit();
+                }
+            });
 
-        buildModules = allModules;
-        if (program.min) {
-            console.log('启用压缩');
-            optimeze = 'uglify';
-        } else {
-            console.log('默认不压缩');
-        }
+    });
 
-        build();
+}
 
+// 不读取配置,直接扫描目录,打包全部模块
+else if (program.all) {
+
+    console.log('打包全部模块');
+
+    buildModules = allModules;
+    if (program.min) {
+        console.log('启用压缩');
+        optimeze = 'uglify';
     } else {
-
-        console.log('默认读取配置构建');
-
-        if (program.min) {
-            console.log('启用压缩');
-            optimeze = 'uglify';
-        } else {
-            console.log('默认不压缩');
-        }
-
-        build();
-
+        console.log('默认不压缩');
     }
+
+    if (program.output) {
+        console.log('指定了打包路径');
+        output = program.output;
+    } else {
+        console.log('默认路径为当前目录');
+    }
+
+    build();
+
+}
+
+// 指名输出目录
+else if (program.output) {
+
+    console.log('手动指定输出目录');
+
+    var output = program.output;
+
+    buildModules = allModules;
+
+    if (program.min) {
+        console.log('启用压缩');
+        optimeze = 'uglify';
+    } else {
+        console.log('默认不压缩');
+    }
+
+    build();
+
+}
+
+// 无任何参数,默认读取配置,打包全部
+else {
+
+    console.log('默认读取配置构建');
+
+    if (program.min) {
+        console.log('启用压缩');
+        optimeze = 'uglify';
+    } else {
+        console.log('默认不压缩');
+    }
+
+    build();
 
 }
 
