@@ -9,12 +9,15 @@
 
 ##### Options:
 
-    -h, --help     output usage information
-    -V, --version  output the version number
-    -p, --package  填写需要构建的合法模块名进行打包,模块名之间逗号分隔
-    -b, --browser  打开浏览器,可查看各个包的文档,勾选需要的模块名进行打包
-    -m, --min      是否启用压缩
-    -c, --config   打开配置文件,通过修改配置文件进行打包
+       -h, --help               output usage information
+       -V, --version            output the version number
+       -a, --all                不读取配置文件,读取目录打包全部
+       -p, --package <package>  填写需要构建的合法模块名进行打包,模块名之间逗号分隔
+       -b, --browser            打开浏览器,可查看各个包的文档,勾选需要的模块名进行打包
+       -m, --min                是否启用压缩
+       -c, --config             打开配置文件,通过修改配置文件进行打包
+       -o, --output <output>    指定打包文件输出目录
+       -l, --list               列出所有模块
 
 注:默认不读取配置文件,默认不打开浏览器,默认构建全部模块,默认不压缩,默认打包到当前目录的build目录下,有需求请在iutils命令后添加选项.
 
