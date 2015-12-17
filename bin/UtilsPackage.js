@@ -11,7 +11,7 @@ var http = require('http');
 
 var optimeze = 'none';
 var allModules = [];
-var output = '';
+var output = '.';
 
 console.log('当前路径:' + process.cwd());
 console.log('模块路径:' + path.join(__dirname, '../src/modules/'));
@@ -62,7 +62,7 @@ program
     .option('-b, --browser', '打开浏览器,可查看各个包的文档,勾选需要的模块名进行打包')
     .option('-m, --min', '是否启用压缩')
     .option('-c, --config', '打开配置文件,通过修改配置文件进行打包')
-    .option('-o, --output <output>', '指定打包文件输出目录,相对目录,以/结尾')
+    .option('-o, --output <output>', '指定打包文件输出目录')
     .option('-l, --list', '列出所有模块');
 
 program.parse(process.argv);
@@ -146,16 +146,16 @@ else if (program.browser) {
 
         process.exit();
     }).on('error', function (e) {
-        console.log("本地服务器无响应, 尝试打开本地服务器...若不自动打开窗口,请访问:http://localhost:3000");
+        console.log("本地服务器未开启, 尝试开启...若不自动打开窗口,请访问:http://localhost:3000");
 
         var pa = path.join(__dirname, '../');
 
         // console.log("pa路径:" + pa);
 
-        childpProcess.exec('cd ' + pa + '/server && sudo npm install && npm start',
+        childpProcess.exec('cd ' + pa + 'server && sudo npm install && sudo npm start',
             function (error, stdout, stderr) {
                 if (error !== null) {
-                    console.log('启动本地服务器失败: ' + error);
+                    console.log('开启本地服务器失败: ' + error);
                 } else {
                     // console.log(stdout);
                     childpProcess.exec("open http://localhost:3000", function () {
@@ -299,7 +299,9 @@ function build() {
             string = string + after;
 
             // 写入文件
-            var result = fs.writeFileSync(path.join(process.cwd(), output + './Utils.js'), string);
+            // 创建目录
+            fs.mkdirSync(path.join(process.cwd(), output));
+            var result = fs.writeFileSync(path.join(process.cwd(), output + '/Utils.js'), string, {flag:'w+'});
 
         }
     });
