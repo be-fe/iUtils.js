@@ -9,16 +9,16 @@ define(function (require, exports, module) {
     var ajax = require('./ajax');
 
     /**
-     * @params String url, Object params, Function successCallback, Function  failCallback
+     * @params String url, Object params, Function success, Function  fail
      */
-    var ajaxJsonp = function (url, params, successCallback, failCallback) {
+    var ajaxJsonp = function (url, params, success, fail) {
         ajax({
             method: "jsonp",
             url: url,
             params: params,
             type: 'text',
-            successCallback: successCallback,
-            failCallback: failCallback
+            success: success,
+            fail: fail
         });
     }
 

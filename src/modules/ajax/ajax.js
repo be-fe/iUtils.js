@@ -20,9 +20,9 @@ define(function (require, exports, module) {
             params: {}, // key:value //当method为file的时候,params=formData, xmlHttpRequest 2.0 可利用formData对象来上传文件
             type: 'text', // text, json, xml
             contentType: null,
-            successCallback: function (data) {
+            success: function (data) {
             },
-            failCallback: function () {
+            fail: function () {
             }
         };
 
@@ -38,8 +38,8 @@ define(function (require, exports, module) {
         var params = options.params;
         var type = options.type;
         var contentType = options.contentType;
-        var successCallback = options.successCallback;
-        var failCallback = options.failCallback;
+        var success = options.success;
+        var fail = options.fail;
 
 
         // xhr对象
@@ -105,18 +105,18 @@ define(function (require, exports, module) {
                     }
 
                     if (returnValue) {
-                        if (successCallback) {
-                            successCallback(returnValue);
+                        if (success) {
+                            success(returnValue);
                         }
                     } else {
-                        if (failCallback) {
-                            failCallback();
+                        if (fail) {
+                            fail();
                         }
                     }
 
                 } else {
-                    if (failCallback) {
-                        failCallback();
+                    if (fail) {
+                        fail();
                     }
                 }
             }
@@ -157,11 +157,11 @@ define(function (require, exports, module) {
             script.src = url + '&callback=' + callbackName;
             head.insertBefore(script, head.firstChild);
 
-            script.onerror = failCallback();
+            script.onerror = fail();
 
             window[callbackName] = function (data) {
-                if (successCallback) {
-                    successCallback(data);
+                if (success) {
+                    success(data);
                 }
                 delete window[callbackName];
                 head.removeChild(script);

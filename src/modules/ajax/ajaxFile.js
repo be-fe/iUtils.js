@@ -9,17 +9,17 @@ define(function (require, exports, module) {
     var ajax = require('./ajax');
 
     /**
-     * @params String url, FormData formData, Function successCallback, Function  failCallback
+     * @params String url, FormData formData, Function success, Function  fail
      */
     // 注意,file对象要append到formData对象中,或者从form表单构造formdata,注意不要设置contenttype
-    var ajaxFile = function (url, formData, successCallback, failCallback) {
+    var ajaxFile = function (url, formData, success, fail) {
         ajax({
             method: "file",
             url: url,
             params: formData,
             type: 'text',
-            successCallback: successCallback,
-            failCallback: failCallback
+            success: success,
+            fail: fail
         });
     }
 
