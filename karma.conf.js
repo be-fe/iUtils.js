@@ -58,7 +58,13 @@ module.exports = function (config) {
 
         // start these browsers
         // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
+        //browsers: ['Chrome'],
+
+        // 原来的浏览器
         browsers: ['Chrome'],
+
+        //browsers: ['PhantomJS', 'PhantomJS_custom'],
+        // karma-phantomjs-launcher
 
         coverageReporter: {
             type: 'html',
