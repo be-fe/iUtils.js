@@ -1,13 +1,15 @@
 /**
  * @file parsePort.js
+ * @auther leiquan
+ * @date 2015-12-1
+ * @from self
+ * @return String
+ * @params String protocol
+ * @runtime Browser Window, Require JS, Node.js
+ * @dependencies none
  */
-
 define(function (require, exports, module) {
 
-    /**
-     * @return String
-     * @params String protocol
-     */
     var parsePort = function (protocol) {
         switch (protocol) {
             case 'http:':

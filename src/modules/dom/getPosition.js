@@ -1,12 +1,15 @@
 /**
  * @file getPosition.js
+ * @auther leiquan<leiquan@baidu.com>
+ * @date 2015-12-1
+ * @from https://github.com/oneuijs/oui-dom-utils
+ * @return Object
+ * @params HTMLElement el,
+ * @runtime Browser Window, Require JS
+ * @dependencies none
  */
 
 define(function (require, exports, module) {
-
-    /**
-     * @return Object
-     */
 
     var getPosition = function (el) {
         if (!el) {

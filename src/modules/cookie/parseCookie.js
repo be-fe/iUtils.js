@@ -1,16 +1,18 @@
 /**
  * @file parseCookie.js
+ * @auther leiquan<leiquan@baidu.com>
+ * @date 2015-12-1
+ * @from self
+ * @return Object
+ * @params String  str
+ * @runtime Browser Window, Require JS
+ * @dependencies none
  */
 
 define(function (require, exports, module) {
 
     var decode = require('../url/decode');
 
-
-    /**
-     * @return Object
-     * @params String  str
-     */
     function parseCookie(str) {
         var obj = {};
         var pairs = str.split(/ *; */);

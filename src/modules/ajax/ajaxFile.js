@@ -1,16 +1,19 @@
 /**
- * Created by leiquan on 15/12/1.
  * @file ajaxFile.js
- * @author leiquan<leiquan@baidu.com>
+ * @auther leiquan<leiquan@baidu.com>
+ * @date 2015-12-1
+ * @from self
+ * @return null
+ * @params String url, FormData formData, Function success, Function  fail
+ * @runtime Browser Window, Require JS
+ * @dependencies none
  */
+
 
 define(function (require, exports, module) {
 
     var ajax = require('./ajax');
 
-    /**
-     * @params String url, FormData formData, Function success, Function  fail
-     */
     // 注意,file对象要append到formData对象中,或者从form表单构造formdata,注意不要设置contenttype
     var ajaxFile = function (url, formData, success, fail) {
         ajax({

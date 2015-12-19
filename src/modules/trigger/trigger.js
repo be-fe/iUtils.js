@@ -1,7 +1,14 @@
 /**
  * @file trigger.js
+ * @auther xieyu33333
+ * @date 2015-12-1
  * @from https://github.com/RolfKoenders/Trigger
+ * @param fn || null
+ * @returns 一个拥有on, off, trigger的Trigger对象
+ * @runtime Browser Window, Require JS, Node.js
+ * @dependencies none
  */
+
 define(function (require, exports, module) {
 
 
@@ -53,11 +60,6 @@ define(function (require, exports, module) {
 
     };
 
-    /**
-     *
-     * @param fn || null
-     * @returns 一个拥有on, off, trigger的Trigger对象
-     */
     var setTrigger = function (fn) {
 
         var Trigger;

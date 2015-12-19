@@ -1,13 +1,15 @@
 /**
- * @file randomColor
- * @author leiquan<leiquan@baidu.com>
+ * @file randomColor.js
+ * @auther leiquan<leiquan@baidu.com>
+ * @date 2015-12-1
+ * @from self
+ * @return String
+ * @params null
+ * @runtime Browser Window, Require JS, Node.js
+ * @dependencies none
  */
-
 define(function (require, exports, module) {
 
-    /**
-     * @return String
-     */
     function randomColor() {
 
         var r = function () {

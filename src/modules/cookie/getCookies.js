@@ -1,13 +1,17 @@
 /**
  * @file getCookies.js
+ * @auther leiquan<leiquan@baidu.com>
+ * @date 2015-12-1
+ * @from self
+ * @return Object
+ * @params null
+ * @runtime Browser Window, Require JS
+ * @dependencies none
  */
 define(function (require, exports, module) {
 
     var parse = require('./parseCookie');
 
-    /**
-     * @return Object
-     */
     function getCookies() {
         var str;
         try {

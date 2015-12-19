@@ -1,7 +1,12 @@
 /**
  * @file is.js
+ * @auther Aras Atasaygin
+ * @date 2015-12-1
  * @from https://github.com/arasatasaygin/is.js
- * @author: Aras Atasaygin
+ * @return null
+ * @param null
+ * @runtime Browser Window, Require JS
+ * @dependencies none
  */
 define(function (require, exports, module) {
 

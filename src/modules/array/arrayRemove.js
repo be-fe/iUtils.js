@@ -1,12 +1,15 @@
 /**
  * @file arrayRemove.js
+ * @auther leiquan<leiquan@baidu.com>
+ * @date 2015-12-1
+ * @from self
+ * @return Boolean/null
+ * @params Array arr, Number dx
+ * @runtime Browser Window, Require JS
+ * @dependencies none
  */
-define(function (require, exports, module) {
 
-    /**
-     * @return Boolean
-     * @params Array arr, Number dx
-     */
+define(function (require, exports, module) {
     var arrayRemove = function (arr, dx) {
 
         if (isNaN(dx) || dx > this.length) {

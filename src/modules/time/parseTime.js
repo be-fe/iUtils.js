@@ -1,12 +1,15 @@
 /**
- * @file judgeTime.js
- * @author: xieyu33333
+ * @file parseTime.js
+ * @auther xieyu33333
+ * @date 2015-12-1
+ * @from self
+ * @return number
+ * @params string/number/obj
+ * @runtime Browser Window, Require JS, Node.js
+ * @dependencies none
  */
+
 define(function (require, exports, module) {
-    /**
-     * @return number
-     * @params string/number/obj
-     */
 
     var parseTime = function (time) {
         var timeStamp;

@@ -1,13 +1,15 @@
 /**
  * @file getElementByClassName.js
+ * @auther leiquan<leiquan@baidu.com>
+ * @date 2015-12-1
+ * @from self
+ * @return HTMLNodeList
+ * @params HTMLElement node, String  classname
+ * @runtime Browser Window, Require JS
+ * @dependencies none
  */
 define(function (require, exports, module) {
 
-
-    /**
-     * @return HTMLNodeList
-     * @params HTMLElement node, String  classname
-     */
     var getElementByClassName = function (node, classname) {
         if (node.getElementsByClassName) { // use native implementation if available
             return node.getElementsByClassName(classname);

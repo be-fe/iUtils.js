@@ -1,6 +1,12 @@
 /**
  * @file jsLoader.js
- * @author: lipenghui
+ * @auther lipenghui
+ * @date 2015-12-1
+ * @from self
+ * @return null
+ * @param null
+ * @runtime Browser Window, Require JS
+ * @dependencies none
  */
 define(function (require, exports, module) {
 

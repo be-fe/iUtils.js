@@ -1,15 +1,16 @@
 /**
- * @file width.js
+ * @file setStyle.js
+ * @auther leiquan<leiquan@baidu.com>
+ * @date 2015-12-1
+ * @from https://github.com/oneuijs/oui-dom-utils
+ * @return null
+ * @param HHTMlElement node, String att, String val, String style
+ * @runtime Browser Window, Require JS
+ * @dependencies none
  */
-
 define(function (require, exports, module) {
 
     var getComputedStyle = require('./getComputedStyle');
-
-    /**
-     * @param
-     * @return
-     */
 
     var setStyle = function (node, att, val, style) {
 

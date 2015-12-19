@@ -1,14 +1,15 @@
 /**
- * @file randomNumber
- * @author leiquan<leiquan@baidu.com>
+ * @file randomNumber.js
+ * @auther leiquan<leiquan@baidu.com>
+ * @date 2015-12-1
+ * @from self
+ * @return Number
+ * @params Number  min, Number max
+ * @runtime Browser Window, Require JS, Node.js
+ * @dependencies none
  */
-
 define(function (require, exports, module) {
 
-    /**
-     * @return Number
-     * @params Number  min, Number max
-     */
     function randomNumber(min, max) {
 
         return Math.floor(min + Math.random() * (max - min));

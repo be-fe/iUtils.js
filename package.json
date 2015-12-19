@@ -16,14 +16,15 @@
   "license": "MIT",
   "dependencies": {
     "amdclean": "x",
-    "requirejs": "x",
     "commander": "^2.9.0",
     "express": "^4.13.3",
     "gulp": "^3.9.0",
     "gulp-amd-optimizer": "^0.4.0",
     "gulp-concat-sourcemap": "^1.3.1",
     "remarkable": "^1.6.1",
+    "requirejs": "x",
     "through": "^2.3.8",
+    "uglify-js": "^2.6.1",
     "yargs": "^3.31.0"
   },
   "devDependencies": {

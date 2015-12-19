@@ -1,14 +1,17 @@
 /**
  * @file isHexAdecimal.js
+ * @auther leiquan<leiquan@baidu.com>
+ * @date 2015-12-1
+ * @from https://github.com/arasatasaygin/is.js
+ * @return Boolean
+ * @params String str
+ * @runtime Browser Window, Require JS, Node.js
+ * @dependencies none
  */
 define(function (require, exports, module) {
 
     var reg = /^[0-9a-fA-F]+$/;
 
-    /**
-     * @return Boolean
-     * @params String str
-     */
     var isHexAdecimal = function (str) {
         return reg.test(str);
     }

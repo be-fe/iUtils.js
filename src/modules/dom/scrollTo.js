@@ -1,16 +1,18 @@
 /**
  * @file scrollTo.js
+ * @auther leiquan<leiquan@baidu.com>
+ * @date 2015-12-1
+ * @from https://github.com/oneuijs/oui-dom-utils
+ * @param Number to, Number duration
+ * @return null
+ * @runtime Browser Window, Require JS
+ * @dependencies none
  */
 
 define(function (require, exports, module) {
 
     var getDocumentScrollTop = require('./getDocumentScrollTop');
     var setDocumentScrollTop = require('./setDocumentScrollTop');
-
-    /**
-     * @param Number to, Number duration
-     * @return
-     */
 
     var scrollTo = function (to, duration) {
 

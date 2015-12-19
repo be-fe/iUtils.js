@@ -1,5 +1,12 @@
 /**
  * @file parseQueryString.js
+ * @auther leiquan
+ * @date 2015-12-1
+ * @from self
+ * @return Object
+ * @param String str
+ * @runtime Browser Window, Require JS, Node.js
+ * @dependencies none
  */
 
 define(function (require, exports, module) {
@@ -11,10 +18,6 @@ define(function (require, exports, module) {
     var encode = require('./encode');
     var decode = require('./decode');
 
-    /**
-     * @return Object
-     * @param String str
-     */
     var parseQueryString = function (str) {
         if ('string' != typeof str) return {};
 

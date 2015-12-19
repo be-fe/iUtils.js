@@ -1,13 +1,16 @@
 /**
  * @file judgeTime.js
- * @author: xieyu33333
+ * @auther xieyu33333
+ * @date 2015-12-1
+ * @from self
+ * @return obj
+ * @params string/number/obj
+ * @runtime Browser Window, Require JS, Node.js
+ * @dependencies none
  */
 
 define(function (require, exports, module) {
-    /**
-     * @return obj
-     * @params string/number/obj
-     */
+
     var parseTime = require('./parseTime');
 
     var _getTimeStr = function (time) {

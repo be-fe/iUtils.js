@@ -1,13 +1,15 @@
 /**
  * @file removeElement.js
+ * @auther leiquan<leiquan@baidu.com>
+ * @date 2015-12-1
+ * @from https://github.com/oneuijs/oui-dom-utils
+ * @return null
+ * @param HTMLElement el
+ * @runtime Browser Window, Require JS
+ * @dependencies none
  */
 
 define(function (require, exports, module) {
-
-    /**
-     * @return null
-     * @param HTMLElement el
-     */
 
     var removeElement = function (el) {
 

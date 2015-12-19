@@ -1,16 +1,18 @@
 /**
- * Created by leiquan on 15/12/1.
  * @file ajaxJsonp.js
- * @author leiquan<leiquan@baidu.com>
+ * @auther leiquan<leiquan@baidu.com>
+ * @date 2015-12-1
+ * @from self
+ * @return null
+ * @params String url, Object params, Function success, Function  fail
+ * @runtime Browser Window, Require JS
+ * @dependencies none
  */
 
 define(function (require, exports, module) {
 
     var ajax = require('./ajax');
 
-    /**
-     * @params String url, Object params, Function success, Function  fail
-     */
     var ajaxJsonp = function (url, params, success, fail) {
         ajax({
             method: "jsonp",

@@ -1,15 +1,18 @@
 /**
  * @file setCookie.js
+ * @auther leiquan<leiquan@baidu.com>
+ * @date 2015-12-1
+ * @from self
+ * @return Object
+ * @params String  name, String  value, Object  options,
+ * @runtime Browser Window, Require JS
+ * @dependencies none
  */
 
 define(function (require, exports, module) {
 
     var encode = require('../url/encode');
 
-    /**
-     * @return Object
-     * @params String  name, String  value, Object  options,
-     */
     function setCookie(name, value, options) {
         options = options || {};
         var str = encode(name) + '=' + encode(value);

@@ -1,14 +1,16 @@
 /**
  * @file deepCopy.js
- * @author leiquan<leiquan@baidu.com>
+ * @auther leiquan<leiquan@baidu.com>
+ * @date 2015-12-1
+ * @from self
+ * @return Object  child
+ * @params Object  parent
+ * @runtime Browser Window, Require JS, Node.js
+ * @dependencies none
  */
 define(function (require, exports, module) {
 
     // 深拷贝
-    /**
-     * @return Object  child
-     * @params Object  parent
-     */
     function deepCopy(parent, child) {
         var child = child || {};
         for (var i in parent) {

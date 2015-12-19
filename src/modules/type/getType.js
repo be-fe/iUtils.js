@@ -1,6 +1,14 @@
 /**
  * @file getType.js
+ * @auther leiquan
+ * @date 2015-12-1
+ * @from self
+ * @param Object val
+ * @returns String
+ * @runtime Browser Window, Require JS, Node.js
+ * @dependencies none
  */
+
 define(function (require, exports, module) {
 
     var toString = Object.prototype.toString;
@@ -8,10 +16,6 @@ define(function (require, exports, module) {
     var typeIsBuffer = require('./typeIsBuffer');
 
 
-    /**
-     * @return String
-     * @params Object val
-     */
     var getType = function (val) {
         switch (toString.call(val)) {
 

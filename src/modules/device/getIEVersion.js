@@ -1,11 +1,15 @@
 /**
  * @file getIEVersion.js
+ * @auther leiquan<leiquan@baidu.com>
+ * @date 2015-12-1
+ * @from 哪里来的来着?找不到地址了
+ * @return Number
+ * @params null,
+ * @runtime Browser Window, Require JS
+ * @dependencies none
  */
 define(function (require, exports, module) {
 
-    /**
-     * @return Number
-     */
     function getIEVersion() {
         for (var v = 3,
                  el = document.createElement('b'),

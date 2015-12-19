@@ -1,15 +1,17 @@
 /**
  * @file parseURL.js
+ * @auther leiquan
+ * @date 2015-12-1
+ * @from self
+ * @return Object
+ * @param String url
+ * @runtime Browser Window, Require JS, Node.js
+ * @dependencies none
  */
-
 define(function (require, exports, module) {
 
     var parsePort = require('./parsePort');
 
-    /**
-     * @return Object
-     * @param String url
-     */
     var parseURL = function (url) {
 
         var a = document.createElement('a');

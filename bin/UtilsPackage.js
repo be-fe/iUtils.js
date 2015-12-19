@@ -8,6 +8,7 @@ var path = require("path");
 var program = require("commander");
 var childpProcess = require('child_process');
 var http = require('http');
+var UglifyJS = require("uglify-js");
 
 var optimeze = 'none';
 var allModules = [];
@@ -67,11 +68,9 @@ program
 
 program.parse(process.argv);
 
-// 打开配置文件
+// 打开配置文件,测试通过
 if (program.config) {
-
     console.log('打开了配置文件,请前往编辑然后重新进行打包');
-
     var p = path.join(__dirname, '../config.js')
     childpProcess.exec('open ' + p,
         function (error, stdout, stderr) {
@@ -79,14 +78,12 @@ if (program.config) {
                 console.log('exec error: ' + error);
                 process.exit();
             } else {
-                console.log(stdout);
                 process.exit();
             }
         });
-
 }
 
-// 列出所有模块
+// 列出所有模块,测试通过
 else if (program.list) {
 
     console.log('列出所有模块:');
@@ -97,7 +94,65 @@ else if (program.list) {
 
 }
 
-// 可填写包名
+// 打开浏览器勾选模块,已经 OK 了,测试通过
+else if (program.browser) {
+
+    // 本地是否启动了服务器
+    http.get("http://localhost:3000", function (res) {
+        console.log("请在浏览器内勾选模块并打包:" + res.statusCode);
+
+        childpProcess.exec("open http://localhost:3000");
+
+        process.exit();
+    }).on('error', function (e) {
+
+        console.log("本地服务器未开启, 尝试开启...");
+
+        var pa = path.join(__dirname, '../');
+
+        childpProcess.exec('sudo cd ' + pa + 'server', function (error, stdout, stderr) {
+            if (error !== null) {
+                console.log('切换目录失败: ' + error);
+            }
+
+            var c = childpProcess.exec('sudo npm install', function (error, stdout, stderr) {
+                if (error !== null) {
+                    console.log(' npm install 失败: ' + error);
+                }
+
+            });
+
+            c.on('close', function () {
+
+                childpProcess.exec('sudo npm start', function (error, stdout, stderr) {
+                    if (error !== null) {
+                        console.log(' npm start 失败: ' + error);
+                    }
+
+                });
+
+
+                setTimeout(function () {
+
+                    childpProcess.exec('open http://localhost:3000', function (error, stdout, stderr) {
+                        if (error !== null) {
+                            console.log(' 打开浏览器失败: ' + error);
+                        } else {
+                            console.log(' 打开浏览器成功 ^_^ ');
+                        }
+                    });
+
+                }, 1000);
+
+            });
+
+        });
+
+    });
+
+}
+
+// 可填写包名,测试通过
 else if (program.package) {
 
     console.log('填写了需要构建的包:' + program.package);
@@ -109,7 +164,7 @@ else if (program.package) {
     buildModules = arr;
 
     if (program.min) {
-        console.log('启用压缩');
+        console.log('手动启用压缩');
         optimeze = 'uglify';
     } else {
         console.log('默认不压缩');
@@ -126,61 +181,14 @@ else if (program.package) {
 
 }
 
-// 打开浏览器勾选模块
-else if (program.browser) {
-
-    // 本地是否启动了服务器
-    http.get("http://localhost:3000", function (res) {
-        console.log("请在浏览器内勾选模块并打包:" + res.statusCode);
-
-        //var cmd;
-        //if (process.platform === 'win32') {
-        //    cmd = 'start "%ProgramFiles%\Internet Explorer\iexplore.exe"';
-        //} else if (process.platform === 'linux') {
-        //    cmd = 'xdg-open';
-        //} else if (process.platform === 'darwin') {
-        //    cmd = 'open';
-        //}
-
-        childpProcess.exec("open http://localhost:3000");
-
-        process.exit();
-    }).on('error', function (e) {
-        console.log("本地服务器未开启, 尝试开启...若不自动打开窗口,请访问:http://localhost:3000");
-
-        var pa = path.join(__dirname, '../');
-
-        // console.log("pa路径:" + pa);
-
-        childpProcess.exec('cd ' + pa + 'server && sudo npm install && sudo npm start',
-            function (error, stdout, stderr) {
-                if (error !== null) {
-                    console.log('开启本地服务器失败: ' + error);
-                } else {
-                    // console.log(stdout);
-                    childpProcess.exec("open http://localhost:3000", function () {
-                        console.log('浏览器已经打开 ^_^');
-                        // process.exit();
-                    });
-
-
-                }
-            });
-
-        //process.exit();
-
-    });
-
-}
-
-// 不读取配置,直接扫描目录,打包全部模块
+// 不读取配置,直接扫描目录,打包全部模块,测试通过
 else if (program.all) {
 
-    console.log('打包全部模块');
+    console.log('配置了打包全部模块');
 
     buildModules = allModules;
     if (program.min) {
-        console.log('启用压缩');
+        console.log('手动启用压缩');
         optimeze = 'uglify';
     } else {
         console.log('默认不压缩');
@@ -200,12 +208,12 @@ else if (program.all) {
 // 指名输出目录
 else if (program.output) {
 
-    console.log('手动指定输出目录');
+    console.log('手动指定输出目录:' + program.output);
 
     output = program.output;
 
     if (program.min) {
-        console.log('启用压缩');
+        console.log('手动启用压缩');
         optimeze = 'uglify';
     } else {
         console.log('默认不压缩');
@@ -221,7 +229,7 @@ else {
     console.log('默认读取配置构建');
 
     if (program.min) {
-        console.log('启用压缩');
+        console.log('手动启用压缩');
         optimeze = 'uglify';
     } else {
         console.log('默认不压缩');
@@ -237,7 +245,7 @@ function build() {
     requirejs.optimize({
         'findNestedDependencies': true,
         'baseUrl': path.join(__dirname, '../src/modules/'),
-        'optimize': optimeze,
+        'optimize': 'none',
         'include': buildModules,
         'out': path.join(process.cwd(), './build/Utils.js'),
         'onModuleBundleComplete': function (data) {
@@ -251,6 +259,7 @@ function build() {
             var content = fs.readFileSync(path.join(process.cwd(), './build/Utils.js'));
 
             var string = content.toString();
+
 
             string = string.substring(14, string.length);
             string = string.substring(0, string.length - 5);
@@ -300,8 +309,55 @@ function build() {
 
             // 写入文件
             // 创建目录
-            fs.mkdirSync(path.join(process.cwd(), output));
-            var result = fs.writeFileSync(path.join(process.cwd(), output + '/Utils.js'), string, {flag:'w+'});
+
+            var file = '/Utils.js';
+
+            // 压缩代码
+            if (optimeze === 'uglify') {
+                var result = UglifyJS.minify(string, {fromString: true});
+                // console.log(result.code); // minified output
+                string = result.code;
+                file = '/Utils.min.js';
+            }
+
+
+            function mkdirsSync(dirname, mode) {
+                if (fs.existsSync(dirname)) {
+                    return true;
+                } else {
+                    if (mkdirsSync(path.dirname(dirname), mode)) {
+                        fs.mkdirSync(dirname, mode);
+                        return true;
+                    }
+                }
+            }
+
+
+            // 路径处理
+            // 1.是否是绝对路径?
+            // 2.不是的话全部当成相对路径
+
+            if (path.isAbsolute(output)) {
+
+                fs.exists(output, function (exists) {
+                    if (exists) {
+                        var result = fs.writeFileSync(output + file, string, {flag: 'w+'});
+                    } else {
+                        fs.mkdirsSync(output);
+                        var result = fs.writeFileSync(output + file, string, {flag: 'w+'});
+                    }
+                });
+
+            } else {
+                fs.exists(path.join(process.cwd(), output), function (exists) {
+                    if (exists) {
+                        var result = fs.writeFileSync(path.join(process.cwd(), output + file), string, {flag: 'w+'});
+                    } else {
+                        mkdirsSync(path.join(process.cwd(), output));
+                        var result = fs.writeFileSync(path.join(process.cwd(), output + file), string, {flag: 'w+'});
+                    }
+                });
+            }
 
         }
     });

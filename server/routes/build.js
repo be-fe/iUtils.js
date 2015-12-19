@@ -40,7 +40,7 @@ router.get('/', function (req, res, next) {
     requirejs.optimize({
         'findNestedDependencies': true,
         'baseUrl': path.join(__dirname, '../../src/modules/'),
-        'optimize': 'none',
+        'optimize': 'uglify',
         'include': moduleArr,
         'out': path.join(__dirname, '../build/Utils.js'),
         'onModuleBundleComplete': function (data) {

@@ -1,13 +1,16 @@
 /**
  * @file arrayEqual.js
+ * @auther leiquan<leiquan@baidu.com>
+ * @date 2015-12-1
  * @from https://github.com/component/array-equal
+ * @return Boolean
+ * @params Array arr1, Array arr2
+ * @runtime Browser Window, Require JS
+ * @dependencies none
  */
+
 define(function (require, exports, module) {
 
-    /**
-     * @return Boolean
-     * @params Array arr1, Array arr2
-     */
     var arrayEqual = function (arr1, arr2) {
         var length = arr1.length;
         if (arguments.length !== 2) return false;

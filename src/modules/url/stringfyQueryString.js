@@ -1,7 +1,13 @@
 /**
  * @file stringfyQueryString.js
+ * @auther leiquan
+ * @date 2015-12-1
+ * @from self
+ * @return String
+ * @param Object obj
+ * @runtime Browser Window, Require JS, Node.js
+ * @dependencies none
  */
-
 define(function (require, exports, module) {
 
 
@@ -11,11 +17,6 @@ define(function (require, exports, module) {
     var encode = require('./encode');
     var decode = require('./decode');
 
-
-    /**
-     * @return String
-     * @param Object obj
-     */
     var stringfyQueryString = function (obj) {
         if (!obj) return '';
         var pairs = [];

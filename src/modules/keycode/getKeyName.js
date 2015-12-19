@@ -1,8 +1,13 @@
 /**
  * @file getKeyName.js
- * @author leiquan<leiquan@baidu.com>
+ * @auther leiquan<leiquan@baidu.com>
+ * @date 2015-12-1
+ * @from self
+ * @return String
+ * @param Number keycode,
+ * @runtime Browser Window, Require JS
+ * @dependencies none
  */
-
 define(function (require, exports, module) {
 
 

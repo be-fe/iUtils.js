@@ -1,16 +1,18 @@
 /**
- * Created by leiquan on 15/12/1.
  * @file ajax.js
- * @author leiquan<leiquan@baidu.com>
+ * @auther leiquan<leiquan@baidu.com>
+ * @date 2015-12-1
+ * @from self
+ * @return null
+ * @params Object userOptions
+ * @runtime Browser Window, Require JS
+ * @dependencies none
  */
 
 define(function (require, exports, module) {
 
     var randomNumber = require('../random/randomNumber');
 
-    /**
-     * @params userOptions
-     */
     var myAjax = function (userOptions) {
 
         // 默认值

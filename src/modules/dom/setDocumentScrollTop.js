@@ -1,13 +1,14 @@
 /**
  * @file setDocumentScrollTop.js
+ * @auther leiquan<leiquan@baidu.com>
+ * @date 2015-12-1
+ * @from https://github.com/oneuijs/oui-dom-utils
+ * @return Number
+ * @param value
+ * @runtime Browser Window, Require JS
+ * @dependencies none
  */
-
 define(function (require, exports, module) {
-
-    /**
-     * @return Number
-     * @param value
-     */
 
     var setDocumentScrollTop = function (value) {
         window.scrollTo(0, value);

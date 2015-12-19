@@ -1,13 +1,17 @@
 /**
  * @file removeClass.js
+ * @auther leiquan<leiquan@baidu.com>
+ * @date 2015-12-1
+ * @from self
+ * @return null
+ * @params HTMLElement obj, String  cls
+ * @runtime Browser Window, Require JS
+ * @dependencies none
  */
 define(function (require, exports, module) {
 
     var hasClass = require('./hasClass');
 
-    /**
-     * @params HTMLElement obj, String  cls
-     */
     var removeClass = function (obj, cls) {
         if (hasClass(obj, cls)) {
             var reg = new RegExp('(\\s|^)' + cls + '(\\s|$)');

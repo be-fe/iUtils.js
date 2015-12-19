@@ -1,14 +1,16 @@
 /**
  * @file encode.js
+ * @auther leiquan
+ * @date 2015-12-1
+ * @from self
+ * @return String
+ * @params String str
+ * @runtime Browser Window, Require JS, Node.js
+ * @dependencies none
  */
 
 define(function (require, exports, module) {
 
-
-    /**
-     * @return String
-     * @params String str
-     */
     var encode = function (str) {
         try {
             return encodeURIComponent(str);
