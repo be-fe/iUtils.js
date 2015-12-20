@@ -12,7 +12,7 @@
 define(function (require, exports, module) {
     var arrayRemove = function (arr, dx) {
 
-        if (isNaN(dx) || dx > this.length) {
+        if (isNaN(dx) || dx > arr.length) {
             return false;
         }
         arr.splice(dx, 1);

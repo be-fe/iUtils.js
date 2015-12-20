@@ -7,7 +7,7 @@ define(['src/modules/array/arrayOrderByMax'], function (arrayOrderByMax) {
             it('[4, 3, 2, 1]', function () {
                 var arr = [1, 2, 3, 4];
                 arrayOrderByMax(arr);
-                expect(arr).to.be.equal([4, 3, 2, 1]);
+                expect(arr[0]).to.be.equal(4);
             });
 
 

@@ -4,7 +4,7 @@ define(['src/modules/device/getOS'], function (getOS) {
 
         describe('#getOS', function () {
 
-            it('getType() should return "mac"', function () {
+            it('getOS() should return "mac"', function () {
                 expect(getOS()).to.be.equal('MacOSX');
             });
 
