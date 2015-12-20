@@ -115,36 +115,29 @@ else if (program.browser) {
                 console.log('切换目录失败: ' + error);
             }
 
-            var c = childpProcess.exec('sudo npm install', function (error, stdout, stderr) {
+        });
+
+        c.on('close', function () {
+
+            childpProcess.exec('sudo npm start', function (error, stdout, stderr) {
                 if (error !== null) {
-                    console.log(' npm install 失败: ' + error);
+                    console.log(' npm start 失败: ' + error);
                 }
 
             });
 
-            c.on('close', function () {
 
-                childpProcess.exec('sudo npm start', function (error, stdout, stderr) {
+            setTimeout(function () {
+
+                childpProcess.exec('open http://localhost:3000', function (error, stdout, stderr) {
                     if (error !== null) {
-                        console.log(' npm start 失败: ' + error);
+                        console.log(' 打开浏览器失败: ' + error);
+                    } else {
+                        console.log(' 打开浏览器成功 ^_^ ');
                     }
-
                 });
 
-
-                setTimeout(function () {
-
-                    childpProcess.exec('open http://localhost:3000', function (error, stdout, stderr) {
-                        if (error !== null) {
-                            console.log(' 打开浏览器失败: ' + error);
-                        } else {
-                            console.log(' 打开浏览器成功 ^_^ ');
-                        }
-                    });
-
-                }, 1000);
-
-            });
+            }, 1000);
 
         });
 
