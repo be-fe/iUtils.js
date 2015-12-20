@@ -99,47 +99,59 @@ else if (program.browser) {
 
     // 本地是否启动了服务器
     http.get("http://localhost:3000", function (res) {
-        console.log("请在浏览器内勾选模块并打包:" + res.statusCode);
+
+        console.log("检测到本地服务器已开启, 请在浏览器内勾选模块并打包 ^_^");
 
         childpProcess.exec("open http://localhost:3000");
 
         process.exit();
+
     }).on('error', function (e) {
 
-        console.log("本地服务器未开启, 尝试开启...");
+        console.log("检测到本地服务器未开启, 尝试开启中, 请稍等...");
 
         var pa = path.join(__dirname, '../');
 
-        var c = childpProcess.exec('sudo cd ' + pa + 'server && sudo npm install', function (error, stdout, stderr) {
+        childpProcess.exec('cd ' + pa + 'server', function (error, stdout, stderr) {
             if (error !== null) {
                 console.log('切换目录失败: ' + error);
+            } else {
+                console.log('切换目录成功, 请稍等...');
+
+                childpProcess.exec('sudo npm install', function (error, stdout, stderr) {
+                    if (error !== null) {
+                        console.log('安装依赖失败: ' + error);
+                    } else {
+                        console.log('安装依赖成功, 请稍等...');
+
+                        // 固定了路径,彻底解决了 npm start 的问题!
+                        var p = path.join(__dirname, '../server/bin/www');
+
+                        childpProcess.exec('node ' + p, function (error, stdout, stderr) {
+                            if (error !== null) {
+                                console.log('启动服务器失败: ' + error);
+                            } else {
+                                console.log('启动服务器成功, 请稍等...');
+                            }
+                        });
+
+                        setTimeout(function () {
+                            childpProcess.exec('open http://localhost:3000', function (error, stdout, stderr) {
+                                if (error !== null) {
+                                    console.log('打开浏览器失败: ' + error);
+                                } else {
+                                    console.log('打开浏览器成功, 请在浏览器内勾选模块并打包 ^_^');
+                                }
+                            });
+                        }, 1000);
+
+                    }
+                });
+
             }
 
         });
 
-        c.on('close', function () {
-
-            childpProcess.exec('sudo npm start', function (error, stdout, stderr) {
-                if (error !== null) {
-                    console.log(' npm start 失败: ' + error);
-                }
-
-            });
-
-
-            setTimeout(function () {
-
-                childpProcess.exec('open http://localhost:3000', function (error, stdout, stderr) {
-                    if (error !== null) {
-                        console.log(' 打开浏览器失败: ' + error);
-                    } else {
-                        console.log(' 打开浏览器成功 ^_^ ');
-                    }
-                });
-
-            }, 1000);
-
-        });
 
     });
 
