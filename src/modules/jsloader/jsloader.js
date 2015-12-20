@@ -256,7 +256,7 @@ define(function (require, exports, module) {
         return Loader;
     }
 
-    module.exports = jsLoader;
+    module.exports =  jsLoader;
 
 
 });
