@@ -110,7 +110,7 @@ else if (program.browser) {
 
         var pa = path.join(__dirname, '../');
 
-        childpProcess.exec('sudo cd ' + pa + 'server', function (error, stdout, stderr) {
+        var c = childpProcess.exec('sudo cd ' + pa + 'server && sudo npm install', function (error, stdout, stderr) {
             if (error !== null) {
                 console.log('切换目录失败: ' + error);
             }
