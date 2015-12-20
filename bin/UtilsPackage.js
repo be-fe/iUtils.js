@@ -348,7 +348,7 @@ function build() {
                     if (exists) {
                         var result = fs.writeFileSync(output + file, string, {flag: 'w+'});
                     } else {
-                        fs.mkdirsSync(output);
+                        mkdirsSync(output);
                         var result = fs.writeFileSync(output + file, string, {flag: 'w+'});
                     }
                 });
