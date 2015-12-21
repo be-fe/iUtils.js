@@ -3,12 +3,12 @@
 var amdclean = require('amdclean');
 var requirejs = require('requirejs');
 var buildModules = require('../config.js');
-var fs = require("fs");
-var path = require("path");
-var program = require("commander");
+var fs = require('fs');
+var path = require('path');
+var program = require('commander');
 var childpProcess = require('child_process');
 var http = require('http');
-var UglifyJS = require("uglify-js");
+var UglifyJS = require('uglify-js');
 
 var optimeze = 'none';
 var allModules = [];
@@ -21,12 +21,13 @@ function scanFolder(path) {
 
     var fileList = [];
     var folderList = [];
+    var files;
 
     var walk = function (path, fileList, folderList) {
         files = fs.readdirSync(path);
         files.forEach(function (item) {
-            var tmpPath = path + '/' + item,
-                stats = fs.statSync(tmpPath);
+            var tmpPath = path + '/' + item;
+            var stats = fs.statSync(tmpPath);
 
             if (stats.isDirectory()) {
                 walk(tmpPath, fileList, folderList);
@@ -40,9 +41,9 @@ function scanFolder(path) {
     walk(path, fileList, folderList);
 
     return {
-        'files': fileList,
-        'folders': folderList
-    }
+        files: fileList,
+        folders: folderList
+    };
 }
 
 var result = scanFolder(path.join(__dirname, '../src/modules/'));
@@ -115,57 +116,50 @@ else if (program.list) {
 else if (program.browser) {
 
     // 本地是否启动了服务器
-    http.get("http://localhost:3000", function (res) {
+    http.get('http://localhost:3000', function (res) {
 
-        console.log("检测到本地服务器已开启, 请在浏览器内勾选模块并打包 ^_^");
+        console.log('检测到本地服务器已开启, 请在浏览器内勾选模块并打包 ^_^');
 
-        childpProcess.exec("open http://localhost:3000");
+        childpProcess.exec('open http://localhost:3000');
 
         process.exit();
 
     }).on('error', function (e) {
 
-        console.log("检测到本地服务器未开启, 尝试开启中, 请稍等...");
+        console.log('检测到本地服务器未开启, 尝试开启中, 请稍等...');
 
         var pa = path.join(__dirname, '../');
 
-        childpProcess.exec('cd ' + pa + 'server', function (error, stdout, stderr) {
+        childpProcess.exec('cd ' + pa + 'server && sudo npm install', function (error, stdout, stderr) {
+
             if (error !== null) {
-                console.log('切换目录失败: ' + error);
+                console.log('安装依赖失败: ' + error);
             } else {
-                console.log('切换目录成功, 请稍等...');
+                console.log('安装依赖成功, 请稍等...');
 
-                childpProcess.exec('sudo npm install', function (error, stdout, stderr) {
+                // 固定了路径,彻底解决了 npm start 的问题!
+                var p = path.join(__dirname, '../server/bin/www');
+
+                childpProcess.exec('sudo node ' + p, function (error, stdout, stderr) {
                     if (error !== null) {
-                        console.log('安装依赖失败: ' + error);
+                        console.log('启动服务器失败: ' + error);
                     } else {
-                        console.log('安装依赖成功, 请稍等...');
-
-                        // 固定了路径,彻底解决了 npm start 的问题!
-                        var p = path.join(__dirname, '../server/bin/www');
-
-                        childpProcess.exec('node ' + p, function (error, stdout, stderr) {
-                            if (error !== null) {
-                                console.log('启动服务器失败: ' + error);
-                            } else {
-                                console.log('启动服务器成功, 请稍等...');
-                            }
-                        });
-
-                        setTimeout(function () {
-                            childpProcess.exec('open http://localhost:3000', function (error, stdout, stderr) {
-                                if (error !== null) {
-                                    console.log('打开浏览器失败: ' + error);
-                                } else {
-                                    console.log('打开浏览器成功, 请在浏览器内勾选模块并打包 ^_^');
-                                }
-                            });
-                        }, 1000);
-
+                        console.log('启动服务器成功, 请稍等...');
                     }
                 });
 
+                setTimeout(function () {
+                    childpProcess.exec('open http://localhost:3000', function (error, stdout, stderr) {
+                        if (error !== null) {
+                            console.log('打开浏览器失败: ' + error);
+                        } else {
+                            console.log('打开浏览器成功, 请在浏览器内勾选模块并打包 ^_^');
+                        }
+                    });
+                }, 1000);
+
             }
+
 
         });
 
@@ -287,23 +281,23 @@ function build() {
             string = string.substring(0, string.length - 5);
 
             // 前容器
-            var before = "";
-            before += "(function (ns, factory) {";
-            before += "if (typeof define === 'function' && define.amd) {";
-            before += "define(factory);";
-            before += "}";
-            before += "else if (typeof module === 'object' && module.exports) {";
-            before += "module.exports = factory();";
-            before += "}";
-            before += "else {";
-            before += "window[ns] = factory();";
-            before += "}";
-            before += "})('iUtils', function () {\n";
+            var before = '';
+            before += '(function (ns, factory) {';
+            before += 'if (typeof define === "function" && define.amd) {';
+            before += 'define(factory);';
+            before += '}';
+            before += 'else if (typeof module === "object" && module.exports) {';
+            before += 'module.exports = factory();';
+            before += '}';
+            before += 'else {';
+            before += 'window[ns] = factory();';
+            before += '}';
+            before += '})("iUtils", function () {\n';
 
             string = before + string;
 
             // return数组
-            var returnString = "\nreturn {";
+            var returnString = '\nreturn {';
             for (var i = 0; i < buildModules.length; i++) {
 
                 // 1.将目录替换成下划线,作为返回的函数值
@@ -316,16 +310,16 @@ function build() {
                 var keyString;
                 keyString = resultString.substring(idx + 1, resultString.length);
 
-                returnString += keyString + ":" + resultString + ",";
+                returnString += keyString + ':' + resultString + ',';
             }
             // 去掉,
             var newString = returnString.substring(0, returnString.length - 1);
-            newString += "}";
+            newString += '}';
 
             string = string + newString;
 
             // 后容器
-            var after = "\n});";
+            var after = '\n});';
 
             string = string + after;
 
@@ -386,6 +380,6 @@ function build() {
         }
     });
 // 重写结束
-    console.log("构建了如下的包:");
+    console.log('构建了如下的包:');
     console.log(buildModules);
 }

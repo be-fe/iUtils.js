@@ -1,4 +1,5 @@
-;(function() {
+(function (ns, factory) {if (typeof define === "function" && define.amd) {define(factory);}else if (typeof module === "object" && module.exports) {module.exports = factory();}else {window[ns] = factory();}})("iUtils", function () {
+
 /**
  * @file randomNumber.js
  * @auther leiquan<leiquan@baidu.com>
@@ -2223,4 +2224,6 @@ url_stringfyQueryString = function (exports) {
   exports = stringfyQueryString;
   return exports;
 }(url_stringfyQueryString);
-}());
+
+return {ajax:ajax_ajax,ajaxFile:ajax_ajaxFile,ajaxGet:ajax_ajaxGet,ajaxJsonp:ajax_ajaxJsonp,ajaxPost:ajax_ajaxPost,arrayEqual:array_arrayEqual,arrayOrderByMax:array_arrayOrderByMax,arrayOrderByMin:array_arrayOrderByMin,arrayRemove:array_arrayRemove,indexof:array_indexof,addClass:class_addClass,hasClass:class_hasClass,removeClass:class_removeClass,toggleClass:class_toggleClass,getCookie:cookie_getCookie,getCookies:cookie_getCookies,parseCookie:cookie_parseCookie,setCookie:cookie_setCookie,getIEVersion:device_getIEVersion,getOS:device_getOS,isChrome:device_isChrome,isIE:device_isIE,closest:dom_closest,forceReflow:dom_forceReflow,getComputedStyle:dom_getComputedStyle,getDocumentScrollTop:dom_getDocumentScrollTop,getElementByClassName:dom_getElementByClassName,getOffset:dom_getOffset,getPageSize:dom_getPageSize,getPosition:dom_getPosition,getStyle:dom_getStyle,height:dom_height,insertAfter:dom_insertAfter,matches:dom_matches,outerHeight:dom_outerHeight,outerHeightWithMargin:dom_outerHeightWithMargin,outerWidth:dom_outerWidth,outerWidthWithMargin:dom_outerWidthWithMargin,removeElement:dom_removeElement,scrollTo:dom_scrollTo,setDocumentScrollTop:dom_setDocumentScrollTop,setStyle:dom_setStyle,width:dom_width,is:is_is,jsloader:jsloader_jsloader,getKeyName:keycode_getKeyName,deepCopy:object_deepCopy,extend:object_extend,randomColor:random_randomColor,randomNumber:random_randomNumber,isEmail:regexp_isEmail,isHexAdecimal:regexp_isHexAdecimal,isHexColor:regexp_isHexColor,isTimeString:regexp_isTimeString,isUrl:regexp_isUrl,trim:string_trim,parseTime:time_parseTime,trigger:trigger_trigger,getType:type_getType,decode:url_decode,encode:url_encode,isCrossDomain:url_isCrossDomain,parsePort:url_parsePort,parseQueryString:url_parseQueryString,parseURL:url_parseURL,stringfyQueryString:url_stringfyQueryString}
+});
