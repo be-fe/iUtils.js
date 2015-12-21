@@ -64,6 +64,7 @@ program
     .option('-m, --min', '是否启用压缩')
     .option('-c, --config', '打开配置文件,通过修改配置文件进行打包')
     .option('-o, --output <output>', '指定打包文件输出目录')
+    .option('-s, --source', '查看源代码,便于参考')
     .option('-l, --list', '列出所有模块');
 
 program.parse(process.argv);
@@ -81,6 +82,22 @@ if (program.config) {
                 process.exit();
             }
         });
+}
+
+else if (program.source) {
+    console.log('打开了源码文件夹,你可以查看源代码');
+    var p = path.join(__dirname, '../src/modules/');
+
+    childpProcess.exec('open ' + p,
+        function (error, stdout, stderr) {
+            if (error !== null) {
+                console.log('exec error: ' + error);
+                process.exit();
+            } else {
+                process.exit();
+            }
+        });
+
 }
 
 // 列出所有模块,测试通过
