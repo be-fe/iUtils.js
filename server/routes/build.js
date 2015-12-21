@@ -3,7 +3,7 @@ var router = express.Router();
 var process = require('child_process');
 var fs = require('fs');
 var path = require('path');
-
+var UglifyJS = require("uglify-js");
 var amdclean = require('amdclean');
 var requirejs = require('requirejs');
 
@@ -12,6 +12,7 @@ var stream = require('stream');
 var myTime = Date.now() + '_' + Math.floor(Math.random() * 99999 + 10000);
 
 var counterA = 0;
+var optimeze = 'none';
 
 /* 根据参数个性化生成Utils.js */
 
@@ -21,6 +22,12 @@ router.get('/', function (req, res, next) {
     console.log("开始(同步代码开始):" + counterA);
 
     var moduleArr = req.query.module.split(',');
+    var select = req.query.select;
+
+    if (select == 'min') {
+        optimeze = 'uglify';
+    }
+
 
     var string = '';
 
@@ -40,7 +47,7 @@ router.get('/', function (req, res, next) {
     requirejs.optimize({
         'findNestedDependencies': true,
         'baseUrl': path.join(__dirname, '../../src/modules/'),
-        'optimize': 'uglify',
+        'optimize': 'none',
         'include': moduleArr,
         'out': path.join(__dirname, '../build/Utils.js'),
         'onModuleBundleComplete': function (data) {
@@ -106,6 +113,16 @@ router.get('/', function (req, res, next) {
             console.log(string.substring(0, 100));
 
 
+            var fileName = 'iUtils.js';
+            // 压缩代码
+            if (optimeze === 'uglify') {
+                var result = UglifyJS.minify(string, {fromString: true});
+                // console.log(result.code); // minified output
+                string = result.code;
+                fileName = 'iUtils.min.js';
+            }
+
+
             // 写入返回请求
             var rs = new stream.Readable;
             rs.push(string);
@@ -113,7 +130,7 @@ router.get('/', function (req, res, next) {
 
             res.writeHead(200, {
                 'Content-Type': 'application/force-download',
-                'Content-Disposition': 'attachment; filename=Utils.js',
+                'Content-Disposition': 'attachment; filename=' + fileName,
                 'location': '/'
             });
 

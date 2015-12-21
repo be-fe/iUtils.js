@@ -65,7 +65,16 @@
                 <div class="panel-body" style="height: auto; min-height: 300px;">
                     <tree></tree>
                 </div>
-                <div class="panel-footer"><input type="button" id="submit" value="生成勾选的组件" class="btn btn-primary">
+                <div class="panel-footer">
+
+                    <form class="form-inline">
+                        <select class="form-control" id="select">
+                            <option value="dev">dev 版本</option>
+                            <option value="min">min 版本</option>
+                        </select>
+                        <input type="button" id="submit" value="生成勾选的组件" class="btn btn-primary">
+                    </form>
+
                 </div>
             </div>
 
@@ -249,7 +258,7 @@
         console.log(selectedModules);
 
         if (selectedModules.length > 0) {
-            window.location.href = "/build?module=" + selectedModules.join(',');
+            window.location.href = "/build?module=" + selectedModules.join(',') + "&select=" + document.getElementById('select').value;
         } else {
             alert('请勾选需要打包的组件~');
         }
