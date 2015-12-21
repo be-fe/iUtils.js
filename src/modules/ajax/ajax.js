@@ -19,8 +19,8 @@ define(function (require, exports, module) {
 
         // 默认值
         var options = {
-            method: "get", // get, post,jsonp, file
-            url: "",
+            method: 'get', // get, post,jsonp, file
+            url: '',
             params: {}, // key:value //当method为file的时候,params=formData, xmlHttpRequest 2.0 可利用formData对象来上传文件
             type: 'text', // text, json, xml
             contentType: null,
