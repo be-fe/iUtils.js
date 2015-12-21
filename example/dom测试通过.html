@@ -13,12 +13,19 @@
             width: 100px;
             height: 100px;
         }
+        a {
+            width: 100px;
+            height:20px;
+            display: block;
+            background-color: #0b97c4;
+
+        }
     </style>
 </head>
 <body>
 
 注意,测试时应该引入含有测试模块的包或者全量包!
-<div id="test">test</div>
+<div id="test" class="active">test</div>
 
 
 <script>
@@ -45,7 +52,7 @@
 
     setTimeout(function () {
         iUtils.removeElement(document.getElementById('test'));
-    }, 3000);
+    }, 5000);
 
     iUtils.scrollTo(20, 15);
 

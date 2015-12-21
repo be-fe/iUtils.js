@@ -10,7 +10,11 @@
 
 <script>
     console.log(iUtils);
-    console.log(iUtils.arrayEqual([1, 2, 3], [1, 2, 3]));
+    iUtils.setCookie("hello", 'world', {expires: new Date('2016-01-01'), path: '/'});
+
+    console.log(iUtils.getCookies());
+
+    console.log(iUtils.getCookie('hello'));
 
 </script>
 

@@ -56,7 +56,6 @@ module.exports = [
     'regexp/isTimeString',
     'regexp/isUrl',
     'string/trim',
-    'time/judgeTime',
     'time/parseTime',
     'trigger/trigger',
     'type/getType',

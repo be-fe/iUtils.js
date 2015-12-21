@@ -10,11 +10,15 @@
 
 <script>
     console.log(iUtils);
-    iUtils.setCookie("hello", 'world', {expires: new Date('2016-01-01'), path: '/'});
 
-    console.log(iUtils.getAllCookie());
+    console.log(iUtils.isEmail('leiquan@live'));
 
-    console.log(iUtils.getCookieByName('hello'));
+    console.log(iUtils.isUrl('http://www.leiquan.me'));
+
+    console.log(iUtils.isTimeString('20:09:62'));
+
+    console.log(iUtils.isTimeString('20:09:59'));
+
 
 </script>
 

@@ -11,7 +11,7 @@
  * @runtime Browser Window, Require JS, Node.js
  * @dependencies none
  */
-var random_randomNumber = {}, ajax_ajax = {}, ajax_ajaxFile = {}, ajax_ajaxGet = {}, ajax_ajaxJsonp = {}, ajax_ajaxPost = {}, array_arrayEqual = {}, array_arrayOrderByMax = {}, array_arrayOrderByMin = {}, array_arrayRemove = {}, array_indexof = {}, class_hasClass = {}, class_addClass = {}, class_removeClass = {}, class_toggleClass = {}, url_decode = {}, cookie_parseCookie = {}, cookie_getCookies = {}, cookie_getCookie = {}, url_encode = {}, cookie_setCookie = {}, device_getIEVersion = {}, device_getOS = {}, device_isChrome = {}, device_isIE = {}, dom_closest = {}, dom_forceReflow = {}, dom_getComputedStyle = {}, dom_getDocumentScrollTop = {}, dom_getElementByClassName = {}, dom_getOffset = {}, dom_getPageSize = {}, dom_getPosition = {}, dom_getStyle = {}, dom_height = {}, dom_insertAfter = {}, dom_matches = {}, dom_outerHeight = {}, dom_outerHeightWithMargin = {}, dom_outerWidth = {}, dom_outerWidthWithMargin = {}, dom_removeElement = {}, dom_setDocumentScrollTop = {}, dom_scrollTo = {}, dom_setStyle = {}, dom_width = {}, is_is = {}, jsloader_jsloader = {}, keycode_getKeyName = {}, object_deepCopy = {}, object_extend = {}, random_randomColor = {}, regexp_isEmail = {}, regexp_isHexAdecimal = {}, regexp_isHexColor = {}, regexp_isTimeString = {}, regexp_isUrl = {}, string_trim = {}, time_parseTime = {}, time_judgeTime = {}, trigger_trigger = {}, type_getType = {}, url_parsePort = {}, url_parseURL = {}, url_isCrossDomain = {}, url_parseQueryString = {}, url_stringfyQueryString = {};
+var random_randomNumber = {}, ajax_ajax = {}, ajax_ajaxFile = {}, ajax_ajaxGet = {}, ajax_ajaxJsonp = {}, ajax_ajaxPost = {}, array_arrayEqual = {}, array_arrayOrderByMax = {}, array_arrayOrderByMin = {}, array_arrayRemove = {}, array_indexof = {}, class_hasClass = {}, class_addClass = {}, class_removeClass = {}, class_toggleClass = {}, url_decode = {}, cookie_parseCookie = {}, cookie_getCookies = {}, cookie_getCookie = {}, url_encode = {}, cookie_setCookie = {}, device_getIEVersion = {}, device_getOS = {}, device_isChrome = {}, device_isIE = {}, dom_closest = {}, dom_forceReflow = {}, dom_getComputedStyle = {}, dom_getDocumentScrollTop = {}, dom_getElementByClassName = {}, dom_getOffset = {}, dom_getPageSize = {}, dom_getPosition = {}, dom_getStyle = {}, dom_height = {}, dom_insertAfter = {}, dom_matches = {}, dom_outerHeight = {}, dom_outerHeightWithMargin = {}, dom_outerWidth = {}, dom_outerWidthWithMargin = {}, dom_removeElement = {}, dom_setDocumentScrollTop = {}, dom_scrollTo = {}, dom_setStyle = {}, dom_width = {}, is_is = {}, jsloader_jsloader = {}, keycode_getKeyName = {}, object_deepCopy = {}, object_extend = {}, random_randomColor = {}, regexp_isEmail = {}, regexp_isHexAdecimal = {}, regexp_isHexColor = {}, regexp_isTimeString = {}, regexp_isUrl = {}, string_trim = {}, time_parseTime = {}, trigger_trigger = {}, type_getType = {}, url_parsePort = {}, url_parseURL = {}, url_isCrossDomain = {}, url_parseQueryString = {}, url_stringfyQueryString = {};
 random_randomNumber = function (exports) {
   function randomNumber(min, max) {
     return Math.floor(min + Math.random() * (max - min));
@@ -2015,59 +2015,6 @@ time_parseTime = function (exports) {
   exports = parseTime;
   return exports;
 }(time_parseTime);
-time_judgeTime = function (exports) {
-  var parseTime = time_parseTime;
-  var _getTimeStr = function (time) {
-    var time = new Date(time);
-    var Y = time.getFullYear() + '-';
-    var M = (time.getMonth() + 1 < 10 ? '0' + (time.getMonth() + 1) : time.getMonth() + 1) + '-';
-    var D = time.getDate() < 10 ? '0' + time.getDate() : time.getDate();
-    var h = time.getHours() + ':';
-    var m = time.getMinutes() < 10 ? '0' + time.getMinutes() : time.getMinutes();
-    return {
-      dateStr: Y + M + D,
-      timeStr: h + m,
-      dateTimeStr: Y + M + D + ' ' + h + m
-    };
-  };
-  var judgeTime = function (time) {
-    var timeType;
-    var dateStr;
-    var timeStr;
-    var timeStamp = parseTime(time);
-    var now = new Date().getTime();
-    var Y = time.getFullYear();
-    var y = now.getFullYear();
-    var m = now.getMonth();
-    var d = now.getDate();
-    var zeroStamp = Math.round(new Date(y, m, d, 0, 0, 1).getTime());
-    //获得今日0点的时间戳
-    var nz = now - zeroStamp;
-    var nt = now - timeStamp;
-    if (nt < nz) {
-      timeType = 'today';
-    } else if (nt > nz && nt < 86400000 + nz) {
-      timeType = 'yesterday';
-    } else if (y - Y === 1) {
-      timeType = 'lastYear';
-    } else if (y - Y === 0) {
-      timeType = 'thisYear';
-    }  //添加更多支持：例如上个月，去年，今年
-    else {
-      timeType = 'normal';
-    }
-    var timeStrObj = _getTimeStr(time);
-    return {
-      timeStamp: timeStamp,
-      dateStr: timeStrObj.dateStr,
-      timeStr: timeStrObj.timeStr,
-      dateTimeStr: timeStrObj.dateTimeStr,
-      timeType: timeType
-    };
-  };
-  exports = judgeTime;
-  return exports;
-}(time_judgeTime);
 trigger_trigger = function (exports) {
   var trigger = function () {
   };
@@ -2249,5 +2196,5 @@ url_stringfyQueryString = function (exports) {
   return exports;
 }(url_stringfyQueryString);
 
-return {ajax:ajax_ajax,ajaxFile:ajax_ajaxFile,ajaxGet:ajax_ajaxGet,ajaxJsonp:ajax_ajaxJsonp,ajaxPost:ajax_ajaxPost,arrayEqual:array_arrayEqual,arrayOrderByMax:array_arrayOrderByMax,arrayOrderByMin:array_arrayOrderByMin,arrayRemove:array_arrayRemove,indexof:array_indexof,addClass:class_addClass,hasClass:class_hasClass,removeClass:class_removeClass,toggleClass:class_toggleClass,getCookie:cookie_getCookie,getCookies:cookie_getCookies,parseCookie:cookie_parseCookie,setCookie:cookie_setCookie,getIEVersion:device_getIEVersion,getOS:device_getOS,isChrome:device_isChrome,isIE:device_isIE,closest:dom_closest,forceReflow:dom_forceReflow,getComputedStyle:dom_getComputedStyle,getDocumentScrollTop:dom_getDocumentScrollTop,getElementByClassName:dom_getElementByClassName,getOffset:dom_getOffset,getPageSize:dom_getPageSize,getPosition:dom_getPosition,getStyle:dom_getStyle,height:dom_height,insertAfter:dom_insertAfter,matches:dom_matches,outerHeight:dom_outerHeight,outerHeightWithMargin:dom_outerHeightWithMargin,outerWidth:dom_outerWidth,outerWidthWithMargin:dom_outerWidthWithMargin,removeElement:dom_removeElement,scrollTo:dom_scrollTo,setDocumentScrollTop:dom_setDocumentScrollTop,setStyle:dom_setStyle,width:dom_width,is:is_is,jsloader:jsloader_jsloader,getKeyName:keycode_getKeyName,deepCopy:object_deepCopy,extend:object_extend,randomColor:random_randomColor,randomNumber:random_randomNumber,isEmail:regexp_isEmail,isHexAdecimal:regexp_isHexAdecimal,isHexColor:regexp_isHexColor,isTimeString:regexp_isTimeString,isUrl:regexp_isUrl,trim:string_trim,judgeTime:time_judgeTime,parseTime:time_parseTime,trigger:trigger_trigger,getType:type_getType,decode:url_decode,encode:url_encode,isCrossDomain:url_isCrossDomain,parsePort:url_parsePort,parseQueryString:url_parseQueryString,parseURL:url_parseURL,stringfyQueryString:url_stringfyQueryString}
+return {ajax:ajax_ajax,ajaxFile:ajax_ajaxFile,ajaxGet:ajax_ajaxGet,ajaxJsonp:ajax_ajaxJsonp,ajaxPost:ajax_ajaxPost,arrayEqual:array_arrayEqual,arrayOrderByMax:array_arrayOrderByMax,arrayOrderByMin:array_arrayOrderByMin,arrayRemove:array_arrayRemove,indexof:array_indexof,addClass:class_addClass,hasClass:class_hasClass,removeClass:class_removeClass,toggleClass:class_toggleClass,getCookie:cookie_getCookie,getCookies:cookie_getCookies,parseCookie:cookie_parseCookie,setCookie:cookie_setCookie,getIEVersion:device_getIEVersion,getOS:device_getOS,isChrome:device_isChrome,isIE:device_isIE,closest:dom_closest,forceReflow:dom_forceReflow,getComputedStyle:dom_getComputedStyle,getDocumentScrollTop:dom_getDocumentScrollTop,getElementByClassName:dom_getElementByClassName,getOffset:dom_getOffset,getPageSize:dom_getPageSize,getPosition:dom_getPosition,getStyle:dom_getStyle,height:dom_height,insertAfter:dom_insertAfter,matches:dom_matches,outerHeight:dom_outerHeight,outerHeightWithMargin:dom_outerHeightWithMargin,outerWidth:dom_outerWidth,outerWidthWithMargin:dom_outerWidthWithMargin,removeElement:dom_removeElement,scrollTo:dom_scrollTo,setDocumentScrollTop:dom_setDocumentScrollTop,setStyle:dom_setStyle,width:dom_width,is:is_is,jsloader:jsloader_jsloader,getKeyName:keycode_getKeyName,deepCopy:object_deepCopy,extend:object_extend,randomColor:random_randomColor,randomNumber:random_randomNumber,isEmail:regexp_isEmail,isHexAdecimal:regexp_isHexAdecimal,isHexColor:regexp_isHexColor,isTimeString:regexp_isTimeString,isUrl:regexp_isUrl,trim:string_trim,parseTime:time_parseTime,trigger:trigger_trigger,getType:type_getType,decode:url_decode,encode:url_encode,isCrossDomain:url_isCrossDomain,parsePort:url_parsePort,parseQueryString:url_parseQueryString,parseURL:url_parseURL,stringfyQueryString:url_stringfyQueryString}
 });
