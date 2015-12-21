@@ -14,16 +14,20 @@ define(function (require, exports, module) {
 
     var ajax = require('./ajax');
 
-    var ajaxGet = function (url, params, type, success, fail) {
+    var ajaxGet = function (url, params, type, header, success, fail) {
         ajax({
             method: "get",
             url: url,
             params: params,
             type: type,
+            header: header,
             success: success,
             fail: fail
         });
+
+        console.log(header);
     }
+
 
     module.exports = ajaxGet;
 

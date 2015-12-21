@@ -16,12 +16,13 @@ define(function (require, exports, module) {
     var ajax = require('./ajax');
 
     // 注意,file对象要append到formData对象中,或者从form表单构造formdata,注意不要设置contenttype
-    var ajaxFile = function (url, formData, success, fail) {
+    var ajaxFile = function (url, formData, header,success, fail) {
         ajax({
             method: "file",
             url: url,
             params: formData,
             type: 'text',
+            header: header,
             success: success,
             fail: fail
         });

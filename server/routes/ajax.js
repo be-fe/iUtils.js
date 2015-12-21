@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var querystring = require("querystring");
 
-// var formidable = require('formidable');
+var formidable = require('formidable');
 var fs = require('fs');
 var path = require('path');
 
@@ -10,7 +10,12 @@ var path = require('path');
 /* 主页处理 */
 router.get('/', function (req, res, next) {
 
-    res.writeHead(200, {'Access-Control-Allow-Origin': '*'});
+    //res.writeHead(200, {
+    //    'Access-Control-Allow-Origin': '*',
+    //    'Access-Control-Allow-Methods': '*',
+    //    'Access-Control-Allow-Headers': 'test'
+    //}); 要放在外层
+
     res.end("Hello, world!");
 
 });

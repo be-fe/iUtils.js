@@ -20,39 +20,39 @@
 <script>
     console.log(iUtils);
 
-//        iUtils.ajaxGet('http://localhost:3000/ajax', {'hello': '你好', 'world': '世界'}, 'text', function (res) {
+//        iUtils.ajaxGet('http://localhost:3000/ajax?time=9999999999&', {'hello': '你好', 'world': '世界'}, 'text', {'test': 'abc'}, function (res) {
 //            console.log(res);
 //            console.log('赫赫');
 //        });
 
-//    iUtils.ajaxPost('http://localhost:3000/ajax', {'hello': '呵呵哒', 'world': '世界'}, 'text', null, function (res) {
-//        alert(res);
-//        console.log(res);
-//    });
+    iUtils.ajaxPost('http://localhost:3000/ajax', {'hello': '呵呵哒', 'world': '世界'}, 'text', null, {'test': 'abc'}, function (res) {
+        alert(res);
+        console.log(res);
+    });
 
 //        iUtils.ajaxJsonp('http://localhost:3000/jsonp', {'hello': 'hello', 'world': 'world'}, function (data) {
 //            console.log('打印data:');
 //            console.log(data);
 //        });
 
-        var file = document.getElementById('file');
-        var form = document.getElementById('form');
-        var submit = document.getElementById('submit');
-
-
-        submit.onclick = function () {
-            var formData = new FormData(form);
-            formData.append("name", 123456);
-            formData.append('pic', file.files[0]);
-            iUtils.ajaxFile('http://localhost:3000/ajax',formData, function (res) {
-                alert(res);
-            }, function() {
-                alert('成功!');
-            });
-
-            console.log(formData);
-            console.log(file.files[0]);
-        }
+//        var file = document.getElementById('file');
+//        var form = document.getElementById('form');
+//        var submit = document.getElementById('submit');
+//
+//
+//        submit.onclick = function () {
+//            var formData = new FormData(form);
+//            formData.append("name", 123456);
+//            formData.append('pic', file.files[0]);
+//            iUtils.ajaxFile('http://localhost:3000/ajax',formData, {'test': 'abc'}, function (res) {
+//                alert(res);
+//            }, function() {
+//                alert('成功!');
+//            });
+//
+//            console.log(formData);
+//            console.log(file.files[0]);
+//        }
 
 
 </script>

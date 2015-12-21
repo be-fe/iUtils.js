@@ -17,6 +17,14 @@ app.set('view engine', 'html');
 // icon设置
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
+// 这里的Access-Control-Allow-Headers要在最外层设置
+app.all('*', function (req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "test");
+    res.header("Access-Control-Allow-Methods", "*");
+    next();
+});
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());

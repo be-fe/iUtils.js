@@ -13,6 +13,7 @@
 define(function (require, exports, module) {
 
     var randomNumber = require('../random/randomNumber');
+    var getType = require('../type/getType');
 
     var myAjax = function (userOptions) {
 
@@ -23,6 +24,7 @@ define(function (require, exports, module) {
             params: {}, // key:value //当method为file的时候,params=formData, xmlHttpRequest 2.0 可利用formData对象来上传文件
             type: 'text', // text, json, xml
             contentType: null,
+            header: null, // object: {name: value}
             success: function (data) {
             },
             fail: function () {
@@ -40,6 +42,7 @@ define(function (require, exports, module) {
         var url = options.url;
         var params = options.params;
         var type = options.type;
+        var header = options.header;
         var contentType = options.contentType;
         var success = options.success;
         var fail = options.fail;
@@ -141,6 +144,15 @@ define(function (require, exports, module) {
         if ("GET" === method.toUpperCase()) {
             url += "?" + formateParams;
             xmlhttp.open('get', url, true);
+
+            if (header) {
+                if (getType(header) === 'object') {
+                    for (h in header) {
+                        xmlhttp.setRequestHeader(h, header[h]);
+                    }
+                }
+            }
+
             xmlhttp.send(null);
         } else if ("POST" === method.toUpperCase()) {
             xmlhttp.open('post', url, true);
@@ -149,6 +161,13 @@ define(function (require, exports, module) {
                 contentType = "application/x-www-form-urlencoded";
             }
             xmlhttp.setRequestHeader("Content-Type", contentType);
+            if (header) {
+                if (getType(header) === 'object') {
+                    for (h in header) {
+                        xmlhttp.setRequestHeader(h, header[h]);
+                    }
+                }
+            }
             xmlhttp.send(formateParams);
         } else if ("JSONP" === method.toUpperCase()) {
             var callbackName = 'jsonp' + randomNumber(1000, 9999);
@@ -172,6 +191,13 @@ define(function (require, exports, module) {
 
         } else if ("FILE" === method.toUpperCase()) {
             xmlhttp.open("post", url, true);
+            if (header) {
+                if (getType(header) === 'object') {
+                    for (h in header) {
+                        xmlhttp.setRequestHeader(h, header[h]);
+                    }
+                }
+            }
             xmlhttp.send(params); //此处params为formData对象
         }
 
