@@ -79,6 +79,7 @@ ajax_ajax = function (exports) {
     var url = options.url;
     var params = options.params;
     var type = options.type;
+    // 跨域的话,服务端的 header 也要设置允许头才行.
     var header = options.header;
     var contentType = options.contentType;
     var success = options.success;

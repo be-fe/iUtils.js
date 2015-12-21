@@ -55,18 +55,18 @@ define(function (require, exports, module) {
 
             var xmlhttp;
             try {
-                xmlhttp = new ActiveXObject("Msxml2.XMLHTTP");// IE6以上版本
+                xmlhttp = new ActiveXObject('Msxml2.XMLHTTP');// IE6以上版本
             } catch (e) {
                 try {
-                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");// IE6以下版本
+                    xmlhttp = new ActiveXObject('Microsoft.XMLHTTP');// IE6以下版本
                 } catch (e) {
                     try {
                         xmlhttp = new XMLHttpRequest();
                         if (xmlhttp.overrideMimeType) {
-                            xmlhttp.overrideMimeType("text/xml");
+                            xmlhttp.overrideMimeType('text/xml');
                         }
                     } catch (e) {
-                        alert("您的浏览器不支持Ajax");
+                        alert('您的浏览器不支持Ajax');
                     }
                 }
             }
@@ -81,12 +81,12 @@ define(function (require, exports, module) {
             var params = params;
             for (var pro in params) {
                 var paramValue = params[pro];
-                if (method.toUpperCase() === "GET") {
+                if (method.toUpperCase() === 'GET') {
                     paramValue = encodeURIComponent(params[pro]);
                 }
-                paramsArray.push(pro + "=" + paramValue);
+                paramsArray.push(pro + '=' + paramValue);
             }
-            return paramsArray.join("&");
+            return paramsArray.join('&');
 
         };
 
@@ -98,13 +98,13 @@ define(function (require, exports, module) {
                 if (xmlhttp.status == 200 || xmlhttp.status == 0) {
 
                     switch (type) {
-                        case "xml":
+                        case 'xml':
                             returnValue = xmlhttp.responseXML;
                             break;
-                        case "json":
+                        case 'json':
                             var jsonText = xmlhttp.responseText;
                             if (jsonText) {
-                                returnValue = eval("(" + jsonText + ")");
+                                returnValue = eval('(' + jsonText + ')');
                             }
                             break;
                         default:
@@ -143,8 +143,8 @@ define(function (require, exports, module) {
 
 
         // 类型判断
-        if ("GET" === method.toUpperCase()) {
-            url += "?" + formateParams;
+        if ('GET' === method.toUpperCase()) {
+            url += '?' + formateParams;
             xmlhttp.open('get', url, true);
 
             if (header) {
@@ -156,13 +156,13 @@ define(function (require, exports, module) {
             }
 
             xmlhttp.send(null);
-        } else if ("POST" === method.toUpperCase()) {
+        } else if ('POST' === method.toUpperCase()) {
             xmlhttp.open('post', url, true);
             // 如果是POST提交，设置请求头信息
             if (!contentType) {
-                contentType = "application/x-www-form-urlencoded";
+                contentType = 'application/x-www-form-urlencoded';
             }
-            xmlhttp.setRequestHeader("Content-Type", contentType);
+            xmlhttp.setRequestHeader('Content-Type', contentType);
             if (header) {
                 if (getType(header) === 'object') {
                     for (h in header) {
@@ -171,13 +171,13 @@ define(function (require, exports, module) {
                 }
             }
             xmlhttp.send(formateParams);
-        } else if ("JSONP" === method.toUpperCase()) {
+        } else if ('JSONP' === method.toUpperCase()) {
             var callbackName = 'jsonp' + randomNumber(1000, 9999);
 
             // 创建script来请求jsonp
-            var head = document.getElementsByTagName("head")[0] || document.documentElement;
+            var head = document.getElementsByTagName('head')[0] || document.documentElement;
             var script = document.createElement('script');
-            url += "?" + formateParams;
+            url += '?' + formateParams;
             script.src = url + '&callback=' + callbackName;
             head.insertBefore(script, head.firstChild);
 
@@ -191,8 +191,8 @@ define(function (require, exports, module) {
                 head.removeChild(script);
             }
 
-        } else if ("FILE" === method.toUpperCase()) {
-            xmlhttp.open("post", url, true);
+        } else if ('FILE' === method.toUpperCase()) {
+            xmlhttp.open('post', url, true);
             if (header) {
                 if (getType(header) === 'object') {
                     for (h in header) {
