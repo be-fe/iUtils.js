@@ -77,7 +77,7 @@ router.get('/', function (req, res, next) {
             before += "else {";
             before += "window[ns] = factory();";
             before += "}";
-            before += "})('Utils', function () {\n";
+            before += "})('iUtils', function () {\n";
 
             string = before + string;
 
@@ -140,7 +140,7 @@ router.get('/', function (req, res, next) {
                 var fileRealPath = path.join(__dirname, '../build/Utils.js');
                 //console.log(fileRealPath);
                 fs.unlinkSync(fileRealPath);
-                //console.log('文件已经删除~');
+                console.log('文件已经删除~');
             });
 
         }
