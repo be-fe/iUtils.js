@@ -10,7 +10,8 @@
  */
 define(function (require, exports, module) {
 
-    var jsLoader = function () {
+
+    function jsLoader() {
 
         // 用作存储脚本信息
         var cache = {};
@@ -256,7 +257,10 @@ define(function (require, exports, module) {
         return Loader;
     }
 
-    module.exports =  jsLoader;
+
+    var Loader = jsLoader();
+
+    module.exports = new Loader();
 
 
 });

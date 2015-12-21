@@ -1537,7 +1537,7 @@ is_is = function (exports) {
   return exports;
 }(is_is);
 jsloader_jsloader = function (exports) {
-  var jsLoader = function () {
+  function jsLoader() {
     // 用作存储脚本信息
     var cache = {};
     // 用作生成不重复的客户端id
@@ -1750,8 +1750,9 @@ jsloader_jsloader = function (exports) {
       return this;
     };
     return Loader;
-  };
-  exports = jsLoader;
+  }
+  var Loader = jsLoader();
+  exports = new Loader();
   return exports;
 }(jsloader_jsloader);
 keycode_getKeyName = function (exports) {

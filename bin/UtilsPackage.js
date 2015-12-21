@@ -354,6 +354,7 @@ function build() {
                 });
 
             } else {
+
                 fs.exists(path.join(process.cwd(), output), function (exists) {
                     if (exists) {
                         var result = fs.writeFileSync(path.join(process.cwd(), output + file), string, {flag: 'w+'});
@@ -362,6 +363,7 @@ function build() {
                         var result = fs.writeFileSync(path.join(process.cwd(), output + file), string, {flag: 'w+'});
                     }
                 });
+
             }
 
         }
