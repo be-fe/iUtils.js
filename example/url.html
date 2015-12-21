@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <script src="../build/Utils.js"></script>
+    <script src="../build/iUtils.js"></script>
     <style>
         .active {
             background-color: red;
@@ -21,13 +21,13 @@
 
 <script>
 
-    console.log(Utils);
-    console.log(Utils.parseURL('http://www.baidu.com?keyword=gaga&type=code'));
-    console.log(Utils.isCrossDomain('http://localhost:633342'));
+    console.log(iUtils);
+    console.log(iUtils.parseURL('http://www.baidu.com?keyword=gaga&type=code'));
+    console.log(iUtils.isCrossDomain('http://localhost:633342'));
 
-    console.log(Utils.parseQueryString('name=world&sex=boy'));
+    console.log(iUtils.parseQueryString('name=world&sex=boy'));
 
-    console.log(Utils.stringfyQueryString({name: "world", sex: "boy"}));
+    console.log(iUtils.stringfyQueryString({name: "world", sex: "boy"}));
 
 
 </script>

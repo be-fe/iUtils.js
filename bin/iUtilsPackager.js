@@ -269,7 +269,7 @@ function build() {
         'baseUrl': path.join(__dirname, '../src/modules/'),
         'optimize': 'none',
         'include': buildModules,
-        'out': path.join(process.cwd(), './build/Utils.js'),
+        'out': path.join(process.cwd(), './build/iUtils.js'),
         'onModuleBundleComplete': function (data) {
 
             var outputFile = data.path;
@@ -278,7 +278,7 @@ function build() {
                 'filePath': outputFile
             }));
 
-            var content = fs.readFileSync(path.join(process.cwd(), './build/Utils.js'));
+            var content = fs.readFileSync(path.join(process.cwd(), './build/iUtils.js'));
 
             var string = content.toString();
 
@@ -298,7 +298,7 @@ function build() {
             before += "else {";
             before += "window[ns] = factory();";
             before += "}";
-            before += "})('Utils', function () {\n";
+            before += "})('iUtils', function () {\n";
 
             string = before + string;
 
@@ -332,14 +332,14 @@ function build() {
             // 写入文件
             // 创建目录
 
-            var file = '/Utils.js';
+            var file = '/iUtils.js';
 
             // 压缩代码
             if (optimeze === 'uglify') {
                 var result = UglifyJS.minify(string, {fromString: true});
                 // console.log(result.code); // minified output
                 string = result.code;
-                file = '/Utils.min.js';
+                file = '/iUtils.min.js';
             }
 
 

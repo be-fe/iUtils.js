@@ -1,10 +1,11 @@
-(function (ns, factory) {if (typeof define === 'function' && define.amd) {define(factory);}else if (typeof module === 'object' && module.exports) {module.exports = factory();}else {window[ns] = factory();}})('Utils', function () {
+(function (ns, factory) {if (typeof define === 'function' && define.amd) {define(factory);}else if (typeof module === 'object' && module.exports) {module.exports = factory();}else {window[ns] = factory();}})('iUtils', function () {
 
 /**
  * @file randomNumber.js
  * @auther leiquan<leiquan@baidu.com>
  * @date 2015-12-1
  * @from self
+ * @api Function
  * @return Number
  * @params Number  min, Number max
  * @runtime Browser Window, Require JS, Node.js

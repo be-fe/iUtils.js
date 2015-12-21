@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <script src="../build/Utils.js"></script>
+    <script src="../build/iUtils.js"></script>
 </head>
 <body>
 注意,测试时应该引入含有测试模块的包或者全量包!
 
 
 <script>
-    console.log(Utils);
+    console.log(iUtils);
 
     var Chinese = {
         nation: '中国'
@@ -21,7 +21,7 @@
         say: '你好啊'
     }
 
-    var Doctor = Utils.extend(Chinese, Doctor);
+    var Doctor = iUtils.extend(Chinese, Doctor);
     //    Doctor.career = '医生';
 
 
@@ -32,7 +32,7 @@
 
     Chinese.birthPlaces = ['北京', '上海', '香港'];
 
-    var Doctor = Utils.extend(Doctor, Chinese);
+    var Doctor = iUtils.extend(Doctor, Chinese);
 
     Doctor.birthPlaces.push('厦门');
 

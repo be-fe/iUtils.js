@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <script src="../build/Utils.js"></script>
+    <script src="../build/iUtils.js"></script>
 </head>
 <body>
 注意,测试时应该引入含有测试模块的包或者全量包!
@@ -18,18 +18,18 @@
 
 
 <script>
-    console.log(Utils);
+    console.log(iUtils);
 //
-//        Utils.ajaxGet('http://localhost:3000/ajax', {'hello': '你好', 'world': '世界'}, 'text', function () {
+//        iUtils.ajaxGet('http://localhost:3000/ajax', {'hello': '你好', 'world': '世界'}, 'text', function () {
 //            console.log('赫赫');
 //        });
 
-//    Utils.ajaxPost('http://localhost:3000/ajax', {'hello': '呵呵哒', 'world': '世界'}, 'text', null, function (res) {
+//    iUtils.ajaxPost('http://localhost:3000/ajax', {'hello': '呵呵哒', 'world': '世界'}, 'text', null, function (res) {
 //        alert(res);
 //        console.log(res);
 //    });
 
-//        Utils.ajaxJsonp('http://localhost:3000/jsonp', {'hello': 'hello', 'world': 'world'}, function (data) {
+//        iUtils.ajaxJsonp('http://localhost:3000/jsonp', {'hello': 'hello', 'world': 'world'}, function (data) {
 //            console.log('打印data:');
 //            console.log(data);
 //        });
@@ -43,7 +43,7 @@
             var formData = new FormData(form);
             formData.append("name", 123456);
             formData.append('pic', file.files[0]);
-            Utils.ajaxFile('http://localhost:3000/ajax',formData, function (res) {
+            iUtils.ajaxFile('http://localhost:3000/ajax',formData, function (res) {
                 alert(res);
             }, function() {
                 alert('成功!');

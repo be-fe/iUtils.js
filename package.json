@@ -7,7 +7,7 @@
     "start": "node ./server/bin/www"
   },
   "bin": {
-    "iutils": "./bin/UtilsPackage.js"
+    "iutils": "./bin/iUtilsPackager.js"
   },
   "repository": {
     "type": "git",

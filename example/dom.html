@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <script src="../build/Utils.js"></script>
+    <script src="../build/iUtils.js"></script>
     <style>
         .active {
             background-color: red;
@@ -23,35 +23,35 @@
 
 <script>
 
-    console.log(Utils);
+    console.log(iUtils);
 
-        console.log(Utils.getPageSize());
+        console.log(iUtils.getPageSize());
 
 //        setTimeout(function() {
-//            Utils.removeElement(document.getElementById('test'));
+//            iUtils.removeElement(document.getElementById('test'));
 //        }, 3000);
 
-    console.log(Utils.getComputedStyle(document.getElementById('test')));
+    console.log(iUtils.getComputedStyle(document.getElementById('test')));
 
-    console.log(Utils.getDocumentScrollTop());
+    console.log(iUtils.getDocumentScrollTop());
 
-    console.log(Utils.getOffset(document.getElementById('test')));
+    console.log(iUtils.getOffset(document.getElementById('test')));
 
-    console.log(Utils.getPageSize());
+    console.log(iUtils.getPageSize());
 
-    console.log(Utils.height(document.getElementById('test')));
+    console.log(iUtils.height(document.getElementById('test')));
 
-    Utils.insertAfter(document.createElement('a'), document.getElementById('test'));
+    iUtils.insertAfter(document.createElement('a'), document.getElementById('test'));
 
     setTimeout(function () {
-        Utils.removeElement(document.getElementById('test'));
+        iUtils.removeElement(document.getElementById('test'));
     }, 3000);
 
-    Utils.scrollTo(20, 15);
+    iUtils.scrollTo(20, 15);
 
-    Utils.setDocumentScrollTop(100);
+    iUtils.setDocumentScrollTop(100);
 
-    console.log(Utils.width(document.getElementById('test')));
+    console.log(iUtils.width(document.getElementById('test')));
 
 </script>
 
