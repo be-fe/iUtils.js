@@ -3,6 +3,7 @@
  * @auther leiquan<leiquan@baidu.com>
  * @date 2015-12-1
  * @from https://github.com/arasatasaygin/is.js
+ * @api Function
  * @return Boolean
  * @params null,
  * @runtime Browser Window, Require JS

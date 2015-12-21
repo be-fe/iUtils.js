@@ -3,6 +3,7 @@
  * @auther leiquan
  * @date 2015-12-1
  * @from self
+ * @api Function
  * @param Object val
  * @returns String
  * @runtime Browser Window, Require JS, Node.js

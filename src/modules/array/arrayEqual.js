@@ -3,6 +3,7 @@
  * @auther leiquan<leiquan@baidu.com>
  * @date 2015-12-1
  * @from https://github.com/component/array-equal
+ * @api Function
  * @return Boolean
  * @params Array arr1, Array arr2
  * @runtime Browser Window, Require JS

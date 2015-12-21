@@ -3,6 +3,7 @@
  * @auther leiquan
  * @date 2015-12-18
  * @from self
+ * @api Function
  * @return Bollean
  * @params String dirname, mode
  * @runtime Node.js

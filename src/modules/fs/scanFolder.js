@@ -3,6 +3,7 @@
  * @auther leiquan
  * @date 2015-12-18
  * @from self
+ * @api Function
  * @return Object
  * @params String path
  * @runtime node

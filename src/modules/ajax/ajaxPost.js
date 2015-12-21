@@ -3,6 +3,7 @@
  * @auther leiquan<leiquan@baidu.com>
  * @date 2015-12-1
  * @from self
+ * @api Function
  * @return null
  * @params String url, Object params, String type, String contentType,  Function success, Function  fail
  * @runtime Browser Window, Require JS

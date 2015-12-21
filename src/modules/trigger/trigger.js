@@ -3,6 +3,7 @@
  * @auther xieyu33333
  * @date 2015-12-1
  * @from https://github.com/RolfKoenders/Trigger
+ * @api Function
  * @param fn || null
  * @returns 一个拥有on, off, trigger的Trigger对象
  * @runtime Browser Window, Require JS, Node.js

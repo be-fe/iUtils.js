@@ -3,6 +3,7 @@
  * @auther leiquan<leiquan@baidu.com>
  * @date 2015-12-1
  * @from self
+ * @api Function
  * @return String
  * @params String string, String leftOrRight
  * @runtime Browser Window, Require JS, Node.js

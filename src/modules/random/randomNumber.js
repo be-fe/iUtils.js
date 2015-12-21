@@ -3,6 +3,7 @@
  * @auther leiquan<leiquan@baidu.com>
  * @date 2015-12-1
  * @from self
+ * @api Function
  * @return Number
  * @params Number  min, Number max
  * @runtime Browser Window, Require JS, Node.js

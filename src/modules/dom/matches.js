@@ -3,6 +3,7 @@
  * @auther leiquan<leiquan@baidu.com>
  * @date 2015-12-1
  * @from https://github.com/oneuijs/oui-dom-utils
+ * @api Function
  * @return Boolean
  * @param HTMLElement el, String selector
  * @runtime Browser Window, Require JS

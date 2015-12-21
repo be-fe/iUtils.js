@@ -3,6 +3,7 @@
  * @auther leiquan<leiquan@baidu.com>
  * @date 2015-12-1
  * @from self
+ * @api Function
  * @return null
  * @params Object userOptions
  * @runtime Browser Window, Require JS

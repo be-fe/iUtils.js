@@ -3,6 +3,7 @@
  * @auther Aras Atasaygin
  * @date 2015-12-1
  * @from https://github.com/arasatasaygin/is.js
+ * @api Object
  * @return null
  * @param null
  * @runtime Browser Window, Require JS

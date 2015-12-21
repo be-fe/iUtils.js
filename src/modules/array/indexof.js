@@ -3,6 +3,7 @@
  * @auther leiquan<leiquan@baidu.com>
  * @date 2015-12-1
  * @from self
+ * @api Function
  * @return Number
  * @params Array arr, Object obj
  * @runtime Browser Window, Require JS

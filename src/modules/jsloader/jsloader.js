@@ -3,6 +3,7 @@
  * @auther lipenghui
  * @date 2015-12-1
  * @from self
+ * @api Object
  * @return null
  * @param null
  * @runtime Browser Window, Require JS
