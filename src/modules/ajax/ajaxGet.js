@@ -25,7 +25,7 @@ define(function (require, exports, module) {
             fail: fail
         });
 
-        console.log(header);
+        // console.log(header);
     }
 
 

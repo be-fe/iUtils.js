@@ -11,7 +11,7 @@
  * @runtime Browser Window, Require JS, Node.js
  * @dependencies none
  */
-var random_randomNumber = {}, type_getType = {}, ajax_ajax = {}, ajax_ajaxFile = {}, ajax_ajaxGet = {}, ajax_ajaxJsonp = {}, ajax_ajaxPost = {}, array_arrayEqual = {}, array_arrayOrderByMax = {}, array_arrayOrderByMin = {}, array_arrayRemove = {}, array_indexof = {}, class_hasClass = {}, class_addClass = {}, class_removeClass = {}, class_toggleClass = {}, url_decode = {}, cookie_parseCookie = {}, cookie_getCookies = {}, cookie_getCookie = {}, url_encode = {}, cookie_setCookie = {}, device_getIEVersion = {}, device_getOS = {}, device_isChrome = {}, device_isIE = {}, dom_closest = {}, dom_forceReflow = {}, dom_getComputedStyle = {}, dom_getDocumentScrollTop = {}, dom_getElementByClassName = {}, dom_getOffset = {}, dom_getPageSize = {}, dom_getPosition = {}, dom_getStyle = {}, dom_height = {}, dom_insertAfter = {}, dom_matches = {}, dom_outerHeight = {}, dom_outerHeightWithMargin = {}, dom_outerWidth = {}, dom_outerWidthWithMargin = {}, dom_removeElement = {}, dom_setDocumentScrollTop = {}, dom_scrollTo = {}, dom_setStyle = {}, dom_width = {}, fs_mkdirsSync = {}, fs_scanFolder = {}, is_is = {}, jsloader_jsloader = {}, keycode_getKeyName = {}, object_deepCopy = {}, object_extend = {}, random_randomColor = {}, regexp_isEmail = {}, regexp_isHexAdecimal = {}, regexp_isHexColor = {}, regexp_isTimeString = {}, regexp_isUrl = {}, string_trim = {}, time_parseTime = {}, time_timeToString = {}, trigger_trigger = {}, url_parsePort = {}, url_parseURL = {}, url_isCrossDomain = {}, url_parseQueryString = {}, url_stringfyQueryString = {};
+var random_randomNumber = {}, type_getType = {}, ajax_ajax = {}, ajax_ajaxFile = {}, ajax_ajaxGet = {}, ajax_ajaxJsonp = {}, ajax_ajaxPost = {}, array_arrayEqual = {}, array_arrayOrderByMax = {}, array_arrayOrderByMin = {}, array_arrayRemove = {}, array_indexof = {}, class_hasClass = {}, class_addClass = {}, class_removeClass = {}, class_toggleClass = {}, url_decode = {}, cookie_parseCookie = {}, cookie_getCookies = {}, cookie_getCookie = {}, url_encode = {}, cookie_setCookie = {}, device_getIEVersion = {}, device_getOS = {}, device_isChrome = {}, device_isIE = {}, dom_closest = {}, dom_forceReflow = {}, dom_getComputedStyle = {}, dom_getDocumentScrollTop = {}, dom_getElementByClassName = {}, dom_getOffset = {}, dom_getPageSize = {}, dom_getPosition = {}, dom_getStyle = {}, dom_height = {}, dom_insertAfter = {}, dom_matches = {}, dom_outerHeight = {}, dom_outerHeightWithMargin = {}, dom_outerWidth = {}, dom_outerWidthWithMargin = {}, dom_removeElement = {}, dom_setDocumentScrollTop = {}, dom_scrollTo = {}, dom_setStyle = {}, dom_width = {}, is_is = {}, jsloader_jsloader = {}, keycode_getKeyName = {}, object_deepCopy = {}, object_extend = {}, random_randomColor = {}, regexp_isEmail = {}, regexp_isHexAdecimal = {}, regexp_isHexColor = {}, regexp_isTimeString = {}, regexp_isUrl = {}, string_trim = {}, time_parseTime = {}, trigger_trigger = {}, url_parsePort = {}, url_parseURL = {}, url_isCrossDomain = {}, url_parseQueryString = {}, url_stringfyQueryString = {};
 random_randomNumber = function (exports) {
   function randomNumber(min, max) {
     return Math.floor(min + Math.random() * (max - min));
@@ -51,41 +51,54 @@ type_getType = function (exports) {
 ajax_ajax = function (exports) {
   var randomNumber = random_randomNumber;
   var getType = type_getType;
-  var myAjax = function (userOptions) {
+  var ajax = function (userOptions) {
     // 默认值
     var options = {
-      method: 'get',
       // get, post,jsonp, file
+      method: 'get',
+      // url
       url: '',
+      // key:value || string //当method为file的时候,params=formData, xmlHttpRequest 2.0 可利用formData对象来上传文件
       params: {},
-      // key:value //当method为file的时候,params=formData, xmlHttpRequest 2.0 可利用formData对象来上传文件
-      type: 'text',
       // text, json, xml
+      type: 'text',
+      // contentType
       contentType: null,
-      header: null,
       // object: {name: value}
+      header: null,
       success: function (data) {
       },
       fail: function () {
       }
     };
+    var method;
+    var url;
+    var params;
+    var type;
+    var header;
+    var contentType;
+    var success;
+    var fail;
+    var xmlhttp;
+    var formateParams;
     // 更新option
     for (var pro in userOptions) {
       if (userOptions[pro]) {
         options[pro] = userOptions[pro];
       }
     }
-    var method = options.method;
-    var url = options.url;
-    var params = options.params;
-    var type = options.type;
+    // 简化变量
+    method = options.method;
+    url = options.url;
+    params = options.params;
+    type = options.type;
     // 跨域的话,服务端的 header 也要设置允许头才行.
-    var header = options.header;
-    var contentType = options.contentType;
-    var success = options.success;
-    var fail = options.fail;
+    header = options.header;
+    contentType = options.contentType;
+    success = options.success;
+    fail = options.fail;
     // xhr对象
-    var createRequest = function () {
+    function createRequest() {
       var xmlhttp;
       try {
         xmlhttp = new ActiveXObject('Msxml2.XMLHTTP');  // IE6以上版本
@@ -104,25 +117,27 @@ ajax_ajax = function (exports) {
         }
       }
       return xmlhttp;
-    };
+    }
     // 格式化参数
-    var formateParameters = function (params) {
+    function formateParameters(Params) {
       var paramsArray = [];
-      var params = params;
+      var params = Params;
       for (var pro in params) {
-        var paramValue = params[pro];
-        if (method.toUpperCase() === 'GET') {
-          paramValue = encodeURIComponent(params[pro]);
+        if (params.hasOwnProperty(pro)) {
+          var paramValue = params[pro];
+          if (method.toUpperCase() === 'GET') {
+            paramValue = encodeURIComponent(params[pro]);
+          }
+          paramsArray.push(pro + '=' + paramValue);
         }
-        paramsArray.push(pro + '=' + paramValue);
       }
       return paramsArray.join('&');
-    };
+    }
     // 获取返回值
-    var readystatechange = function (xmlhttp) {
+    function readystatechange(xmlhttp) {
       var returnValue;
-      if (xmlhttp.readyState == 4) {
-        if (xmlhttp.status == 200 || xmlhttp.status == 0) {
+      if (xmlhttp.readyState === 4) {
+        if (xmlhttp.status === 200 || xmlhttp.status === 0) {
           switch (type) {
           case 'xml':
             returnValue = xmlhttp.responseXML;
@@ -152,23 +167,29 @@ ajax_ajax = function (exports) {
           }
         }
       }
-    };
+    }
     // 创建XMLHttpRequest对象
-    var xmlhttp = createRequest();
+    xmlhttp = createRequest();
     // 设置回调函数
     xmlhttp.onreadystatechange = function () {
       readystatechange(xmlhttp);
     };
-    // 格式化参数
-    var formateParams = formateParameters(params);
+    // 格式化参数,如果是对象,则进行格式化,字符串,则不进行格式化
+    if (getType(params) === 'object') {
+      formateParams = formateParameters(params);
+    } else {
+      formateParams = params;
+    }
     // 类型判断
     if ('GET' === method.toUpperCase()) {
       url += '?' + formateParams;
       xmlhttp.open('get', url, true);
       if (header) {
         if (getType(header) === 'object') {
-          for (h in header) {
-            xmlhttp.setRequestHeader(h, header[h]);
+          for (var x in header) {
+            if (header.hasOwnProperty(x)) {
+              xmlhttp.setRequestHeader(x, header[x]);
+            }
           }
         }
       }
@@ -182,8 +203,10 @@ ajax_ajax = function (exports) {
       xmlhttp.setRequestHeader('Content-Type', contentType);
       if (header) {
         if (getType(header) === 'object') {
-          for (h in header) {
-            xmlhttp.setRequestHeader(h, header[h]);
+          for (var y in header) {
+            if (header.hasOwnProperty(y)) {
+              xmlhttp.setRequestHeader(y, header[y]);
+            }
           }
         }
       }
@@ -208,15 +231,18 @@ ajax_ajax = function (exports) {
       xmlhttp.open('post', url, true);
       if (header) {
         if (getType(header) === 'object') {
-          for (h in header) {
-            xmlhttp.setRequestHeader(h, header[h]);
+          for (var h in header) {
+            if (header.hasOwnProperty(h)) {
+              xmlhttp.setRequestHeader(h, header[h]);
+            }
           }
         }
       }
-      xmlhttp.send(params);  //此处params为formData对象
+      // 此处params为formData对象
+      xmlhttp.send(params);
     }
   };
-  exports = myAjax;
+  exports = ajax;
   return exports;
 }(ajax_ajax);
 ajax_ajaxFile = function (exports) {
@@ -874,45 +900,6 @@ dom_width = function (exports) {
   exports = width;
   return exports;
 }(dom_width);
-fs_mkdirsSync = function (exports) {
-  var mkdirsSync = function (dirname, mode) {
-    if (fs.existsSync(dirname)) {
-      return true;
-    } else {
-      if (mkdirsSync(path.dirname(dirname), mode)) {
-        fs.mkdirSync(dirname, mode);
-        return true;
-      }
-    }
-  };
-  exports = mkdirsSync;
-  return exports;
-}(fs_mkdirsSync);
-fs_scanFolder = function (exports) {
-  var scanFolder = function (path) {
-    var fileList = [];
-    var folderList = [];
-    var walk = function (path, fileList, folderList) {
-      files = fs.readdirSync(path);
-      files.forEach(function (item) {
-        var tmpPath = path + '/' + item, stats = fs.statSync(tmpPath);
-        if (stats.isDirectory()) {
-          walk(tmpPath, fileList, folderList);
-          folderList.push(tmpPath);
-        } else {
-          fileList.push(tmpPath);
-        }
-      });
-    };
-    walk(path, fileList, folderList);
-    return {
-      'files': fileList,
-      'folders': folderList
-    };
-  };
-  exports = scanFolder;
-  return exports;
-}(fs_scanFolder);
 is_is = function (exports) {
   // is.js 0.7.4
   // Author: Aras Atasaygin
@@ -2020,10 +2007,6 @@ random_randomColor = function (exports) {
 }(random_randomColor);
 regexp_isEmail = function (exports) {
   var reg = /^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))$/i;
-  /**
-   * @return Boolean
-   * @params String str
-   */
   var isEmail = function (str) {
     return reg.test(str);
   };
@@ -2113,22 +2096,6 @@ time_parseTime = function (exports) {
   exports = parseTime;
   return exports;
 }(time_parseTime);
-time_timeToString = function (exports) {
-  var timeToString = function (timeStamp, dateSeparator, timeSeparator) {
-    var mDate = timeStamp ? timeStamp : new Date();
-    var mDateSeparator = dateSeparator ? dateSeparator : '-';
-    var mTimeSeparator = timeSeparator ? timeSeparator : ':';
-    var sYear = mDate.getFullYear();
-    var sMonth = mDate.getMonth() + 1;
-    var sDate = mDate.getDate();
-    var sHour = mDate.getHours();
-    var sMinute = mDate.getMinutes();
-    var sSeconds = mDate.getSeconds();
-    return sYear + mDateSeparator + sMonth + mDateSeparator + sDate + ' ' + sHour + mTimeSeparator + sMinute + mTimeSeparator + sSeconds;
-  };
-  exports = timeToString;
-  return exports;
-}(time_timeToString);
 trigger_trigger = function (exports) {
   var trigger = function () {
   };
@@ -2281,5 +2248,5 @@ url_stringfyQueryString = function (exports) {
   return exports;
 }(url_stringfyQueryString);
 
-return {ajax:ajax_ajax,ajaxFile:ajax_ajaxFile,ajaxGet:ajax_ajaxGet,ajaxJsonp:ajax_ajaxJsonp,ajaxPost:ajax_ajaxPost,arrayEqual:array_arrayEqual,arrayOrderByMax:array_arrayOrderByMax,arrayOrderByMin:array_arrayOrderByMin,arrayRemove:array_arrayRemove,indexof:array_indexof,addClass:class_addClass,hasClass:class_hasClass,removeClass:class_removeClass,toggleClass:class_toggleClass,getCookie:cookie_getCookie,getCookies:cookie_getCookies,parseCookie:cookie_parseCookie,setCookie:cookie_setCookie,getIEVersion:device_getIEVersion,getOS:device_getOS,isChrome:device_isChrome,isIE:device_isIE,closest:dom_closest,forceReflow:dom_forceReflow,getComputedStyle:dom_getComputedStyle,getDocumentScrollTop:dom_getDocumentScrollTop,getElementByClassName:dom_getElementByClassName,getOffset:dom_getOffset,getPageSize:dom_getPageSize,getPosition:dom_getPosition,getStyle:dom_getStyle,height:dom_height,insertAfter:dom_insertAfter,matches:dom_matches,outerHeight:dom_outerHeight,outerHeightWithMargin:dom_outerHeightWithMargin,outerWidth:dom_outerWidth,outerWidthWithMargin:dom_outerWidthWithMargin,removeElement:dom_removeElement,scrollTo:dom_scrollTo,setDocumentScrollTop:dom_setDocumentScrollTop,setStyle:dom_setStyle,width:dom_width,mkdirsSync:fs_mkdirsSync,scanFolder:fs_scanFolder,is:is_is,jsloader:jsloader_jsloader,getKeyName:keycode_getKeyName,deepCopy:object_deepCopy,extend:object_extend,randomColor:random_randomColor,randomNumber:random_randomNumber,isEmail:regexp_isEmail,isHexAdecimal:regexp_isHexAdecimal,isHexColor:regexp_isHexColor,isTimeString:regexp_isTimeString,isUrl:regexp_isUrl,trim:string_trim,parseTime:time_parseTime,timeToString:time_timeToString,trigger:trigger_trigger,getType:type_getType,decode:url_decode,encode:url_encode,isCrossDomain:url_isCrossDomain,parsePort:url_parsePort,parseQueryString:url_parseQueryString,parseURL:url_parseURL,stringfyQueryString:url_stringfyQueryString}
+return {ajax:ajax_ajax,ajaxFile:ajax_ajaxFile,ajaxGet:ajax_ajaxGet,ajaxJsonp:ajax_ajaxJsonp,ajaxPost:ajax_ajaxPost,arrayEqual:array_arrayEqual,arrayOrderByMax:array_arrayOrderByMax,arrayOrderByMin:array_arrayOrderByMin,arrayRemove:array_arrayRemove,indexof:array_indexof,addClass:class_addClass,hasClass:class_hasClass,removeClass:class_removeClass,toggleClass:class_toggleClass,getCookie:cookie_getCookie,getCookies:cookie_getCookies,parseCookie:cookie_parseCookie,setCookie:cookie_setCookie,getIEVersion:device_getIEVersion,getOS:device_getOS,isChrome:device_isChrome,isIE:device_isIE,closest:dom_closest,forceReflow:dom_forceReflow,getComputedStyle:dom_getComputedStyle,getDocumentScrollTop:dom_getDocumentScrollTop,getElementByClassName:dom_getElementByClassName,getOffset:dom_getOffset,getPageSize:dom_getPageSize,getPosition:dom_getPosition,getStyle:dom_getStyle,height:dom_height,insertAfter:dom_insertAfter,matches:dom_matches,outerHeight:dom_outerHeight,outerHeightWithMargin:dom_outerHeightWithMargin,outerWidth:dom_outerWidth,outerWidthWithMargin:dom_outerWidthWithMargin,removeElement:dom_removeElement,scrollTo:dom_scrollTo,setDocumentScrollTop:dom_setDocumentScrollTop,setStyle:dom_setStyle,width:dom_width,is:is_is,jsloader:jsloader_jsloader,getKeyName:keycode_getKeyName,deepCopy:object_deepCopy,extend:object_extend,randomColor:random_randomColor,randomNumber:random_randomNumber,isEmail:regexp_isEmail,isHexAdecimal:regexp_isHexAdecimal,isHexColor:regexp_isHexColor,isTimeString:regexp_isTimeString,isUrl:regexp_isUrl,trim:string_trim,parseTime:time_parseTime,trigger:trigger_trigger,getType:type_getType,decode:url_decode,encode:url_encode,isCrossDomain:url_isCrossDomain,parsePort:url_parsePort,parseQueryString:url_parseQueryString,parseURL:url_parseURL,stringfyQueryString:url_stringfyQueryString}
 });
