@@ -10,37 +10,55 @@
  * @dependencies none
  */
 define(function (require, exports, module) {
+    var getType = require('../type/GetType');
+
+
+    function checkExistKey(obj, key, value) {
+        if (obj.hasOwnProperty(key)) {
+            if (getType(obj[key]) === 'array') {
+                obj[key].push(value);
+            }
+            else {
+                var arr = [];
+                arr.push(obj[key]);
+                arr.push(value)
+                obj[key] = arr;
+            }
+        }
+        else {
+            obj[key] = value;
+        }
+    }
 
     function serialize(form) {
 
         var elems = form.elements;
-        var str = '';
+        var params = {};
         for (var i = 0; i < elems.length; i++) {
-
-            if (elems[i].name && elems[i].type !== 'file' && !elems.disable) {
-
+            if (elems[i].name) {
+                var value;
                 if (elems[i].tagName === 'SELECT') {
                     var options = elems[i].options;
                     for (var j = 0; j < options.length; j++) {
                         if (options[j].selected) {
-
-                            str = str + elems[i].name + '=' + options[j].value + '&';
+                            value = options[j].value;
+                            checkExistKey(params, elems[i].name, encodeURIComponent(value));
                         }
                     }
                 }
                 else if (elems[i].type === 'checkbox' || elems[i].type === 'radio') {
                     if (elems[i].checked) {
-                        str = str + elems[i].name + '=' + elems[i].value + '&';
+                        value = elems[i].value;
+                        checkExistKey(params, elems[i].name, encodeURIComponent(value));
                     }
                 }
                 else {
-                    str = str + elems[i].name + '=' + elems[i].value + '&';
+                    value = elems[i].value;
+                    checkExistKey(params, elems[i].name, encodeURIComponent(value));
                 }
             }
-
         }
-
-        return str.substring(0, str.length - 1);
+        return params;
     }
 
 
