@@ -30,7 +30,7 @@ define(function (require, exports, module) {
         }
     }
 
-    function serialize(form) {
+    function serializeObject(form) {
 
         var elems = form.elements;
         var params = {};
@@ -62,6 +62,6 @@ define(function (require, exports, module) {
     }
 
 
-    module.exports = serialize;
+    module.exports = serializeObject;
 
 });

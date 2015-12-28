@@ -10,58 +10,39 @@
  * @dependencies none
  */
 define(function (require, exports, module) {
-    var getType = require('../type/GetType');
 
-
-    function checkExistKey(obj, key, value) {
-        if (obj.hasOwnProperty(key)) {
-            if (getType(obj[key]) === 'array') {
-                obj[key].push(value);
-            }
-            else {
-                var arr = [];
-                arr.push(obj[key]);
-                arr.push(value)
-                obj[key] = arr;
-            }
-        }
-        else {
-            obj[key] = value;
-        }
-    }
-
-    function serialize(form) {
+    function serializeArray(form) {
 
         var elems = form.elements;
-        var params = {};
+        var arr = [];
         for (var i = 0; i < elems.length; i++) {
-            if (elems[i].name) {
-                var value;
+
+            if (elems[i].name && elems[i].type !== 'file' && !elems.disable) {
+
                 if (elems[i].tagName === 'SELECT') {
                     var options = elems[i].options;
                     for (var j = 0; j < options.length; j++) {
                         if (options[j].selected) {
-                            value = options[j].value;
-                            checkExistKey(params, elems[i].name, encodeURIComponent(value));
+                            arr.push({name: elems[i].name, value: options[j].value});
                         }
                     }
                 }
                 else if (elems[i].type === 'checkbox' || elems[i].type === 'radio') {
                     if (elems[i].checked) {
-                        value = elems[i].value;
-                        checkExistKey(params, elems[i].name, encodeURIComponent(value));
+                        arr.push({name: elems[i].name, value: elems[i].value});
                     }
                 }
                 else {
-                    value = elems[i].value;
-                    checkExistKey(params, elems[i].name, encodeURIComponent(value));
+                    arr.push({name: elems[i].name, value: elems[i].value});
                 }
             }
+
         }
-        return params;
+
+        return arr;
     }
 
 
-    module.exports = serialize;
+    module.exports = serializeArray;
 
 });
