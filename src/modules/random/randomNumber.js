@@ -7,7 +7,7 @@
  * @return Number
  * @params Number  min, Number max
  * @runtime Browser Window, Require JS, Node.js
- * @dependencies none
+
  */
 define(function (require, exports, module) {
 

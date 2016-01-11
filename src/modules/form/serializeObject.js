@@ -7,7 +7,7 @@
  * @return String
  * @params HTMLFormElement form,
  * @runtime Browser Window, Require JS
- * @dependencies none
+
  */
 define(function (require, exports, module) {
     var getType = require('../type/GetType');

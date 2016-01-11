@@ -7,7 +7,6 @@
  * @param Number to, Number duration
  * @return null
  * @runtime Browser Window, Require JS
- * @dependencies none
  */
 
 define(function (require, exports, module) {

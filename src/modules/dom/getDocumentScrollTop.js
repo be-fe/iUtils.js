@@ -7,7 +7,6 @@
  * @return Number
  * @params null
  * @runtime Browser Window, Require JS
- * @dependencies none
  */
 
 

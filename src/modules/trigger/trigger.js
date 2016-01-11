@@ -7,7 +7,7 @@
  * @param fn || null
  * @returns 一个拥有on, off, trigger的Trigger对象
  * @runtime Browser Window, Require JS, Node.js
- * @dependencies none
+
  */
 
 define(function (require, exports, module) {

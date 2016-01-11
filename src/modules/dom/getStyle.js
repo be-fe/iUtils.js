@@ -7,7 +7,6 @@
  * @return String
  * @params HTMLElement el, String att, String style
  * @runtime Browser Window, Require JS
- * @dependencies none
  */
 define(function (require, exports, module) {
 

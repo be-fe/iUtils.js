@@ -7,7 +7,7 @@
  * @return String
  * @params String protocol
  * @runtime Browser Window, Require JS, Node.js
- * @dependencies none
+
  */
 define(function (require, exports, module) {
 

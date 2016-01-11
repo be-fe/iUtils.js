@@ -7,7 +7,6 @@
  * @return null
  * @params Object userOptions
  * @runtime Browser Window, Require JS
- * @dependencies none
  */
 
 define(function (require, exports, module) {

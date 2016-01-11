@@ -7,7 +7,6 @@
  * @return Boolean
  * @param HTMLElement el, String selector
  * @runtime Browser Window, Require JS
- * @dependencies none
  */
 define(function (require, exports, module) {
 

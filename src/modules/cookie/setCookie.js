@@ -7,7 +7,6 @@
  * @return Object
  * @params String  name, String  value, Object  options,
  * @runtime Browser Window, Require JS
- * @dependencies none
  */
 
 define(function (require, exports, module) {

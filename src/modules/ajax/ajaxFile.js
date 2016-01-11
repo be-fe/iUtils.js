@@ -7,7 +7,6 @@
  * @return null
  * @params String url, FormData formData, Function success, Function  fail
  * @runtime Browser Window, Require JS
- * @dependencies none
  */
 
 

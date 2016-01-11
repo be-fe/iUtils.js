@@ -7,7 +7,7 @@
  * @return String
  * @params null | Date timeStamp , String dateSeparator, String timeSeparator
  * @runtime Browser Window, Require JS, Node.js
- * @dependencies none
+
  */
 
 define(function (require, exports, module) {

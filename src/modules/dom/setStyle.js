@@ -7,7 +7,6 @@
  * @return null
  * @param HHTMlElement node, String att, String val, String style
  * @runtime Browser Window, Require JS
- * @dependencies none
  */
 define(function (require, exports, module) {
 
