@@ -8,7 +8,7 @@ var UglifyJS = require("uglify-js");
 process.on('message', function (json) {
 
     var moduleArr = json.moduleArr;
-    //var min = json.min;
+    var min = json.min;
 
     // console.log('##' + min);
 

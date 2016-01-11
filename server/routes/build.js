@@ -19,7 +19,7 @@ router.get('/', function (req, res, next) {
     console.log('访问次数:' + counterA);
 
     var moduleArr = req.query.module.split(',');
-    var min = req.query.select;
+    var min = req.query.select ? req.query.select : '';
 
 
 
@@ -46,7 +46,7 @@ router.get('/', function (req, res, next) {
         fileHandle.kill();
     });
 
-    fileHandle.send({'moduleArr':moduleArr});
+    fileHandle.send({'moduleArr':moduleArr, 'min': min});
 
 });
 
