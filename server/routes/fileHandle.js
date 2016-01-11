@@ -5,7 +5,10 @@ var amdclean = require('amdclean');
 var requirejs = require('requirejs');
 var UglifyJS = require("uglify-js");
 
-process.on('message', function (moduleArr, min) {
+process.on('message', function (json) {
+
+    var moduleArr = json.moduleArr;
+    //var min = json.min;
 
     console.log('##' + min);
 
@@ -89,10 +92,10 @@ process.on('message', function (moduleArr, min) {
 
             string = string + after;
 
-            if (min == 'min') {
-                var result = UglifyJS.minify(string, {fromString: true});
-                string = result.code;
-            }
+           // if (min == 'min') {
+            //    var result = UglifyJS.minify(string, {fromString: true});
+             //   string = result.code;
+            //}
 
             process.send(string);
 

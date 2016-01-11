@@ -46,7 +46,7 @@ router.get('/', function (req, res, next) {
         fileHandle.kill();
     });
 
-    fileHandle.send(moduleArr, min);
+    fileHandle.send({'moduleArr':moduleArr});
 
 });
 
