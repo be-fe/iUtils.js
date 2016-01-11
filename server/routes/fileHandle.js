@@ -92,10 +92,10 @@ process.on('message', function (json) {
 
             string = string + after;
 
-           // if (min == 'min') {
-            //    var result = UglifyJS.minify(string, {fromString: true});
-             //   string = result.code;
-            //}
+            if (min == 'min') {
+                var result = UglifyJS.minify(string, {fromString: true});
+                string = result.code;
+            }
 
             process.send(string);
 
