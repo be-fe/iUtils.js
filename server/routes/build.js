@@ -20,7 +20,7 @@ router.get('/', function (req, res, next) {
 
     var moduleArr = req.query.module.split(',');
 
-    console.log(path);
+    console.log(__dirname);
     var fileHandle = childProcess.fork('./server/routes/fileHandle.js');
 
     fileHandle.on('message', function (string) {
