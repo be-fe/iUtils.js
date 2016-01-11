@@ -19,6 +19,9 @@ router.get('/', function (req, res, next) {
     console.log('访问次数:' + counterA);
 
     var moduleArr = req.query.module.split(',');
+    var min = req.query.select;
+
+
 
     console.log(__dirname);
     var fileHandle = childProcess.fork('./server/routes/fileHandle.js');
@@ -43,7 +46,7 @@ router.get('/', function (req, res, next) {
         fileHandle.kill();
     });
 
-    fileHandle.send(moduleArr);
+    fileHandle.send(moduleArr, min);
 
 });
 
