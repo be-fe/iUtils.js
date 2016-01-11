@@ -10,7 +10,7 @@ process.on('message', function (json) {
     var moduleArr = json.moduleArr;
     //var min = json.min;
 
-    console.log('##' + min);
+    // console.log('##' + min);
 
     var myTime = Date.now() + '_' + Math.floor(Math.random() * 99999 + 10000);
 
