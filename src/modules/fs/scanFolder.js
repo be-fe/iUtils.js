@@ -5,22 +5,21 @@
  * @from self
  * @api Function
  * @return Object
- * @params String path
+ * @params NodeMoudle FileSystem fs, String path
  * @runtime node
- * @dependencies fs
  */
 define(function (require, exports, module) {
 
-    var scanFolder = function (path) {
+    var scanFolder = function (fs, path) {
 
         var fileList = [];
         var folderList = [];
 
         var walk = function (path, fileList, folderList) {
-            files = fs.readdirSync(path);
+            var files = fs.readdirSync(path);
             files.forEach(function (item) {
-                var tmpPath = path + '/' + item,
-                    stats = fs.statSync(tmpPath);
+                var tmpPath = path + '/' + item;
+                var stats = fs.statSync(tmpPath);
 
                 if (stats.isDirectory()) {
                     walk(tmpPath, fileList, folderList);

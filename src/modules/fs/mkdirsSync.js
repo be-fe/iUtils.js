@@ -5,16 +5,15 @@
  * @from self
  * @api Function
  * @return Bollean
- * @params String dirname, mode
+ * @params NodeMoudle FileSystem fs, NodeMoudle path path, String dirname, String mode
  * @runtime Node.js
- * @dependencies fs
  */
 define(function (require, exports, module) {
 
 
-    var mkdirsSync = function (dirname, mode) {
+    var mkdirsSync = function (fs, path, dirname, mode) {
 
-        var fs = require('fs');
+
         if (fs.existsSync(dirname)) {
             return true;
         } else {
