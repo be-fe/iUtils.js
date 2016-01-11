@@ -13,6 +13,8 @@ define(function (require, exports, module) {
 
 
     var mkdirsSync = function (dirname, mode) {
+
+        var fs = require('fs');
         if (fs.existsSync(dirname)) {
             return true;
         } else {
