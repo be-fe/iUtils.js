@@ -258,7 +258,7 @@
         console.log(selectedModules);
 
         if (selectedModules.length > 0) {
-            window.location.href = "bife-iutils/build?module=" + selectedModules.join(',') + "&select=" + document.getElementById('select').value;
+            window.location.href = "build?module=" + selectedModules.join(',') + "&select=" + document.getElementById('select').value;
         } else {
             alert('请勾选需要打包的组件~');
         }
