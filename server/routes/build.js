@@ -25,7 +25,7 @@ router.get('/', function (req, res, next) {
 
     fileHandle.on('message', function (string) {
 
-        console.log(string);
+        console.log('@@@' + string.substring(string.length - 20,string.length - 10));
 
         // 写入返回请求
         var rs = new stream.Readable;

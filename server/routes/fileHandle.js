@@ -20,9 +20,6 @@ process.on('message', function (moduleArr) {
 
     string = string.substring(0, string.length - 1);
 
-    //console.log('这里打印请求module ARR:');
-    //console.log(moduleArr);
-
     // 这里在代码内,重写gulp的过程
     requirejs.optimize({
         'findNestedDependencies': true,
@@ -80,7 +77,6 @@ process.on('message', function (moduleArr) {
             // 去掉,
             var newString = returnString.substring(0, returnString.length - 1);
             newString += "}";
-            //console.log("这里打印的是追加操作的数组:" + newString);
 
 
             string = string + newString;
@@ -92,33 +88,8 @@ process.on('message', function (moduleArr) {
 
             process.send(string);
 
-            //console.log(string.substring(0,100));
-            //
-            //
-            //// 写入返回请求
-            //var rs = new stream.Readable;
-            //rs.push(string);
-            //rs.push(null);
-            //
-            //res.writeHead(200, {
-            //    'Content-Type': 'application/force-download',
-            //    'Content-Disposition': 'attachment; filename=Utils.js',
-            //    'location': '/'
-            //});
-            //
-            //rs.pipe(res);
-            //
-            //rs.on('end', function () {
-            //    var fileRealPath = path.join(__dirname, '../public/build/Utils_' + myTime + '.js');
-            //    //console.log(fileRealPath);
-            //    fs.unlinkSync(fileRealPath);
-            //    //console.log('文件已经删除~');
-            //});
-
         }
     });
 
 
 });
-
-//process.send({ Hello: 'conan' });
