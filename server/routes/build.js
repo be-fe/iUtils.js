@@ -20,9 +20,11 @@ router.get('/', function (req, res, next) {
 
     var moduleArr = req.query.module.split(',');
 
-    var fileHandle = childProcess.fork('./server/routes/fileHandle.js');
+    var fileHandle = childProcess.fork('./fileHandle.js');
 
     fileHandle.on('message', function (string) {
+
+        console.log(string);
 
         // 写入返回请求
         var rs = new stream.Readable;
