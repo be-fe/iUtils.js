@@ -6,16 +6,17 @@ var buildModules = require('../config.js');
 var fs = require('fs');
 var path = require('path');
 var program = require('commander');
-var childpProcess = require('child_process');
+var exec = require('child_process').exec;
 var http = require('http');
 var UglifyJS = require('uglify-js');
+var app = require('../server/app');
 
 var optimeze = 'none';
 var allModules = [];
 var output = '.';
 
-console.log('当前路径:' + process.cwd());
-console.log('模块路径:' + path.join(__dirname, '../src/modules/'));
+// console.log('current_path:' + process.cwd());
+// console.log('module_path:' + path.join(__dirname, '../src/modules/'));
 
 function scanFolder(path) {
 
@@ -74,13 +75,10 @@ program.parse(process.argv);
 if (program.config) {
     console.log('打开了配置文件,请前往编辑然后重新进行打包');
     var p = path.join(__dirname, '../config.js')
-    childpProcess.exec('open ' + p,
+    exec('open ' + p,
         function (error, stdout, stderr) {
             if (error !== null) {
                 console.log('exec error: ' + error);
-                process.exit();
-            } else {
-                process.exit();
             }
         });
 }
@@ -89,14 +87,12 @@ else if (program.source) {
     console.log('打开了源码文件夹,你可以查看源代码');
     var p = path.join(__dirname, '../src/modules/');
 
-    childpProcess.exec('open ' + p,
+    exec('open ' + p,
         function (error, stdout, stderr) {
             if (error !== null) {
                 console.log('exec error: ' + error);
-                process.exit();
-            } else {
-                process.exit();
             }
+            process.exit();
         });
 
 }
@@ -104,7 +100,7 @@ else if (program.source) {
 // 列出所有模块,测试通过
 else if (program.list) {
 
-    console.log('列出所有模块:');
+    console.log('list all modules:');
 
     console.log(allModules);
 
@@ -112,59 +108,49 @@ else if (program.list) {
 
 }
 
-// 打开浏览器勾选模块,已经 OK 了,测试通过
 else if (program.browser) {
-
-    // 本地是否启动了服务器
-    http.get('http://localhost:3000', function (res) {
-
-        console.log('检测到本地服务器已开启, 请在浏览器内勾选模块并打包 ^_^');
-
-        childpProcess.exec('open http://localhost:3000');
-
-        process.exit();
-
-    }).on('error', function (e) {
-
-        console.log('检测到本地服务器未开启, 尝试开启中, 请稍等...');
-
-        var pa = path.join(__dirname, '../');
-
-        childpProcess.exec('cd ' + pa + 'server && sudo npm install', function (error, stdout, stderr) {
-
-            if (error !== null) {
-                console.log('安装依赖失败: ' + error);
-            } else {
-                console.log('安装依赖成功, 请稍等...');
-
-                // 固定了路径,彻底解决了 npm start 的问题!
-                var p = path.join(__dirname, '../server/bin/www');
-
-                childpProcess.exec('sudo node ' + p, function (error, stdout, stderr) {
-                    if (error !== null) {
-                        console.log('启动服务器失败: ' + error);
-                    } else {
-                        console.log('启动服务器成功, 请稍等...');
-                    }
-                });
-
-                setTimeout(function () {
-                    childpProcess.exec('open http://localhost:3000', function (error, stdout, stderr) {
-                        if (error !== null) {
-                            console.log('打开浏览器失败: ' + error);
-                        } else {
-                            console.log('打开浏览器成功, 请在浏览器内勾选模块并打包 ^_^');
-                        }
-                    });
-                }, 1000);
-
+    var port = 3000;
+    function startServer(port) {
+        var server = http.createServer(app);
+        server.listen(port, function (){
+            console.log("You can access http://localhost:" + port);
+            openBrowser('http://localhost:' + port);
+        });
+        server.on('error', function(error) {
+            if (error.syscall !== 'listen') {
+                throw error;
             }
 
+            var bind = typeof port === 'string' ? 'Pipe ' + port : 'Port ' + port;
 
+            switch (error.code) {
+                case 'EACCES':
+                    console.error(bind + ' requires elevated privileges');
+                    process.exit(1);
+                    break;
+                case 'EADDRINUSE':
+                    console.error(bind + ' is already in use');
+                    port = port + 1;
+                    startServer(port);
+                    break;
+                default:
+                    throw error;
+            }
         });
 
+    }
 
-    });
+    function openBrowser(url) {
+        exec('open ' + url, function (error, stdout, stderr) {
+            if (error !== null) {
+                console.log('Open Browser Failed: ' + error);
+            } else {
+                console.log('Open Browser Succeed ^_^');
+            }
+        });
+    }
+
+    startServer(port);
 
 }
 
