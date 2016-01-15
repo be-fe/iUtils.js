@@ -15,10 +15,15 @@ define(function (require, exports, module) {
     function deepCopy(parent, child) {
         var child = child || {};
         for (var i in parent) {
-            if (typeof parent[i] === 'object') {
-                child[i] = (parent[i].constructor === Array) ? [] : {}; //新建数组或者object来达到目的
-                deepCopy(parent[i], child[i]);
-            } else {
+            if (toString.call(parent[i]) === '[object Object]') {
+                child[i] = {};
+                this.deepCopy(parent[i], child[i]);
+            }
+            else if (toString.call(parent[i]) === '[object Array]') {
+                child[i] = [];
+                this.deepCopy(parent[i], child[i]);
+            } 
+            else {
                 child[i] = parent[i];
             }
         }
