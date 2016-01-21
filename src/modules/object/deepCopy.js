@@ -13,7 +13,8 @@ define(function (require, exports, module) {
 
     // 深拷贝
     function deepCopy(parent, child) {
-        var child = child || {};
+        var defaultWrapper = (toString.call(parent) === '[object Array]') ? [] : {};
+        var child = child || defaultWrapper;
         for (var i in parent) {
             if (toString.call(parent[i]) === '[object Object]') {
                 child[i] = {};
