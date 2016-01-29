@@ -20,6 +20,9 @@ define(['src/modules/array/arrayEqual'], function (arrayEqual) {
                 expect(arrayEqual([1, 2, 3, 4, 5], [1, 2, 3, 5])).to.be.equal(false);
             });
 
+            // it('arrayEqual([1, 2, 3, 4, 5]) should return false', function () {
+            //     expect(arrayEqual([1, 2, 3, 4, 5])).to.be.equal(false);
+            // });
 
         });
 
