@@ -87,10 +87,10 @@ module.exports = function (config) {
         //    exitOnResourceError: true
         //},
 
-        /*coverageReporter: {
-            type: 'html',
-            dir: 'test/__CoverageReporter/'
-        },*/
+        //coverageReporter: {
+        //    type: 'html',
+        //    dir: 'test/__CoverageReporter/'
+        //},
 
 
         // Continuous Integration mode
