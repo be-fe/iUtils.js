@@ -1,6 +1,3 @@
-/**
- * Created by leiquan on 16/2/19.
- */
 // Karma configuration
 // Generated on Thu Dec 10 2015 14:24:23 GMT+0800 (CST)
 
@@ -13,17 +10,20 @@ module.exports = function (config) {
 
         // frameworks to use
         // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-        frameworks: ['mocha', 'requirejs', 'chai'],
+        frameworks: ['requirejs', 'mocha',  'chai'],
 
 
         // list of files / patterns to load in the browser
         files: [
 
             {pattern: 'src/modules/**/*.js', included: false},
-            {pattern: 'test/**/*.js', included: false},
+            {pattern: 'test/url/*.js', included: false},
+            // {pattern: 'test/**/*.js', included: false},
             'test-main.js',
         ],
-
+        // 'plugins' : [
+        //     'karma-mocha'
+        // ],
 
         // list of files to exclude
         exclude: [],
@@ -31,15 +31,16 @@ module.exports = function (config) {
 
         // preprocess matching files before serving them to the browser
         // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
-        preprocessors: {
-            'src/**/*.js': ['coverage']
-        },
+        // preprocessors: {
+        //    'src/**/*.js': ['coverage']
+        // },
 
 
         // test results reporter to use
         // possible values: 'dots', 'progress'
         // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-        reporters: ['progress', 'coverage'],
+        // reporters: ['progress', 'coverage'],
+        reporters: ['progress'],
 
 
         // web server port
@@ -62,7 +63,7 @@ module.exports = function (config) {
         // start these browsers
         // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
         // 原来的浏览器
-        browsers: ['Chrome'],
+         browsers: ['Chrome'],
 
         //browsers: ['PhantomJS', 'PhantomJS_custom'],
         //
@@ -86,10 +87,10 @@ module.exports = function (config) {
         //    exitOnResourceError: true
         //},
 
-        coverageReporter: {
-            type: 'html',
-            dir: 'test/__CoverageReporter/'
-        },
+        //coverageReporter: {
+        //    type: 'html',
+        //    dir: 'test/__CoverageReporter/'
+        //},
 
 
         // Continuous Integration mode
