@@ -5,6 +5,5 @@
 out
 gen
 /node_modules
-/server/node_modules
 test/__CoverageReporter
 # Created by .ignore support plugin (hsz.mobi)
