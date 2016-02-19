@@ -7,7 +7,6 @@
  * @return String
  * @params String  name
  * @runtime Browser Window, Require JS
- * @dependencies none
  */
 define(function (require, exports, module) {
 

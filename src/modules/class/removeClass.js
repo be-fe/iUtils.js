@@ -5,18 +5,17 @@
  * @from self
  * @api Function
  * @return null
- * @params HTMLElement obj, String  cls
+ * @params HTMLElement ele, String  cls
  * @runtime Browser Window, Require JS
- * @dependencies none
  */
 define(function (require, exports, module) {
 
     var hasClass = require('./hasClass');
 
-    var removeClass = function (obj, cls) {
-        if (hasClass(obj, cls)) {
+    var removeClass = function (ele, cls) {
+        if (hasClass(ele, cls)) {
             var reg = new RegExp('(\\s|^)' + cls + '(\\s|$)');
-            obj.className = obj.className.replace(reg, ' ');
+            ele.className = ele.className.replace(reg, ' ');
         }
     }
 

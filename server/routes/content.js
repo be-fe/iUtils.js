@@ -16,8 +16,8 @@ router.get('/', function (req, res, next) {
         // 拼接路径
         var p = path.join(__dirname, '../../src/modules/' + module + '.js');
         var content = fs.readFileSync(p);
-        var css = '<link href="/css/prism.css" rel="stylesheet">';
-        var js = '<script src="/js/prism.js"></script>';
+        var css = '<link href="css/prism.css" rel="stylesheet">';
+        var js = '<script src="js/prism.js"></script>';
         var newContent = '<pre><code class="language-javascript">' + content.toString() + '</code></pre>';
         newContent = css + newContent + js;
         res.send(newContent);
@@ -35,7 +35,7 @@ router.get('/', function (req, res, next) {
             console.log(p);
         }
 
-        var css = '<link href="/css/markdownstyle/GitHub2.css" rel="stylesheet">';
+        var css = '<link href="css/markdownstyle/GitHub2.css" rel="stylesheet">';
 
         // 这个目录下是否有readme.md,有显示,没有,显示默认的
 

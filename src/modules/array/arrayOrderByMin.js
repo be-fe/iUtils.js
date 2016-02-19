@@ -7,7 +7,6 @@
  * @return Array
  * @params Array arr, Number dx
  * @runtime Browser Window, Require JS
- * @dependencies none
  */
 define(function (require, exports, module) {
 

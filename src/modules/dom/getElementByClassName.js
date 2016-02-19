@@ -7,7 +7,6 @@
  * @return HTMLNodeList
  * @params HTMLElement node, String  classname
  * @runtime Browser Window, Require JS
- * @dependencies none
  */
 define(function (require, exports, module) {
 

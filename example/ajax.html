@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../build/iUtils.js"></script>
+</head>
+<body>
+注意,测试时应该引入含有测试模块的包或者全量包!
+
+
+<form id="form" action="http://localhost:3000/ajax" method="post" enctype="multipart/form-data">
+    <input type="file" id="file" name="hehe">
+    <input type="text" name="name" value="leiquan">
+
+    <input type="button" id="submit" value="上传文件">
+</form>
+
+
+<script>
+    console.log(iUtils);
+
+//    iUtils.ajaxGet('http://localhost:3000/ajax', {
+//        'hello': '你好',
+//        'world': '世界'
+//    }, 'text', {'test': 'abc'}, function (res) {
+//        console.log(res);
+//        console.log('赫赫');
+//    });
+
+//    iUtils.ajaxGet('http://localhost:3000/ajax', 'hehehe=gagag', 'text', {'test': 'abc'}, function (res) {
+//        console.log(res);
+//        console.log('赫赫');
+//    });
+
+//    iUtils.ajaxPost('http://localhost:3000/ajax', {
+//        'hello': '呵呵哒',
+//        'world': '世界'
+//    }, 'text', null, {'test': 'abc'}, function (res) {
+//        alert(res);
+//        console.log(res);
+//    });
+
+//    iUtils.ajaxPost('http://localhost:3000/ajax', '{hi:"hehe"}', 'text', null, {'test': 'abc'}, function (res) {
+//        alert(res);
+//        console.log(res);
+//    });
+//
+//    iUtils.ajaxPost('http://localhost:3000/ajax', '{hi:"hehe"}', 'text', 'multipart/form-data', {'test': 'abc'}, function (res) {
+//        alert(res);
+//        console.log(res);
+//    });
+
+//    iUtils.ajaxJsonp('http://localhost:3000/jsonp', {'hello': 'hello', 'world': 'world'}, function (data) {
+//        console.log('打印data:');
+//        console.log(data);
+//    });
+
+            var file = document.getElementById('file');
+            var form = document.getElementById('form');
+            var submit = document.getElementById('submit');
+
+
+            submit.onclick = function () {
+                var formData = new FormData(form);
+                formData.append("name", 123456);
+                formData.append('pic', file.files[0]);
+                iUtils.ajaxFile('http://localhost:3000/ajax',formData, {'test': 'abc'}, function (res) {
+                    alert(res);
+                }, function() {
+                    alert('成功!');
+                });
+
+                console.log(formData);
+                console.log(file.files[0]);
+            }
+
+
+</script>
+
+</body>
+</html>

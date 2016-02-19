@@ -5,19 +5,19 @@
     <title><%= title %></title>
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel='stylesheet' href='/css/style.css'/>
-    <link rel="stylesheet" href="/css/bootstrap.css">
-    <link rel="stylesheet" href="/css/common.css">
-    <link rel="stylesheet" href="/css/simple_pc.css">
+    <link rel='stylesheet' href='css/style.css'/>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/simple_pc.css">
     <!-- IE兼容  -->
     <!--[if lt IE 9]>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.0.5/es5-shim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script>html5.addElements('test')</script>
     <![endif]-->
-    <script src="/js/riot.js"></script>
-    <script src="/js/common.js"></script>
-    <script src="/js/iToolkit_pc.js"></script>
+    <script src="js/riot.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/iToolkit_pc.js"></script>
 
     <style>
         iframe {
@@ -50,6 +50,7 @@
             <h3><%= title %></h3>
 
             <h4>可自定义的常用工具函数库Util.js，兼容浏览器，require JS和node JS调用</h4>
+            <h5>也可以通过 npm install -g 来安装以便在本地打包</h5>
         </div>
     </div>
 
@@ -81,13 +82,13 @@
         </div>
 
         <div id="code-view" class="col-lg-6 col-md-6 col-sm-6 col-sx-6">
-            <iframe id="code" src="/content?type=default&module=code"></iframe>
+            <iframe id="code" src="content?type=default&module=code"></iframe>
         </div>
 
 
         <div id="doc-view" class="col-lg-3 col-md-3 col-sm-3 col-sx-3">
             <iframe id="doc" style="background-color: white; border: 1px solid #337ab7;"
-                    src="/content?type=default&module=doc"></iframe>
+                    src="content?type=default&module=doc"></iframe>
         </div>
     </div>
 
@@ -258,7 +259,7 @@
         console.log(selectedModules);
 
         if (selectedModules.length > 0) {
-            window.location.href = "/build?module=" + selectedModules.join(',') + "&select=" + document.getElementById('select').value;
+            window.location.href = "http://athena.eux.baidu.com/befe-iutils/build/?module=" + selectedModules.join(',') + "&select=" + document.getElementById('select').value;
         } else {
             alert('请勾选需要打包的组件~');
         }

@@ -7,7 +7,7 @@
  * @return Bollean
  * @params String url
  * @runtime Browser Window, Require JS, Node.js
- * @dependencies none
+
  */
 
 

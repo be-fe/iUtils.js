@@ -7,7 +7,6 @@
  * @return null
  * @params String url, Object params, String type,  Function success, Function  fail
  * @runtime Browser Window, Require JS
- * @dependencies none
  */
 
 define(function (require, exports, module) {
@@ -25,7 +24,7 @@ define(function (require, exports, module) {
             fail: fail
         });
 
-        console.log(header);
+        // console.log(header);
     }
 
 

@@ -7,7 +7,6 @@
  * @return null
  * @params String url, FormData formData, Function success, Function  fail
  * @runtime Browser Window, Require JS
- * @dependencies none
  */
 
 
@@ -15,8 +14,8 @@ define(function (require, exports, module) {
 
     var ajax = require('./ajax');
 
-    // 注意,file对象要append到formData对象中,或者从form表单构造formdata,注意不要设置contenttype
-    var ajaxFile = function (url, formData, header,success, fail) {
+    // 注意,file对象要append到formData对象中,或者从form表单构造formdata,注意不要设置contenttype,但是可以设置其他的 header
+    var ajaxFile = function (url, formData, header, success, fail) {
         ajax({
             method: "file",
             url: url,

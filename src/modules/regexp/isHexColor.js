@@ -7,7 +7,7 @@
  * @return Boolean
  * @params String str
  * @runtime Browser Window, Require JS, Node.js
- * @dependencies none
+
  */
 define(function (require, exports, module) {
 

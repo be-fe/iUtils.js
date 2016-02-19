@@ -7,7 +7,6 @@
  * @return null
  * @param HTMLElement newEl, HTMLElement targetEl
  * @runtime Browser Window, Require JS
- * @dependencies none
  */
 define(function (require, exports, module) {
 

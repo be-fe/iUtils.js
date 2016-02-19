@@ -7,7 +7,6 @@
  * @return null
  * @params String url, Object params, String type, String contentType,  Function success, Function  fail
  * @runtime Browser Window, Require JS
- * @dependencies none
  */
 
 define(function (require, exports, module) {
