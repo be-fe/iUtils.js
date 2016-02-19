@@ -9,7 +9,7 @@ module.exports = [
     'array/arrayOrderByMax',
     'array/arrayOrderByMin',
     'array/arrayRemove',
-    'array/indexof',
+    'array/indexOf',
     'class/addClass',
     'class/hasClass',
     'class/removeClass',
