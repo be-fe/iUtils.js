@@ -14,6 +14,7 @@
     "type": "git",
     "url": "https://github.com/be-fe/Utils.js.git"
   },
+  "main": "iUtils.js",
   "license": "MIT",
   "dependencies": {
     "amdclean": "x",

@@ -8,9 +8,9 @@
  * @return Number
  * @params Number  min, Number max
  * @runtime Browser Window, Require JS, Node.js
- * @dependencies none
+
  */
-var random_randomNumber = {}, type_getType = {}, ajax_ajax = {}, ajax_ajaxFile = {}, ajax_ajaxGet = {}, ajax_ajaxJsonp = {}, ajax_ajaxPost = {}, array_arrayEqual = {}, array_arrayOrderByMax = {}, array_arrayOrderByMin = {}, array_arrayRemove = {}, array_indexof = {}, class_hasClass = {}, class_addClass = {}, class_removeClass = {}, class_toggleClass = {}, url_decode = {}, cookie_parseCookie = {}, cookie_getCookies = {}, cookie_getCookie = {}, url_encode = {}, cookie_setCookie = {}, device_getIEVersion = {}, device_getOS = {}, device_isChrome = {}, device_isIE = {}, dom_closest = {}, dom_forceReflow = {}, dom_getComputedStyle = {}, dom_getDocumentScrollTop = {}, dom_getElementByClassName = {}, dom_getOffset = {}, dom_getPageSize = {}, dom_getPosition = {}, dom_getStyle = {}, dom_height = {}, dom_insertAfter = {}, dom_matches = {}, dom_outerHeight = {}, dom_outerHeightWithMargin = {}, dom_outerWidth = {}, dom_outerWidthWithMargin = {}, dom_removeElement = {}, dom_setDocumentScrollTop = {}, dom_scrollTo = {}, dom_setStyle = {}, dom_width = {}, is_is = {}, jsloader_jsloader = {}, keycode_getKeyName = {}, object_deepCopy = {}, object_extend = {}, random_randomColor = {}, regexp_isEmail = {}, regexp_isHexAdecimal = {}, regexp_isHexColor = {}, regexp_isTimeString = {}, regexp_isUrl = {}, string_trim = {}, time_parseTime = {}, trigger_trigger = {}, url_parsePort = {}, url_parseURL = {}, url_isCrossDomain = {}, url_parseQueryString = {}, url_stringfyQueryString = {};
+var random_randomNumber = {}, type_getType = {}, ajax_ajax = {}, ajax_ajaxFile = {}, ajax_ajaxGet = {}, ajax_ajaxJsonp = {}, ajax_ajaxPost = {}, array_arrayEqual = {}, array_arrayOrderByMax = {}, array_arrayOrderByMin = {}, array_arrayRemove = {}, array_indexOf = {}, class_hasClass = {}, class_addClass = {}, class_removeClass = {}, class_toggleClass = {}, url_decode = {}, cookie_parseCookie = {}, cookie_getCookies = {}, cookie_getCookie = {}, url_encode = {}, cookie_setCookie = {}, device_getIEVersion = {}, device_getOS = {}, device_isChrome = {}, device_isIE = {}, dom_closest = {}, dom_forceReflow = {}, dom_getComputedStyle = {}, dom_getDocumentScrollTop = {}, dom_getElementByClassName = {}, dom_getOffset = {}, dom_getPageSize = {}, dom_getPosition = {}, dom_getStyle = {}, dom_height = {}, dom_insertAfter = {}, dom_matches = {}, dom_outerHeight = {}, dom_outerHeightWithMargin = {}, dom_outerWidth = {}, dom_outerWidthWithMargin = {}, dom_removeElement = {}, dom_setDocumentScrollTop = {}, dom_scrollTo = {}, dom_setStyle = {}, dom_width = {}, form_serialize = {}, form_serializeArray = {}, type_GetType = {}, form_serializeObject = {}, fs_mkdirsSync = {}, fs_scanFolder = {}, is_is = {}, jsloader_jsloader = {}, keycode_getKeyName = {}, object_deepCopy = {}, object_extend = {}, random_randomColor = {}, regexp_isEmail = {}, regexp_isHexAdecimal = {}, regexp_isHexColor = {}, regexp_isTimeString = {}, regexp_isUrl = {}, string_trim = {}, time_parseTime = {}, time_timeToString = {}, trigger_trigger = {}, url_parsePort = {}, url_parseURL = {}, url_isCrossDomain = {}, url_parseQueryString = {}, url_stringfyQueryString = {};
 random_randomNumber = function (exports) {
   function randomNumber(min, max) {
     return Math.floor(min + Math.random() * (max - min));
@@ -352,7 +352,7 @@ array_arrayRemove = function (exports) {
   exports = arrayRemove;
   return exports;
 }(array_arrayRemove);
-array_indexof = function (exports) {
+array_indexOf = function (exports) {
   var indexOf = function (arr, obj) {
     if (arr.indexOf)
       return arr.indexOf(obj);
@@ -364,7 +364,7 @@ array_indexof = function (exports) {
   };
   exports = indexOf;
   return exports;
-}(array_indexof);
+}(array_indexOf);
 class_hasClass = function (exports) {
   var hasClass = function (obj, cls) {
     return obj.className.match(new RegExp('(\\s|^)' + cls + '(\\s|$)'));
@@ -898,6 +898,184 @@ dom_width = function (exports) {
   exports = width;
   return exports;
 }(dom_width);
+form_serialize = function (exports) {
+  function serialize(form) {
+    var elems = form.elements;
+    var str = '';
+    for (var i = 0; i < elems.length; i++) {
+      if (elems[i].name && elems[i].type !== 'file' && !elems.disable) {
+        if (elems[i].tagName === 'SELECT') {
+          var options = elems[i].options;
+          for (var j = 0; j < options.length; j++) {
+            if (options[j].selected) {
+              str = str + elems[i].name + '=' + options[j].value + '&';
+            }
+          }
+        } else if (elems[i].type === 'checkbox' || elems[i].type === 'radio') {
+          if (elems[i].checked) {
+            str = str + elems[i].name + '=' + elems[i].value + '&';
+          }
+        } else {
+          str = str + elems[i].name + '=' + elems[i].value + '&';
+        }
+      }
+    }
+    return str.substring(0, str.length - 1);
+  }
+  exports = serialize;
+  return exports;
+}(form_serialize);
+form_serializeArray = function (exports) {
+  function serializeArray(form) {
+    var elems = form.elements;
+    var arr = [];
+    for (var i = 0; i < elems.length; i++) {
+      if (elems[i].name && elems[i].type !== 'file' && !elems.disable) {
+        if (elems[i].tagName === 'SELECT') {
+          var options = elems[i].options;
+          for (var j = 0; j < options.length; j++) {
+            if (options[j].selected) {
+              arr.push({
+                name: elems[i].name,
+                value: options[j].value
+              });
+            }
+          }
+        } else if (elems[i].type === 'checkbox' || elems[i].type === 'radio') {
+          if (elems[i].checked) {
+            arr.push({
+              name: elems[i].name,
+              value: elems[i].value
+            });
+          }
+        } else {
+          arr.push({
+            name: elems[i].name,
+            value: elems[i].value
+          });
+        }
+      }
+    }
+    return arr;
+  }
+  exports = serializeArray;
+  return exports;
+}(form_serializeArray);
+type_GetType = function (exports) {
+  var toString = Object.prototype.toString;
+  var getType = function (val) {
+    switch (toString.call(val)) {
+    case '[object Date]':
+      return 'date';
+    case '[object RegExp]':
+      return 'regexp';
+    case '[object Arguments]':
+      return 'arguments';
+    case '[object Array]':
+      return 'array';
+    case '[object Error]':
+      return 'error';
+    }
+    if (val === null)
+      return 'null';
+    if (val === undefined)
+      return 'undefined';
+    if (val !== val)
+      return 'nan';
+    if (val && val.nodeType === 1)
+      return 'element';
+    val = val.valueOf ? val.valueOf() : Object.prototype.valueOf.apply(val);
+    return typeof val;
+  };
+  exports = getType;
+  return exports;
+}(type_GetType);
+form_serializeObject = function (exports) {
+  var getType = type_GetType;
+  function checkExistKey(obj, key, value) {
+    if (obj.hasOwnProperty(key)) {
+      if (getType(obj[key]) === 'array') {
+        obj[key].push(value);
+      } else {
+        var arr = [];
+        arr.push(obj[key]);
+        arr.push(value);
+        obj[key] = arr;
+      }
+    } else {
+      obj[key] = value;
+    }
+  }
+  function serializeObject(form) {
+    var elems = form.elements;
+    var params = {};
+    for (var i = 0; i < elems.length; i++) {
+      if (elems[i].name) {
+        var value;
+        if (elems[i].tagName === 'SELECT') {
+          var options = elems[i].options;
+          for (var j = 0; j < options.length; j++) {
+            if (options[j].selected) {
+              value = options[j].value;
+              checkExistKey(params, elems[i].name, encodeURIComponent(value));
+            }
+          }
+        } else if (elems[i].type === 'checkbox' || elems[i].type === 'radio') {
+          if (elems[i].checked) {
+            value = elems[i].value;
+            checkExistKey(params, elems[i].name, encodeURIComponent(value));
+          }
+        } else {
+          value = elems[i].value;
+          checkExistKey(params, elems[i].name, encodeURIComponent(value));
+        }
+      }
+    }
+    return params;
+  }
+  exports = serializeObject;
+  return exports;
+}(form_serializeObject);
+fs_mkdirsSync = function (exports) {
+  var mkdirsSync = function (fs, path, dirname, mode) {
+    if (fs.existsSync(dirname)) {
+      return true;
+    } else {
+      if (mkdirsSync(path.dirname(dirname), mode)) {
+        fs.mkdirSync(dirname, mode);
+        return true;
+      }
+    }
+  };
+  exports = mkdirsSync;
+  return exports;
+}(fs_mkdirsSync);
+fs_scanFolder = function (exports) {
+  var scanFolder = function (fs, path) {
+    var fileList = [];
+    var folderList = [];
+    var walk = function (path, fileList, folderList) {
+      var files = fs.readdirSync(path);
+      files.forEach(function (item) {
+        var tmpPath = path + '/' + item;
+        var stats = fs.statSync(tmpPath);
+        if (stats.isDirectory()) {
+          walk(tmpPath, fileList, folderList);
+          folderList.push(tmpPath);
+        } else {
+          fileList.push(tmpPath);
+        }
+      });
+    };
+    walk(path, fileList, folderList);
+    return {
+      'files': fileList,
+      'folders': folderList
+    };
+  };
+  exports = scanFolder;
+  return exports;
+}(fs_scanFolder);
 is_is = function (exports) {
   // is.js 0.7.4
   // Author: Aras Atasaygin
@@ -1964,12 +2142,15 @@ keycode_getKeyName = function (exports) {
 object_deepCopy = function (exports) {
   // 深拷贝
   function deepCopy(parent, child) {
-    var child = child || {};
+    var defaultWrapper = toString.call(parent) === '[object Array]' ? [] : {};
+    var child = child || defaultWrapper;
     for (var i in parent) {
-      if (typeof parent[i] === 'object') {
-        child[i] = parent[i].constructor === Array ? [] : {};
-        //新建数组或者object来达到目的
-        deepCopy(parent[i], child[i]);
+      if (toString.call(parent[i]) === '[object Object]') {
+        child[i] = {};
+        this.deepCopy(parent[i], child[i]);
+      } else if (toString.call(parent[i]) === '[object Array]') {
+        child[i] = [];
+        this.deepCopy(parent[i], child[i]);
       } else {
         child[i] = parent[i];
       }
@@ -2094,6 +2275,22 @@ time_parseTime = function (exports) {
   exports = parseTime;
   return exports;
 }(time_parseTime);
+time_timeToString = function (exports) {
+  var timeToString = function (timeStamp, dateSeparator, timeSeparator) {
+    var mDate = timeStamp ? timeStamp : new Date();
+    var mDateSeparator = dateSeparator ? dateSeparator : '-';
+    var mTimeSeparator = timeSeparator ? timeSeparator : ':';
+    var sYear = mDate.getFullYear();
+    var sMonth = mDate.getMonth() + 1;
+    var sDate = mDate.getDate();
+    var sHour = mDate.getHours();
+    var sMinute = mDate.getMinutes();
+    var sSeconds = mDate.getSeconds();
+    return sYear + mDateSeparator + sMonth + mDateSeparator + sDate + ' ' + sHour + mTimeSeparator + sMinute + mTimeSeparator + sSeconds;
+  };
+  exports = timeToString;
+  return exports;
+}(time_timeToString);
 trigger_trigger = function (exports) {
   var trigger = function () {
   };
