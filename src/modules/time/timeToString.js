@@ -11,24 +11,17 @@
  */
 
 define(function (require, exports, module) {
+    var formatStr = function (num) {
+        return num < 10 ? '0' + num : num;
+    };
 
     var timeToString = function (timeStamp, dateSeparator, timeSeparator) {
-
-        var mDate = timeStamp ? timeStamp : new Date();
-        var mDateSeparator = dateSeparator ? dateSeparator : '-';
-        var mTimeSeparator = timeSeparator ? timeSeparator : ':';
-
-        var sYear = mDate.getFullYear();
-        var sMonth = mDate.getMonth() + 1;
-        var sDate = mDate.getDate();
-
-        var sHour = mDate.getHours();
-        var sMinute = mDate.getMinutes();
-        var sSeconds = mDate.getSeconds();
-
-        return sYear + mDateSeparator + sMonth + mDateSeparator + sDate + ' ' + sHour + mTimeSeparator + sMinute + mTimeSeparator + sSeconds;
-
-
+        var mDate = timeStamp ? new Date(timeStamp) : new Date();
+        var mDateSeparator = dateSeparator || '-';
+        var mTimeSeparator = timeSeparator || ':';
+        var dateString = [mDate.getFullYear(), formatStr(mDate.getMonth() + 1), formatStr(mDate.getDate())];
+        var timeString = [formatStr(mDate.getHours()), formatStr(mDate.getMinutes()), formatStr(mDate.getSeconds())];
+        return dateString.join(mDateSeparator) + ' ' + timeString.join(mTimeSeparator);
     };
 
     module.exports = timeToString;

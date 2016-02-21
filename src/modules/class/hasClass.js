@@ -5,14 +5,14 @@
  * @from self
  * @api Function
  * @return Boolean
- * @params HTMLElement obj, String  cls
+ * @params HTMLElement ele, String  cls
  * @runtime Browser Window, Require JS
  */
 
 define(function (require, exports, module) {
 
-    var hasClass = function (obj, cls) {
-        return obj.className.match(new RegExp('(\\s|^)' + cls + '(\\s|$)'));
+    var hasClass = function (ele, cls) {
+        return (new RegExp('(\\s|^)' + cls + '(\\s|$)')).test(ele.className);
     }
 
     module.exports = hasClass;

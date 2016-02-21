@@ -366,17 +366,17 @@ array_indexOf = function (exports) {
   return exports;
 }(array_indexOf);
 class_hasClass = function (exports) {
-  var hasClass = function (obj, cls) {
-    return obj.className.match(new RegExp('(\\s|^)' + cls + '(\\s|$)'));
+  var hasClass = function (ele, cls) {
+    return new RegExp('(\\s|^)' + cls + '(\\s|$)').test(ele.className);
   };
   exports = hasClass;
   return exports;
 }(class_hasClass);
 class_addClass = function (exports) {
   var hasClass = class_hasClass;
-  var addClass = function (obj, cls) {
-    if (!hasClass(obj, cls)) {
-      obj.className += ' ' + cls;
+  var addClass = function (ele, cls) {
+    if (!hasClass(ele, cls)) {
+      ele.className += ' ' + cls;
     }
   };
   exports = addClass;
@@ -384,10 +384,10 @@ class_addClass = function (exports) {
 }(class_addClass);
 class_removeClass = function (exports) {
   var hasClass = class_hasClass;
-  var removeClass = function (obj, cls) {
-    if (hasClass(obj, cls)) {
+  var removeClass = function (ele, cls) {
+    if (hasClass(ele, cls)) {
       var reg = new RegExp('(\\s|^)' + cls + '(\\s|$)');
-      obj.className = obj.className.replace(reg, ' ');
+      ele.className = ele.className.replace(reg, ' ');
     }
   };
   exports = removeClass;
@@ -395,12 +395,12 @@ class_removeClass = function (exports) {
 }(class_removeClass);
 class_toggleClass = function (exports) {
   var hasClass = class_hasClass;
-  var toggleClass = function (obj, cls) {
-    if (hasClass(obj, cls)) {
+  var toggleClass = function (ele, cls) {
+    if (hasClass(ele, cls)) {
       var reg = new RegExp('(\\s|^)' + cls + '(\\s|$)');
-      obj.className = obj.className.replace(reg, ' ');
+      ele.className = ele.className.replace(reg, ' ');
     } else {
-      obj.className += ' ' + cls;
+      ele.className += ' ' + cls;
     }
   };
   exports = toggleClass;
@@ -2276,17 +2276,24 @@ time_parseTime = function (exports) {
   return exports;
 }(time_parseTime);
 time_timeToString = function (exports) {
+  var formatStr = function (num) {
+    return num < 10 ? '0' + num : num;
+  };
   var timeToString = function (timeStamp, dateSeparator, timeSeparator) {
-    var mDate = timeStamp ? timeStamp : new Date();
-    var mDateSeparator = dateSeparator ? dateSeparator : '-';
-    var mTimeSeparator = timeSeparator ? timeSeparator : ':';
-    var sYear = mDate.getFullYear();
-    var sMonth = mDate.getMonth() + 1;
-    var sDate = mDate.getDate();
-    var sHour = mDate.getHours();
-    var sMinute = mDate.getMinutes();
-    var sSeconds = mDate.getSeconds();
-    return sYear + mDateSeparator + sMonth + mDateSeparator + sDate + ' ' + sHour + mTimeSeparator + sMinute + mTimeSeparator + sSeconds;
+    var mDate = timeStamp ? new Date(timeStamp) : new Date();
+    var mDateSeparator = dateSeparator || '-';
+    var mTimeSeparator = timeSeparator || ':';
+    var dateString = [
+      mDate.getFullYear(),
+      formatStr(mDate.getMonth() + 1),
+      formatStr(mDate.getDate())
+    ];
+    var timeString = [
+      formatStr(mDate.getHours()),
+      formatStr(mDate.getMinutes()),
+      formatStr(mDate.getSeconds())
+    ];
+    return dateString.join(mDateSeparator) + ' ' + timeString.join(mTimeSeparator);
   };
   exports = timeToString;
   return exports;
@@ -2398,8 +2405,11 @@ url_parseQueryString = function (exports) {
     str = trim(str);
     if ('' == str)
       return {};
-    if ('?' == str.charAt(0))
-      str = str.slice(1);
+    // if ('?' == str.charAt(0)) str = str.slice(1);
+    var index = str.indexOf('?');
+    if (index > -1) {
+      str = str.substring(index + 1);
+    }
     var obj = {};
     var pairs = str.split('&');
     for (var i = 0; i < pairs.length; i++) {
@@ -2415,6 +2425,17 @@ url_parseQueryString = function (exports) {
     }
     return obj;
   };
+  /*var parseQueryString = function (url) {
+      if ('string' !== typeof url) {
+          return {};
+      };
+      var pattern = /(\w+)=(\w+)/ig;
+      var params = {};
+      url.replace(pattern, function (a, b, c) {
+          params[b] = c;
+      });
+      return params;
+  };*/
   exports = parseQueryString;
   return exports;
 }(url_parseQueryString);

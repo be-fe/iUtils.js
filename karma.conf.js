@@ -1,3 +1,6 @@
+/**
+ * Created by leiquan on 16/2/19.
+ */
 // Karma configuration
 // Generated on Thu Dec 10 2015 14:24:23 GMT+0800 (CST)
 
@@ -59,7 +62,7 @@ module.exports = function (config) {
         // start these browsers
         // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
         // 原来的浏览器
-         browsers: ['Chrome'],
+        browsers: ['Chrome'],
 
         //browsers: ['PhantomJS', 'PhantomJS_custom'],
         //

@@ -24,7 +24,11 @@ define(function (require, exports, module) {
 
         str = trim(str);
         if ('' == str) return {};
-        if ('?' == str.charAt(0)) str = str.slice(1);
+        // if ('?' == str.charAt(0)) str = str.slice(1);
+        var index = str.indexOf('?');
+        if (index > -1) {
+            str = str.substring(index + 1);
+        }
 
         var obj = {};
         var pairs = str.split('&');
@@ -47,6 +51,17 @@ define(function (require, exports, module) {
         return obj;
     };
 
+    /*var parseQueryString = function (url) {
+        if ('string' !== typeof url) {
+            return {};
+        };
+        var pattern = /(\w+)=(\w+)/ig;
+        var params = {};
+        url.replace(pattern, function (a, b, c) {
+            params[b] = c;
+        });
+        return params;
+    };*/
 
     module.exports = parseQueryString;
 

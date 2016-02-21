@@ -5,20 +5,20 @@
  * @from self
  * @api Function
  * @return null
- * @params HTMLElement obj, String  cls
+ * @params HTMLElement ele, String  cls
  * @runtime Browser Window, Require JS
  */
 define(function (require, exports, module) {
 
     var hasClass = require('./hasClass');
 
-    var toggleClass = function (obj, cls) {
-        if (hasClass(obj, cls)) {
+    var toggleClass = function (ele, cls) {
+        if (hasClass(ele, cls)) {
             var reg = new RegExp('(\\s|^)' + cls + '(\\s|$)');
-            obj.className = obj.className.replace(reg, ' ');
+            ele.className = ele.className.replace(reg, ' ');
         }
         else {
-            obj.className += " " + cls;
+            ele.className += " " + cls;
         }
     }
 
