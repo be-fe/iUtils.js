@@ -175,7 +175,7 @@ define(function (require, exports, module) {
             // get 请求,可能自带问号,这里要做判断
             // 带有问号,这里要追加参数
             if (url.indexOf('?') > 0) {
-                url += '&' +formateParams;
+                url += '&' + formateParams;
             }
             // 不带,这里要添加问号
             else {
