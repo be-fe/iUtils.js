@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <script src="../build/iUtils.js"></script>
+    <script src="../iUtils.js"></script>
 </head>
 <body>
 注意,测试时应该引入含有测试模块的包或者全量包!
@@ -20,13 +20,13 @@
 <script>
     console.log(iUtils);
 
-//    iUtils.ajaxGet('http://localhost:3000/ajax', {
-//        'hello': '你好',
-//        'world': '世界'
-//    }, 'text', {'test': 'abc'}, function (res) {
-//        console.log(res);
-//        console.log('赫赫');
-//    });
+    iUtils.ajaxGet('http://localhost:3000/ajax?test=test', {
+        'hello': '你好',
+        'world': '世界'
+    }, 'text', {'test': 'abc'}, function (res) {
+        console.log(res);
+        console.log('赫赫');
+    });
 
 //    iUtils.ajaxGet('http://localhost:3000/ajax', 'hehehe=gagag', 'text', {'test': 'abc'}, function (res) {
 //        console.log(res);
