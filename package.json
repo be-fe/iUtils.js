@@ -37,6 +37,7 @@
   },
   "devDependencies": {
     "formidable": "^1.0.17",
+    "jasmine-ajax": "^3.2.0",
     "jasmine-core": "^2.4.1",
     "karma": "^0.13.19",
     "karma-chai": "^0.1.0",
