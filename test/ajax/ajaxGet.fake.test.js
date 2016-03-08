@@ -32,6 +32,7 @@ define(['src/modules/ajax/ajaxGet', '../__Lib/sinon-1.12.2'], function (ajaxGet,
             });
 
             this.requests[0].respond(200, {'Content-Type': 'text/json'}, dataJson);
+
         });
 
     });

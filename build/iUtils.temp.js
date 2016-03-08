@@ -100,8 +100,7 @@ ajax_ajax = function (exports) {
     function createRequest() {
       var xmlhttp;
       if (window.XMLHttpRequest) {
-        //将XMLHttpRequest对象作为全局属性，不会报错
-        xmlhttp = new XMLHttpRequest();  //IE6以上
+        xmlhttp = new XMLHttpRequest();
       } else {
         try {
           xmlhttp = new ActiveXObject('Msxml2.XMLHTTP');  // IE6以上版本
@@ -181,12 +180,13 @@ ajax_ajax = function (exports) {
     if ('GET' === method.toUpperCase()) {
       // get 请求,可能自带问号,这里要做判断
       // 带有问号,这里要追加参数
-      if (url.indexOf('?') > 0) {
-        url += '&' + formateParams;
-      }  // 不带,这里要添加问号
-      else {
-        url += '?' + formateParams;
-      }
+      //if (url.indexOf('?') > 0) {
+      //    url += '&' + formateParams;
+      //}
+      //// 不带,这里要添加问号
+      //else {
+      url += '?' + formateParams;
+      //}
       xmlhttp.open('get', url, true);
       if (header) {
         if (getType(header) === 'object') {

@@ -73,7 +73,7 @@ router.post('/', function (req, res, next) {
 
     // 纯post的返回值
     res.writeHead(200, {"Access-Control-Allow-Origin": "*", "Content-Type": "text/html"});
-    res.end("Hello world!");
+    res.end("Hello dog!");
 
 
 });
