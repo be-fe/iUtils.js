@@ -69,25 +69,23 @@ define(function (require, exports, module) {
         function createRequest() {
 
             var xmlhttp;
-            try {
-                xmlhttp = new ActiveXObject('Msxml2.XMLHTTP');// IE6以上版本
-            }
-            catch (e) {
+            if (window.XMLHttpRequest) {
+                xmlhttp = new XMLHttpRequest();
+            } else {
+
                 try {
-                    xmlhttp = new ActiveXObject('Microsoft.XMLHTTP');// IE6以下版本
+                    xmlhttp = new ActiveXObject('Msxml2.XMLHTTP');// IE6以上版本
                 }
                 catch (e) {
                     try {
-                        xmlhttp = new XMLHttpRequest();
-                        if (xmlhttp.overrideMimeType) {
-                            xmlhttp.overrideMimeType('text/xml');
-                        }
-                    }
-                    catch (e) {
+                        xmlhttp = new ActiveXObject('Microsoft.XMLHTTP');// IE6以下版本
+                    } catch (e) {
                         alert('您的浏览器不支持Ajax');
                     }
                 }
+
             }
+
             return xmlhttp;
 
         }
