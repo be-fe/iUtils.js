@@ -50,5 +50,9 @@ router.get('/', function (req, res, next) {
 
 });
 
+router.post('/', function(req, res, next) {
+    res.writeHead(200, {"Access-Control-Allow-Origin": "*", "Content-Type": "text/html"});
+    res.end("Hello dog! post test!");
+});
 
 module.exports = router;
