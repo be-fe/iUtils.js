@@ -17,7 +17,7 @@ program.parse(process.argv);
 /**
  * Get port from environment and store in Express.
  */
-var port = normalizePort(program.port || process.env.PORT || '3000');
+var port = normalizePort(program.port || process.env.PORT || '3200');
 app.set('port', port);
 
 /**
