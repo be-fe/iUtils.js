@@ -249,7 +249,7 @@ function build() {
         'baseUrl': path.join(__dirname, '../src/modules/'),
         'optimize': 'none',
         'include': buildModules,
-        'out': path.join(process.cwd(), './build/iUtils.js'),
+        'out': path.join(process.cwd(), './build/iUtils.temp.js'),
         'onModuleBundleComplete': function (data) {
 
             var outputFile = data.path;
@@ -258,7 +258,7 @@ function build() {
                 'filePath': outputFile
             }));
 
-            var content = fs.readFileSync(path.join(process.cwd(), './build/iUtils.js'));
+            var content = fs.readFileSync(path.join(process.cwd(), './build/iUtils.temp.js'));
 
             var string = content.toString();
 
